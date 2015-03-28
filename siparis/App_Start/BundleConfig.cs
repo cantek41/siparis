@@ -22,10 +22,14 @@ namespace siparis
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
+          
+            bundles.Add(new ScriptBundle("~/Scripts").Include(
+                      "~/Scripts/bootstrap.min.js","~/Scripts/jquery.js", "~/Scripts/jquery.prettyPhoto.js", "~/Scripts/jquery.scrollUp.min.js", "~/Scripts/main.js", "~/Scripts/price-range.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css/css").Include(
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/site.css", "~/Content/css/animate.css", "~/Content/css/bootstrap.min.css", "~/Content/css/font-awesome.min.css", "~/Content/css/main.css", "~/Content/css/prettyPhoto.css", "~/Content/css/price-range.css", "~/Content/css/responsive.css"));
         }
     }
 }

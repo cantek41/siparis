@@ -664,12 +664,86 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\404\404.png" />
+    <Content Include="Content\images\blog\blog-one.jpg" />
+    <Content Include="Content\images\blog\blog-three.jpg" />
+    <Content Include="Content\images\blog\blog-two.jpg" />
+    <Content Include="Content\images\blog\man-four.jpg" />
+    <Content Include="Content\images\blog\man-one.jpg" />
+    <Content Include="Content\images\blog\man-three.jpg" />
+    <Content Include="Content\images\blog\man-two.jpg" />
+    <Content Include="Content\images\blog\socials.png" />
+    <Content Include="Content\images\cart\one.png" />
+    <Content Include="Content\images\cart\three.png" />
+    <Content Include="Content\images\cart\two.png" />
+    <Content Include="Content\images\home\bg_border.png" />
+    <Content Include="Content\images\home\gallery1.jpg" />
+    <Content Include="Content\images\home\gallery2.jpg" />
+    <Content Include="Content\images\home\gallery3.jpg" />
+    <Content Include="Content\images\home\gallery4.jpg" />
+    <Content Include="Content\images\home\girl1.jpg" />
+    <Content Include="Content\images\home\girl2.jpg" />
+    <Content Include="Content\images\home\girl3.jpg" />
+    <Content Include="Content\images\home\iframe1.png" />
+    <Content Include="Content\images\home\iframe2.png" />
+    <Content Include="Content\images\home\iframe3.png" />
+    <Content Include="Content\images\home\iframe4.png" />
+    <Content Include="Content\images\home\logo.png" />
+    <Content Include="Content\images\home\map.png" />
+    <Content Include="Content\images\home\new.png" />
+    <Content Include="Content\images\home\partner1.png" />
+    <Content Include="Content\images\home\partner2.png" />
+    <Content Include="Content\images\home\partner3.png" />
+    <Content Include="Content\images\home\partner4.png" />
+    <Content Include="Content\images\home\pricing.png" />
+    <Content Include="Content\images\home\product1.jpg" />
+    <Content Include="Content\images\home\product2.jpg" />
+    <Content Include="Content\images\home\product3.jpg" />
+    <Content Include="Content\images\home\product4.jpg" />
+    <Content Include="Content\images\home\product5.jpg" />
+    <Content Include="Content\images\home\product6.jpg" />
+    <Content Include="Content\images\home\recommend1.jpg" />
+    <Content Include="Content\images\home\recommend2.jpg" />
+    <Content Include="Content\images\home\recommend3.jpg" />
+    <Content Include="Content\images\home\sale.png" />
+    <Content Include="Content\images\home\searchicon.png" />
+    <Content Include="Content\images\home\shipping.jpg" />
+    <Content Include="Content\images\product-details\1.jpg" />
+    <Content Include="Content\images\product-details\new.jpg" />
+    <Content Include="Content\images\product-details\rating.png" />
+    <Content Include="Content\images\product-details\share.png" />
+    <Content Include="Content\images\product-details\similar1.jpg" />
+    <Content Include="Content\images\product-details\similar2.jpg" />
+    <Content Include="Content\images\product-details\similar3.jpg" />
+    <Content Include="Content\images\shop\advertisement.jpg" />
+    <Content Include="Content\images\shop\product10.jpg" />
+    <Content Include="Content\images\shop\product11.jpg" />
+    <Content Include="Content\images\shop\product12.jpg" />
+    <Content Include="Content\images\shop\product7.jpg" />
+    <Content Include="Content\images\shop\product8.jpg" />
+    <Content Include="Content\images\shop\product9.jpg" />
+    <Content Include="Scripts\contact.js" />
+    <Content Include="Scripts\gmaps.js" />
+    <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.prettyPhoto.js" />
+    <Content Include="Scripts\jquery.scrollUp.min.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\price-range.js" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\prettyPhoto.css" />
+    <Content Include="Content\css\price-range.css" />
+    <Content Include="Content\css\responsive.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\css\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Data.edmx">
@@ -689,6 +763,13 @@
       <DependentUpon>Data.edmx</DependentUpon>
       <LastGenOutput>Data.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\images\404\Thumbs.db" />
+    <Content Include="Content\images\blog\Thumbs.db" />
+    <Content Include="Content\images\cart\Thumbs.db" />
+    <Content Include="Content\images\home\Thumbs.db" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -735,6 +816,7 @@
     <Content Include="Views\OrderFollow\Sample.cshtml" />
     <Content Include="Views\OrderFollow\_GridView1PartialSample.cshtml" />
     <Content Include="Views\OrderFollow\Offer.cshtml" />
+    <Content Include="Views\Home\ProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -768,7 +850,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39809/</IISUrl>
+          <IISUrl>http://localhost:39841/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
