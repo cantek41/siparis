@@ -21,6 +21,19 @@ namespace siparis.Controllers
             return View();
         }
 
+        public ActionResult Edited()
+        {
+            return View();
+        }
+
+        [ValidateInput(false)]
+        public ActionResult GridViewPartialEdited()
+        {
+            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 9);
+            return PartialView("_GridViewPartialEdited", model.ToList());
+        }
+        
         [ValidateInput(false)]
         public ActionResult GridViewPartialFirsat()
         {
@@ -31,7 +44,7 @@ namespace siparis.Controllers
 
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult GridViewPartialFirsatDelete(System.Int32 OPPORTUNITY_CODE)
+        public ActionResult Cencel(System.Int32 OPPORTUNITY_CODE)
         {
             var model = new object[0];
             if (OPPORTUNITY_CODE >= 0)
