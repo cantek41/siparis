@@ -12,13 +12,16 @@
         settings.Settings.ShowFilterRow = true;
         settings.SettingsBehavior.AllowSelectByRowClick = true;
 
-        settings.Columns.Add("OPPORTUNITY_CODE");
-        settings.Columns.Add("CONTACT_CODE");
-        settings.Columns.Add("COMPANY_CODE");
-        settings.Columns.Add("DOCUMENT_DATE");
-        settings.Columns.Add("APPOINTED_USER_CODE");
-        settings.Columns.Add("CREATE_USER");
-        settings.Columns.Add("TOTAL");
+        		settings.Columns.Add("OPPORTUNITY_CODE");
+				settings.Columns.Add("CONTACT_CODE");
+				settings.Columns.Add("COMPANY_CODE");
+				settings.Columns.Add("DOCUMENT_DATE");
+				settings.Columns.Add("APPOINTED_USER_CODE");
+				settings.Columns.Add("CREATE_USER");
+				settings.Columns.Add("TOTAL");
+			});
+		if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
     });
 }
 @grid.Bind(Model).GetHtml()
