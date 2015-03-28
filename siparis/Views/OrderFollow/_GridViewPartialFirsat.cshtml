@@ -1,9 +1,9 @@
 @{
 	var grid = Html.DevExpress().GridView(settings => {
         settings.Name = "GridViewFirsat";
-        settings.CallbackRouteValues = new { Controller = "Admin", Action = "GridViewPartialFirsat" };
+        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "GridViewPartialFirsat" };
 
-        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Admin", Action = "GridViewPartialFirsatDelete" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "GridViewPartialFirsatDelete" };
         settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
         settings.SettingsBehavior.ConfirmDelete = true;
 

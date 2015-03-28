@@ -7,13 +7,13 @@ using DevExpress.Web.Mvc;
 
 namespace siparis.Controllers
 {
-    public class AdminController : BaseController
+    public class OrderFollowController : BaseController
     {
         //
         // GET: /Admin/
         public ActionResult Index()
         {
-            return View("Firsat");
+            return View("opportunity");
         }
 
         public ActionResult Firsat()
@@ -47,5 +47,8 @@ namespace siparis.Controllers
             }
             return PartialView("_GridViewPartialFirsat", model);
         }
+
+
+       
     }
 }
