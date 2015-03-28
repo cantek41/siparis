@@ -735,6 +735,17 @@
     <Content Include="Views\OrderFollow\Sample.cshtml" />
     <Content Include="Views\OrderFollow\_GridView1PartialSample.cshtml" />
     <Content Include="Views\OrderFollow\Offer.cshtml" />
+    <Content Include="Views\OrderFollow\_GridView2PartialOffer.cshtml" />
+    <Content Include="Views\OrderFollow\Draft.cshtml" />
+    <Content Include="Views\OrderFollow\_GridView3PartialDraft.cshtml" />
+    <Content Include="Views\OrderFollow\Order.cshtml" />
+    <Content Include="Views\OrderFollow\_GridView4PartialOrder.cshtml" />
+    <Content Include="Views\OrderFollow\Review.cshtml" />
+    <Content Include="Views\OrderFollow\_GridView5PartialReview.cshtml" />
+    <Content Include="Views\OrderFollow\Panding.cshtml" />
+    <Content Include="Views\OrderFollow\_GridView6PartialPanding.cshtml" />
+    <Content Include="Views\OrderFollow\Approwed.cshtml" />
+    <Content Include="Views\OrderFollow\_GridView7PartialApprowed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
