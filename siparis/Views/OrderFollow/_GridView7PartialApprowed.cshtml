@@ -1,24 +1,22 @@
-
-﻿
 @{
-    var grid = Html.DevExpress().GridView(settings =>
-    {
-        settings.Name = "GridViewFirsat";
-        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "GridViewPartialEdited" };
+	var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView7Approwed";
+        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "GridView7PartialApprowed" };
 
-        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "Cencel" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "GridView7PartialApprowedDelete" };
         settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
         settings.SettingsBehavior.ConfirmDelete = true;
 
-        settings.CommandColumn.Visible = true;
+		settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
         settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
 
+		settings.KeyFieldName = "OPPORTUNITY_CODE";
 
-        settings.KeyFieldName = "OPPORTUNITY_CODE";
-
-        settings.SettingsPager.Visible = true;
-        settings.Settings.ShowGroupPanel = true;
-        settings.Settings.ShowFilterRow = true;
+		settings.SettingsPager.Visible = true;
+		settings.Settings.ShowGroupPanel = true;
+		settings.Settings.ShowFilterRow = true;
         settings.SettingsBehavior.AllowSelectByRowClick = true;
 
         settings.Columns.Add("OPPORTUNITY_CODE");
@@ -33,6 +31,5 @@
     {
         grid.SetEditErrorText((string)ViewData["EditError"]);
     }
-
 }
 @grid.Bind(Model).GetHtml()

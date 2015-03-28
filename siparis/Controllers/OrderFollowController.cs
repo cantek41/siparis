@@ -21,10 +21,12 @@ namespace siparis.Controllers
             return View();
         }
 
+
         public ActionResult Edited()
         {
             return View();
         }
+
 
         [ValidateInput(false)]
         public ActionResult GridViewPartialEdited()
@@ -33,7 +35,8 @@ namespace siparis.Controllers
             var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 9);
             return PartialView("_GridViewPartialEdited", model.ToList());
         }
-        
+
+
         [ValidateInput(false)]
         public ActionResult GridViewPartialFirsat()
         {
@@ -61,7 +64,5 @@ namespace siparis.Controllers
             return PartialView("_GridViewPartialFirsat", model);
         }
 
-
-       
     }
 }
