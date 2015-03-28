@@ -16,7 +16,7 @@ namespace siparis.Controllers
             return View("opportunity");
         }
 
-        public ActionResult Firsat()
+        public ActionResult Opportunity()
         {
             return View();
         }
