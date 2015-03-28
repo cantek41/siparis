@@ -21,6 +21,15 @@ namespace siparis.Controllers
             return View();
         }
 
+
+        public ActionResult Edited()
+        {
+            return View();
+        }
+        public ActionResult Sample()
+        {
+            return View();
+        }
         [ValidateInput(false)]
         public ActionResult GridViewPartialFirsat()
         {
@@ -49,6 +58,14 @@ namespace siparis.Controllers
         }
 
 
-       
+
+
+        [ValidateInput(false)]
+        public ActionResult GridViewPartialEdited()
+        {
+            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 9);
+            return PartialView("_GridViewPartialEdited", model.ToList());
+        }
     }
 }
