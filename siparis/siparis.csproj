@@ -669,7 +669,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\font-awesome.min.css" />
-    <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\404\404.png" />
     <Content Include="Content\images\blog\blog-one.jpg" />
     <Content Include="Content\images\blog\blog-three.jpg" />
@@ -728,6 +727,8 @@
     <Content Include="Content\images\shop\product7.jpg" />
     <Content Include="Content\images\shop\product8.jpg" />
     <Content Include="Content\images\shop\product9.jpg" />
+    <Content Include="Fonts\fontawesome-webfont.svg" />
+    <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\contact.js" />
     <Content Include="Scripts\gmaps.js" />
     <Content Include="Scripts\html5shiv.js" />
@@ -741,7 +742,6 @@
     <Content Include="Content\css\price-range.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="favicon.ico" />
-    <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
@@ -767,8 +767,12 @@
     <Content Include="Content\images\blog\Thumbs.db" />
     <Content Include="Content\images\cart\Thumbs.db" />
     <Content Include="Content\images\home\Thumbs.db" />
+    <Content Include="Fonts\fontawesome-webfont.eot" />
     <Content Include="Fonts\fontawesome-webfont.woff" />
     <Content Include="Fonts\FontAwesome.otf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -825,9 +829,6 @@
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
