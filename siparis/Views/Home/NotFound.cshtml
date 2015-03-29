@@ -1,22 +1,32 @@
-﻿@model System.Web.Mvc.HandleErrorInfo
-
+﻿
 @{
-    ViewBag.Title = "Error";
+    Layout = null;
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<!DOCTYPE html>
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NotFound</title>
+
+   
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/main.css" rel="stylesheet" />
+   
+
+
+</head>
 <body>
     <div class="container text-center">
         <div class="logo-404">
-            <a href="index.html"><img src="../Contentimages/home/logo.png" alt="" /></a>
+            <a href="index.html"><img src="../Content/images/home/logo.png" alt="" /></a>
         </div>
         <div class="content-404">
             <img src="../Content/images/404/404.png" class="img-responsive" alt="" />
             <h1><b>OPPS!</b> We Couldn’t Find this Page</h1>
             <p>Uh... So it looks like you brock something. The page you are looking for has up and Vanished.</p>
-            <h2><a href="index.html">Bring me back Home</a></h2>
+            <h2><a href="../Home/Index">Bring me back Home</a></h2>
         </div>
     </div>
 
@@ -27,3 +37,4 @@
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
 </body>
+</html>

@@ -816,6 +816,7 @@
     <Content Include="Views\OrderFollow\_GridView1PartialSample.cshtml" />
     <Content Include="Views\OrderFollow\Offer.cshtml" />
     <Content Include="Views\Home\ProductDetail.cshtml" />
+    <Content Include="Views\Home\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
