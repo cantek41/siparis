@@ -1,9 +1,9 @@
 @{
 	var grid = Html.DevExpress().GridView(settings => {
-        settings.Name = "GridView2Offer";
-        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "GridView2PartialOffer" };
+        settings.Name = "GridView7Approwed";
+        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "GridView7PartialApprowed" };
 
-        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "GridView2PartialOfferDelete" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "GridView7PartialApprowedDelete" };
         settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
         settings.SettingsBehavior.ConfirmDelete = true;
 
