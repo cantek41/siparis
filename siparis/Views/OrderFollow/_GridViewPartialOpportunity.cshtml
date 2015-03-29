@@ -1,0 +1,43 @@
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridViewFirsat";
+        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "GridViewPartialOpportunity" };
+        settings.CustomActionRouteValues = new { Controller = "OrderFollow", Action = "CustomButtonClick" };
+
+
+        settings.CommandColumn.CustomButtons.Add(new GridViewCommandColumnCustomButton()
+        {
+            ID = "First10",
+            Text = "Onayla"
+        });
+        settings.ClientSideEvents.CustomButtonClick = "function(s,e){GridViewFirsat.PerformCallback({clickedButton : s.GetRowKey(e.visibleIndex)});}";
+
+
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "Cencel" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.KeyFieldName = "OPPORTUNITY_CODE";
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.Columns.Add("OPPORTUNITY_CODE");
+        settings.Columns.Add("CONTACT_CODE");
+        settings.Columns.Add("COMPANY_CODE");
+        settings.Columns.Add("DOCUMENT_DATE");
+        settings.Columns.Add("APPOINTED_USER_CODE");
+        settings.Columns.Add("CREATE_USER");
+        settings.Columns.Add("TOTAL");
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+    
+
+}
+@grid.Bind(Model).GetHtml()

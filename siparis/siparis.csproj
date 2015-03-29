@@ -727,11 +727,26 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\OrderFollow\Opportunity.cshtml" />
-    <Content Include="Views\OrderFollow\_GridViewPartialFirsat.cshtml" />
     <Content Include="Views\OrderFollow\Index.cshtml" />
     <Content Include="Views\OrderFollow\Edited.cshtml" />
-    <Content Include="Views\OrderFollow\_GridViewPartialEdited.cshtml" />
+    <Content Include="Views\OrderFollow\_GridViewPartialOpportunity.cshtml" />
+    <Content Include="Views\OrderFollow\Sample.cshtml" />
+    <Content Include="Views\OrderFollow\Approved.cshtml" />
+    <Content Include="Views\OrderFollow\Pending.cshtml" />
+    <Content Include="Views\OrderFollow\InReview.cshtml" />
+    <Content Include="Views\OrderFollow\Order.cshtml" />
+    <Content Include="Views\OrderFollow\Draft.cshtml" />
+    <Content Include="Views\OrderFollow\Offer.cshtml" />
+    <Content Include="Views\OrderFollow\_GridViewPartialOrder.cshtml" />
+    <Content Include="Views\OrderFollow\Opportunity.cshtml" />
+    <Content Include="Views\OrderFollow\Processed.cshtml" />
+    <Content Include="Views\OrderFollow\Shipped.cshtml" />
+    <Content Include="Views\OrderFollow\Cancelled.cshtml" />
+    <Content Include="Views\OrderFollow\DispatchNote.cshtml" />
+    <Content Include="Views\OrderFollow\Invoice.cshtml" />
+    <Content Include="Views\OrderFollow\Linesheets.cshtml" />
+    <Content Include="Views\Shared\_orderMenu.cshtml" />
+    <Content Include="Views\Shared\_adminMaster.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
