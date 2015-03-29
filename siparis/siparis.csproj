@@ -669,7 +669,6 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\404\404.png" />
     <Content Include="Content\images\blog\blog-one.jpg" />
     <Content Include="Content\images\blog\blog-three.jpg" />
@@ -769,7 +768,6 @@
     <Content Include="Content\images\home\Thumbs.db" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -820,6 +818,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\fonts\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
