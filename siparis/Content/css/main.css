@@ -116,6 +116,10 @@ a#scrollUp i{
 }
 
 
+.fa-pinterest:hover {
+  background: #cb2229;
+}
+
 .fa-facebook:hover {
   background: #0083C9;
 }
