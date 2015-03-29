@@ -26,12 +26,12 @@ namespace siparis.Controllers
 
             return View();
         }
-        public ActionResult ProductDetail()
-        {
-            ViewBag.Message = "Your application description page.";
 
+        public ActionResult NotFound()
+        {
             return View();
         }
+       
     
         
     }
