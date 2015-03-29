@@ -4,9 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*
     @Styles.Render("~/Content/css/css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="@Url.Content("~/Scripts/jquery-1.11.2.min.js")" type="text/javascript"></script>
+    *@
+    @Styles.Render("~/bundels/css")
+    @Scripts.Render("~/bundels/scripts")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+
     @Html.DevExpress().GetStyleSheets(
     new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
     new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
@@ -103,13 +112,14 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li>@Html.ActionLink("Register", "Register", "Account")<i class="fa fa-user"></i></li>
+                                @*<li>@Html.ActionLink("Register", "Register", "Account")<i class="fa fa-user"></i></li>*@
+                                <li><a href="@Url.Action("Register", "Account")"><i class="fa fa-user"></i> Register</a></li>
                                 @*<li> <a href="../Account/Register"><i class="fa fa-user"></i> Account</a></li>*@
                                 <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                 <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                 @*<li> <a href="../Account/Login"> <i class="fa fa-lock"> </i> Login  </a>    </li>*@
-                                <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                                <li><a href="@Url.Action("Login", "Account")"><i class="fa fa-lock"></i> Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -134,7 +144,7 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html" class="active">Home</a></li>
+                                <li><a href="@Url.Action("Index","Home")" class="active">Home</a></li>
                                 <li class="dropdown">
                                     <a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
@@ -152,8 +162,7 @@
                                         <li><a href="blog-single.html">Blog Single</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
+                                <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -167,16 +176,6 @@
         </div><!--/header-bottom-->
     </header><!--/header-->
 
-    
-
-
-
-
-
-
-
-
-    
         @RenderBody()
         <hr />
         <footer id="footer">
@@ -339,8 +338,8 @@
         </footer><!--/Footer-->
    
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

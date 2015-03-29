@@ -6,8 +6,10 @@ namespace siparis
     public class BundleConfig
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
+      
         public static void RegisterBundles(BundleCollection bundles)
         {
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -23,13 +25,14 @@ namespace siparis
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
           
-            bundles.Add(new ScriptBundle("~/Scripts").Include(
+            bundles.Add(new ScriptBundle("~/bundels/scripts").Include(
                       "~/Scripts/bootstrap.min.js","~/Scripts/jquery.js", "~/Scripts/jquery.prettyPhoto.js", "~/Scripts/jquery.scrollUp.min.js", "~/Scripts/main.js", "~/Scripts/price-range.js"));
 
 
-            bundles.Add(new StyleBundle("~/Content/css/css").Include(
-                      "~/Content/css/bootstrap.css",
-                      "~/Content/css/site.css", "~/Content/css/animate.css", "~/Content/css/bootstrap.min.css", "~/Content/css/font-awesome.min.css", "~/Content/css/main.css", "~/Content/css/prettyPhoto.css", "~/Content/css/price-range.css", "~/Content/css/responsive.css"));
+            bundles.Add(new StyleBundle("~/bundels/css").Include(
+                      "~/Content/css/site.css", "~/Content/css/animate.css", "~/Content/css/bootstrap.css", "~/Content/css/font-awesome.min.css", "~/Content/css/main.css", "~/Content/css/prettyPhoto.css", "~/Content/css/price-range.css", "~/Content/css/responsive.css"));
+
+            BundleTable.EnableOptimizations = true;
         }
     }
 }
