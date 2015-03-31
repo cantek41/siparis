@@ -665,10 +665,13 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SideMenu.xml" />
+    <Content Include="App_Data\TopMenu.xml" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\verticalMenu.css" />
     <Content Include="Content\images\404\404.png" />
     <Content Include="Content\images\blog\blog-one.jpg" />
     <Content Include="Content\images\blog\blog-three.jpg" />
@@ -773,6 +776,7 @@
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Properties\PublishProfiles\siparis.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -839,9 +843,16 @@
     <Content Include="Views\Product\Chart.cshtml" />
     <Content Include="Views\Shared\_Layout Empty.cshtml" />
     <Content Include="Views\Home\NotFound.cshtml" />
+    <Content Include="Views\Shared\ContentLeftPartialView.cshtml" />
+    <Content Include="Views\Shared\FooterPartialView.cshtml" />
+    <Content Include="Views\Shared\HeaderPartialView.cshtml" />
+    <Content Include="Views\Shared\LogOnPartialView.cshtml" />
+    <Content Include="Views\Shared\_lightLayout.cshtml" />
+    <Content Include="Views\Shared\_mainLayout.cshtml" />
+    <Content Include="Views\Shared\_rootLayout.cshtml" />
+    <Content Include="Views\Shared\_HeaderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

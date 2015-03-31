@@ -1,0 +1,33 @@
+<div class="leftPanel">
+    @*@* DXCOMMENT: Configure the left panel's menu *@
+    @*@Html.DevExpress().NavBar(settings => {
+            settings.Name = "LeftNavBar";
+            settings.AutoCollapse = true;
+            settings.EnableAnimation = true;
+            settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+            settings.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(0);
+            settings.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(0);
+        }).BindToXML(HttpContext.Current.Server.MapPath("~/App_Data/SideMenu.xml"), "/menu/*").GetHtml()*@
+    @**@
+    <link href="~/Content/css/verticalMenu.css" rel="stylesheet" />
+    <div id='cssmenu'>
+        <ul>
+            <li>@Html.ActionLink("Opportunity", "Opportunity", "OrderFollow", new  {@class="active"})</li>
+            <li>@Html.ActionLink("Sample  ", "Sample", "OrderFollow")</li>
+            <li>@Html.ActionLink("Offer  ", "Offer", "OrderFollow")</li>
+            <li>@Html.ActionLink("Draft  ", "Draft", "OrderFollow")</li>
+            <li>@Html.ActionLink("Order  ", "Order", "OrderFollow")</li>
+            <li>@Html.ActionLink("InReview  ", "InReview", "OrderFollow")</li>
+            <li>@Html.ActionLink("Pending  ", "Pending", "OrderFollow")</li>
+            <li>@Html.ActionLink("Approved  ", "Approved", "OrderFollow")</li>
+            <li>@Html.ActionLink("Edited  ", "Edited", "OrderFollow")</li>
+            <li>@Html.ActionLink("Processed  ", "Processed", "OrderFollow")</li>
+            <li>@Html.ActionLink("Shipped  ", "Shipped", "OrderFollow")</li>
+            <li>@Html.ActionLink("Cancelled  ", "Cancelled", "OrderFollow")</li>
+            <li>@Html.ActionLink("Dispatch Note  ", "DispatchNote", "OrderFollow")</li>
+            <li>@Html.ActionLink("Invoice  ", "Invoice", "OrderFollow")</li>
+            <li>@Html.ActionLink("Linesheets  ", "Linesheets", "OrderFollow")</li>
+        </ul>
+    </div>
+    
+</div>
