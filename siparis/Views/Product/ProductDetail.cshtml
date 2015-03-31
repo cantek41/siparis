@@ -11,13 +11,8 @@
                 <div class="product-details">
                     <!--product-details-->
                     <div class="col-sm-5">
-                        <div class="view-product">
-                            @*@{
-                                foreach (var item in @Model.STOKCARDPICTURE)
-                                {
-                                    <img src="@item.PATH"  alt="" />
-                                }
-                            }*@
+                        <div class="view-product">                            
+                                    <img src="@Model.STOKCARDPICTUREs.ElementAt(0).PATH"  alt="" />                            
                          
                             <h3>ZOOM</h3>
                         </div>
