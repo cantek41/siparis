@@ -270,6 +270,18 @@
     <Compile Include="Models\ARREMINDER.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ASSOCIATION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -334,6 +346,9 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CURTYPE.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Data.Context.cs">
@@ -484,24 +499,6 @@
     <Compile Include="Models\PFORM.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\pGetActivityList_Result.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\pGetAllCompany_Result.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\pGetAllUsers_Result.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\pGetProfitableList_Result.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\pGetProjectList_Result.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\pGetUser_Result.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\PHONE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -527,12 +524,6 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PROJECTMODULE.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\pSelectActivity_Result.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\pSelectAddress_Result.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PSQL.cs">
@@ -589,16 +580,13 @@
     <Compile Include="Models\SPECDESCIRIPTION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\STOKCARD.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\STOKCARD1.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STOKCARDPICTURE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\STOKCARD_.cs">
@@ -749,6 +737,17 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\images\404\Thumbs.db" />
+    <Content Include="Content\images\blog\Thumbs.db" />
+    <Content Include="Content\images\cart\Thumbs.db" />
+    <Content Include="Content\images\home\Thumbs.db" />
+    <Content Include="Fonts\fontawesome-webfont.eot" />
+    <Content Include="Fonts\fontawesome-webfont.woff" />
+    <Content Include="Fonts\FontAwesome.otf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="ClassDiagram1.cd" />
     <EntityDeploy Include="Models\Data.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Data.Designer.cs</LastGenOutput>
@@ -766,16 +765,6 @@
       <DependentUpon>Data.edmx</DependentUpon>
       <LastGenOutput>Data.cs</LastGenOutput>
     </Content>
-    <Content Include="Content\images\404\Thumbs.db" />
-    <Content Include="Content\images\blog\Thumbs.db" />
-    <Content Include="Content\images\cart\Thumbs.db" />
-    <Content Include="Content\images\home\Thumbs.db" />
-    <Content Include="Fonts\fontawesome-webfont.eot" />
-    <Content Include="Fonts\fontawesome-webfont.woff" />
-    <Content Include="Fonts\FontAwesome.otf" />
-    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\siparis.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -835,9 +824,7 @@
     <Content Include="Views\OrderFollow\Linesheets.cshtml" />
     <Content Include="Views\Shared\_orderMenu.cshtml" />
     <Content Include="Views\Shared\_adminMaster.cshtml" />
-    <Content Include="Views\OrderFollow\_GridViewPartialEdited.cshtml" />
     <Content Include="Views\OrderFollow\Sample.cshtml" />
-    <Content Include="Views\OrderFollow\_GridView1PartialSample.cshtml" />
     <Content Include="Views\OrderFollow\Offer.cshtml" />
     <Content Include="Views\Product\ProductDetail.cshtml" />
     <Content Include="Views\Product\Chart.cshtml" />

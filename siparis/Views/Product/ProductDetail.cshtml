@@ -1,9 +1,8 @@
-﻿
+﻿@model siparis.Models.STOKCARD
 @{
     ViewBag.Title = "ProductDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <section>
     <div class="container">
         <div class="row">
@@ -13,7 +12,13 @@
                     <!--product-details-->
                     <div class="col-sm-5">
                         <div class="view-product">
-                            <img src="../content/images/product-details/1.jpg" alt="" />
+                            @*@{
+                                foreach (var item in @Model.STOKCARDPICTURE)
+                                {
+                                    <img src="@item.PATH"  alt="" />
+                                }
+                            }*@
+                         
                             <h3>ZOOM</h3>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -51,29 +56,32 @@
                     <div class="col-sm-7">
                         <div class="product-information">
                             <!--/product-information-->
-                            <img src="../content/images/product-details/new.jpg" class="newarrival" alt="" />
+                           
+                           @*<img src="../content/images/product-details/new.jpg" class="newarrival" alt="" />*@
                             <h2>Anne Klein Sleeveless Colorblock Scuba</h2>
-                            <p>Web ID: 1089772</p>
-                            <img src="../content/images/product-details/rating.png" alt="" />
-                            <span>
-                                <span>US $59</span>
-                                <label>Quantity:</label>
-                                <input type="text" value="3" />
-                                <button type="button" class="btn btn-fefault cart">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    Add to cart
-                                </button>
-                            </span>
-                            <p><b>Availability:</b> In Stock</p>
-                            <p><b>Condition:</b> New</p>
-                            <p><b>Brand:</b> E-SHOPPER</p>
-                            <a href=""><img src="../content/images/product-details/share.png" class="share img-responsive" alt="" /></a>
-                        </div><!--/product-information-->
-                    </div>
-                </div><!--/product-details-->
-            </div>
+                            <h2>@Model.NAME_TR</h2>
+                        
+                        <p>Web ID: 1089772</p>
+                        <img src="../content/images/product-details/rating.png" alt="" />
+                        <span>
+                            <span>@Model.CUR_TYPE @Model.UNIT_PRICE</span>
+                            <label>Quantity:</label>
+                            <input type="text" value="@Model.UNIT" />
+                            <button type="button" class="btn btn-fefault cart">
+                                <i class="fa fa-shopping-cart"></i>
+                                Add to cart
+                            </button>
+                        </span>
+                        <p><b>Availability:</b> In Stock</p>
+                        <p><b>Condition:</b> New</p>
+                        <p><b>Brand:</b> E-SHOPPER</p>
+                        <a href=""><img src="../content/images/product-details/share.png" class="share img-responsive" alt="" /></a>
+                    </div><!--/product-information-->
+                </div>
+            </div><!--/product-details-->
         </div>
     </div>
+</div>
 </section>
 
 

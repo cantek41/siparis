@@ -14,6 +14,11 @@ namespace siparis.Models
     
     public partial class STOKCARD
     {
+        public STOKCARD()
+        {
+            this.STOKCARDPICTUREs = new HashSet<STOKCARDPICTURE>();
+        }
+    
         public string CODE { get; set; }
         public string UPPER_CODE { get; set; }
         public string NAME_TR { get; set; }
@@ -79,5 +84,7 @@ namespace siparis.Models
         public string ISACTIVE { get; set; }
         public Nullable<int> WEB_AMOUNT { get; set; }
         public int ID { get; set; }
+    
+        public virtual ICollection<STOKCARDPICTURE> STOKCARDPICTUREs { get; set; }
     }
 }

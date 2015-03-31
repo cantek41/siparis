@@ -10,13 +10,17 @@
 namespace siparis.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagrams_Result
+    public partial class STOKCARDPICTURE
     {
-        public string Database { get; set; }
-        public string Name { get; set; }
         public int ID { get; set; }
-        public string Owner { get; set; }
-        public int OwnerID { get; set; }
+        public int STOK_ID { get; set; }
+        public Nullable<int> ROW_NO { get; set; }
+        public string PATH { get; set; }
+        public Nullable<int> TYPE { get; set; }
+        public Nullable<int> COLOR_CODE { get; set; }
+    
+        public virtual STOKCARD STOKCARD { get; set; }
     }
 }

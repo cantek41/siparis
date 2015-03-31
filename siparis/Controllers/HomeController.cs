@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using siparis.Models;
 
 namespace siparis.Controllers
 {
@@ -10,7 +11,10 @@ namespace siparis.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            VdbSoftEntities db = new VdbSoftEntities();
+            var model = from d in db.STOKCARDs
+                        select d;
+            return View(model);
         }
 
         public ActionResult About()

@@ -10,16 +10,14 @@
 namespace siparis.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class pGetProjectList_Result
+    public partial class AspNetUserLogin
     {
-        public string PERSONEL { get; set; }
-        public Nullable<int> TOPLAM_BUTCE { get; set; }
-        public Nullable<int> MESAI_NORMAL { get; set; }
-        public Nullable<int> MESAI_FAZLA { get; set; }
-        public Nullable<decimal> ORAN1 { get; set; }
-        public Nullable<int> YANSITILMAYAN { get; set; }
-        public Nullable<decimal> ORAN2 { get; set; }
-        public Nullable<decimal> KULLANIM { get; set; }
+        public string UserId { get; set; }
+        public string LoginProvider { get; set; }
+        public string ProviderKey { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }
