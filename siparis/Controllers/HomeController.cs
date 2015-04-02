@@ -9,6 +9,9 @@ namespace siparis.Controllers
 {
     public class HomeController : BaseController
     {
+
+
+
         public ActionResult Index()
         {
             VdbSoftEntities db = new VdbSoftEntities();
