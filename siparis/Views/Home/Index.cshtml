@@ -1,4 +1,4 @@
-﻿@model IEnumerable<siparis.Models.STOKCARD>
+﻿@model Tuple<IEnumerable<siparis.Models.STOKCARD>,IEnumerable<siparis.Models.STOKGROUP>>
 @{
     ViewBag.Title = "Home Page";
     siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
@@ -53,6 +53,7 @@
                 <div class="features_items">
                     <!--features_items-->
                     <h2 class="title text-center">Features Items</h2>
+
                     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
                     {
                         @Html.Hidden("SortField", info.SortField)
@@ -61,7 +62,8 @@
                         @Html.Hidden("PageSize", info.PageSize)
                         @Html.Hidden("CurrentPageIndex",
    info.CurrentPageIndex)
-                        foreach (var stok in Model)
+                        foreach (var stok in Model.Item1)
+
                         {
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
@@ -71,7 +73,7 @@
                                             <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" />
                                             <h2>@stok.UNIT_PRICE @stok.CUR_TYPE</h2>
                                             <p>@stok.NAME_TR</p>
-                                            <a href="#" class="btn btn-default add-to-cart" onclick="sepeteEkle(@stok.ID)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                            <a class="btn btn-default add-to-cart" onclick="sepeteEkle(@stok.ID)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                             <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Details</a>
                                         </div>
                                     </div>
