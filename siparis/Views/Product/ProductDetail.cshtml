@@ -11,31 +11,26 @@
                 <div class="product-details">
                     <!--product-details-->
                     <div class="col-sm-5">
-                        <div class="view-product">                            
-                                    <img src="@Model.STOKCARDPICTUREs.ElementAt(0).PATH"  alt="" />                            
-                         
+                        <div class="view-product">
+                            <img src="@Model.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" />
+
                             <h3>ZOOM</h3>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
-                                <div class="item active">
-                                    <a href=""><img src="../content/images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="../content/images/product-details/similar2.jpg" alt=""></a>
-                                    <a href=""><img src="../content/images/product-details/similar3.jpg" alt=""></a>
-                                </div>
-                                <div class="item">
-                                    <a href=""><img src="../content/images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="../content/images/product-details/similar2.jpg" alt=""></a>
-                                    <a href=""><img src="../content/images/product-details/similar3.jpg" alt=""></a>
-                                </div>
-                                <div class="item">
-                                    <a href=""><img src="../content/images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="../content/images/product-details/similar2.jpg" alt=""></a>
-                                    <a href=""><img src="../content/images/product-details/similar3.jpg" alt=""></a>
-                                </div>
+                               <div class="item active">
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH " alt=" "></a>
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt=""></a>
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt=""></a>
+                                    </div>
 
+                                    <div class="item">
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt=""></a>
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt=""></a>
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt=""></a>
+                                    </div>
                             </div>
 
                             <!-- Controls -->
@@ -51,32 +46,31 @@
                     <div class="col-sm-7">
                         <div class="product-information">
                             <!--/product-information-->
-                           
-                           @*<img src="../content/images/product-details/new.jpg" class="newarrival" alt="" />*@
+                            @*<img src="../content/images/product-details/new.jpg" class="newarrival" alt="" />*@
                             <h2>Anne Klein Sleeveless Colorblock Scuba</h2>
                             <h2>@Model.NAME_TR</h2>
-                        
-                        <p>Web ID: 1089772</p>
-                        <img src="../content/images/product-details/rating.png" alt="" />
-                        <span>
-                            <span>@Model.CUR_TYPE @Model.UNIT_PRICE</span>
-                            <label>Quantity:</label>
-                            <input type="text" value="@Model.UNIT" />
-                            <button type="button" class="btn btn-fefault cart">
-                                <i class="fa fa-shopping-cart"></i>
-                                Add to cart
-                            </button>
-                        </span>
-                        <p><b>Availability:</b> In Stock</p>
-                        <p><b>Condition:</b> New</p>
-                        <p><b>Brand:</b> E-SHOPPER</p>
-                        <a href=""><img src="../content/images/product-details/share.png" class="share img-responsive" alt="" /></a>
-                    </div><!--/product-information-->
-                </div>
-            </div><!--/product-details-->
+
+                            <p>Web ID: 1089772</p>
+                            <img src="../content/images/product-details/rating.png" alt="" />
+                            <span>
+                                <span>@Model.CUR_TYPE @Model.UNIT_PRICE</span>
+                                <label>Quantity:</label>
+                                <input type="text" value="@Model.UNIT" />
+                                <button type="button" class="btn btn-fefault cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to cart
+                                </button>
+                            </span>
+                            <p><b>Availability:</b> In Stock</p>
+                            <p><b>Condition:</b> New</p>
+                            <p><b>Brand:</b> E-SHOPPER</p>
+                            <a href=""><img src="../content/images/product-details/share.png" class="share img-responsive" alt="" /></a>
+                        </div><!--/product-information-->
+                    </div>
+                </div><!--/product-details-->
+            </div>
         </div>
     </div>
-</div>
 </section>
 
 
