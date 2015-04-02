@@ -53,14 +53,15 @@
                                             <h2>@stok.UNIT_PRICE @stok.CUR_TYPE</h2>
                                             <p>@stok.NAME_TR</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                            <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Details</a>
                                         </div>
-                                        <div class="product-overlay">
+                                        @*<div class="product-overlay">
                                             <div class="overlay-content">
                                                 <h2>@stok.UNIT_PRICE @stok.CUR_TYPE</h2>
                                                 <p>Easy Polo Black Edition</p>
-                                                <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                              
                                             </div>
-                                        </div>
+                                        </div>*@
                                     </div>
                                     <div class="choose">
                                         <ul class="nav nav-pills nav-justified">
