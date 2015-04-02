@@ -1,0 +1,58 @@
+﻿@{
+
+    foreach (var stok in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                        @stok.NAME_TR
+                    </a>
+                </h4>
+            </div>
+
+           
+                
+
+
+            <div id="sportswear" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#anatolian">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        @stok.NAME_TR
+                                    </a>
+                                </h4>
+                            </div>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+
+    }
+}
+
+<div class="brands_products">
+    <!--brands_products-->
+    <h2>Brands</h2>
+    @{
+        foreach (var stok in Model)
+        {
+            <div class="brands-name">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="#"> <span class="pull-right">(50)</span>@stok.NAME_TR</a></li>
+
+                </ul>
+            </div>
+        }}
+</div><!--/brands_products-->
+
+
+
+

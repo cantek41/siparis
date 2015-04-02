@@ -838,6 +838,7 @@
     <Content Include="Views\Shared\_mainLayout.cshtml" />
     <Content Include="Views\Shared\_rootLayout.cshtml" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
+    <Content Include="Views\Shared\LeftMenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
