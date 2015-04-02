@@ -11,6 +11,7 @@ namespace siparis.Controllers
     {
         public ActionResult Index()
         {
+            checkCart();
             VdbSoftEntities db = new VdbSoftEntities();
             var model = from d in db.STOKCARDs
                         select d;
@@ -26,7 +27,7 @@ namespace siparis.Controllers
 
         public ActionResult Contact()
         {
-           // ViewBag.Message = "Your contact page.";
+            // ViewBag.Message = "Your contact page.";
 
             return View();
         }
@@ -36,6 +37,6 @@ namespace siparis.Controllers
             return View();
         }
 
-        
+
     }
 }
