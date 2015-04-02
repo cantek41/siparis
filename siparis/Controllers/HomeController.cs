@@ -17,7 +17,8 @@ namespace siparis.Controllers
             VdbSoftEntities db = new VdbSoftEntities();
             var model = from d in db.STOKCARDs
                         select d;
-            return View(model);
+            var stokgrup=db.STOKGROUPs;
+            return View(new Tuple<IEnumerable<STOKCARD>, IEnumerable<STOKGROUP>>(model, stokgrup));
         }
 
         public ActionResult About()

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<siparis.Models.STOKCARD>
+﻿@model Tuple<IEnumerable<siparis.Models.STOKCARD>,IEnumerable<siparis.Models.STOKGROUP>>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -42,7 +42,7 @@
                     <!--features_items-->
                     <h2 class="title text-center">Features Items</h2>
                     @{
-                        foreach (var stok in Model)
+                        foreach (var stok in Model.Item1)
                         {
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
