@@ -1,0 +1,75 @@
+﻿@model siparis.Models.IndexDataViewModel
+@{
+    foreach (var stok in Model.stokgroup)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="/Category/getCategoryProduct?Id=@stok.STOK_GROUP_CODE">
+                        <span class="badge pull-right">(@Model.stokcard.Where(x => x.CATEGORY_CODE == stok.STOK_GROUP_CODE).Count())</span>
+                        @stok.NAME_TR
+                    </a>
+                </h4>
+            </div>
+        </div>
+
+    }
+}
+
+<div class="brands_products">
+    <!--brands_products-->
+    <h2 style="margin-top:20px;">Brands</h2>
+    @{
+        foreach (var stok in Model.stokbrand)
+        {
+            <div class="brands-name" style="padding-bottom:0px; padding-top:0px;">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="#">
+                            <span class="pull-right">(@Model.stokcard.Where(x => x.BRAND_CODE == stok.BRAND_CODE).Count())</span>
+                            @stok.NAME_TR
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        }}
+</div><!--/brands_products-->
+
+
+<div class="brands_products">
+    <!--brands_products-->
+    <h2 style="margin-top:20px;">Size</h2>
+    @{
+        foreach (var stok in Model.stokBody)
+        {
+            <div class="brands-name" style="padding-bottom:0px; padding-top:0px;">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="#">
+                            <span class="pull-right">(@Model.stokcard.Where(x => x.BODY_CODE == stok.BODY_CODE).Count())</span>
+                            @stok.NAME_TR
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        }}
+</div><!--/brands_products-->
+
+<div class="brands_products">
+    <!--brands_products-->
+    <h2 style="margin-top:20px;">Color</h2>
+    @{
+        foreach (var stok in Model.stokcolor)
+        {
+            <div class="brands-name" style="padding-bottom:0px; padding-top:0px;">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="#">
+                            <span class="pull-right">(@Model.stokcard.Where(x => x.COLOR_CODE == stok.COLOR_CODE).Count())</span>
+                            @stok.NAME_TR
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        }}
+</div><!--/brands_products-->

@@ -1,9 +1,11 @@
-﻿@model Tuple<IEnumerable<siparis.Models.STOKCARD>,IEnumerable<siparis.Models.STOKGROUP>>
+﻿@model siparis.Models.IndexDataViewModel
+
 @{
     ViewBag.Title = "Home Page";
     siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
 
 }
+<script src="~/Scripts/jquery.toastmessage.js"></script>
 <script src="~/Scripts/ajaxGonderi/ajaxGonder.js"></script>
 <script>
     $(document).ready(function () {
@@ -62,7 +64,7 @@
                         @Html.Hidden("PageSize", info.PageSize)
                         @Html.Hidden("CurrentPageIndex",
    info.CurrentPageIndex)
-                        foreach (var stok in Model.Item1)
+                        foreach (var stok in Model.stokcard)
                         {
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
