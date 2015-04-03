@@ -48,7 +48,8 @@ namespace siparis.Controllers
                     opportunitdetails.CUR_TYPE = stokcart.CUR_TYPE;
                     opportunitdetails.UNIT_PRICE = (float)stokcart.UNIT_PRICE;
                     opportunitdetails.UNIT = stokcart.UNIT.ToString();
-                    opportunitdetails.STOK_CODE = "" + stokID;
+                    opportunitdetails.STOK_ID = stokID;
+                    opportunitdetails.QUANTITY = 1;
                     opportunitdetails.VERSION = "V1";
 
                     db.OPPORTUNITYDETAILs.Add(opportunitdetails);

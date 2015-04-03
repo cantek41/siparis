@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="VdbSoftEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="VdbSoftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -470,6 +470,28 @@ warning 6002: The table/view 'VdbSoft.dbo.BACKGROUNDPICTURE' does not have a pri
           <Property Name="USER_CODE" Type="int" />
           <Property Name="FILE_SIZE" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.BUDGET' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="BUDGET">
+          <Property Name="BUDGET_CODE" Type="int" />
+          <Property Name="COMPANY_CODE" Type="int" />
+          <Property Name="COMPANY_COMMERCIAL_CODE" Type="nvarchar" MaxLength="30" />
+          <Property Name="COMPANY_NAME" Type="nvarchar" MaxLength="200" />
+          <Property Name="COMPANY_TYPE" Type="nvarchar" MaxLength="10" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
+          <Property Name="USER_CODE" Type="int" />
+          <Property Name="DATE" Type="date" />
+          <Property Name="QUANTITY" Type="real" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
+          <Property Name="UNIT_PRICE" Type="real" />
+          <Property Name="CUR_TYPE" Type="nvarchar" MaxLength="5" />
+          <Property Name="CUR_VALUE" Type="real" />
+          <Property Name="TOTAL" Type="real" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="CREATE_USER" Type="int" />
+          <Property Name="CONFIRMATION_STATUS" Type="int" />
+        </EntityType>-->
         <EntityType Name="CAR">
           <Key>
             <PropertyRef Name="CONTACT_CODE" />
@@ -789,6 +811,20 @@ warning 6002: The table/view 'VdbSoft.dbo.CUR' does not have a primary key defin
           <Property Name="ROW_ORDER_NO" Type="int" />
           <Property Name="CUR_EXT" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.customers' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="customers">
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.DOCUMENTGROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DOCUMENTGROUP">
+          <Property Name="FILE_CODE" Type="int" />
+          <Property Name="GROUP_CODE" Type="int" />
+          <Property Name="TYPE" Type="int" />
+        </EntityType>-->
         <EntityType Name="ENTEGRATION">
           <Key>
             <PropertyRef Name="ROW_ORDER_NO" />
@@ -982,6 +1018,14 @@ warning 6002: The table/view 'VdbSoft.dbo.EXCELD' does not have a primary key de
           <Property Name="EN" Type="nvarchar(max)" />
           <Property Name="GR" Type="nvarchar(max)" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.FOOTTEXTRELATION' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="FOOTTEXTRELATION">
+          <Property Name="CODE" Type="int" />
+          <Property Name="OPPORTUNITY_CODE" Type="int" />
+          <Property Name="TEXT_CODE" Type="int" />
+          <Property Name="ORDER_NO" Type="int" />
+        </EntityType>-->
         <EntityType Name="FORMADDITIONALAREA">
           <Key>
             <PropertyRef Name="FORM_NAME" />
@@ -1094,6 +1138,13 @@ warning 6002: The table/view 'VdbSoft.dbo.EXCELD' does not have a primary key de
           <Property Name="FORM_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MTYPE" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.FORMMENU' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="FORMMENU">
+          <Property Name="FORM_ID" Type="int" />
+          <Property Name="CONTROL_NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="R_ID" Type="int" />
+        </EntityType>-->
         <EntityType Name="FORMREPLACMENT">
           <Key>
             <PropertyRef Name="FORM_NAME" />
@@ -1426,6 +1477,15 @@ warning 6002: The table/view 'VdbSoft.dbo.MENULOAD' does not have a primary key 
           <Property Name="TYPE" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.MENUPARAMETRE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="MENUPARAMETRE">
+          <Property Name="PARAMETRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="RES" Type="int" />
+          <Property Name="GROUP_CODE" Type="int" />
+          <Property Name="LANGUAGE" Type="nchar" MaxLength="10" />
+          <Property Name="TYPE" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'VdbSoft.dbo.MENUREPORTLOAD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="MENUREPORTLOAD">
           <Key>
@@ -1697,6 +1757,16 @@ warning 6002: The table/view 'VdbSoft.dbo.MENUREPORTLOAD' does not have a primar
           <Property Name="EMPTY_ACTION" Type="nvarchar" MaxLength="1" />
           <Property Name="CONTROL_INFO" Type="nvarchar(max)" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.PGROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PGROUP">
+          <Property Name="ID" Type="int" />
+          <Property Name="ROW_ORDER_NO" Type="int" />
+          <Property Name="EXP_TR" Type="nvarchar" MaxLength="150" />
+          <Property Name="EXP_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="EXP_OT" Type="nvarchar" MaxLength="150" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="150" />
+        </EntityType>-->
         <EntityType Name="PHONE">
           <Key>
             <PropertyRef Name="PHONE_CODE" />
@@ -1764,6 +1834,20 @@ warning 6002: The table/view 'VdbSoft.dbo.MENUREPORTLOAD' does not have a primar
           <Property Name="ROW" Type="nvarchar(max)" />
           <Property Name="LAN_CODE" Type="nvarchar" MaxLength="4" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.PREFORMABANKRELATION' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PREFORMABANKRELATION">
+          <Property Name="OPPORTUNITY_CODE" Type="int" />
+          <Property Name="BANK_CODE" Type="int" />
+          <Property Name="VERSION" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.PREFORMAORIGENRELATION' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PREFORMAORIGENRELATION">
+          <Property Name="OPPORTUNITY_CODE" Type="int" />
+          <Property Name="TRANSPORT_CODE" Type="int" />
+          <Property Name="VERSION" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
         <EntityType Name="PROGRAMPREFIX">
           <Key>
             <PropertyRef Name="PROGRAM_CODE" />
@@ -1906,6 +1990,16 @@ warning 6002: The table/view 'VdbSoft.dbo.PSQL' does not have a primary key defi
           <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="NOTE" Type="nvarchar(max)" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.RIVALCOMPANYGROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RIVALCOMPANYGROUP">
+          <Property Name="RIVAL_COMPANY_CODE" Type="int" />
+          <Property Name="RIVAL_GROUP_CODE" Type="int" />
+          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
+          <Property Name="LAST_UPDATE" Type="datetime" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
+        </EntityType>-->
         <EntityType Name="RIVALPRODUCT">
           <Key>
             <PropertyRef Name="RIVAL_PRODUCT_CODE" />
@@ -1943,6 +2037,34 @@ warning 6002: The table/view 'VdbSoft.dbo.PSQL' does not have a primary key defi
           <Property Name="EQUIVALENT_PRODUCT_NAME" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.RP_KARLILIK' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RP_KARLILIK">
+          <Property Name="COMPANY_CODE" Type="nvarchar" MaxLength="150" />
+          <Property Name="COMPANY_NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="TOPLAM_BUTCE_SAAT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SAAT_BASI_UCRET" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SOZLESME_TUTARI" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GERCEKLESEN_SAAT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GERCEKLESEN_SAAT_BASI_UCRET" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FARK" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.RP_PROJE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RP_PROJE">
+          <Property Name="PERSONEL_NO" Type="nvarchar" MaxLength="30" />
+          <Property Name="PERSONEL" Type="nvarchar" MaxLength="250" />
+          <Property Name="PERSONEL_LEVEL" Type="nvarchar" MaxLength="50" />
+          <Property Name="MESAI_NORMAL" Type="int" />
+          <Property Name="MESAI_FAZLA" Type="int" />
+          <Property Name="TOPLAM_BUTCE_SAAT" Type="int" />
+          <Property Name="ORAN1" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="YANSITILMAYAN" Type="int" />
+          <Property Name="ORAN2" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KULLANIM" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="COMPANY_NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="PROJE_ADI" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'VdbSoft.dbo.RU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="RU">
           <Key>
@@ -1965,6 +2087,32 @@ warning 6002: The table/view 'VdbSoft.dbo.RU' does not have a primary key define
           <Property Name="IGNE_SAYISI" Type="decimal" Precision="18" Scale="2" />
           <Property Name="ADET" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.SALES_ORI' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SALES_ORI">
+          <Property Name="EVRAKTARIHI" Type="datetime" />
+          <Property Name="EVRAKNO1" Type="nvarchar" MaxLength="50" />
+          <Property Name="EVRAKNO2" Type="nvarchar" MaxLength="50" />
+          <Property Name="CARIKODU" Type="nvarchar" MaxLength="50" />
+          <Property Name="STOKKODU" Type="nvarchar" MaxLength="50" />
+          <Property Name="STOKHEDEFGRUP" Type="nvarchar" MaxLength="40" />
+          <Property Name="KOLIICIADET" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="MIKTAR" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="STOKBIRIM" Type="nvarchar" MaxLength="40" />
+          <Property Name="KOLIMIKTAR" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="KOLIBIRIMFIYAT" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="TOPLAMKOLIFIYAT" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="TOPLAMADET" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ADETBIRIMFIYAT" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ISKONTOORAN" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ISKONTOTOPLAM" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ISKONTOLUTOPLAM" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="PARACINSI" Type="nvarchar" MaxLength="10" />
+          <Property Name="VERGIYUZDE" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="VERGITUTAR" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="GENELTOPLAM" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="GRUP02" Type="nvarchar" MaxLength="30" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'VdbSoft.dbo.SALES_ORI2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SALES_ORI2">
@@ -2350,13 +2498,11 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="TYPE" Type="int" />
           <Property Name="COLOR_CODE" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'VdbSoft.dbo.STOKGROUP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="STOKGROUP">
           <Key>
             <PropertyRef Name="STOK_GROUP_CODE" />
           </Key>
-          <Property Name="STOK_GROUP_CODE" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="STOK_GROUP_CODE" Type="int" Nullable="false" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="150" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="150" />
@@ -2504,6 +2650,14 @@ warning 6002: The table/view 'VdbSoft.dbo.USERCASH' does not have a primary key 
           <Property Name="USER_CODE" Type="int" Nullable="false" />
           <Property Name="COMPANY_CODE" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.USERDONEM' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="USERDONEM">
+          <Property Name="USER_CODE" Type="int" />
+          <Property Name="DATE" Type="datetime" />
+          <Property Name="OPEN_CLOSE" Type="int" />
+          <Property Name="DONEM" Type="int" />
+        </EntityType>-->
         <EntityType Name="USERINFO">
           <Key>
             <PropertyRef Name="CONTACT_CODE" />
@@ -2566,6 +2720,20 @@ warning 6002: The table/view 'VdbSoft.dbo.USERCASH' does not have a primary key 
           <Property Name="USER_CODE" Type="int" Nullable="false" />
           <Property Name="REGION_CODE" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.USERRIGHT' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="USERRIGHT">
+          <Property Name="MENU_NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="USER_CODE" Type="int" />
+          <Property Name="MAIN" Type="nvarchar" MaxLength="10" />
+          <Property Name="NODE_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="OBJECT_NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="P_NECESSARY" Type="int" />
+          <Property Name="ORDER_NO" Type="int" />
+          <Property Name="R_ID" Type="int" />
+          <Property Name="OPER_NO" Type="int" />
+          <Property Name="WINDOWSTATE" Type="int" />
+        </EntityType>-->
         <EntityType Name="USERRIGHTBASE">
           <Key>
             <PropertyRef Name="MAIN" />
@@ -2752,6 +2920,18 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_STOKCARD_STOKGROUP">
+          <End Role="STOKGROUP" Type="Self.STOKGROUP" Multiplicity="0..1" />
+          <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKGROUP">
+              <PropertyRef Name="STOK_GROUP_CODE" />
+            </Principal>
+            <Dependent Role="STOKCARD">
+              <PropertyRef Name="CATEGORY_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_STOKCARDPICTURE_STOKCARD">
           <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="1" />
           <End Role="STOKCARDPICTURE" Type="Self.STOKCARDPICTURE" Multiplicity="*" />
@@ -2764,7 +2944,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="VdbSoftEntitiesStoreContainer">
+        <EntityContainer Name="VdbSoftModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACTIVITY" EntityType="Self.ACTIVITY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACTIVITYCC" EntityType="Self.ACTIVITYCC" Schema="dbo" store:Type="Tables" />
@@ -2868,6 +3048,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="STOKCARD_" EntityType="Self.STOKCARD_" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCARD1" EntityType="Self.STOKCARD1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCARDPICTURE" EntityType="Self.STOKCARDPICTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKGROUP" EntityType="Self.STOKGROUP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKGROUP1" EntityType="Self.STOKGROUP1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TFILE" EntityType="Self.TFILE" Schema="dbo" store:Type="Tables" />
@@ -3169,21 +3350,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
     [SELLER_DETAIL].[APPOINTED_USER_CODE] AS [APPOINTED_USER_CODE]
     FROM [dbo].[SELLER_DETAIL] AS [SELLER_DETAIL]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="STOKGROUP" EntityType="Self.STOKGROUP" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [STOKGROUP].[STOK_GROUP_CODE] AS [STOK_GROUP_CODE], 
-    [STOKGROUP].[NAME_TR] AS [NAME_TR], 
-    [STOKGROUP].[NAME_EN] AS [NAME_EN], 
-    [STOKGROUP].[NAME_GR] AS [NAME_GR], 
-    [STOKGROUP].[LAST_UPDATE_USER] AS [LAST_UPDATE_USER], 
-    [STOKGROUP].[LAST_UPDATE] AS [LAST_UPDATE], 
-    [STOKGROUP].[CREATE_DATE] AS [CREATE_DATE], 
-    [STOKGROUP].[CREATE_USER] AS [CREATE_USER], 
-    [STOKGROUP].[NEW_UPPER_GROUP_CODE] AS [NEW_UPPER_GROUP_CODE], 
-    [STOKGROUP].[MLEVEL] AS [MLEVEL], 
-    [STOKGROUP].[FULL_PATH_TEXT] AS [FULL_PATH_TEXT]
-    FROM [dbo].[STOKGROUP] AS [STOKGROUP]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="USERBANK" EntityType="Self.USERBANK" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [USERBANK].[USER_CODE] AS [USER_CODE], 
@@ -3240,15 +3406,20 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="CONTACT" EntitySet="CONTACT" />
             <End Role="PHONE" EntitySet="PHONE" />
           </AssociationSet>
+          <AssociationSet Name="FK_STOKCARD_STOKGROUP" Association="Self.FK_STOKCARD_STOKGROUP">
+            <End Role="STOKGROUP" EntitySet="STOKGROUP" />
+            <End Role="STOKCARD" EntitySet="STOKCARD" />
+          </AssociationSet>
           <AssociationSet Name="FK_STOKCARDPICTURE_STOKCARD" Association="Self.FK_STOKCARDPICTURE_STOKCARD">
             <End Role="STOKCARD" EntitySet="STOKCARD" />
             <End Role="STOKCARDPICTURE" EntitySet="STOKCARDPICTURE" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="VdbSoftEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="VdbSoftModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="C__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -4443,6 +4614,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="ROW_ORDER_NO" Type="Int32" Nullable="false" />
           <Property Name="VERSION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="STOK_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="STOK_ID" Type="Int32" />
           <Property Name="PRODUCT_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="QUANTITY" Type="Single" />
           <Property Name="UNIT_PRICE" Type="Single" />
@@ -4468,9 +4640,8 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="BUYING_PRICE" Type="Single" />
           <Property Name="BUYING_DISCOUNT_PERCENT" Type="Single" />
           <Property Name="DETAILDESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="STOK_ID" Type="Int32" />
-          <NavigationProperty Name="OPPORTUNITYMASTER" Relationship="VdbSoftEntities.FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER" FromRole="OPPORTUNITYDETAIL" ToRole="OPPORTUNITYMASTER" />
-          <NavigationProperty Name="STOKCARD" Relationship="VdbSoftEntities.FK_OPPORTUNITYDETAIL_STOKCARD" FromRole="OPPORTUNITYDETAIL" ToRole="STOKCARD" />
+          <NavigationProperty Name="OPPORTUNITYMASTER" Relationship="Self.FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER" FromRole="OPPORTUNITYDETAIL" ToRole="OPPORTUNITYMASTER" />
+          <NavigationProperty Name="STOKCARD" Relationship="Self.FK_OPPORTUNITYDETAIL_STOKCARD" FromRole="OPPORTUNITYDETAIL" ToRole="STOKCARD" />
         </EntityType>
         <EntityType Name="OPPORTUNITYDETAILADDAREA">
           <Key>
@@ -4598,7 +4769,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="DISCONT_FPB" Type="Single" />
           <Property Name="APPROVMENT_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SOURCE_CODE" Type="Int32" />
-          <NavigationProperty Name="OPPORTUNITYDETAILs" Relationship="VdbSoftEntities.FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER" FromRole="OPPORTUNITYMASTER" ToRole="OPPORTUNITYDETAIL" />
+          <NavigationProperty Name="OPPORTUNITYDETAILs" Relationship="Self.FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER" FromRole="OPPORTUNITYMASTER" ToRole="OPPORTUNITYDETAIL" />
         </EntityType>
         <EntityType Name="OPPORTUNITYMASTERVERSION">
           <Key>
@@ -5102,8 +5273,9 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="ISACTIVE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="WEB_AMOUNT" Type="Int32" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="OPPORTUNITYDETAILs" Relationship="Self.FK_OPPORTUNITYDETAIL_STOKCARD" FromRole="STOKCARD" ToRole="OPPORTUNITYDETAIL" />
+          <NavigationProperty Name="STOKGROUP" Relationship="Self.FK_STOKCARD_STOKGROUP" FromRole="STOKCARD" ToRole="STOKGROUP" />
           <NavigationProperty Name="STOKCARDPICTUREs" Relationship="Self.FK_STOKCARDPICTURE_STOKCARD" FromRole="STOKCARD" ToRole="STOKCARDPICTURE" />
-          <NavigationProperty Name="OPPORTUNITYDETAILs" Relationship="VdbSoftEntities.FK_OPPORTUNITYDETAIL_STOKCARD" FromRole="STOKCARD" ToRole="OPPORTUNITYDETAIL" />
         </EntityType>
         <EntityType Name="STOKCARD_">
           <Key>
@@ -5216,6 +5388,23 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="TYPE" Type="Int32" />
           <Property Name="COLOR_CODE" Type="Int32" />
           <NavigationProperty Name="STOKCARD" Relationship="Self.FK_STOKCARDPICTURE_STOKCARD" FromRole="STOKCARDPICTURE" ToRole="STOKCARD" />
+        </EntityType>
+        <EntityType Name="STOKGROUP">
+          <Key>
+            <PropertyRef Name="STOK_GROUP_CODE" />
+          </Key>
+          <Property Name="STOK_GROUP_CODE" Type="Int32" Nullable="false" />
+          <Property Name="NAME_TR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_EN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_GR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NEW_UPPER_GROUP_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="MLEVEL" Type="Int32" />
+          <Property Name="FULL_PATH_TEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKGROUP" FromRole="STOKGROUP" ToRole="STOKCARD" />
         </EntityType>
         <EntityType Name="STOKGROUP1">
           <Key>
@@ -5803,22 +5992,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="SELLER_BALANCE" Type="Single" />
           <Property Name="APPOINTED_USER_CODE" Type="Int32" />
         </EntityType>
-        <EntityType Name="STOKGROUP">
-          <Key>
-            <PropertyRef Name="STOK_GROUP_CODE" />
-          </Key>
-          <Property Name="STOK_GROUP_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NAME_TR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_EN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_GR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="NEW_UPPER_GROUP_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="MLEVEL" Type="Int32" />
-          <Property Name="FULL_PATH_TEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="USERBANK">
           <Key>
             <PropertyRef Name="BANK_CODE" />
@@ -5895,6 +6068,42 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </Principal>
             <Dependent Role="PHONE">
               <PropertyRef Name="CONTACT_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER">
+          <End Role="OPPORTUNITYMASTER" Type="Self.OPPORTUNITYMASTER" Multiplicity="1" />
+          <End Role="OPPORTUNITYDETAIL" Type="Self.OPPORTUNITYDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OPPORTUNITYMASTER">
+              <PropertyRef Name="OPPORTUNITY_CODE" />
+            </Principal>
+            <Dependent Role="OPPORTUNITYDETAIL">
+              <PropertyRef Name="OPPORTUNITY_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OPPORTUNITYDETAIL_STOKCARD">
+          <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="0..1" />
+          <End Role="OPPORTUNITYDETAIL" Type="Self.OPPORTUNITYDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKCARD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OPPORTUNITYDETAIL">
+              <PropertyRef Name="STOK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARD_STOKGROUP">
+          <End Role="STOKGROUP" Type="Self.STOKGROUP" Multiplicity="0..1" />
+          <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKGROUP">
+              <PropertyRef Name="STOK_GROUP_CODE" />
+            </Principal>
+            <Dependent Role="STOKCARD">
+              <PropertyRef Name="CATEGORY_CODE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -6017,6 +6226,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="STOKCARD_" EntityType="Self.STOKCARD_" />
           <EntitySet Name="STOKCARD1" EntityType="Self.STOKCARD1" />
           <EntitySet Name="STOKCARDPICTUREs" EntityType="Self.STOKCARDPICTURE" />
+          <EntitySet Name="STOKGROUPs" EntityType="Self.STOKGROUP" />
           <EntitySet Name="STOKGROUP1" EntityType="Self.STOKGROUP1" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TFILEs" EntityType="Self.TFILE" />
@@ -6055,7 +6265,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="SALES_ORI2" EntityType="Self.SALES_ORI2" />
           <EntitySet Name="SELLER_BALANCE" EntityType="Self.SELLER_BALANCE" />
           <EntitySet Name="SELLER_DETAIL" EntityType="Self.SELLER_DETAIL" />
-          <EntitySet Name="STOKGROUPs" EntityType="Self.STOKGROUP" />
           <EntitySet Name="USERBANKs" EntityType="Self.USERBANK" />
           <EntitySet Name="USERCASHes" EntityType="Self.USERCASH" />
           <EntitySet Name="USERWHAREHOUSEs" EntityType="Self.USERWHAREHOUSE" />
@@ -6075,6 +6284,18 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="CONTACT" EntitySet="CONTACTs" />
             <End Role="PHONE" EntitySet="PHONEs" />
           </AssociationSet>
+          <AssociationSet Name="FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER" Association="Self.FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER">
+            <End Role="OPPORTUNITYMASTER" EntitySet="OPPORTUNITYMASTERs" />
+            <End Role="OPPORTUNITYDETAIL" EntitySet="OPPORTUNITYDETAILs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OPPORTUNITYDETAIL_STOKCARD" Association="Self.FK_OPPORTUNITYDETAIL_STOKCARD">
+            <End Role="STOKCARD" EntitySet="STOKCARDs" />
+            <End Role="OPPORTUNITYDETAIL" EntitySet="OPPORTUNITYDETAILs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOKCARD_STOKGROUP" Association="Self.FK_STOKCARD_STOKGROUP">
+            <End Role="STOKGROUP" EntitySet="STOKGROUPs" />
+            <End Role="STOKCARD" EntitySet="STOKCARDs" />
+          </AssociationSet>
           <AssociationSet Name="FK_STOKCARDPICTURE_STOKCARD" Association="Self.FK_STOKCARDPICTURE_STOKCARD">
             <End Role="STOKCARD" EntitySet="STOKCARDs" />
             <End Role="STOKCARDPICTURE" EntitySet="STOKCARDPICTUREs" />
@@ -6083,47 +6304,15 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER" Association="VdbSoftEntities.FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER">
-            <End Role="OPPORTUNITYMASTER" EntitySet="OPPORTUNITYMASTERs" />
-            <End Role="OPPORTUNITYDETAIL" EntitySet="OPPORTUNITYDETAILs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OPPORTUNITYDETAIL_STOKCARD" Association="VdbSoftEntities.FK_OPPORTUNITYDETAIL_STOKCARD">
-            <End Role="STOKCARD" EntitySet="STOKCARDs" />
-            <End Role="OPPORTUNITYDETAIL" EntitySet="OPPORTUNITYDETAILs" />
-          </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER">
-          <End Type="VdbSoftEntities.OPPORTUNITYMASTER" Role="OPPORTUNITYMASTER" Multiplicity="1" />
-          <End Type="VdbSoftEntities.OPPORTUNITYDETAIL" Role="OPPORTUNITYDETAIL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OPPORTUNITYMASTER">
-              <PropertyRef Name="OPPORTUNITY_CODE" />
-            </Principal>
-            <Dependent Role="OPPORTUNITYDETAIL">
-              <PropertyRef Name="OPPORTUNITY_CODE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OPPORTUNITYDETAIL_STOKCARD">
-          <End Type="VdbSoftEntities.STOKCARD" Role="STOKCARD" Multiplicity="0..1" />
-          <End Type="VdbSoftEntities.OPPORTUNITYDETAIL" Role="OPPORTUNITYDETAIL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="STOKCARD">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="OPPORTUNITYDETAIL">
-              <PropertyRef Name="STOK_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VdbSoftEntitiesStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="VdbSoftModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="VdbSoftEntities.C__MigrationHistory">
+            <EntityTypeMapping TypeName="VdbSoftModel.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
                 <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
                 <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
@@ -6133,7 +6322,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITies">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITY">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITY">
               <MappingFragment StoreEntitySet="ACTIVITY">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
@@ -6173,7 +6362,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYCCs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYCC">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYCC">
               <MappingFragment StoreEntitySet="ACTIVITYCC">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="CONTACT_NAME" ColumnName="CONTACT_NAME" />
@@ -6238,7 +6427,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYCCDETAILs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYCCDETAIL">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYCCDETAIL">
               <MappingFragment StoreEntitySet="ACTIVITYCCDETAIL">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
@@ -6252,7 +6441,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYCONFLICTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYCONFLICT">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYCONFLICT">
               <MappingFragment StoreEntitySet="ACTIVITYCONFLICT">
                 <ScalarProperty Name="ACTIVITY_TYPE" ColumnName="ACTIVITY_TYPE" />
                 <ScalarProperty Name="CONFLICT_TYPE" ColumnName="CONFLICT_TYPE" />
@@ -6264,7 +6453,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYGROUPACTIVITYTYPERELATIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYGROUPACTIVITYTYPERELATION">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYGROUPACTIVITYTYPERELATION">
               <MappingFragment StoreEntitySet="ACTIVITYGROUPACTIVITYTYPERELATION">
                 <ScalarProperty Name="ACTIVITY_GROUP_CODE" ColumnName="ACTIVITY_GROUP_CODE" />
                 <ScalarProperty Name="ACTIVITY_TYPE" ColumnName="ACTIVITY_TYPE" />
@@ -6272,7 +6461,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYMAILREPORTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYMAILREPORT">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYMAILREPORT">
               <MappingFragment StoreEntitySet="ACTIVITYMAILREPORT">
                 <ScalarProperty Name="ROW_NO" ColumnName="ROW_NO" />
                 <ScalarProperty Name="MTO" ColumnName="MTO" />
@@ -6285,7 +6474,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYMAPLOCATIONS_silll">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYMAPLOCATIONS_silll">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYMAPLOCATIONS_silll">
               <MappingFragment StoreEntitySet="ACTIVITYMAPLOCATIONS_silll">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="GPS_LATITUDE" ColumnName="GPS_LATITUDE" />
@@ -6294,7 +6483,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYMEETINGJOINERs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYMEETINGJOINER">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYMEETINGJOINER">
               <MappingFragment StoreEntitySet="ACTIVITYMEETINGJOINER">
                 <ScalarProperty Name="SOURCE_ACTIVITY_CODE" ColumnName="SOURCE_ACTIVITY_CODE" />
                 <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
@@ -6305,7 +6494,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYMEETINGRESULTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYMEETINGRESULT">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYMEETINGRESULT">
               <MappingFragment StoreEntitySet="ACTIVITYMEETINGRESULT">
                 <ScalarProperty Name="SOURCE_ACTIVITY_CODE" ColumnName="SOURCE_ACTIVITY_CODE" />
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
@@ -6316,7 +6505,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYPOLLs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYPOLL">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYPOLL">
               <MappingFragment StoreEntitySet="ACTIVITYPOLL">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="TYPE" ColumnName="TYPE" />
@@ -6330,7 +6519,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYSUBJECTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYSUBJECT">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYSUBJECT">
               <MappingFragment StoreEntitySet="ACTIVITYSUBJECT">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="SUBJECT_CODE" ColumnName="SUBJECT_CODE" />
@@ -6339,7 +6528,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ADDITIONALAREAs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ADDITIONALAREA">
+            <EntityTypeMapping TypeName="VdbSoftModel.ADDITIONALAREA">
               <MappingFragment StoreEntitySet="ADDITIONALAREA">
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
                 <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
@@ -6354,7 +6543,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ADDRESSes">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ADDRESS">
+            <EntityTypeMapping TypeName="VdbSoftModel.ADDRESS">
               <MappingFragment StoreEntitySet="ADDRESS">
                 <ScalarProperty Name="ADDRESS_CODE" ColumnName="ADDRESS_CODE" />
                 <ScalarProperty Name="OWNER" ColumnName="OWNER" />
@@ -6381,7 +6570,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AREMINDERs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.AREMINDER">
+            <EntityTypeMapping TypeName="VdbSoftModel.AREMINDER">
               <MappingFragment StoreEntitySet="AREMINDER">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="APPOINTED_USER_CODE" ColumnName="APPOINTED_USER_CODE" />
@@ -6391,7 +6580,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AREPEATERs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.AREPEATER">
+            <EntityTypeMapping TypeName="VdbSoftModel.AREPEATER">
               <MappingFragment StoreEntitySet="AREPEATER">
                 <ScalarProperty Name="R_CODE" ColumnName="R_CODE" />
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
@@ -6413,7 +6602,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="VdbSoftEntities.AspNetRole">
+            <EntityTypeMapping TypeName="VdbSoftModel.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -6421,7 +6610,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="VdbSoftEntities.AspNetUserClaim">
+            <EntityTypeMapping TypeName="VdbSoftModel.AspNetUserClaim">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
@@ -6431,7 +6620,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="VdbSoftEntities.AspNetUserLogin">
+            <EntityTypeMapping TypeName="VdbSoftModel.AspNetUserLogin">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
@@ -6440,7 +6629,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="VdbSoftEntities.AspNetUser">
+            <EntityTypeMapping TypeName="VdbSoftModel.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -6451,7 +6640,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ASSOCIATIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ASSOCIATION">
+            <EntityTypeMapping TypeName="VdbSoftModel.ASSOCIATION">
               <MappingFragment StoreEntitySet="ASSOCIATION">
                 <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
                 <ScalarProperty Name="ASSOCIATION_CODE" ColumnName="ASSOCIATION_CODE" />
@@ -6459,7 +6648,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CARs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CAR">
+            <EntityTypeMapping TypeName="VdbSoftModel.CAR">
               <MappingFragment StoreEntitySet="CAR">
                 <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
@@ -6472,7 +6661,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CITEMS">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CITEM">
+            <EntityTypeMapping TypeName="VdbSoftModel.CITEM">
               <MappingFragment StoreEntitySet="CITEMS">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
@@ -6486,7 +6675,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CITies">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CITY">
+            <EntityTypeMapping TypeName="VdbSoftModel.CITY">
               <MappingFragment StoreEntitySet="CITY">
                 <ScalarProperty Name="CITY_CODE" ColumnName="CITY_CODE" />
                 <ScalarProperty Name="CITY_NAME" ColumnName="CITY_NAME" />
@@ -6496,7 +6685,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CITY2">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CITY2">
+            <EntityTypeMapping TypeName="VdbSoftModel.CITY2">
               <MappingFragment StoreEntitySet="CITY2">
                 <ScalarProperty Name="COUNTRY_CODE" ColumnName="COUNTRY_CODE" />
                 <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
@@ -6507,7 +6696,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CLUPs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CLUP">
+            <EntityTypeMapping TypeName="VdbSoftModel.CLUP">
               <MappingFragment StoreEntitySet="CLUP">
                 <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
                 <ScalarProperty Name="CLUP_CODE" ColumnName="CLUP_CODE" />
@@ -6515,7 +6704,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="COMPANies">
-            <EntityTypeMapping TypeName="VdbSoftEntities.COMPANY">
+            <EntityTypeMapping TypeName="VdbSoftModel.COMPANY">
               <MappingFragment StoreEntitySet="COMPANY">
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
                 <ScalarProperty Name="UPPER_COMPANY_CODE" ColumnName="UPPER_COMPANY_CODE" />
@@ -6556,7 +6745,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="COMPANYGROUPs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.COMPANYGROUP">
+            <EntityTypeMapping TypeName="VdbSoftModel.COMPANYGROUP">
               <MappingFragment StoreEntitySet="COMPANYGROUP">
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
                 <ScalarProperty Name="GROUP_CODE" ColumnName="GROUP_CODE" />
@@ -6564,7 +6753,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="COMPANYRIVALCOMPANies">
-            <EntityTypeMapping TypeName="VdbSoftEntities.COMPANYRIVALCOMPANY">
+            <EntityTypeMapping TypeName="VdbSoftModel.COMPANYRIVALCOMPANY">
               <MappingFragment StoreEntitySet="COMPANYRIVALCOMPANY">
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
                 <ScalarProperty Name="RIVAL_COMPANY_CODE" ColumnName="RIVAL_COMPANY_CODE" />
@@ -6576,7 +6765,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="COMPANYUSERRELATIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.COMPANYUSERRELATION">
+            <EntityTypeMapping TypeName="VdbSoftModel.COMPANYUSERRELATION">
               <MappingFragment StoreEntitySet="COMPANYUSERRELATION">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
@@ -6584,7 +6773,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="COMPANYVALUEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.COMPANYVALUE">
+            <EntityTypeMapping TypeName="VdbSoftModel.COMPANYVALUE">
               <MappingFragment StoreEntitySet="COMPANYVALUE">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
@@ -6602,7 +6791,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CONTACTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CONTACT">
+            <EntityTypeMapping TypeName="VdbSoftModel.CONTACT">
               <MappingFragment StoreEntitySet="CONTACT">
                 <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
@@ -6657,7 +6846,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CONTACTGROUPs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CONTACTGROUP">
+            <EntityTypeMapping TypeName="VdbSoftModel.CONTACTGROUP">
               <MappingFragment StoreEntitySet="CONTACTGROUP">
                 <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
                 <ScalarProperty Name="GROUP_CODE" ColumnName="GROUP_CODE" />
@@ -6665,7 +6854,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CONTACTUSERRELATIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CONTACTUSERRELATION">
+            <EntityTypeMapping TypeName="VdbSoftModel.CONTACTUSERRELATION">
               <MappingFragment StoreEntitySet="CONTACTUSERRELATION">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
@@ -6673,7 +6862,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CONTRACTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CONTRACT">
+            <EntityTypeMapping TypeName="VdbSoftModel.CONTRACT">
               <MappingFragment StoreEntitySet="CONTRACT">
                 <ScalarProperty Name="CONTRACT_ID" ColumnName="CONTRACT_ID" />
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
@@ -6705,7 +6894,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CONTRACT_DETAIL">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CONTRACT_DETAIL">
+            <EntityTypeMapping TypeName="VdbSoftModel.CONTRACT_DETAIL">
               <MappingFragment StoreEntitySet="CONTRACT_DETAIL">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CONTRACT_ID" ColumnName="CONTRACT_ID" />
@@ -6724,7 +6913,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="COUNTRies">
-            <EntityTypeMapping TypeName="VdbSoftEntities.COUNTRY">
+            <EntityTypeMapping TypeName="VdbSoftModel.COUNTRY">
               <MappingFragment StoreEntitySet="COUNTRY">
                 <ScalarProperty Name="COUNTRY_CODE" ColumnName="COUNTRY_CODE" />
                 <ScalarProperty Name="COUNTRY_NAME" ColumnName="COUNTRY_NAME" />
@@ -6733,7 +6922,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CURTYPEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CURTYPE">
+            <EntityTypeMapping TypeName="VdbSoftModel.CURTYPE">
               <MappingFragment StoreEntitySet="CURTYPE">
                 <ScalarProperty Name="CUR_NAME" ColumnName="CUR_NAME" />
                 <ScalarProperty Name="CUR_SYMBOL" ColumnName="CUR_SYMBOL" />
@@ -6743,7 +6932,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ENTEGRATIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ENTEGRATION">
+            <EntityTypeMapping TypeName="VdbSoftModel.ENTEGRATION">
               <MappingFragment StoreEntitySet="ENTEGRATION">
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
                 <ScalarProperty Name="PROGRAM_NAME" ColumnName="PROGRAM_NAME" />
@@ -6755,7 +6944,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ENVIRONMENTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ENVIRONMENT">
+            <EntityTypeMapping TypeName="VdbSoftModel.ENVIRONMENT">
               <MappingFragment StoreEntitySet="ENVIRONMENT">
                 <ScalarProperty Name="ACTIVITY_POLL" ColumnName="ACTIVITY_POLL" />
                 <ScalarProperty Name="ACTIVITY_APPOROVMENT" ColumnName="ACTIVITY_APPOROVMENT" />
@@ -6782,7 +6971,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EPARAMETERs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.EPARAMETER">
+            <EntityTypeMapping TypeName="VdbSoftModel.EPARAMETER">
               <MappingFragment StoreEntitySet="EPARAMETER">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="MVALUE" ColumnName="MVALUE" />
@@ -6791,7 +6980,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EXCELDS">
-            <EntityTypeMapping TypeName="VdbSoftEntities.EXCELD">
+            <EntityTypeMapping TypeName="VdbSoftModel.EXCELD">
               <MappingFragment StoreEntitySet="EXCELDS">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="TYPE" ColumnName="TYPE" />
@@ -6801,7 +6990,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EXPENSEDETAILs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.EXPENSEDETAIL">
+            <EntityTypeMapping TypeName="VdbSoftModel.EXPENSEDETAIL">
               <MappingFragment StoreEntitySet="EXPENSEDETAIL">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="EXPENSE_CODE" ColumnName="EXPENSE_CODE" />
@@ -6829,7 +7018,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EXPENSEDETAIL_SIL">
-            <EntityTypeMapping TypeName="VdbSoftEntities.EXPENSEDETAIL_SIL">
+            <EntityTypeMapping TypeName="VdbSoftModel.EXPENSEDETAIL_SIL">
               <MappingFragment StoreEntitySet="EXPENSEDETAIL_SIL">
                 <ScalarProperty Name="EXPENSE_CODE" ColumnName="EXPENSE_CODE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
@@ -6867,7 +7056,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FIHRISTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.FIHRIST">
+            <EntityTypeMapping TypeName="VdbSoftModel.FIHRIST">
               <MappingFragment StoreEntitySet="FIHRIST">
                 <ScalarProperty Name="FIH_NO" ColumnName="FIH_NO" />
                 <ScalarProperty Name="MENU_ADI" ColumnName="MENU_ADI" />
@@ -6878,7 +7067,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FIHRISTDs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.FIHRISTD">
+            <EntityTypeMapping TypeName="VdbSoftModel.FIHRISTD">
               <MappingFragment StoreEntitySet="FIHRISTD">
                 <ScalarProperty Name="FIH_NO" ColumnName="FIH_NO" />
                 <ScalarProperty Name="BASLIK" ColumnName="BASLIK" />
@@ -6894,7 +7083,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FOOTTEXTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.FOOTTEXT">
+            <EntityTypeMapping TypeName="VdbSoftModel.FOOTTEXT">
               <MappingFragment StoreEntitySet="FOOTTEXT">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="TR" ColumnName="TR" />
@@ -6904,7 +7093,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FORMADDITIONALAREAs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.FORMADDITIONALAREA">
+            <EntityTypeMapping TypeName="VdbSoftModel.FORMADDITIONALAREA">
               <MappingFragment StoreEntitySet="FORMADDITIONALAREA">
                 <ScalarProperty Name="FORM_NAME" ColumnName="FORM_NAME" />
                 <ScalarProperty Name="CONTROL_NAME" ColumnName="CONTROL_NAME" />
@@ -6914,7 +7103,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FORMADDITIONALAREAVALUEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.FORMADDITIONALAREAVALUE">
+            <EntityTypeMapping TypeName="VdbSoftModel.FORMADDITIONALAREAVALUE">
               <MappingFragment StoreEntitySet="FORMADDITIONALAREAVALUE">
                 <ScalarProperty Name="FORM_NAME" ColumnName="FORM_NAME" />
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
@@ -6963,7 +7152,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FORMDESIGNs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.FORMDESIGN">
+            <EntityTypeMapping TypeName="VdbSoftModel.FORMDESIGN">
               <MappingFragment StoreEntitySet="FORMDESIGN">
                 <ScalarProperty Name="FORM_NO" ColumnName="FORM_NO" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
@@ -7004,7 +7193,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FORMDESIGNERRELATIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.FORMDESIGNERRELATION">
+            <EntityTypeMapping TypeName="VdbSoftModel.FORMDESIGNERRELATION">
               <MappingFragment StoreEntitySet="FORMDESIGNERRELATION">
                 <ScalarProperty Name="PROGRAM_CODE" ColumnName="PROGRAM_CODE" />
                 <ScalarProperty Name="FORM_CODE" ColumnName="FORM_CODE" />
@@ -7013,7 +7202,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FORMREPLACMENTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.FORMREPLACMENT">
+            <EntityTypeMapping TypeName="VdbSoftModel.FORMREPLACMENT">
               <MappingFragment StoreEntitySet="FORMREPLACMENT">
                 <ScalarProperty Name="FORM_NAME" ColumnName="FORM_NAME" />
                 <ScalarProperty Name="CONTROL_NAME" ColumnName="CONTROL_NAME" />
@@ -7052,7 +7241,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FTPs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.FTP">
+            <EntityTypeMapping TypeName="VdbSoftModel.FTP">
               <MappingFragment StoreEntitySet="FTP">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="ROW_NO" ColumnName="ROW_NO" />
@@ -7067,7 +7256,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GRIDDESIGNEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.GRIDDESIGNE">
+            <EntityTypeMapping TypeName="VdbSoftModel.GRIDDESIGNE">
               <MappingFragment StoreEntitySet="GRIDDESIGNE">
                 <ScalarProperty Name="FORM_NAME" ColumnName="FORM_NAME" />
                 <ScalarProperty Name="ISBASE" ColumnName="ISBASE" />
@@ -7084,7 +7273,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GROUPDES">
-            <EntityTypeMapping TypeName="VdbSoftEntities.GROUPDE">
+            <EntityTypeMapping TypeName="VdbSoftModel.GROUPDE">
               <MappingFragment StoreEntitySet="GROUPDES">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="EXP_TR" ColumnName="EXP_TR" />
@@ -7099,7 +7288,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GROUPMULTIs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.GROUPMULTI">
+            <EntityTypeMapping TypeName="VdbSoftModel.GROUPMULTI">
               <MappingFragment StoreEntitySet="GROUPMULTI">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CODE_NAME" ColumnName="CODE_NAME" />
@@ -7110,7 +7299,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GROUPS">
-            <EntityTypeMapping TypeName="VdbSoftEntities.GROUP">
+            <EntityTypeMapping TypeName="VdbSoftModel.GROUP">
               <MappingFragment StoreEntitySet="GROUPS">
                 <ScalarProperty Name="GROUP_CODE" ColumnName="GROUP_CODE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
@@ -7128,7 +7317,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LANGUAGES">
-            <EntityTypeMapping TypeName="VdbSoftEntities.LANGUAGE">
+            <EntityTypeMapping TypeName="VdbSoftModel.LANGUAGE">
               <MappingFragment StoreEntitySet="LANGUAGES">
                 <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
                 <ScalarProperty Name="LANGUAGE_CODE" ColumnName="LANGUAGE_CODE" />
@@ -7136,7 +7325,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LEVELOPPORTUNITies">
-            <EntityTypeMapping TypeName="VdbSoftEntities.LEVELOPPORTUNITY">
+            <EntityTypeMapping TypeName="VdbSoftModel.LEVELOPPORTUNITY">
               <MappingFragment StoreEntitySet="LEVELOPPORTUNITY">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
@@ -7151,7 +7340,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LEVELPROJECTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.LEVELPROJECT">
+            <EntityTypeMapping TypeName="VdbSoftModel.LEVELPROJECT">
               <MappingFragment StoreEntitySet="LEVELPROJECT">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
@@ -7167,7 +7356,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LEVELS">
-            <EntityTypeMapping TypeName="VdbSoftEntities.LEVEL">
+            <EntityTypeMapping TypeName="VdbSoftModel.LEVEL">
               <MappingFragment StoreEntitySet="LEVELS">
                 <ScalarProperty Name="LEVEL_CODE" ColumnName="LEVEL_CODE" />
                 <ScalarProperty Name="LEVEL_NAME" ColumnName="LEVEL_NAME" />
@@ -7179,7 +7368,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LICENSE_PLATE">
-            <EntityTypeMapping TypeName="VdbSoftEntities.LICENSE_PLATE">
+            <EntityTypeMapping TypeName="VdbSoftModel.LICENSE_PLATE">
               <MappingFragment StoreEntitySet="LICENSE_PLATE">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="EXPENSE_CODE" ColumnName="EXPENSE_CODE" />
@@ -7202,7 +7391,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOGREPORTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.LOGREPORT">
+            <EntityTypeMapping TypeName="VdbSoftModel.LOGREPORT">
               <MappingFragment StoreEntitySet="LOGREPORT">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
@@ -7213,7 +7402,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MACHINECARDs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.MACHINECARD">
+            <EntityTypeMapping TypeName="VdbSoftModel.MACHINECARD">
               <MappingFragment StoreEntitySet="MACHINECARD">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="UPPER_CODE" ColumnName="UPPER_CODE" />
@@ -7232,7 +7421,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MACHINEGROUPs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.MACHINEGROUP">
+            <EntityTypeMapping TypeName="VdbSoftModel.MACHINEGROUP">
               <MappingFragment StoreEntitySet="MACHINEGROUP">
                 <ScalarProperty Name="MACHINE_GROUP_CODE" ColumnName="MACHINE_GROUP_CODE" />
                 <ScalarProperty Name="UPPER_GROUP_CODE" ColumnName="UPPER_GROUP_CODE" />
@@ -7247,7 +7436,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MACHINEPARKs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.MACHINEPARK">
+            <EntityTypeMapping TypeName="VdbSoftModel.MACHINEPARK">
               <MappingFragment StoreEntitySet="MACHINEPARK">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="MACHINE_CODE" ColumnName="MACHINE_CODE" />
@@ -7271,7 +7460,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MAINLANGUAGEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.MAINLANGUAGE">
+            <EntityTypeMapping TypeName="VdbSoftModel.MAINLANGUAGE">
               <MappingFragment StoreEntitySet="MAINLANGUAGE">
                 <ScalarProperty Name="LANGUAGE_CODE" ColumnName="LANGUAGE_CODE" />
                 <ScalarProperty Name="LANGUAGE" ColumnName="LANGUAGE" />
@@ -7280,7 +7469,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MAPLOCATIONS">
-            <EntityTypeMapping TypeName="VdbSoftEntities.MAPLOCATION">
+            <EntityTypeMapping TypeName="VdbSoftModel.MAPLOCATION">
               <MappingFragment StoreEntitySet="MAPLOCATIONS">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
@@ -7294,7 +7483,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MENUDs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.MENUD">
+            <EntityTypeMapping TypeName="VdbSoftModel.MENUD">
               <MappingFragment StoreEntitySet="MENUD">
                 <ScalarProperty Name="MENU_NAME" ColumnName="MENU_NAME" />
                 <ScalarProperty Name="CONTROL_NAME" ColumnName="CONTROL_NAME" />
@@ -7307,7 +7496,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NOTES">
-            <EntityTypeMapping TypeName="VdbSoftEntities.NOTE">
+            <EntityTypeMapping TypeName="VdbSoftModel.NOTE">
               <MappingFragment StoreEntitySet="NOTES">
                 <ScalarProperty Name="NOTE_CODE" ColumnName="NOTE_CODE" />
                 <ScalarProperty Name="SDATE" ColumnName="SDATE" />
@@ -7323,13 +7512,13 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OPPORTUNITYDETAILs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.OPPORTUNITYDETAIL">
+            <EntityTypeMapping TypeName="VdbSoftModel.OPPORTUNITYDETAIL">
               <MappingFragment StoreEntitySet="OPPORTUNITYDETAIL">
-                <ScalarProperty Name="STOK_ID" ColumnName="STOK_ID" />
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
                 <ScalarProperty Name="VERSION" ColumnName="VERSION" />
                 <ScalarProperty Name="STOK_CODE" ColumnName="STOK_CODE" />
+                <ScalarProperty Name="STOK_ID" ColumnName="STOK_ID" />
                 <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
                 <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
                 <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
@@ -7359,7 +7548,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OPPORTUNITYDETAILADDAREAs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.OPPORTUNITYDETAILADDAREA">
+            <EntityTypeMapping TypeName="VdbSoftModel.OPPORTUNITYDETAILADDAREA">
               <MappingFragment StoreEntitySet="OPPORTUNITYDETAILADDAREA">
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
@@ -7372,7 +7561,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OPPORTUNITYDETAILVERSIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.OPPORTUNITYDETAILVERSION">
+            <EntityTypeMapping TypeName="VdbSoftModel.OPPORTUNITYDETAILVERSION">
               <MappingFragment StoreEntitySet="OPPORTUNITYDETAILVERSION">
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
@@ -7407,7 +7596,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OPPORTUNITYDETAILVERSIONADDAREAs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.OPPORTUNITYDETAILVERSIONADDAREA">
+            <EntityTypeMapping TypeName="VdbSoftModel.OPPORTUNITYDETAILVERSIONADDAREA">
               <MappingFragment StoreEntitySet="OPPORTUNITYDETAILVERSIONADDAREA">
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
@@ -7420,7 +7609,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OPPORTUNITYMASTERs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.OPPORTUNITYMASTER">
+            <EntityTypeMapping TypeName="VdbSoftModel.OPPORTUNITYMASTER">
               <MappingFragment StoreEntitySet="OPPORTUNITYMASTER">
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
                 <ScalarProperty Name="VERSION" ColumnName="VERSION" />
@@ -7485,7 +7674,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OPPORTUNITYMASTERVERSIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.OPPORTUNITYMASTERVERSION">
+            <EntityTypeMapping TypeName="VdbSoftModel.OPPORTUNITYMASTERVERSION">
               <MappingFragment StoreEntitySet="OPPORTUNITYMASTERVERSION">
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
                 <ScalarProperty Name="VERSION" ColumnName="VERSION" />
@@ -7550,7 +7739,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PFORMs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.PFORM">
+            <EntityTypeMapping TypeName="VdbSoftModel.PFORM">
               <MappingFragment StoreEntitySet="PFORM">
                 <ScalarProperty Name="FORM_ID" ColumnName="FORM_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -7566,7 +7755,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PHONEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.PHONE">
+            <EntityTypeMapping TypeName="VdbSoftModel.PHONE">
               <MappingFragment StoreEntitySet="PHONE">
                 <ScalarProperty Name="PHONE_CODE" ColumnName="PHONE_CODE" />
                 <ScalarProperty Name="PHONE_TYPE_ID" ColumnName="PHONE_TYPE_ID" />
@@ -7587,7 +7776,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PHONECODEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.PHONECODE">
+            <EntityTypeMapping TypeName="VdbSoftModel.PHONECODE">
               <MappingFragment StoreEntitySet="PHONECODE">
                 <ScalarProperty Name="COUNTRY_CODE" ColumnName="COUNTRY_CODE" />
                 <ScalarProperty Name="CITY_CODE" ColumnName="CITY_CODE" />
@@ -7597,7 +7786,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PIVOTCOLs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.PIVOTCOL">
+            <EntityTypeMapping TypeName="VdbSoftModel.PIVOTCOL">
               <MappingFragment StoreEntitySet="PIVOTCOL">
                 <ScalarProperty Name="ROW_NO" ColumnName="ROW_NO" />
                 <ScalarProperty Name="SQL_ID" ColumnName="SQL_ID" />
@@ -7607,7 +7796,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PIVOTMASTERs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.PIVOTMASTER">
+            <EntityTypeMapping TypeName="VdbSoftModel.PIVOTMASTER">
               <MappingFragment StoreEntitySet="PIVOTMASTER">
                 <ScalarProperty Name="ROW_NO" ColumnName="ROW_NO" />
                 <ScalarProperty Name="SQL_ID" ColumnName="SQL_ID" />
@@ -7618,7 +7807,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PIVOTMEASUREs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.PIVOTMEASURE">
+            <EntityTypeMapping TypeName="VdbSoftModel.PIVOTMEASURE">
               <MappingFragment StoreEntitySet="PIVOTMEASURE">
                 <ScalarProperty Name="ROW_NO" ColumnName="ROW_NO" />
                 <ScalarProperty Name="SQL_ID" ColumnName="SQL_ID" />
@@ -7628,7 +7817,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PIVOTROWs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.PIVOTROW">
+            <EntityTypeMapping TypeName="VdbSoftModel.PIVOTROW">
               <MappingFragment StoreEntitySet="PIVOTROW">
                 <ScalarProperty Name="ROW_NO" ColumnName="ROW_NO" />
                 <ScalarProperty Name="SQL_ID" ColumnName="SQL_ID" />
@@ -7638,7 +7827,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PROGRAMPREFIXes">
-            <EntityTypeMapping TypeName="VdbSoftEntities.PROGRAMPREFIX">
+            <EntityTypeMapping TypeName="VdbSoftModel.PROGRAMPREFIX">
               <MappingFragment StoreEntitySet="PROGRAMPREFIX">
                 <ScalarProperty Name="PROGRAM_CODE" ColumnName="PROGRAM_CODE" />
                 <ScalarProperty Name="TYPE_CODE" ColumnName="TYPE_CODE" />
@@ -7648,7 +7837,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PROJECTS">
-            <EntityTypeMapping TypeName="VdbSoftEntities.PROJECT">
+            <EntityTypeMapping TypeName="VdbSoftModel.PROJECT">
               <MappingFragment StoreEntitySet="PROJECTS">
                 <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -7673,7 +7862,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RES">
-            <EntityTypeMapping TypeName="VdbSoftEntities.RE">
+            <EntityTypeMapping TypeName="VdbSoftModel.RE">
               <MappingFragment StoreEntitySet="RES">
                 <ScalarProperty Name="R_ID" ColumnName="R_ID" />
                 <ScalarProperty Name="TR" ColumnName="TR" />
@@ -7683,7 +7872,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RESDES">
-            <EntityTypeMapping TypeName="VdbSoftEntities.RESDE">
+            <EntityTypeMapping TypeName="VdbSoftModel.RESDE">
               <MappingFragment StoreEntitySet="RESDES">
                 <ScalarProperty Name="R_ID" ColumnName="R_ID" />
                 <ScalarProperty Name="TR" ColumnName="TR" />
@@ -7693,7 +7882,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="REVENUEDETAILs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.REVENUEDETAIL">
+            <EntityTypeMapping TypeName="VdbSoftModel.REVENUEDETAIL">
               <MappingFragment StoreEntitySet="REVENUEDETAIL">
                 <ScalarProperty Name="REVENUE_CODE" ColumnName="REVENUE_CODE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
@@ -7719,7 +7908,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="REVENUEMASTERs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.REVENUEMASTER">
+            <EntityTypeMapping TypeName="VdbSoftModel.REVENUEMASTER">
               <MappingFragment StoreEntitySet="REVENUEMASTER">
                 <ScalarProperty Name="REVENUE_CODE" ColumnName="REVENUE_CODE" />
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
@@ -7742,7 +7931,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RIVALCOMPANies">
-            <EntityTypeMapping TypeName="VdbSoftEntities.RIVALCOMPANY">
+            <EntityTypeMapping TypeName="VdbSoftModel.RIVALCOMPANY">
               <MappingFragment StoreEntitySet="RIVALCOMPANY">
                 <ScalarProperty Name="RIVAL_COMPANY_CODE" ColumnName="RIVAL_COMPANY_CODE" />
                 <ScalarProperty Name="RIVAL_COMPANY_NAME" ColumnName="RIVAL_COMPANY_NAME" />
@@ -7755,7 +7944,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RIVALPRODUCTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.RIVALPRODUCT">
+            <EntityTypeMapping TypeName="VdbSoftModel.RIVALPRODUCT">
               <MappingFragment StoreEntitySet="RIVALPRODUCT">
                 <ScalarProperty Name="RIVAL_PRODUCT_CODE" ColumnName="RIVAL_PRODUCT_CODE" />
                 <ScalarProperty Name="RIVAL_COMPANY_CODE" ColumnName="RIVAL_COMPANY_CODE" />
@@ -7768,7 +7957,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RIVALPRODUCTDETAILs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.RIVALPRODUCTDETAIL">
+            <EntityTypeMapping TypeName="VdbSoftModel.RIVALPRODUCTDETAIL">
               <MappingFragment StoreEntitySet="RIVALPRODUCTDETAIL">
                 <ScalarProperty Name="RIVAL_PRODUCT_CODE" ColumnName="RIVAL_PRODUCT_CODE" />
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
@@ -7790,7 +7979,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SMARTMASTERs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.SMARTMASTER">
+            <EntityTypeMapping TypeName="VdbSoftModel.SMARTMASTER">
               <MappingFragment StoreEntitySet="SMARTMASTER">
                 <ScalarProperty Name="ROW_NO" ColumnName="ROW_NO" />
                 <ScalarProperty Name="SQL_ID" ColumnName="SQL_ID" />
@@ -7805,7 +7994,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SMARTUSERBASEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.SMARTUSERBASE">
+            <EntityTypeMapping TypeName="VdbSoftModel.SMARTUSERBASE">
               <MappingFragment StoreEntitySet="SMARTUSERBASE">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="SQL_ID" ColumnName="SQL_ID" />
@@ -7813,7 +8002,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SMARTUSERRELATIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.SMARTUSERRELATION">
+            <EntityTypeMapping TypeName="VdbSoftModel.SMARTUSERRELATION">
               <MappingFragment StoreEntitySet="SMARTUSERRELATION">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="SQL_ID" ColumnName="SQL_ID" />
@@ -7823,7 +8012,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SPECs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.SPEC">
+            <EntityTypeMapping TypeName="VdbSoftModel.SPEC">
               <MappingFragment StoreEntitySet="SPEC">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="STOK_CODE" ColumnName="STOK_CODE" />
@@ -7899,7 +8088,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SPECDESCIRIPTIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.SPECDESCIRIPTION">
+            <EntityTypeMapping TypeName="VdbSoftModel.SPECDESCIRIPTION">
               <MappingFragment StoreEntitySet="SPECDESCIRIPTION">
                 <ScalarProperty Name="STOK_CODE" ColumnName="STOK_CODE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
@@ -7918,7 +8107,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SPECS1">
-            <EntityTypeMapping TypeName="VdbSoftEntities.SPEC1">
+            <EntityTypeMapping TypeName="VdbSoftModel.SPEC1">
               <MappingFragment StoreEntitySet="SPECS">
                 <ScalarProperty Name="SPECT_CODE" ColumnName="SPECT_CODE" />
                 <ScalarProperty Name="RATIO" ColumnName="RATIO" />
@@ -7926,7 +8115,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="STOKCARDs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.STOKCARD">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKCARD">
               <MappingFragment StoreEntitySet="STOKCARD">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="UPPER_CODE" ColumnName="UPPER_CODE" />
@@ -7997,7 +8186,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="STOKCARD_">
-            <EntityTypeMapping TypeName="VdbSoftEntities.STOKCARD_">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKCARD_">
               <MappingFragment StoreEntitySet="STOKCARD_">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="UPPER_CODE" ColumnName="UPPER_CODE" />
@@ -8019,7 +8208,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="STOKCARD1">
-            <EntityTypeMapping TypeName="VdbSoftEntities.STOKCARD1">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKCARD1">
               <MappingFragment StoreEntitySet="STOKCARD1">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="UPPER_CODE" ColumnName="UPPER_CODE" />
@@ -8099,7 +8288,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="STOKCARDPICTUREs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.STOKCARDPICTURE">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKCARDPICTURE">
               <MappingFragment StoreEntitySet="STOKCARDPICTURE">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="STOK_ID" ColumnName="STOK_ID" />
@@ -8110,8 +8299,25 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="STOKGROUPs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKGROUP">
+              <MappingFragment StoreEntitySet="STOKGROUP">
+                <ScalarProperty Name="STOK_GROUP_CODE" ColumnName="STOK_GROUP_CODE" />
+                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
+                <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
+                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+                <ScalarProperty Name="NEW_UPPER_GROUP_CODE" ColumnName="NEW_UPPER_GROUP_CODE" />
+                <ScalarProperty Name="MLEVEL" ColumnName="MLEVEL" />
+                <ScalarProperty Name="FULL_PATH_TEXT" ColumnName="FULL_PATH_TEXT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="STOKGROUP1">
-            <EntityTypeMapping TypeName="VdbSoftEntities.STOKGROUP1">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKGROUP1">
               <MappingFragment StoreEntitySet="STOKGROUP1">
                 <ScalarProperty Name="STOK_GROUP_CODE" ColumnName="STOK_GROUP_CODE" />
                 <ScalarProperty Name="UPPER_GROUP_CODE" ColumnName="UPPER_GROUP_CODE" />
@@ -8126,7 +8332,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="VdbSoftEntities.sysdiagram">
+            <EntityTypeMapping TypeName="VdbSoftModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -8137,7 +8343,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TFILEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.TFILE">
+            <EntityTypeMapping TypeName="VdbSoftModel.TFILE">
               <MappingFragment StoreEntitySet="TFILE">
                 <ScalarProperty Name="FILE_CODE" ColumnName="FILE_CODE" />
                 <ScalarProperty Name="DOCUMENT_TYPE" ColumnName="DOCUMENT_TYPE" />
@@ -8158,7 +8364,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TRANSFERs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.TRANSFER">
+            <EntityTypeMapping TypeName="VdbSoftModel.TRANSFER">
               <MappingFragment StoreEntitySet="TRANSFER">
                 <ScalarProperty Name="SQL_ID" ColumnName="SQL_ID" />
                 <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
@@ -8172,7 +8378,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TRANSFERFILEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.TRANSFERFILE">
+            <EntityTypeMapping TypeName="VdbSoftModel.TRANSFERFILE">
               <MappingFragment StoreEntitySet="TRANSFERFILE">
                 <ScalarProperty Name="ROW_NO" ColumnName="ROW_NO" />
                 <ScalarProperty Name="SERVER_CODE" ColumnName="SERVER_CODE" />
@@ -8183,7 +8389,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TRANSFERUSERS">
-            <EntityTypeMapping TypeName="VdbSoftEntities.TRANSFERUSER">
+            <EntityTypeMapping TypeName="VdbSoftModel.TRANSFERUSER">
               <MappingFragment StoreEntitySet="TRANSFERUSERS">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="SERVER_PATH" ColumnName="SERVER_PATH" />
@@ -8201,7 +8407,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERACTIVITYTYPEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.USERACTIVITYTYPE">
+            <EntityTypeMapping TypeName="VdbSoftModel.USERACTIVITYTYPE">
               <MappingFragment StoreEntitySet="USERACTIVITYTYPE">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="ACTIVITY_TYPE" ColumnName="ACTIVITY_TYPE" />
@@ -8214,7 +8420,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERCOMPANYREGIONRELATIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.USERCOMPANYREGIONRELATION">
+            <EntityTypeMapping TypeName="VdbSoftModel.USERCOMPANYREGIONRELATION">
               <MappingFragment StoreEntitySet="USERCOMPANYREGIONRELATION">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="COMPANY_REGION_CODE" ColumnName="COMPANY_REGION_CODE" />
@@ -8222,7 +8428,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERCOMPANYRELATIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.USERCOMPANYRELATION">
+            <EntityTypeMapping TypeName="VdbSoftModel.USERCOMPANYRELATION">
               <MappingFragment StoreEntitySet="USERCOMPANYRELATION">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
@@ -8230,7 +8436,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERINFOes">
-            <EntityTypeMapping TypeName="VdbSoftEntities.USERINFO">
+            <EntityTypeMapping TypeName="VdbSoftModel.USERINFO">
               <MappingFragment StoreEntitySet="USERINFO">
                 <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
                 <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
@@ -8285,7 +8491,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERREGIONRELATIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.USERREGIONRELATION">
+            <EntityTypeMapping TypeName="VdbSoftModel.USERREGIONRELATION">
               <MappingFragment StoreEntitySet="USERREGIONRELATION">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="REGION_CODE" ColumnName="REGION_CODE" />
@@ -8293,7 +8499,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERRIGHTBASEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.USERRIGHTBASE">
+            <EntityTypeMapping TypeName="VdbSoftModel.USERRIGHTBASE">
               <MappingFragment StoreEntitySet="USERRIGHTBASE">
                 <ScalarProperty Name="MENU_NAME" ColumnName="MENU_NAME" />
                 <ScalarProperty Name="MAIN" ColumnName="MAIN" />
@@ -8309,7 +8515,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERS">
-            <EntityTypeMapping TypeName="VdbSoftEntities.USER">
+            <EntityTypeMapping TypeName="VdbSoftModel.USER">
               <MappingFragment StoreEntitySet="USERS">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
@@ -8341,7 +8547,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERSALARies">
-            <EntityTypeMapping TypeName="VdbSoftEntities.USERSALARY">
+            <EntityTypeMapping TypeName="VdbSoftModel.USERSALARY">
               <MappingFragment StoreEntitySet="USERSALARY">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
@@ -8354,7 +8560,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VMMAILFILEREPORTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.VMMAILFILEREPORT">
+            <EntityTypeMapping TypeName="VdbSoftModel.VMMAILFILEREPORT">
               <MappingFragment StoreEntitySet="VMMAILFILEREPORT">
                 <ScalarProperty Name="ROW_NO" ColumnName="ROW_NO" />
                 <ScalarProperty Name="MAIL_TO" ColumnName="MAIL_TO" />
@@ -8367,7 +8573,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYDOCUMENTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYDOCUMENT">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYDOCUMENT">
               <MappingFragment StoreEntitySet="ACTIVITYDOCUMENT">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="DOCUMENT_CODE" ColumnName="DOCUMENT_CODE" />
@@ -8381,7 +8587,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYJOINERs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYJOINER">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYJOINER">
               <MappingFragment StoreEntitySet="ACTIVITYJOINER">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="JOINER_CODE" ColumnName="JOINER_CODE" />
@@ -8390,7 +8596,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYPICTUREs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYPICTURE">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYPICTURE">
               <MappingFragment StoreEntitySet="ACTIVITYPICTURE">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
@@ -8400,7 +8606,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYPROJECTs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYPROJECT">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYPROJECT">
               <MappingFragment StoreEntitySet="ACTIVITYPROJECT">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
@@ -8409,7 +8615,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYRESOURCEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYRESOURCE">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYRESOURCE">
               <MappingFragment StoreEntitySet="ACTIVITYRESOURCE">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="RESOURCE_CODE" ColumnName="RESOURCE_CODE" />
@@ -8418,7 +8624,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACTIVITYSHELves">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ACTIVITYSHELF">
+            <EntityTypeMapping TypeName="VdbSoftModel.ACTIVITYSHELF">
               <MappingFragment StoreEntitySet="ACTIVITYSHELF">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
@@ -8437,7 +8643,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ARDELETEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ARDELETE">
+            <EntityTypeMapping TypeName="VdbSoftModel.ARDELETE">
               <MappingFragment StoreEntitySet="ARDELETE">
                 <ScalarProperty Name="R_CODE" ColumnName="R_CODE" />
                 <ScalarProperty Name="ACTIVITY_DATE" ColumnName="ACTIVITY_DATE" />
@@ -8448,7 +8654,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ARREMINDERs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.ARREMINDER">
+            <EntityTypeMapping TypeName="VdbSoftModel.ARREMINDER">
               <MappingFragment StoreEntitySet="ARREMINDER">
                 <ScalarProperty Name="R_CODE" ColumnName="R_CODE" />
                 <ScalarProperty Name="APPOINTED_USER_CODE" ColumnName="APPOINTED_USER_CODE" />
@@ -8459,7 +8665,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BACKGROUNDCOLORs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.BACKGROUNDCOLOR">
+            <EntityTypeMapping TypeName="VdbSoftModel.BACKGROUNDCOLOR">
               <MappingFragment StoreEntitySet="BACKGROUNDCOLOR">
                 <ScalarProperty Name="FORM_NAME" ColumnName="FORM_NAME" />
                 <ScalarProperty Name="COLOR" ColumnName="COLOR" />
@@ -8468,7 +8674,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BACKGROUNDPICTUREs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.BACKGROUNDPICTURE">
+            <EntityTypeMapping TypeName="VdbSoftModel.BACKGROUNDPICTURE">
               <MappingFragment StoreEntitySet="BACKGROUNDPICTURE">
                 <ScalarProperty Name="FORM_NAME" ColumnName="FORM_NAME" />
                 <ScalarProperty Name="MPICTURE" ColumnName="MPICTURE" />
@@ -8479,7 +8685,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="COMPANYSECTIONs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.COMPANYSECTION">
+            <EntityTypeMapping TypeName="VdbSoftModel.COMPANYSECTION">
               <MappingFragment StoreEntitySet="COMPANYSECTION">
                 <ScalarProperty Name="SECTION_CODE" ColumnName="SECTION_CODE" />
                 <ScalarProperty Name="SECTION_NAME" ColumnName="SECTION_NAME" />
@@ -8493,7 +8699,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CURs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.CUR">
+            <EntityTypeMapping TypeName="VdbSoftModel.CUR">
               <MappingFragment StoreEntitySet="CUR">
                 <ScalarProperty Name="CURDATE" ColumnName="CURDATE" />
                 <ScalarProperty Name="CURSYMBOL" ColumnName="CURSYMBOL" />
@@ -8512,7 +8718,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EXCELDs1">
-            <EntityTypeMapping TypeName="VdbSoftEntities.EXCELD1">
+            <EntityTypeMapping TypeName="VdbSoftModel.EXCELD1">
               <MappingFragment StoreEntitySet="EXCELD">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="EXPLANATION" ColumnName="EXPLANATION" />
@@ -8542,7 +8748,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MENUBACKGROUNDPICTUREs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.MENUBACKGROUNDPICTURE">
+            <EntityTypeMapping TypeName="VdbSoftModel.MENUBACKGROUNDPICTURE">
               <MappingFragment StoreEntitySet="MENUBACKGROUNDPICTURE">
                 <ScalarProperty Name="FORM_NAME" ColumnName="FORM_NAME" />
                 <ScalarProperty Name="MPICTURE" ColumnName="MPICTURE" />
@@ -8553,7 +8759,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MENUEXEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.MENUEXE">
+            <EntityTypeMapping TypeName="VdbSoftModel.MENUEXE">
               <MappingFragment StoreEntitySet="MENUEXE">
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="MENU_NAME" ColumnName="MENU_NAME" />
@@ -8567,7 +8773,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MENULOADs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.MENULOAD">
+            <EntityTypeMapping TypeName="VdbSoftModel.MENULOAD">
               <MappingFragment StoreEntitySet="MENULOAD">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MENU_NAME" ColumnName="MENU_NAME" />
@@ -8582,7 +8788,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MENUREPORTLOADs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.MENUREPORTLOAD">
+            <EntityTypeMapping TypeName="VdbSoftModel.MENUREPORTLOAD">
               <MappingFragment StoreEntitySet="MENUREPORTLOAD">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MENU_NAME" ColumnName="MENU_NAME" />
@@ -8594,7 +8800,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PROJECTMODULEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.PROJECTMODULE">
+            <EntityTypeMapping TypeName="VdbSoftModel.PROJECTMODULE">
               <MappingFragment StoreEntitySet="PROJECTMODULE">
                 <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
@@ -8607,7 +8813,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PSQLs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.PSQL">
+            <EntityTypeMapping TypeName="VdbSoftModel.PSQL">
               <MappingFragment StoreEntitySet="PSQL">
                 <ScalarProperty Name="SQL_ID" ColumnName="SQL_ID" />
                 <ScalarProperty Name="SQL" ColumnName="SQL" />
@@ -8616,7 +8822,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RUs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.RU">
+            <EntityTypeMapping TypeName="VdbSoftModel.RU">
               <MappingFragment StoreEntitySet="RU">
                 <ScalarProperty Name="ACTIVITY_CODE" ColumnName="ACTIVITY_CODE" />
                 <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
@@ -8635,7 +8841,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SALES_ORI2">
-            <EntityTypeMapping TypeName="VdbSoftEntities.SALES_ORI2">
+            <EntityTypeMapping TypeName="VdbSoftModel.SALES_ORI2">
               <MappingFragment StoreEntitySet="SALES_ORI2">
                 <ScalarProperty Name="DOCUMENT_NO1" ColumnName="DOCUMENT_NO1" />
                 <ScalarProperty Name="DOCUMENT_DATE" ColumnName="DOCUMENT_DATE" />
@@ -8663,7 +8869,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SELLER_BALANCE">
-            <EntityTypeMapping TypeName="VdbSoftEntities.SELLER_BALANCE">
+            <EntityTypeMapping TypeName="VdbSoftModel.SELLER_BALANCE">
               <MappingFragment StoreEntitySet="SELLER_BALANCE">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="INVOICE_DATE" ColumnName="INVOICE_DATE" />
@@ -8684,7 +8890,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SELLER_DETAIL">
-            <EntityTypeMapping TypeName="VdbSoftEntities.SELLER_DETAIL">
+            <EntityTypeMapping TypeName="VdbSoftModel.SELLER_DETAIL">
               <MappingFragment StoreEntitySet="SELLER_DETAIL">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DOCUMENT_DATE" ColumnName="DOCUMENT_DATE" />
@@ -8698,25 +8904,8 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="STOKGROUPs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.STOKGROUP">
-              <MappingFragment StoreEntitySet="STOKGROUP">
-                <ScalarProperty Name="STOK_GROUP_CODE" ColumnName="STOK_GROUP_CODE" />
-                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
-                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
-                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
-                <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
-                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
-                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
-                <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
-                <ScalarProperty Name="NEW_UPPER_GROUP_CODE" ColumnName="NEW_UPPER_GROUP_CODE" />
-                <ScalarProperty Name="MLEVEL" ColumnName="MLEVEL" />
-                <ScalarProperty Name="FULL_PATH_TEXT" ColumnName="FULL_PATH_TEXT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="USERBANKs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.USERBANK">
+            <EntityTypeMapping TypeName="VdbSoftModel.USERBANK">
               <MappingFragment StoreEntitySet="USERBANK">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="BANK_CODE" ColumnName="BANK_CODE" />
@@ -8726,7 +8915,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERCASHes">
-            <EntityTypeMapping TypeName="VdbSoftEntities.USERCASH">
+            <EntityTypeMapping TypeName="VdbSoftModel.USERCASH">
               <MappingFragment StoreEntitySet="USERCASH">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="CASH_CODE" ColumnName="CASH_CODE" />
@@ -8736,7 +8925,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERWHAREHOUSEs">
-            <EntityTypeMapping TypeName="VdbSoftEntities.USERWHAREHOUSE">
+            <EntityTypeMapping TypeName="VdbSoftModel.USERWHAREHOUSE">
               <MappingFragment StoreEntitySet="USERWHAREHOUSE">
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="WHAREHOUSE_CODE" ColumnName="WHAREHOUSE_CODE" />
@@ -8745,7 +8934,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="VdbSoftEntities.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="VdbSoftModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>

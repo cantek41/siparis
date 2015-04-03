@@ -127,6 +127,7 @@ namespace siparis.Models
         public virtual DbSet<STOKCARD_> STOKCARD_ { get; set; }
         public virtual DbSet<STOKCARD1> STOKCARD1 { get; set; }
         public virtual DbSet<STOKCARDPICTURE> STOKCARDPICTUREs { get; set; }
+        public virtual DbSet<STOKGROUP> STOKGROUPs { get; set; }
         public virtual DbSet<STOKGROUP1> STOKGROUP1 { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TFILE> TFILEs { get; set; }
@@ -165,7 +166,6 @@ namespace siparis.Models
         public virtual DbSet<SALES_ORI2> SALES_ORI2 { get; set; }
         public virtual DbSet<SELLER_BALANCE> SELLER_BALANCE { get; set; }
         public virtual DbSet<SELLER_DETAIL> SELLER_DETAIL { get; set; }
-        public virtual DbSet<STOKGROUP> STOKGROUPs { get; set; }
         public virtual DbSet<USERBANK> USERBANKs { get; set; }
         public virtual DbSet<USERCASH> USERCASHes { get; set; }
         public virtual DbSet<USERWHAREHOUSE> USERWHAREHOUSEs { get; set; }

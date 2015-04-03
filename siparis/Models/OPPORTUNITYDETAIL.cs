@@ -18,6 +18,7 @@ namespace siparis.Models
         public int ROW_ORDER_NO { get; set; }
         public string VERSION { get; set; }
         public string STOK_CODE { get; set; }
+        public Nullable<int> STOK_ID { get; set; }
         public string PRODUCT_NAME { get; set; }
         public Nullable<float> QUANTITY { get; set; }
         public Nullable<float> UNIT_PRICE { get; set; }
@@ -43,7 +44,6 @@ namespace siparis.Models
         public Nullable<float> BUYING_PRICE { get; set; }
         public Nullable<float> BUYING_DISCOUNT_PERCENT { get; set; }
         public string DETAILDESCRIPTION { get; set; }
-        public Nullable<int> STOK_ID { get; set; }
     
         public virtual OPPORTUNITYMASTER OPPORTUNITYMASTER { get; set; }
         public virtual STOKCARD STOKCARD { get; set; }

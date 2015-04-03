@@ -14,7 +14,12 @@ namespace siparis.Models
     
     public partial class STOKGROUP
     {
-        public string STOK_GROUP_CODE { get; set; }
+        public STOKGROUP()
+        {
+            this.STOKCARDs = new HashSet<STOKCARD>();
+        }
+    
+        public int STOK_GROUP_CODE { get; set; }
         public string NAME_TR { get; set; }
         public string NAME_EN { get; set; }
         public string NAME_GR { get; set; }
@@ -25,5 +30,7 @@ namespace siparis.Models
         public string NEW_UPPER_GROUP_CODE { get; set; }
         public Nullable<int> MLEVEL { get; set; }
         public string FULL_PATH_TEXT { get; set; }
+    
+        public virtual ICollection<STOKCARD> STOKCARDs { get; set; }
     }
 }
