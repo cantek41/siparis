@@ -834,7 +834,7 @@
     <Content Include="Views\OrderFollow\Sample.cshtml" />
     <Content Include="Views\OrderFollow\Offer.cshtml" />
     <Content Include="Views\Product\ProductDetail.cshtml" />
-    <Content Include="Views\Product\Chart.cshtml" />
+    <Content Include="Views\Order\Chart.cshtml" />
     <Content Include="Views\Shared\_Layout Empty.cshtml" />
     <Content Include="Views\Home\NotFound.cshtml" />
     <Content Include="Views\Shared\ContentLeftPartialView.cshtml" />
@@ -850,7 +850,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

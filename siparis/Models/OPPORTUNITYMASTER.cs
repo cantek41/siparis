@@ -14,6 +14,11 @@ namespace siparis.Models
     
     public partial class OPPORTUNITYMASTER
     {
+        public OPPORTUNITYMASTER()
+        {
+            this.OPPORTUNITYDETAILs = new HashSet<OPPORTUNITYDETAIL>();
+        }
+    
         public int OPPORTUNITY_CODE { get; set; }
         public string VERSION { get; set; }
         public int CONTACT_CODE { get; set; }
@@ -73,5 +78,7 @@ namespace siparis.Models
         public Nullable<float> DISCONT_FPB { get; set; }
         public string APPROVMENT_STATUS { get; set; }
         public Nullable<int> SOURCE_CODE { get; set; }
+    
+        public virtual ICollection<OPPORTUNITYDETAIL> OPPORTUNITYDETAILs { get; set; }
     }
 }

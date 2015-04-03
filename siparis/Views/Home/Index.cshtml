@@ -33,7 +33,10 @@
                     <div class="panel-group category-products" id="accordian">
                         <!--category-productsr-->
                         @{Html.RenderPartial("LeftMenuPartial");}
-
+                        @foreach (var stok in Model.Item2)
+                        {
+                                                    
+                    }
                     </div><!--/category-products-->
 
 
@@ -64,7 +67,6 @@
                         @Html.Hidden("CurrentPageIndex",
    info.CurrentPageIndex)
                         foreach (var stok in Model.Item1)
-
                         {
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
