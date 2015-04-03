@@ -473,7 +473,7 @@ ul.sub-menu {
 }
 
 .footer-widget {
-  margin-bottom: 68px;
+  /*margin-bottom: 68px;*/
 }
 
 .footer-widget .container {
@@ -500,6 +500,12 @@ ul.sub-menu {
 	font-size: 14px;
 	font-weight: 300;
 	padding: 5px 0;
+}
+
+.social-network-icon {
+    font-size:30px;
+    margin-top:7px;
+
 }
 
 .single-widget ul li a i {
