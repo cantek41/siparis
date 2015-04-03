@@ -10,7 +10,7 @@
 
 .toast-item {
 	height: auto;
-	background: #333;
+	background: #000000;
     opacity: 0.9;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -22,7 +22,7 @@
 	padding-right: 6px;
 	font-family: lucida Grande;
 	font-size: 14px;
-	border: 2px solid #999;
+	
 	display: block;
 	position: relative;
 	margin: 0 0 12px 0;
@@ -60,11 +60,11 @@
 }
 
 .toast-item-image-warning {
-    background:url(../images/warning.png);
+    background:url(../images/alert/warning.png);
 }
 
 .toast-item-image-error {
-    background:url(../images/error.png);
+    background:url(../images/alert/error.png);
 }
 
 
@@ -89,8 +89,8 @@
 }
 
 .toast-type-error {
-    color: white;
-    border-color: #B32B2B;
+    color:white; 
+    border-color: #b32b2b;
 }
 
 /**

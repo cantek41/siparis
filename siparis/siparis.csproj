@@ -664,6 +664,7 @@
     <Content Include="Content\css\jquery.toastmessage.css" />
     <Content Include="Content\css\verticalMenu.css" />
     <Content Include="Content\images\404\404.png" />
+    <Content Include="Content\images\alert\error.png" />
     <Content Include="Content\images\alert\success.png" />
     <Content Include="Content\images\blog\blog-one.jpg" />
     <Content Include="Content\images\blog\blog-three.jpg" />
