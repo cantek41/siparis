@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f1412ce69383466884723ae2b957825c" Name="Diagram1" ZoomLevel="63">
+      <Diagram DiagramId="f1412ce69383466884723ae2b957825c" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="VdbSoftModel.C__MigrationHistory" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.ACTIVITY" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYCC" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
@@ -158,6 +158,14 @@
         <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKGROUP" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.FK_STOKCARDPICTURE_STOKCARD" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKBODY" Width="1.5" PointX="0.75" PointY="14.25" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKBRAND" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKCOLOR" Width="1.5" PointX="0.75" PointY="17.25" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKSEASON" Width="1.5" PointX="0.75" PointY="11.375" />
+        <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKBODY" />
+        <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKBRAND" />
+        <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKCOLOR" />
+        <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKSEASON" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

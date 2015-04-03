@@ -12,15 +12,8 @@ namespace siparis.Controllers
         
         public ActionResult Index()
         {
-            checkCart();
-            //VdbSoftEntities db = new VdbSoftEntities();
-            //var model = from d in db.STOKCARDs
-            //            select d;
-            //return View(model);
-
+            checkCart();           
             VdbSoftEntities db = new VdbSoftEntities();
-
-
             SortingPagingInfo info = new SortingPagingInfo();
             info.SortField = "ID";
             info.SortDirection = "ascending";
@@ -30,9 +23,13 @@ namespace siparis.Controllers
             info.CurrentPageIndex = 0;
             var query = db.STOKCARDs.OrderBy(c => c.ID).Take(info.PageSize);
             ViewBag.SortingPagingInfo = info;
-            List<STOKCARD> model = query.ToList();
-            var stokgrup = db.STOKGROUPs;
-            return View(new Tuple<IEnumerable<STOKCARD>, IEnumerable<STOKGROUP>>(model, stokgrup));
+           /// List<STOKCARD> model = query.ToList();
+           
+            IndexDataViewModel data = new IndexDataViewModel();
+            data.stokcard = query.ToList();
+            data.stokgroup=db.STOKGROUPs.ToList();
+            data.stokbrand=db.STOKBRANDs.ToList();
+            return View(data);
             //   return View(model);
 
         }
@@ -74,9 +71,11 @@ namespace siparis.Controllers
             query = query.Skip(info.CurrentPageIndex
                   * info.PageSize).Take(info.PageSize);
             ViewBag.SortingPagingInfo = info;
-            List<STOKCARD> model = query.ToList();
-            var stokgrup = db.STOKGROUPs;
-            return View(new Tuple<IEnumerable<STOKCARD>, IEnumerable<STOKGROUP>>(model, stokgrup));
+            IndexDataViewModel data = new IndexDataViewModel();
+            data.stokcard = query.ToList();
+            data.stokgroup = db.STOKGROUPs.ToList();
+            data.stokbrand = db.STOKBRANDs.ToList();
+            return View(data);
 
         }
         public ActionResult About()

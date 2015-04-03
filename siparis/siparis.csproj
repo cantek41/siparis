@@ -193,6 +193,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Models\IndexDataViewModel.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\OrderFollowController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -582,6 +584,12 @@
     <Compile Include="Models\SPECDESCIRIPTION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\STOKBODY.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STOKBRAND.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\STOKCARD.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -594,10 +602,16 @@
     <Compile Include="Models\STOKCARD_.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\STOKCOLOR.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\STOKGROUP.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\STOKGROUP1.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STOKSEASON.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
@@ -848,6 +862,8 @@
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Views\Home\LeftMenuPartial.cshtml" />
     <Content Include="Views\Product\ProductDetailPartial.cshtml" />
+    <Content Include="Views\Category\getCategoryProduct.cshtml" />
+    <Content Include="Views\Category\LeftMenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
@@ -877,7 +893,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
+
           <IISUrl>http://localhost:39816/</IISUrl>
+
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

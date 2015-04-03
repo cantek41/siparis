@@ -169,5 +169,9 @@ namespace siparis.Models
         public virtual DbSet<USERBANK> USERBANKs { get; set; }
         public virtual DbSet<USERCASH> USERCASHes { get; set; }
         public virtual DbSet<USERWHAREHOUSE> USERWHAREHOUSEs { get; set; }
+        public virtual DbSet<STOKBODY> STOKBODies { get; set; }
+        public virtual DbSet<STOKBRAND> STOKBRANDs { get; set; }
+        public virtual DbSet<STOKCOLOR> STOKCOLORs { get; set; }
+        public virtual DbSet<STOKSEASON> STOKSEASONs { get; set; }
     }
 }

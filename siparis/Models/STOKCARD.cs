@@ -89,5 +89,9 @@ namespace siparis.Models
         public virtual ICollection<OPPORTUNITYDETAIL> OPPORTUNITYDETAILs { get; set; }
         public virtual STOKGROUP STOKGROUP { get; set; }
         public virtual ICollection<STOKCARDPICTURE> STOKCARDPICTUREs { get; set; }
+        public virtual STOKBODY STOKBODY { get; set; }
+        public virtual STOKBRAND STOKBRAND { get; set; }
+        public virtual STOKCOLOR STOKCOLOR { get; set; }
+        public virtual STOKSEASON STOKSEASON { get; set; }
     }
 }

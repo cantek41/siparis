@@ -1,4 +1,5 @@
-﻿@model Tuple<IEnumerable<siparis.Models.STOKCARD>,IEnumerable<siparis.Models.STOKGROUP>>
+﻿@model siparis.Models.IndexDataViewModel
+
 @{
     ViewBag.Title = "Home Page";
     siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
@@ -33,10 +34,7 @@
                     <div class="panel-group category-products" id="accordian">
                         <!--category-productsr-->
                         @{Html.RenderPartial("LeftMenuPartial");}
-                        @foreach (var stok in Model.Item2)
-                        {
-                                                    
-                    }
+                    
                     </div><!--/category-products-->
 
 
@@ -66,7 +64,7 @@
                         @Html.Hidden("PageSize", info.PageSize)
                         @Html.Hidden("CurrentPageIndex",
    info.CurrentPageIndex)
-                        foreach (var stok in Model.Item1)
+                        foreach (var stok in Model.stokcard)
                         {
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">

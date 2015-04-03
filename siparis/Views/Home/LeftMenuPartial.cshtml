@@ -1,17 +1,17 @@
-﻿@{
-
-    foreach (var stok in Model.Item2)
-    {
+﻿@model siparis.Models.IndexDataViewModel
+@{
+    foreach (var stok in Model.stokgroup)
+    {        
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordian" href="/Product/ProductDetail">
-                        <span class="badge pull-right">(50)</span>
+                    <a href="/Category/getCategoryProduct?Id=@stok.STOK_GROUP_CODE">
+                        @*<span class="badge pull-right">(@Model.stokcard.Where(x => x.CATEGORY_CODE == stok.STOK_GROUP_CODE).Count())</span>*@
                         @stok.NAME_TR
                     </a>
                 </h4>
             </div>        
-        </div>   
+        </div>  
 
     }
 }
@@ -20,16 +20,18 @@
     <!--brands_products-->
     <h2 style="margin-top:20px;">Brands</h2>
     @{
-        foreach (var stok in Model.Item2)
+        foreach (var stok in Model.stokbrand)
         {
             <div class="brands-name"style="padding-bottom:0px; padding-top:0px;">
                 <ul class="nav nav-pills nav-stacked">
-                    <li><a href="#"> <span class="pull-right">(50)</span>@stok.NAME_TR</a></li>
-
+                    <li><a href="#"> 
+                        @*<span class="pull-right">(@Model.stokcard.Where(x=>x.BRAND_CODE==stok.BRAND_CODE).Count())</span>*@
+                        @stok.NAME_TR</a></li>
                 </ul>
             </div>
         }}
 </div><!--/brands_products-->
+
 
 
 
