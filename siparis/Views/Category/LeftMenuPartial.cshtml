@@ -34,110 +34,107 @@
             </div>
         }}
 </div><!--/brands_products-->
-
-
-<div class="brands_products">
-    <!--brands_products-->
-    <h2 style="margin-top:20px;">Size</h2>
-    @{
-        foreach (var stok in Model.stokBody)
+@using(Html.BeginForm())    
+{   <div class="brands_products">
+        <!--brands_products-->
+        <h2 style="margin-top:20px;">SIZE</h2>
+        @(Html.DevExpress().CheckBoxList(settings =>
         {
-            <div class="brands-name" style="padding-bottom:0px; padding-top:0px;">
-                <ul class="nav nav-pills nav-stacked">
-                    <li>
-                        <a href="#">
-                            <span class="pull-right">(@Model.stokcard.Where(x => x.BODY_CODE == stok.BODY_CODE).Count())</span>
-                            @stok.NAME_TR
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        }}
-</div><!--/brands_products-->
-
-<div class="brands_products">
-    <!--brands_products-->
-    <h2 style="margin-top:20px;">Color</h2>
-    @(Html.DevExpress().CheckBoxList(settings =>
-        {
-            settings.Name = "checkBoxListColor";
-            settings.Properties.ValueField = "COLOR_CODE";
+            settings.Name = "Size";
+            settings.Properties.ValueField = "BODY_CODE";
             settings.Properties.TextField = "NAME_TR";
             settings.Properties.ValueType = typeof(int);
             settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
             settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-            settings.Properties.RepeatColumns = 1;            
-            settings.ControlStyle.Border.BorderWidth = 0;            
+            settings.Properties.RepeatColumns = 1;
+            settings.ControlStyle.Border.BorderWidth = 0;
             settings.PreRender = (sender, e) =>
             {
                 ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
                 foreach (ListEditItem item in cbl.Items)
                 {
                     item.Selected = true;
-                    item.Text += " (" + @Model.stokcard.Where(x => x.COLOR_CODE ==(int)item.Value).Count() + ")";
+                    item.Text += " (" + @Model.stokcard.Where(x => x.BODY_CODE == (int)item.Value).Count() + ")";
                 }
             };
-            
-        }).BindList(Model.stokcolor).GetHtml()
-    )
-    @*@{
-        foreach (var stok in Model.stokcolor)
-        {
-            <div class="brands-name" style="padding-bottom:0px; padding-top:0px;">
-                <ul class="nav nav-pills nav-stacked">
-                    <li>
-                        <a href="#">
-                            <span class="pull-right">(@Model.stokcard.Where(x => x.COLOR_CODE == stok.COLOR_CODE).Count())</span>
-                            @stok.NAME_TR
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        }}*@
-</div><!--/brands_products-->
 
-@*<div class="brands_products">
-    <!--brands_products-->
-    <h2 style="margin-top:20px;">SEASON</h2>
-    @{
-        foreach (var stok in Model.stokseason)
-        {
-            <div class="brands-name" style="padding-bottom:0px; padding-top:0px;">
-                <ul class="nav nav-pills nav-stacked">
-                    <li>
-                        <a href="#">
-                            <span class="pull-right">(@Model.stokcard.Where(x => x.SEASON_CODE == stok.SEASON_CODE).Count())</span>
-                            @stok.NAME_TR
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        }}
-</div><!--/brands_products-->*@
+        }).BindList(Model.stokBody).GetHtml()
+        )
 
 
-<div class="brands_products">   
-    <h2 style="margin-top:20px;">SEASON</h2>
-   
+
+    </div><!--/brands_products-->
+
+    <div class="brands_products">
+        <!--brands_products-->
+        <h2 style="margin-top:20px;">COLOR</h2>
         @(Html.DevExpress().CheckBoxList(settings =>
         {
-            settings.Name = "checkBoxList1";
+            settings.Name = "COLOR";
             settings.Properties.ValueField = "COLOR_CODE";
             settings.Properties.TextField = "NAME_TR";
             settings.Properties.ValueType = typeof(int);
             settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
             settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
             settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth=0;
+            settings.ControlStyle.Border.BorderWidth = 0;
             settings.PreRender = (sender, e) =>
             {
                 ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
                 foreach (ListEditItem item in cbl.Items)
                 {
-                    item.Selected =true;
+                    item.Selected = true;
+                    item.Text += " (" + @Model.stokcard.Where(x => x.COLOR_CODE == (int)item.Value).Count() + ")";
                 }
             };
+
         }).BindList(Model.stokcolor).GetHtml()
         )
-   
-</div>
+    </div><!--/brands_products-->
+
+    <div class="brands_products">
+        <h2 style="margin-top:20px;">SEASON</h2>
+
+        @(Html.DevExpress().CheckBoxList(settings =>
+        {
+            settings.Name = "SEASON";
+            settings.Properties.ValueField = "SEASON_CODE";
+            settings.Properties.TextField = "NAME_TR";
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+            settings.Properties.RepeatColumns = 1;
+            settings.ControlStyle.Border.BorderWidth = 0;
+            settings.PreRender = (sender, e) =>
+            {
+                ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                foreach (ListEditItem item in cbl.Items)
+                {
+                    item.Selected = true;
+                    item.Text += " (" + @Model.stokcard.Where(x => x.SEASON_CODE == (int)item.Value).Count() + ")";
+                }
+            };
+        }).BindList(Model.stokseason).GetHtml()
+        )
+
+    </div>
+
+    <div class="price-range">
+        <!--price-range-->
+        <h2>Price Range</h2>
+        <div class="well text-center">
+            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
+            <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+        </div>
+    </div><!--/price-range-->
+
+    <div>
+        @Html.DevExpress().Button(settings =>
+        {
+            settings.Name = "Filter";
+            settings.Text = "Filter";
+            settings.UseSubmitBehavior = true;
+        }).GetHtml()
+
+    </div>
+    }

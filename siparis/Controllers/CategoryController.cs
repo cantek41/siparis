@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DevExpress.Web.Mvc;
 using siparis.Models;
 
 namespace siparis.Controllers
@@ -25,33 +26,24 @@ namespace siparis.Controllers
         /// <param name="info"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult getCategoryProduct(SortingPagingInfo info, string CategoryId)
+        public ActionResult getCategoryProduct([ModelBinder(typeof(DevExpressEditorsBinder))] IndexDataViewModel model)
         {
-            VdbSoftEntities db = new VdbSoftEntities();
-            int Id = Convert.ToInt32(CategoryId);
-            IQueryable<STOKCARD> query = null;
-            switch (info.SortField)
-            {
-                case "ID":
-                    query = (info.SortDirection == "ascending" ?
-                             db.STOKCARDs.Where(x => x.CATEGORY_CODE == Id).OrderBy(c => c.ID) :
-                             db.STOKCARDs.Where(x => x.CATEGORY_CODE == Id).OrderByDescending(c => c.ID));
-                    break;
-            }
-            //query = query.Skip(info.CurrentPageIndex
-            //      * info.PageSize).Take(info.PageSize);
-            ViewBag.SortingPagingInfo = info;
-            ViewBag.Category = Id;
-            IndexDataViewModel data = new IndexDataViewModel();
-            data.stokcard = query.ToList();
-            data.stokgroup = db.STOKGROUPs.ToList();
-            data.stokbrand = (from brand in db.STOKBRANDs
-                              join x in db.STOKCARDs on brand.BRAND_CODE equals x.BRAND_CODE
-                              where x.CATEGORY_CODE == Id
-                              select brand).Distinct().ToList();
-            return View(data);
+            int[] season = CheckBoxListExtension.GetSelectedValues<int>("COLOR");
+
+
+            return View();
 
         }
+
+        //[HttpPost]
+        //public ActionResult Index([ModelBinder(typeof(DevExpressEditorsBinder))] MyModel model)
+        //{
+        //    //Manually Bound Field - CheckBoxList (multi select)
+        //    model.ProgLanguages = CheckBoxListExtension.GetSelectedValues<int>("ProgLanguagesUnbound");
+
+        //    TempData["PostedModel"] = model;
+        //    return RedirectToAction("Success");
+        //}
 
         public IndexDataViewModel getDetailCategory(int CategoryId)
         {
