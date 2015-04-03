@@ -7,7 +7,7 @@ using siparis.Models;
 
 namespace siparis.Controllers
 {
-    public class OrderController : Controller
+    public class OrderController : BaseController
     {
         [HttpPost]
         public bool AddCart(int stokID)
@@ -26,7 +26,7 @@ namespace siparis.Controllers
                         sepet.VERSION = "V1";
                         sepet.COMPANY_CODE = 0;
                         sepet.CONTACT_CODE = 0;
-
+                        sepet.APPOINTED_USER_CODE = 1;
                         db.OPPORTUNITYMASTERs.Add(sepet);
                         db.SaveChanges();
                         Session.Add("Sepet", sepetID);
@@ -48,7 +48,8 @@ namespace siparis.Controllers
                     opportunitdetails.CUR_TYPE = stokcart.CUR_TYPE;
                     opportunitdetails.UNIT_PRICE = (float)stokcart.UNIT_PRICE;
                     opportunitdetails.UNIT = stokcart.UNIT.ToString();
-                    opportunitdetails.STOK_CODE = "" + stokID;
+                    opportunitdetails.STOK_ID = stokID;
+                    opportunitdetails.QUANTITY = 1;
                     opportunitdetails.VERSION = "V1";
 
                     db.OPPORTUNITYDETAILs.Add(opportunitdetails);
@@ -66,6 +67,13 @@ namespace siparis.Controllers
 
 
 
+        }
+
+
+
+        public ActionResult Chart()
+        {
+            return View(getCartProduct());
         }
     }
 }

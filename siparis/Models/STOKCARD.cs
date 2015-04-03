@@ -16,6 +16,7 @@ namespace siparis.Models
     {
         public STOKCARD()
         {
+            this.OPPORTUNITYDETAILs = new HashSet<OPPORTUNITYDETAIL>();
             this.STOKCARDPICTUREs = new HashSet<STOKCARDPICTURE>();
         }
     
@@ -85,6 +86,8 @@ namespace siparis.Models
         public Nullable<int> WEB_AMOUNT { get; set; }
         public int ID { get; set; }
     
+        public virtual ICollection<OPPORTUNITYDETAIL> OPPORTUNITYDETAILs { get; set; }
+        public virtual STOKGROUP STOKGROUP { get; set; }
         public virtual ICollection<STOKCARDPICTURE> STOKCARDPICTUREs { get; set; }
     }
 }
