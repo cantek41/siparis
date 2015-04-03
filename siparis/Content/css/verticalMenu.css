@@ -49,7 +49,11 @@ ul#cssmenu > ul, #cssmenu > ul ul {
 
 			/* Background & effects */
 			background: #282828;
-		}
+         
+                                     }
+		
+
+     
 
 		/* Rounded corners for the first link of the menu/submenus */
 		#cssmenu > ul li:first-child>a {
@@ -80,7 +84,7 @@ ul#cssmenu > ul, #cssmenu > ul ul {
 
         /* The hover state of the menu/submenu links */
 		.active {
-			color: #fff;
+			color: #d4b800;
 			text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
 			background: #d4b800;
 			background: -webkit-linear-gradient(bottom, #d4b800, #f6d600);
@@ -89,6 +93,7 @@ ul#cssmenu > ul, #cssmenu > ul ul {
 			background: -o-linear-gradient(bottom, #d4b800, #f6d600);
 			border-color: transparent;
 		}
+
 
 		/* The arrow indicating a submenu */
 		#cssmenu > ul .has-sub>a::after {

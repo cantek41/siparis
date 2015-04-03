@@ -26,12 +26,15 @@ namespace siparis
                       "~/Scripts/respond.js"));
           
             bundles.Add(new ScriptBundle("~/bundels/scripts").Include(
-                      "~/Scripts/jquery.js", "~/Scripts/bootstrap.min.js", "~/Scripts/jquery.scrollUp.min.js", "~/Scripts/price-range.js","~/Scripts/jquery.prettyPhoto.js","~/Scripts/main.js"));
+                      "~/Scripts/jquery.js", "~/Scripts/bootstrap.min.js", "~/Scripts/jquery.scrollUp.min.js", "~/Scripts/price-range.js", "~/Scripts/jquery.prettyPhoto.js", "~/Scripts/main.js", "~/Scripts/jquery.toastmessage.js", "~/Scripts/ajaxGonderi/ajaxGonder.js", "~/Scripts/jquery-1.5.min.js"));
   
             bundles.Add(new StyleBundle("~/bundels/css").Include(
-                      "~/Content/css/site.css", "~/Content/css/animate.css", "~/Content/css/bootstrap.css", "~/Content/css/font-awesome.min.css", "~/Content/css/main.css", "~/Content/css/prettyPhoto.css", "~/Content/css/price-range.css", "~/Content/css/responsive.css"));
+                      "~/Content/css/site.css", "~/Content/css/animate.css", "~/Content/css/bootstrap.css", "~/Content/css/font-awesome.min.css", "~/Content/css/main.css", "~/Content/css/prettyPhoto.css", "~/Content/css/price-range.css", "~/Content/css/responsive.css", "~/Content/css/jquery.toastmessage.css"));
+            
 
             BundleTable.EnableOptimizations = true;
+
+
         }
     }
 }
