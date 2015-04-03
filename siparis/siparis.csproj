@@ -535,6 +535,7 @@
     <Compile Include="Models\RE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Res.cs" />
     <Compile Include="Models\RESDE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -893,9 +894,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-
           <IISUrl>http://localhost:39816/</IISUrl>
-
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -11,6 +11,7 @@ namespace siparis.Controllers
 {
     public class BaseController : Controller
     {
+       
         public void checkCart()
         {
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
@@ -19,14 +20,16 @@ namespace siparis.Controllers
                            select d.OPPORTUNITY_CODE).FirstOrDefault();
             Session.Add("Sepet", sepetID);
 
+            Res.languege = "TR";//Fix me
+
         }
         public IEnumerable<OPPORTUNITYDETAIL> getCartProduct()
         {
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
             IEnumerable<OPPORTUNITYDETAIL> model = from d in db.OPPORTUNITYDETAILs
-                        join master in db.OPPORTUNITYMASTERs on d.OPPORTUNITY_CODE equals master.OPPORTUNITY_CODE
-                        where master.OPEN_CLOSE == 0 && master.APPOINTED_USER_CODE == 1 //fix me 
-                        select d;
+                                                   join master in db.OPPORTUNITYMASTERs on d.OPPORTUNITY_CODE equals master.OPPORTUNITY_CODE
+                                                   where master.OPEN_CLOSE == 0 && master.APPOINTED_USER_CODE == 1 //fix me 
+                                                   select d;
             List<OPPORTUNITYDETAIL> sepet = new List<OPPORTUNITYDETAIL>();
             foreach (var item in model)
             {
@@ -34,7 +37,7 @@ namespace siparis.Controllers
                 item.STOKCARD.STOKCARDPICTUREs = db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).ToList();
                 sepet.Add(item);
             }
-            
+
             return sepet;
         }
         public static STOKCARD getProduct(int ID = 1)
@@ -46,7 +49,7 @@ namespace siparis.Controllers
             return st;
         }
 
-        public void addProductGroup(STOKGROUP stokgrup )
+        public void addProductGroup(STOKGROUP stokgrup)
         {
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
 
@@ -54,22 +57,22 @@ namespace siparis.Controllers
             stokgrup.LAST_UPDATE = DateTime.Now;
             db.STOKGROUPs.Add(stokgrup);
             db.SaveChanges();
-            
+
 
         }
         public void EditProductGroup(STOKGROUP stokgrup)//ID almalı mı
         {
-          
-              
+
+
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
-           
+
             stokgrup.CREATE_DATE = DateTime.Now;
             stokgrup.LAST_UPDATE = DateTime.Now;
-          //  db.STOKGROUPs.(stokgrup);
+            //  db.STOKGROUPs.(stokgrup);
             db.Entry(stokgrup).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
-        
-        
+
+
         }
 
         public void AddProduct(STOKCARD stokcart)
@@ -83,7 +86,7 @@ namespace siparis.Controllers
             db.SaveChanges();
 
         }
-      
+
 
         public static IEnumerable<STOKCARD> getProductAll()
         {
