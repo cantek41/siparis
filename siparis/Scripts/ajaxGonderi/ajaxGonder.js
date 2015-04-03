@@ -18,7 +18,8 @@
 
 
             else {
-                alert("İşlem Başarısız");
+                //alert("İşlem Başarısız");
+                $().toastmessage('showErrorToast', "İşlem Başarısız");
             }
 
         },
