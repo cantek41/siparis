@@ -876,11 +876,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-<<<<<<< HEAD
+
           <IISUrl>http://localhost:39817/</IISUrl>
-=======
-          <IISUrl>http://localhost:39816/</IISUrl>
->>>>>>> dcf5f8354157b7b4ba6c0b5ed20d0f0e166d6d9d
+
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
