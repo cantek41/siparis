@@ -71,7 +71,12 @@ namespace siparis.Controllers
             data.stokcolor = (from brand in db.STOKCOLORs
                              join x in db.STOKCARDs on brand.COLOR_CODE equals x.COLOR_CODE
                              where x.CATEGORY_CODE == CategoryId
-                             select brand).Distinct().ToList();
+                             select brand).Distinct().ToList();           
+            data.stokseason = (from brand in db.STOKSEASONs
+                               join x in db.STOKCARDs on brand.SEASON_CODE equals x.SEASON_CODE
+                               where x.CATEGORY_CODE == CategoryId
+                               select brand).Distinct().ToList();
+
             return data;
 
         }
