@@ -23,11 +23,19 @@ namespace siparis.Controllers
         public IEnumerable<OPPORTUNITYDETAIL> getCartProduct()
         {
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
-            var model = from d in db.OPPORTUNITYDETAILs
+            IEnumerable<OPPORTUNITYDETAIL> model = from d in db.OPPORTUNITYDETAILs
                         join master in db.OPPORTUNITYMASTERs on d.OPPORTUNITY_CODE equals master.OPPORTUNITY_CODE
                         where master.OPEN_CLOSE == 0 && master.APPOINTED_USER_CODE == 1
                         select d;
-            return model;
+            List<OPPORTUNITYDETAIL> sepet = new List<OPPORTUNITYDETAIL>();
+            foreach (var item in model)
+            {
+                item.STOKCARD = db.STOKCARDs.Where(x => x.ID == item.STOK_ID).FirstOrDefault();
+                item.STOKCARD.STOKCARDPICTUREs = db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).ToList();
+                sepet.Add(item);
+            }
+            
+            return sepet;
         }
         public static STOKCARD getProduct(int ID = 1)
         {

@@ -72,8 +72,7 @@ namespace siparis.Controllers
 
         public ActionResult Chart()
         {
-
-            return View();
+            return View(getCartProduct());
         }
     }
 }
