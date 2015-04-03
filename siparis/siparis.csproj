@@ -582,6 +582,12 @@
     <Compile Include="Models\SPECDESCIRIPTION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\STOKBODY.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STOKBRAND.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\STOKCARD.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -594,10 +600,16 @@
     <Compile Include="Models\STOKCARD_.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\STOKCOLOR.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\STOKGROUP.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\STOKGROUP1.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STOKSEASON.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
