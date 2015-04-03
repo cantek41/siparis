@@ -25,7 +25,7 @@ namespace siparis.Controllers
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
             var model = from d in db.OPPORTUNITYDETAILs
                         join master in db.OPPORTUNITYMASTERs on d.OPPORTUNITY_CODE equals master.OPPORTUNITY_CODE
-                        where master.OPEN_CLOSE == 0 && master.APPOINTED_USER_CODE == 1
+                        where master.OPEN_CLOSE == 0 && master.APPOINTED_USER_CODE == 1 //fix me 
                         select d;
             return model;
         }
@@ -37,6 +37,45 @@ namespace siparis.Controllers
                            select d).FirstOrDefault();
             return st;
         }
+
+        public void addProductGroup(STOKGROUP stokgrup )
+        {
+            siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
+
+            stokgrup.CREATE_DATE = DateTime.Now;
+            stokgrup.LAST_UPDATE = DateTime.Now;
+            db.STOKGROUPs.Add(stokgrup);
+            db.SaveChanges();
+            
+
+        }
+        public void EditProductGroup(STOKGROUP stokgrup)//ID almalı mı
+        {
+          
+              
+            siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
+           
+            stokgrup.CREATE_DATE = DateTime.Now;
+            stokgrup.LAST_UPDATE = DateTime.Now;
+          //  db.STOKGROUPs.(stokgrup);
+            db.Entry(stokgrup).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+        
+        
+        }
+
+        public void AddProduct(STOKCARD stokcart)
+        {
+
+            siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
+
+            stokcart.CREATE_DATE = DateTime.Now;
+            stokcart.LAST_UPDATE = DateTime.Now;
+            db.STOKCARDs.Add(stokcart);
+            db.SaveChanges();
+
+        }
+      
 
         public static IEnumerable<STOKCARD> getProductAll()
         {
