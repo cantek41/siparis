@@ -1,17 +1,17 @@
-﻿@{
-
+﻿@model Tuple<IEnumerable<siparis.Models.STOKCARD>, IEnumerable<siparis.Models.STOKGROUP>>
+@{
     foreach (var stok in Model.Item2)
-    {
+    {        
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordian" href="/Product/ProductDetail">
-                        <span class="badge pull-right">(50)</span>
+                        <span class="badge pull-right">(@Model.Item1.Where(x => x.CATEGORY_CODE == stok.STOK_GROUP_CODE).Count())</span>
                         @stok.NAME_TR
                     </a>
                 </h4>
             </div>        
-        </div>   
+        </div>  
 
     }
 }
@@ -25,7 +25,6 @@
             <div class="brands-name"style="padding-bottom:0px; padding-top:0px;">
                 <ul class="nav nav-pills nav-stacked">
                     <li><a href="#"> <span class="pull-right">(50)</span>@stok.NAME_TR</a></li>
-
                 </ul>
             </div>
         }}
