@@ -7,7 +7,7 @@ using siparis.Models;
 
 namespace siparis.Controllers
 {
-    public class OrderController : Controller
+    public class OrderController : BaseController
     {
         [HttpPost]
         public bool AddCart(int stokID)
@@ -26,7 +26,7 @@ namespace siparis.Controllers
                         sepet.VERSION = "V1";
                         sepet.COMPANY_CODE = 0;
                         sepet.CONTACT_CODE = 0;
-
+                        sepet.APPOINTED_USER_CODE = 1;
                         db.OPPORTUNITYMASTERs.Add(sepet);
                         db.SaveChanges();
                         Session.Add("Sepet", sepetID);
@@ -66,6 +66,14 @@ namespace siparis.Controllers
 
 
 
+        }
+
+
+
+        public ActionResult Chart()
+        {
+
+            return View();
         }
     }
 }

@@ -155,6 +155,8 @@
         <AssociationConnector Association="VdbSoftEntities.FK_PHONE_CONTACT" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftEntities.FK_STOKCARDPICTURE_STOKCARD" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftEntities.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="VdbSoftEntities.FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER" />
+        <AssociationConnector Association="VdbSoftEntities.FK_OPPORTUNITYDETAIL_STOKCARD" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

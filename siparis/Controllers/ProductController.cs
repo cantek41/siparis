@@ -17,9 +17,5 @@ namespace siparis.Controllers
             return View(model);
         }
 
-        public ActionResult Chart()
-        {
-            return View();
-        }
     }
 }

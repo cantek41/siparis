@@ -43,5 +43,9 @@ namespace siparis.Models
         public Nullable<float> BUYING_PRICE { get; set; }
         public Nullable<float> BUYING_DISCOUNT_PERCENT { get; set; }
         public string DETAILDESCRIPTION { get; set; }
+        public Nullable<int> STOK_ID { get; set; }
+    
+        public virtual OPPORTUNITYMASTER OPPORTUNITYMASTER { get; set; }
+        public virtual STOKCARD STOKCARD { get; set; }
     }
 }
