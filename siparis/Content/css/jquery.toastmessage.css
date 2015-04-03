@@ -1,5 +1,5 @@
 .toast-container {
-	width: 280px;
+	width: 200px;
 	z-index: 9999;
 }
 
@@ -9,19 +9,21 @@
 }
 
 .toast-item {
-	height: auto;
+	height:15px;
+    
 	background: #000000;
     opacity: 0.9;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	color: #eee;
+   
 	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-left: 6px;
 	padding-right: 6px;
-	font-family: lucida Grande;
-	font-size: 14px;
+	font-family: 'Palatino Linotype';
+	font-size: 16px;
 	
 	display: block;
 	position: relative;
@@ -31,6 +33,7 @@
 .toast-item p {
     text-align: left;
     margin-left: 50px;
+    line-height:1px;
 }
 
 .toast-item-close {
