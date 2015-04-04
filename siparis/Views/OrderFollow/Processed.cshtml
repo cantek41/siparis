@@ -1,4 +1,5 @@
-﻿@using siparis.Models
+﻿﻿@model System.Collections.IEnumerable
+@using siparis.Models
 @{
     ViewBag.Title =@Res.resGetir(86);
     Layout = "~/Views/Shared/_oMainLayout.cshtml";
@@ -7,6 +8,6 @@
 
 <h2>@Res.resGetir(86)</h2>
 
-@Html.Action("GridViewPartialProcessed")
+@Html.Partial("MasterDetailMasterPartial", Model)
 
 

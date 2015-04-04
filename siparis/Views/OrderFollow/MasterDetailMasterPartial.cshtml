@@ -14,7 +14,7 @@
         });
         settings.ClientSideEvents.CustomButtonClick = "function(s,e){GridViewFirsat.PerformCallback({clickedButton : s.GetRowKey(e.visibleIndex)});}";
 
-        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "MasterDetailMasterPartial" };
+        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "MasterDetailMasterPartial", DOCUMENT_TYPE = TempData["DOCUMENT_TYPE"] };
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
         settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "Cencel" };
 

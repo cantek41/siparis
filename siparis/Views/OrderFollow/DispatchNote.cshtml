@@ -1,13 +1,13 @@
-﻿@using siparis.Models
+﻿﻿@model System.Collections.IEnumerable
+@using siparis.Models
 @{
-    ViewBag.Title =@Res.resGetir(77);
-   Layout = "~/Views/Shared/_oMainLayout.cshtml";
+    ViewBag.Title = @Res.resGetir(77);
+    Layout = "~/Views/Shared/_oMainLayout.cshtml";
 
 }
 
 <h2>@Res.resGetir(77)</h2>
 
-@Html.Action("GridViewPartialDispatchNote")
-
+@Html.Partial("MasterDetailMasterPartial", Model)
 
 

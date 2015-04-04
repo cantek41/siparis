@@ -14,67 +14,67 @@ namespace siparis.Controllers
         // GET: /Admin/
         public ActionResult Index()
         {
-            return View();
+            return View(getOpp(1));
         }
         public ActionResult Opportunity()
         {
-            return View();
+            return View(getOpp(1));
         }
         public ActionResult Edited()
         {
-            return View();
+            return View(getOpp(19));
         }
         public ActionResult Sample()
         {
-            return View();
+            return View(getOpp(6));
         }
         public ActionResult Offer()
         {
-            return View();
+            return View(getOpp(2));
         }
         public ActionResult Draft()
         {
-            return View();
+            return View(getOpp(15));
         }
         public ActionResult Order()
         {
-            return View();
+            return View(getOpp(3));
         }
         public ActionResult InReview()
         {
-            return View();
+            return View(getOpp(16));
         }
         public ActionResult Pending()
         {
-            return View();
+            return View(getOpp(17));
         }
         public ActionResult Approved()
         {
-            return View();
+            return View(getOpp(18));
         }
         public ActionResult Processed()
         {
-            return View();
+            return View(getOpp(20));
         }
         public ActionResult Shipped()
         {
-            return View();
+            return View(getOpp(21));
         }
         public ActionResult Cancelled()
         {
-            return View();
+            return View(getOpp(22));
         }
         public ActionResult DispatchNote()
         {
-            return View();
+            return View(getOpp(4));
         }
         public ActionResult Invoice()
         {
-            return View();
+            return View(getOpp(5));
         }
         public ActionResult LineSheets()
         {
-            return View();
+            return View(getOpp(23));
         }
         public ActionResult girdMaster()
         {
@@ -84,21 +84,26 @@ namespace siparis.Controllers
             return View(model.ToArray());
         }
 
-        [ValidateInput(false)]
-        public ActionResult MasterDetail()
+        public IEnumerable<OPPORTUNITYMASTER> getOpp(int oppMasterType)
         {
+            TempData["DOCUMENT_TYPE"] = oppMasterType;
             VdbSoftEntities db = db = new VdbSoftEntities();
             var model = from d in db.OPPORTUNITYMASTERs
+                        where d.DOCUMENT_TYPE == oppMasterType
                         select d;
-            return View(model.ToArray());
+            return model.ToArray();
+        }
+
+        [ValidateInput(false)]
+        public ActionResult MasterDetail(int DOCUMENT_TYPE)
+        {
+
+            return View(getOpp(DOCUMENT_TYPE));
         }
         [ValidateInput(false)]
-        public ActionResult MasterDetailMasterPartial()
+        public ActionResult MasterDetailMasterPartial(int DOCUMENT_TYPE)
         {
-            VdbSoftEntities db = new VdbSoftEntities();
-            var model = from d in db.OPPORTUNITYMASTERs
-                        select d;
-            return PartialView("MasterDetailMasterPartial", model.ToArray());
+            return PartialView("MasterDetailMasterPartial", getOpp(DOCUMENT_TYPE));
         }
         [ValidateInput(false)]
         public ActionResult MasterDetailDetailPartial(string customerID)
@@ -142,7 +147,7 @@ namespace siparis.Controllers
         }
 
 
-          [HttpPost, ValidateInput(false)]
+        [HttpPost, ValidateInput(false)]
         public ActionResult CencelRow()
         {
             string[] keys = Request.Params["ROW_ORDER_NO;OPPORTUNITY_CODE"].Split('|');
@@ -157,7 +162,7 @@ namespace siparis.Controllers
                     OPPORTUNITYDETAIL opp = (from d in db.OPPORTUNITYDETAILs
                                              where d.OPPORTUNITY_CODE == OPPORTUNITY_CODE && d.ROW_ORDER_NO == ROW_ORDER_NO
                                              select d).SingleOrDefault();
-                    
+
                     eskiSayfa = (int)db.OPPORTUNITYMASTERs.Find(OPPORTUNITY_CODE).DOCUMENT_TYPE;
                     db.OPPORTUNITYDETAILs.Remove(opp);
                     db.SaveChanges();
@@ -173,7 +178,7 @@ namespace siparis.Controllers
 
         }
 
-        
+
         public ActionResult gidecegisayfa(int eskiSayfa)
         {
             switch (eskiSayfa)

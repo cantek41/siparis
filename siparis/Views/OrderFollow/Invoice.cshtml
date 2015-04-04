@@ -1,3 +1,4 @@
+﻿﻿@model System.Collections.IEnumerable
 @using siparis.Models
 @{
     ViewBag.Title = @Res.resGetir(81);
@@ -7,7 +8,7 @@
 
 <h2>@Res.resGetir(81)</h2>
 
-@Html.Action("GridViewPartialInvoice")
+@Html.Partial("MasterDetailMasterPartial", Model)
 
 
 
