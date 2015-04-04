@@ -1,7 +1,8 @@
-﻿@{
+﻿@model System.Collections.IEnumerable
+@{
     ViewBag.Title = "Opportunity";
     Layout = "~/Views/Shared/_oMainLayout.cshtml";
 }
-@Html.Action("GridViewPartialOpportunity")
+@Html.Partial("MasterDetailMasterPartial", Model)
 
 

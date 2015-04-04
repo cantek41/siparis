@@ -99,5 +99,22 @@ namespace siparis.Controllers
                         select d;
             return model;
         }
+
+
+        public void TotalHesapla(int oppMasterID)
+        {
+            using (VdbSoftEntities db = new VdbSoftEntities())
+            {
+                float toplam = (float)db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == oppMasterID).Sum(x => x.TOTAL);
+                OPPORTUNITYMASTER oppMaster = db.OPPORTUNITYMASTERs.Find(oppMasterID);
+                oppMaster.TOTAL = toplam;
+
+                db.OPPORTUNITYMASTERs.Attach(oppMaster);
+                var entry = db.Entry(oppMaster);
+                entry.Property(e => e.TOTAL).IsModified = true;
+                db.SaveChanges();
+
+            }
+        }
     }
 }

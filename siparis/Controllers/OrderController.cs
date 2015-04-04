@@ -11,7 +11,7 @@ namespace siparis.Controllers
     public class OrderController : BaseController
     {
         [HttpPost]
-        public bool AddCart(int stokID)
+        public bool AddCart(int stokID, int QUANTITY = 1)
         {
             try
             {
@@ -22,11 +22,12 @@ namespace siparis.Controllers
                     {
                         OPPORTUNITYMASTER sepet = new OPPORTUNITYMASTER();
                         int sepetID = 0;
-                        if (db.OPPORTUNITYMASTERs.Count()!=0)
+                        if (db.OPPORTUNITYMASTERs.Count() != 0)
                         {
                             sepetID = db.OPPORTUNITYMASTERs.Max(x => x.OPPORTUNITY_CODE);
                         }
                         sepetID++;
+                        sepet.TOTAL = 0;
                         sepet.OPEN_CLOSE = 0;
                         sepet.EXPLANATION = "User alış veris.";
                         sepet.OPPORTUNITY_CODE = sepetID;
@@ -35,6 +36,7 @@ namespace siparis.Controllers
                         sepet.COMPANY_CODE = 0;
                         sepet.CONTACT_CODE = 0;
                         sepet.DOCUMENT_DATE = DateTime.Now;
+                        sepet.CREATE_DATE = DateTime.Now;
                         sepet.CREATE_USER = "1";//session dan gelecek Fix Mee
                         sepet.APPOINTED_USER_CODE = 1;// session dan almalı fix mee
                         db.OPPORTUNITYMASTERs.Add(sepet);
@@ -59,10 +61,13 @@ namespace siparis.Controllers
                     opportunitdetails.UNIT = stokcart.UNIT.ToString();
                     opportunitdetails.STOK_ID = stokID;
                     opportunitdetails.STOK_CODE = stokcart.CODE;
-                    opportunitdetails.QUANTITY = 1;
+                    opportunitdetails.QUANTITY = QUANTITY;
                     opportunitdetails.VERSION = "V1";
+                    opportunitdetails.TOTAL = QUANTITY * (float)stokcart.UNIT_PRICE;
                     opportunitdetails.PRODUCT_NAME = stokcart.NAME_TR;
                     db.OPPORTUNITYDETAILs.Add(opportunitdetails);
+
+
                     try
                     {
                         db.SaveChanges();
@@ -82,6 +87,7 @@ namespace siparis.Controllers
 
                     ViewBag.kontrol = "" + stokcart.CUR_TYPE;
                 }
+                TotalHesapla(Convert.ToInt32(Session["Sepet"]));
                 return true;
 
             }
@@ -92,17 +98,20 @@ namespace siparis.Controllers
 
         }
 
+        
+
         [HttpGet]
         public ActionResult removeCartProduct(int oppCode, int row)
         {
-            VdbSoftEntities db =new VdbSoftEntities();
+            VdbSoftEntities db = new VdbSoftEntities();
 
             OPPORTUNITYDETAIL item = (from d in db.OPPORTUNITYDETAILs
                                       where d.ROW_ORDER_NO == row && d.OPPORTUNITY_CODE == oppCode
                                       select d).SingleOrDefault();
             db.OPPORTUNITYDETAILs.Remove(item);
             db.SaveChanges();
-           return RedirectToAction("Chart");
+            TotalHesapla(oppCode);
+            return RedirectToAction("Chart");
         }
 
 

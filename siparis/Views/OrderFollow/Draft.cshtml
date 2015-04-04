@@ -1,4 +1,4 @@
-﻿
+﻿@model System.Collections.IEnumerable
 @{
     ViewBag.Title = "Draft";
     Layout = "~/Views/Shared/_oMainLayout.cshtml";
@@ -6,4 +6,4 @@
 
 <h2>Draft</h2>
 
-@Html.Action("GridViewPartialDraft")
+@Html.Partial("MasterDetailMasterPartial", Model)

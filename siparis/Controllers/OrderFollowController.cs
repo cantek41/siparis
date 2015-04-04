@@ -159,6 +159,7 @@ namespace siparis.Controllers
                     eskiSayfa = (int)db.OPPORTUNITYMASTERs.Find(OPPORTUNITY_CODE).DOCUMENT_TYPE;
                     db.OPPORTUNITYDETAILs.Remove(opp);
                     db.SaveChanges();
+                    TotalHesapla(OPPORTUNITY_CODE);
                 }
                 catch (Exception e)
                 {
