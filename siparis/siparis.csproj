@@ -865,6 +865,8 @@
     <Content Include="Views\Product\ProductDetailPartial.cshtml" />
     <Content Include="Views\Category\getCategoryProduct.cshtml" />
     <Content Include="Views\Category\LeftMenuPartial.cshtml" />
+    <Content Include="Views\Shared\TopHeaderPartial.cshtml" />
+    <Content Include="Views\Shared\BottomHeaderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
