@@ -21,14 +21,19 @@ namespace siparis.Controllers
                     if (Session["Sepet"] == null)
                     {
                         OPPORTUNITYMASTER sepet = new OPPORTUNITYMASTER();
-                        int sepetID = db.OPPORTUNITYMASTERs.Max(x => x.OPPORTUNITY_CODE);
+                        int sepetID = 0;
+                        if (db.OPPORTUNITYMASTERs.Count()!=0)
+                        {
+                            sepetID = db.OPPORTUNITYMASTERs.Max(x => x.OPPORTUNITY_CODE);
+                        }
                         sepetID++;
+                        sepet.OPEN_CLOSE = 0;
                         sepet.OPPORTUNITY_CODE = sepetID;
-                        sepet.OPPORTUNITY_CODE = sepetID;
+                        sepet.DOCUMENT_TYPE = 15;
                         sepet.VERSION = "V1";
                         sepet.COMPANY_CODE = 0;
                         sepet.CONTACT_CODE = 0;
-                        sepet.APPOINTED_USER_CODE = 1;
+                        sepet.APPOINTED_USER_CODE = 1;// session dan almalı fix mee
                         db.OPPORTUNITYMASTERs.Add(sepet);
                         db.SaveChanges();
                         Session.Add("Sepet", sepetID);
@@ -71,7 +76,7 @@ namespace siparis.Controllers
                         }
 
                     }
-                    
+
                     ViewBag.kontrol = "" + stokcart.CUR_TYPE;
                 }
                 return true;
@@ -82,9 +87,19 @@ namespace siparis.Controllers
                 return false;
             }
 
+        }
 
+        [HttpGet]
+        public ActionResult removeCartProduct(int oppCode, int row)
+        {
+            VdbSoftEntities db =new VdbSoftEntities();
 
-
+            OPPORTUNITYDETAIL item = (from d in db.OPPORTUNITYDETAILs
+                                      where d.ROW_ORDER_NO == row && d.OPPORTUNITY_CODE == oppCode
+                                      select d).SingleOrDefault();
+            db.OPPORTUNITYDETAILs.Remove(item);
+            db.SaveChanges();
+           return RedirectToAction("Chart");
         }
 
 

@@ -77,7 +77,11 @@ namespace siparis.Controllers
             return View();
         }
 
-
+        /// <summary>
+        /// delete butonu
+        /// </summary>
+        /// <param name="OPPORTUNITY_CODE"></param>
+        /// <returns></returns>
         [HttpPost, ValidateInput(false)]
         public ActionResult Cencel(System.Int32 OPPORTUNITY_CODE)
         {
@@ -89,7 +93,7 @@ namespace siparis.Controllers
                 {
                     OPPORTUNITYMASTER opp = db.OPPORTUNITYMASTERs.Find(OPPORTUNITY_CODE);
                     eskiSayfa = (int)opp.DOCUMENT_TYPE;
-                    opp.DOCUMENT_TYPE = 12;
+                    opp.DOCUMENT_TYPE = 22;
                     db.OPPORTUNITYMASTERs.Attach(opp);
                     var entry = db.Entry(opp);
                     entry.Property(e => e.DOCUMENT_TYPE).IsModified = true;
@@ -162,7 +166,11 @@ namespace siparis.Controllers
             }
          }
         
-
+        /// <summary>
+        /// onaylandı butonu
+        /// </summary>
+        /// <param name="OPPORTUNITY_CODE"></param>
+        /// <returns></returns>
         [HttpPost, ValidateInput(false)]
         public ActionResult Progress(System.Int32 OPPORTUNITY_CODE)
         {
