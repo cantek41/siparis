@@ -1,7 +1,7 @@
 ﻿@model siparis.Models.IndexDataViewModel
 @{
     ViewBag.Title = "getCategoryProduct";
-    int ID = ViewBag.Category;
+
 
 }
 <script src="~/Scripts/jquery.toastmessage.js"></script>
@@ -43,7 +43,7 @@
                     <!--features_items-->
                     <h2 class="title text-center">Features Items</h2>
 
-                    @Html.Hidden("CategoryId", ID)
+                    @Html.Hidden("CategoryId", TempData.Equals("Category"))
                     @foreach (var stok in Model.stokcard)
                     {
                         <div class="col-sm-4">
