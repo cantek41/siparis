@@ -24,6 +24,7 @@ namespace siparis.Controllers
                         int sepetID = db.OPPORTUNITYMASTERs.Max(x => x.OPPORTUNITY_CODE);
                         sepetID++;
                         sepet.OPPORTUNITY_CODE = sepetID;
+                        sepet.OPPORTUNITY_CODE = sepetID;
                         sepet.VERSION = "V1";
                         sepet.COMPANY_CODE = 0;
                         sepet.CONTACT_CODE = 0;
