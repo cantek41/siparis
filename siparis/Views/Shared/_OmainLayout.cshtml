@@ -1,4 +1,4 @@
-@{ Layout = "~/Views/Shared/_rootLayout.cshtml"; }
+@{ Layout = "~/Views/Shared/_oRootLayout.cshtml"; }
 
 @Html.DevExpress().Splitter(settings => {
     settings.Name = "ContentSplitter";
@@ -15,7 +15,7 @@
         subpane.MinSize = System.Web.UI.WebControls.Unit.Pixel(150);
         subpane.PaneStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(1);
         subpane.SetContent(() => {
-            Html.RenderPartial("ContentLeftPartialView");
+            Html.RenderPartial("_oContentLeftPartialView");
         });
     });
 

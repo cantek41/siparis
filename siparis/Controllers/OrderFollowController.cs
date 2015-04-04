@@ -77,11 +77,7 @@ namespace siparis.Controllers
             return View();
         }
 
-        /// <summary>
-        /// delete butonu
-        /// </summary>
-        /// <param name="OPPORTUNITY_CODE"></param>
-        /// <returns></returns>
+
         [HttpPost, ValidateInput(false)]
         public ActionResult Cencel(System.Int32 OPPORTUNITY_CODE)
         {
@@ -93,7 +89,7 @@ namespace siparis.Controllers
                 {
                     OPPORTUNITYMASTER opp = db.OPPORTUNITYMASTERs.Find(OPPORTUNITY_CODE);
                     eskiSayfa = (int)opp.DOCUMENT_TYPE;
-                    opp.DOCUMENT_TYPE = 22;
+                    opp.DOCUMENT_TYPE = 12;
                     db.OPPORTUNITYMASTERs.Attach(opp);
                     var entry = db.Entry(opp);
                     entry.Property(e => e.DOCUMENT_TYPE).IsModified = true;
@@ -107,12 +103,12 @@ namespace siparis.Controllers
             }
 
             return gidecegisayfa(eskiSayfa);
-            
+
         }
 
-         public ActionResult gidecegisayfa(int eskiSayfa)
-         {
-             switch (eskiSayfa)
+        public ActionResult gidecegisayfa(int eskiSayfa)
+        {
+            switch (eskiSayfa)
             {
                 case 1:
                     return GridViewPartialOpportunity();
@@ -160,17 +156,13 @@ namespace siparis.Controllers
                     return GridViewPartialLinesheets();
                     break;
 
-                default:                   
+                default:
                     return PartialView("_GridViewPartialOpportunity");
                     break;
             }
-         }
-        
-        /// <summary>
-        /// onaylandı butonu
-        /// </summary>
-        /// <param name="OPPORTUNITY_CODE"></param>
-        /// <returns></returns>
+        }
+
+
         [HttpPost, ValidateInput(false)]
         public ActionResult Progress(System.Int32 OPPORTUNITY_CODE)
         {
@@ -186,7 +178,8 @@ namespace siparis.Controllers
                     {
                         opp.DOCUMENT_TYPE++;
                     }
-                    else {
+                    else
+                    {
                         opp.DOCUMENT_TYPE = -1;
                     }
 

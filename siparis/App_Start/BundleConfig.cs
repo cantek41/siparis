@@ -30,7 +30,15 @@ namespace siparis
   
             bundles.Add(new StyleBundle("~/bundels/css").Include(
                       "~/Content/css/site.css", "~/Content/css/animate.css", "~/Content/css/bootstrap.css", "~/Content/css/font-awesome.min.css", "~/Content/css/main.css", "~/Content/css/prettyPhoto.css", "~/Content/css/price-range.css", "~/Content/css/responsive.css", "~/Content/css/jquery.toastmessage.css"));
-            
+
+            bundles.Add(new ScriptBundle("~/bundles/orangeMenuScript").Include(
+                              "~/Scripts/customScript.js"));
+            bundles.Add(new ScriptBundle("~/bundles/orangeMenuJequery").Include(
+                              "~/Scripts/menuJequery.js"));
+            bundles.Add(new StyleBundle("~/bundles/orangeMenuStyle").Include(
+                    "~/Content/css/verticalMenu.css"));
+
+
 
             BundleTable.EnableOptimizations = true;
 
