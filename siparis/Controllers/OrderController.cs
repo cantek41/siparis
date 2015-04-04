@@ -28,11 +28,14 @@ namespace siparis.Controllers
                         }
                         sepetID++;
                         sepet.OPEN_CLOSE = 0;
+                        sepet.EXPLANATION = "User alış veris.";
                         sepet.OPPORTUNITY_CODE = sepetID;
                         sepet.DOCUMENT_TYPE = 15;
                         sepet.VERSION = "V1";
                         sepet.COMPANY_CODE = 0;
                         sepet.CONTACT_CODE = 0;
+                        sepet.DOCUMENT_DATE = DateTime.Now;
+                        sepet.CREATE_USER = "1";//session dan gelecek Fix Mee
                         sepet.APPOINTED_USER_CODE = 1;// session dan almalı fix mee
                         db.OPPORTUNITYMASTERs.Add(sepet);
                         db.SaveChanges();

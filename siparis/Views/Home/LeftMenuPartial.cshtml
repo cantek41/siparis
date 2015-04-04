@@ -17,23 +17,6 @@
     }
 }
 
-<div class="brands_products">
-    <!--brands_products-->
-    <h2 style="margin-top:20px;">@Res.resGetir(13)</h2>
-    @{
-        foreach (var stok in Model.stokbrand)
-        {
-            <div class="brands-name"style="padding-bottom:0px; padding-top:0px;">
-                <ul class="nav nav-pills nav-stacked">
-                    <li><a href="#"> 
-                        @*<span class="pull-right">(@Model.stokcard.Where(x=>x.BRAND_CODE==stok.BRAND_CODE).Count())</span>*@
-                        @stok.NAME_TR</a></li>
-                </ul>
-            </div>
-        }}
-</div><!--/brands_products-->
-
-
 
 
 

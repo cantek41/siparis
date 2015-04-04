@@ -14,7 +14,7 @@ namespace siparis.Controllers
         // GET: /Admin/
         public ActionResult Index()
         {
-            return View("Opportunity");
+            return View("girdMaster");
         }
         public ActionResult Opportunity()
         {
@@ -76,7 +76,40 @@ namespace siparis.Controllers
         {
             return View();
         }
+        public ActionResult girdMaster()
+        {
+            VdbSoftEntities db = db = new VdbSoftEntities();
+            var model = from d in db.OPPORTUNITYMASTERs
+                        select d;
+            return View(model.ToArray());
+        }
 
+
+        public ActionResult MasterDetail()
+        {
+            VdbSoftEntities db = db = new VdbSoftEntities();
+            var model = from d in db.OPPORTUNITYMASTERs
+                        select d;
+            return View(model);
+        }
+        public ActionResult MasterDetailMasterPartial()
+        {
+            VdbSoftEntities db = new VdbSoftEntities();
+            var model = from d in db.OPPORTUNITYMASTERs
+                        select d;
+            return PartialView("MasterDetailMasterPartial", model.ToArray());
+        }
+        public ActionResult MasterDetailDetailPartial(string customerID)
+        {
+
+            ViewData["COURSE_CODE"] = customerID;
+            int cID = Convert.ToInt32(customerID);
+            VdbSoftEntities db = new VdbSoftEntities();
+            var model = from d in db.OPPORTUNITYDETAILs
+                        where d.OPPORTUNITY_CODE == cID
+                        select d;
+            return PartialView("MasterDetailDetailPartial", model.ToArray());
+        }
 
         [HttpPost, ValidateInput(false)]
         public ActionResult Cencel(System.Int32 OPPORTUNITY_CODE)

@@ -27,20 +27,23 @@ namespace siparis.Controllers
         /// <returns></returns>
         [HttpPost]
 
-        public ActionResult getCategoryProduct([ModelBinder(typeof(DevExpressEditorsBinder))] IndexDataViewModel model,int Id)
+        public ActionResult getCategoryProduct([ModelBinder(typeof(DevExpressEditorsBinder))] IndexDataViewModel model, int Id)
         {
             int CategoryID = Id;
             int[] season = CheckBoxListExtension.GetSelectedValues<int>("SEASON");
             int[] color = CheckBoxListExtension.GetSelectedValues<int>("COLOR");
-            int[] size = CheckBoxListExtension.GetSelectedValues<int>("Size");
-
+            int[] size = CheckBoxListExtension.GetSelectedValues<int>("SIZE");
+            int[] brands = CheckBoxListExtension.GetSelectedValues<int>("BRAND");
+            int price = (TextBoxExtension.GetValue<int>("PRICE") == null) ? 0 : TextBoxExtension.GetValue<int>("PRICE");
             VdbSoftEntities db = new VdbSoftEntities();
 
             IndexDataViewModel data = new IndexDataViewModel();
             data.stokcard = (from stk in db.STOKCARDs
                              where stk.CATEGORY_CODE == CategoryID
                              select stk).ToList();
-
+            data.stokcard = (from s in data.stokcard
+                             join c in brands on s.BRAND_CODE equals c
+                             select s).ToList();
             data.stokcard = (from s in data.stokcard
                              join c in color on s.COLOR_CODE equals c
                              select s).ToList();
@@ -50,22 +53,33 @@ namespace siparis.Controllers
             data.stokcard = (from s in data.stokcard
                              join c in size on s.BODY_CODE equals c
                              select s).ToList();
+            if (price > 0)
+            {
+                data.stokcard = (from s in data.stokcard
+                                 where s.UNIT_PRICE < price
+                                 select s).ToList();
+            }
+
             //stok.brand ve stok.group data ya atanmalı
+            data.stokbrand = BrandFilter(data);
             data.stokcolor = ColorFilter(data);
             data.stokseason = SeasonFilter(data);
             data.stokBody = BodyFilter(data);
             data.stokgroup = db.STOKGROUPs.Where(x => x.STOK_GROUP_CODE == CategoryID).ToList();
-            data.stokbrand = (from brand in db.STOKBRANDs
-                              join x in db.STOKCARDs on brand.BRAND_CODE equals x.BRAND_CODE
-                              where x.CATEGORY_CODE == CategoryID
-                              select brand).Distinct().ToList();
-            
-           
             return View(data);
 
         }
 
-       public List<STOKCOLOR> ColorFilter(IndexDataViewModel data)
+        public List<STOKBRAND> BrandFilter(IndexDataViewModel data)
+        {
+            VdbSoftEntities db = new VdbSoftEntities();
+            data.stokbrand = (from brand in data.stokcard
+                              join x in db.STOKBRANDs on brand.BRAND_CODE equals x.BRAND_CODE
+                              select x).Distinct().ToList();
+            return data.stokbrand;
+        }
+
+        public List<STOKCOLOR> ColorFilter(IndexDataViewModel data)
         {
             VdbSoftEntities db = new VdbSoftEntities();
             data.stokcolor = (from brand in data.stokcard
@@ -74,23 +88,23 @@ namespace siparis.Controllers
             return data.stokcolor;
         }
 
-       public List<STOKSEASON> SeasonFilter(IndexDataViewModel data)
-       {
-           VdbSoftEntities db = new VdbSoftEntities();
-           data.stokseason = (from brand in data.stokcard
-                              join x in db.STOKSEASONs on brand.SEASON_CODE equals x.SEASON_CODE
+        public List<STOKSEASON> SeasonFilter(IndexDataViewModel data)
+        {
+            VdbSoftEntities db = new VdbSoftEntities();
+            data.stokseason = (from brand in data.stokcard
+                               join x in db.STOKSEASONs on brand.SEASON_CODE equals x.SEASON_CODE
+                               select x).Distinct().ToList();
+            return data.stokseason;
+        }
+        public List<STOKBODY> BodyFilter(IndexDataViewModel data)
+        {
+            VdbSoftEntities db = new VdbSoftEntities();
+            data.stokBody = (from brand in data.stokcard
+                             join x in db.STOKBODies on brand.BODY_CODE equals x.BODY_CODE
                              select x).Distinct().ToList();
-           return data.stokseason;
-       }
-       public List<STOKBODY> BodyFilter(IndexDataViewModel data)
-       {
-           VdbSoftEntities db = new VdbSoftEntities();
-           data.stokBody = (from brand in data.stokcard
-                              join x in db.STOKBODies on brand.BODY_CODE equals x.BODY_CODE
-                              select x).Distinct().ToList();
-           return data.stokBody;
-       }
-    
+            return data.stokBody;
+        }
+
 
         public IndexDataViewModel getDetailCategory(int CategoryId)
         {

@@ -17,31 +17,44 @@
     }
 }
 
-<div class="brands_products">
-    <!--brands_products-->
-    <h2 style="margin-top:20px;">@Res.resGetir(13)</h2>
-    @{
-        foreach (var stok in Model.stokbrand)
+@using (Html.BeginForm())
+{
+    <div class="brands_products">
+        <!--brands_products-->
+        <h2 style="margin-top:20px;">@Res.resGetir(13)</h2>
+
+        @(Html.DevExpress().CheckBoxList(settings =>
         {
-            <div class="brands-name" style="padding-bottom:0px; padding-top:0px;">
-                <ul class="nav nav-pills nav-stacked">
-                    <li>
-                        <a href="#">
-                            <span class="pull-right">(@Model.stokcard.Where(x => x.BRAND_CODE == stok.BRAND_CODE).Count())</span>
-                            @stok.NAME_TR
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        }}
-</div><!--/brands_products-->
-@using(Html.BeginForm())    
-{   <div class="brands_products">
+            settings.Name = "BRAND";
+            settings.Properties.ValueField = "BRAND_CODE";
+            settings.Properties.TextField = "NAME_TR";
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+            settings.Properties.RepeatColumns = 1;
+            settings.ControlStyle.Border.BorderWidth = 0;
+            settings.PreRender = (sender, e) =>
+            {
+                ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                foreach (ListEditItem item in cbl.Items)
+                {
+                    item.Selected = true;
+                    item.Text += " (" + @Model.stokcard.Where(x => x.BRAND_CODE == (int)item.Value).Count() + ")";
+                }
+            };
+
+        }).BindList(Model.stokbrand).GetHtml()
+        )
+
+
+
+    </div><!--/brands_products-->
+    <div class="brands_products">
         <!--brands_products-->
         <h2 style="margin-top:20px;">@Res.resGetir(17)</h2>
         @(Html.DevExpress().CheckBoxList(settings =>
         {
-            settings.Name = "Size";
+            settings.Name = "SIZE";
             settings.Properties.ValueField = "BODY_CODE";
             settings.Properties.TextField = "NAME_TR";
             settings.Properties.ValueType = typeof(int);
@@ -124,7 +137,7 @@
         <!--price-range-->
         <h2>@Res.resGetir(20)</h2>
         <div class="well text-center">
-            <input name="PRICE RANGE" type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
+            <input name="PRICE" type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
             <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
         </div>
     </div><!--/price-range-->
@@ -138,4 +151,4 @@
         }).GetHtml()
 
     </div>
-    }
+}

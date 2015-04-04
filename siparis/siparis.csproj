@@ -877,7 +877,9 @@
     <Content Include="Views\OrderFollow\Sample.cshtml" />
     <Content Include="Views\Shared\TopHeaderPartial.cshtml" />
     <Content Include="Views\Shared\BottomHeaderPartial.cshtml" />
-
+    <Content Include="Views\OrderFollow\girdMaster.cshtml" />
+    <Content Include="Views\OrderFollow\MasterDetailDetailPartial.cshtml" />
+    <Content Include="Views\OrderFollow\MasterDetailMasterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
