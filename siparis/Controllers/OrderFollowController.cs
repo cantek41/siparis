@@ -139,6 +139,38 @@ namespace siparis.Controllers
 
         }
 
+
+          [HttpPost, ValidateInput(false)]
+        public ActionResult CencelRow()
+        {
+            string[] keys = Request.Params["ROW_ORDER_NO;OPPORTUNITY_CODE"].Split('|');
+            int ROW_ORDER_NO = Convert.ToInt32(keys[0]);
+            int OPPORTUNITY_CODE = Convert.ToInt32(keys[1]);
+            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
+            int eskiSayfa = 0;
+            if (ROW_ORDER_NO >= 0)
+            {
+                try
+                {
+                    OPPORTUNITYDETAIL opp = (from d in db.OPPORTUNITYDETAILs
+                                             where d.OPPORTUNITY_CODE == OPPORTUNITY_CODE && d.ROW_ORDER_NO == ROW_ORDER_NO
+                                             select d).SingleOrDefault();
+                    
+                    eskiSayfa = (int)db.OPPORTUNITYMASTERs.Find(OPPORTUNITY_CODE).DOCUMENT_TYPE;
+                    db.OPPORTUNITYDETAILs.Remove(opp);
+                    db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    ViewData["EditError"] = e.Message;
+                }
+            }
+
+            return gidecegisayfa(eskiSayfa);
+
+        }
+
+        
         public ActionResult gidecegisayfa(int eskiSayfa)
         {
             switch (eskiSayfa)

@@ -1,0 +1,95 @@
+﻿@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Name = "grid";
+
+
+        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "GridViewPartialOpportunity" };
+        settings.CustomActionRouteValues = new { Controller = "OrderFollow", Action = "CustomButtonClick" };
+
+        settings.CommandColumn.CustomButtons.Add(new GridViewCommandColumnCustomButton()
+        {
+            ID = "First10",
+            Text = "Onayla"
+        });
+        settings.ClientSideEvents.CustomButtonClick = "function(s,e){GridViewFirsat.PerformCallback({clickedButton : s.GetRowKey(e.visibleIndex)});}";
+
+        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "MasterDetailMasterPartial" };
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "Cencel" };
+
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowDeleteButton = true; 
+        settings.KeyFieldName = "OPPORTUNITY_CODE";
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DOCUMENT_DATE";
+            column.Name = "DOCUMENT_DATE";
+            column.Caption = "DATE";
+        });
+        settings.Columns.Add(column =>
+            {
+                column.FieldName = "OPPORTUNITY_CODE";
+                column.Name = "OPPORTUNITY_CODE";
+                column.Caption = "Code";
+            });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "COMPANY_CODE";
+            column.Name = "COMPANY_CODE";
+            column.Caption = "COMPANY";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "CONTACT_CODE";
+            column.Name = "CONTACT_CODE";
+            column.Caption = "CONTACT";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "APPOINTED_USER_CODE";
+            column.Name = "APPOINTED_USER_CODE";
+            column.Caption = "USER";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "TOTAL";
+            column.Name = "TOTAL";
+            column.Caption = "TOTAL";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "CREATE_USER";
+            column.Name = "CREATE_USER";
+            column.Caption = "CREATE_USER";
+        });
+        
+        settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = false;
+        settings.SettingsDetail.ShowDetailRow = true;
+
+
+
+
+
+
+        settings.SetDetailRowTemplateContent(c =>
+        {
+            //ViewContext.Writer.Write(
+            //    "Contact Phone: <b>" +
+            //        DataBinder.Eval(c.DataItem, "Phone") + "</b>, Fax: <b>" +
+            //            DataBinder.Eval(c.DataItem, "Fax") + "</b>" +
+            //    "<br />" +
+            //    "<br />"
+            //);
+            Html.RenderAction("MasterDetailDetailPartial", new { CustomerID = DataBinder.Eval(c.DataItem, "OPPORTUNITY_CODE") });
+        });
+        settings.PreRender = (sender, e) =>
+        {
+            if (((MVCxGridView)sender).DetailRows.VisibleCount > 0)
+                ((MVCxGridView)sender).DetailRows.ExpandRow(0);
+        };
+    }).Bind(Model).GetHtml()

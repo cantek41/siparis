@@ -1,0 +1,78 @@
+﻿@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Name = "detailGrid_" + ViewData["OPPORTUNITY_CODE"];
+        settings.SettingsDetail.MasterGridName = "grid";
+        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "MasterDetailDetailPartial", CustomerID = ViewData["OPPORTUNITY_CODE"] };
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "CencelRow" };
+
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.KeyFieldName = "ROW_ORDER_NO;OPPORTUNITY_CODE";
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ROW_ORDER_NO";
+            column.Name = "ROW_ORDER_NO";
+            column.Caption = "ROW_ORDER_NO";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "PRODUCT_NAME";
+            column.Name = "ROW_ORDER_NO";
+            column.Caption = "PRODUCT_NAME";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "QUANTITY";
+            column.Name = "QUANTITY";
+            column.Caption = "QUANTITY";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "UNIT_PRICE";
+            column.Name = "UNIT_PRICE";
+            column.Caption = "UNIT_PRICE";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "TOTAL";
+            column.Name = "TOTAL";
+            column.Caption = "TOTAL";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "CUR_TYPE";
+            column.Name = "CUR_TYPE";
+            column.Caption = "CUR_TYPE";
+        });
+
+        //settings.Columns.Add("OrderDate").PropertiesEdit.DisplayFormatString = "d";
+        //settings.Columns.Add("ShipName");
+        //settings.Columns.Add("Quantity");
+        //settings.Columns.Add(column =>
+        //{
+        //    column.FieldName = "UnitPrice";
+        //    column.PropertiesEdit.DisplayFormatString = "c";
+        //});
+        //settings.Columns.Add(column =>
+        //{
+        //    column.FieldName = "Total";
+        //    column.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+        //    column.PropertiesEdit.DisplayFormatString = "c";
+        //});
+
+        //settings.CustomUnboundColumnData = (sender, e) =>
+        //{
+        //    if (e.Column.FieldName == "Total")
+        //    {
+        //        decimal price = (decimal)e.GetListSourceFieldValue("UnitPrice");
+        //        int quantity = Convert.ToInt32(e.GetListSourceFieldValue("Quantity"));
+        //        e.Value = price * quantity;
+        //    }
+        //};
+        settings.Settings.ShowFooter = true;
+        //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "Total");
+        //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "Quantity");
+    }).Bind(Model).GetHtml()
