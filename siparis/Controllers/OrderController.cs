@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -43,23 +44,39 @@ namespace siparis.Controllers
                         row = 0;
                     }
                     else row = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == opportunitdetails.OPPORTUNITY_CODE).Max(x => x.ROW_ORDER_NO);
-
                     opportunitdetails.ROW_ORDER_NO = row + 1;
                     opportunitdetails.CUR_TYPE = stokcart.CUR_TYPE;
                     opportunitdetails.UNIT_PRICE = (float)stokcart.UNIT_PRICE;
                     opportunitdetails.UNIT = stokcart.UNIT.ToString();
                     opportunitdetails.STOK_ID = stokID;
+                    opportunitdetails.STOK_CODE = stokcart.CODE;
                     opportunitdetails.QUANTITY = 1;
                     opportunitdetails.VERSION = "V1";
-
+                    opportunitdetails.PRODUCT_NAME = stokcart.NAME_TR;
                     db.OPPORTUNITYDETAILs.Add(opportunitdetails);
-                    db.SaveChanges();
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (DbEntityValidationException ex)
+                    {
+                        foreach (var errs in ex.EntityValidationErrors)
+                        {
+                            foreach (var err in errs.ValidationErrors)
+                            {
+                                var propName = err.PropertyName;
+                                var errMess = err.ErrorMessage;
+                            }
+                        }
+
+                    }
+                    
                     ViewBag.kontrol = "" + stokcart.CUR_TYPE;
                 }
                 return true;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }

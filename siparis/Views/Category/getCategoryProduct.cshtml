@@ -1,8 +1,13 @@
 ﻿@model siparis.Models.IndexDataViewModel
 @using siparis.Models
 @{
+<<<<<<< HEAD
     ViewBag.Title = @Res.resGetir(59);
     int ID = ViewBag.Category;
+=======
+    ViewBag.Title = "getCategoryProduct";
+
+>>>>>>> e9c9bf6b0513d4d1ddc444cd9b58e124eddc7511
 
 }
 <script src="~/Scripts/jquery.toastmessage.js"></script>
@@ -44,7 +49,7 @@
                     <!--features_items-->
                     <h2 class="title text-center">@Res.resGetir(14)</h2>
 
-                    @Html.Hidden("CategoryId", ID)
+                    @Html.Hidden("CategoryId", TempData.Equals("Category"))
                     @foreach (var stok in Model.stokcard)
                     {
                         <div class="col-sm-4">
