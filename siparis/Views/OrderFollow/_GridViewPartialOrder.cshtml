@@ -12,7 +12,7 @@
         });
         settings.ClientSideEvents.CustomButtonClick = "function(s,e){GridViewFirsat.PerformCallback({clickedButton : s.GetRowKey(e.visibleIndex)});}";
 
-        
+
         settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "Cencel" };
         settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
         settings.SettingsBehavior.ConfirmDelete = true;

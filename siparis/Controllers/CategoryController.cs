@@ -54,6 +54,11 @@ namespace siparis.Controllers
             data.stokcolor = ColorFilter(data);
             data.stokseason = SeasonFilter(data);
             data.stokBody = BodyFilter(data);
+            data.stokgroup = db.STOKGROUPs.Where(x => x.STOK_GROUP_CODE == CategoryID).ToList();
+            data.stokbrand = (from brand in db.STOKBRANDs
+                              join x in db.STOKCARDs on brand.BRAND_CODE equals x.BRAND_CODE
+                              where x.CATEGORY_CODE == CategoryID
+                              select brand).Distinct().ToList();
             
            
             return View(data);

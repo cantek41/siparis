@@ -1,154 +1,160 @@
-﻿ /* GT stylesheet */
-
-ul#cssmenu > ul, #cssmenu > ul ul {
-	list-style: none;
+body {
 	margin: 0;
 	padding: 0;
-	vertical-align: baseline;
-	line-height: 1;
+	background: #f3f3f3;
 }
 
-/* The container */
+.clear {
+	clear: both;
+}
 
-#cssmenu > ul, #cssmenu > ul ul {
-	display: block;
+.sidebar {
+	background: #1c1c1c;
+	border-right: 1px solid #404040;
+	height: 100%;
 	position: relative;
-	width: 150px;
-    margin:0;
-   padding-left:0;
+	float: left;
 }
 
-	/* The list elements which contain the links */
-	#cssmenu > ul li {
-		display: block;
-		position: relative;
-		margin: 0;
-		padding: 0;
-		width: 250px;	
-	}
+.navContiner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	height: 900px;
+	background: #2b2b2b url(../images/verticalMenu/listBg.png) repeat-x bottom;
+}
 
-		/* General link styling */
-		#cssmenu > ul li a {
-			/* Layout */
-			display: block;
-			position: relative;
-			margin: 0;
-			border-top: 1px dotted #3a3a3a;
-			border-bottom: 1px dotted #1b1b1b;
-			padding: 11px 20px;
-			width: 100%; /****** menu-item width ******/
+.flyoutBg {
+	width: 150px;
+	height: 900px;
+	background: url(../images/verticalMenu/texture.png);
+	position: absolute;
+	top: 0;
+	left: 25px;
+	border-left: 1px solid #1c1c1c;
+}
 
-			/* Typography */
-			font-family: 'Yanone Kaffeesatz', Helvetica, Arial, sans-serif;
-			color: #d8d8d8;
-			text-decoration: none;
-			text-transform: uppercase;
-			text-shadow: 0 1px 1px #000;
-			font-size: 13px;
-			font-weight: 300;
-
-			/* Background & effects */
-			background: #282828;
-         
-                                     }
-		
-
-     
-
-		/* Rounded corners for the first link of the menu/submenus */
-		#cssmenu > ul li:first-child>a {
-			border-top-left-radius: 4px;
-			border-top-right-radius: 4px;
-			border-top: 0;
-		}
-
-		/* Rounded corners for the last link of the menu/submenus */
-		#cssmenu > ul li:last-child>a {
-			border-bottom-left-radius: 4px;
-			border-bottom-right-radius: 4px;
-			border-bottom: 0;
-		}
-
-
-		/* The hover state of the menu/submenu links */
-		#cssmenu > ul li>a:hover, #cssmenu > ul li:hover>a {
-			color: #fff;
-			text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
-			background: #d4b800;
-			background: -webkit-linear-gradient(bottom, #d4b800, #f6d600);
-			background: -ms-linear-gradient(bottom, #d4b800, #f6d600); 
-			background: -moz-linear-gradient(bottom, #d4b800, #f6d600);
-			background: -o-linear-gradient(bottom, #d4b800, #f6d600);
-			border-color: transparent;
-		}
-
-        /* The hover state of the menu/submenu links */
-		.active {
-			color: #d4b800;
-			text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
-			background: #d4b800;
-			background: -webkit-linear-gradient(bottom, #d4b800, #f6d600);
-			background: -ms-linear-gradient(bottom, #d4b800, #f6d600); 
-			background: -moz-linear-gradient(bottom, #d4b800, #f6d600);
-			background: -o-linear-gradient(bottom, #d4b800, #f6d600);
-			border-color: transparent;
-		}
-
-
-		/* The arrow indicating a submenu */
-		#cssmenu > ul .has-sub>a::after {
-			content: '';
-			position: absolute;
-			top: 16px;
-			right: 10px;
-			width: 0px;
-			height: 0px;
-
-			/* Creating the arrow using borders */
-			border: 4px solid transparent;
-			border-left: 4px solid #d8d8d8; 
-		}
-
-		/* The same arrow, but with a darker color, to create the shadow effect */
-		#cssmenu > ul .has-sub>a::before {
-			content: '';
-			position: absolute;
-			top: 17px;
-			right: 10px;
-			width: 0px;
-			height: 0px;
-
-			/* Creating the arrow using borders */
-			border: 4px solid transparent;
-			border-left: 4px solid #000;
-		}
-
-		/* Changing the color of the arrow on hover */
-		#cssmenu > ul li>a:hover::after, #cssmenu > ul li:hover>a::after {
-			border-left: 4px solid #fff;
-		}
-
-		#cssmenu > ul li>a:hover::before, #cssmenu > ul li:hover>a::before {
-			border-left: 4px solid rgba(0, 0, 0, .3);
-		}
-
+.notification {
+	position: absolute;
+	background: url(../images/verticalMenu/listSelectedBg.png) repeat-x top;
+	font-size: 11px;
+	color: #fff;
+	padding: 2px 5px;
+	top:-10px;
+	right: -10px;
+	display: block;
+	border: 1px solid #212121;
 	
-		/* THE SUBMENUS */
-		#cssmenu > ul ul {
-			position: absolute;
-			left: 150px;
-			top: -9999px;
-			padding-left: 5px;
-			opacity: 0;
-			/* The fade effect, created using an opacity transition */
-			-webkit-transition: opacity .3s ease-in;
-			-moz-transition: opacity .3s ease-in;
-			-o-transition: opacity .3s ease-in;
-			-ms-transition: opacity .3s ease-in;
-		}
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+}
 
-		/* Showing the submenu when the user is hovering the parent link */
-		#cssmenu > ul li:hover>ul {
-			top: 0px;
-			opacity: 1;
-		}
+/**  Nav  **/
+
+ul#nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+}
+
+ul#nav li {
+	background: url(../images/verticalMenu/listBg.png) repeat-x bottom;
+	width: 200px;
+	position: relative;
+	height: 48px;
+}
+
+ul#nav li a {
+	display: block;
+	font-family: Helvetica;
+	font-size: 10px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 23px 23px 23px 75px;
+}
+
+ul#nav li:hover {
+	background: url(../images/verticalMenu/listSelectedBg.png) repeat-x bottom;
+}
+
+ul#nav li a.dashboard {
+	background: url(../images/verticalMenu/dashboard.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.pages {
+	background: url(../images/verticalMenu/pages.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.assets {
+	background: url(../images/verticalMenu/assets.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.widgets {
+	background: url(../images/verticalMenu/widgets.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.comments {
+	background: url(../images/verticalMenu/comments.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.settings {
+	background: url(../images/verticalMenu/settings.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.maps {
+	background: url(../images/verticalMenu/maps.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.trash {
+	background: url(../images/verticalMenu/trash.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.search {
+	background: url(../images/verticalMenu/search.png) 35px 50% no-repeat;
+}
+
+
+/**  Nav Flyout  **/
+
+ul#nav ul.flyout {
+	position: absolute;
+	z-index: -10;
+	top: 0;
+	left: 25px;
+	padding: 0;
+	margin: 0;
+	width: 150px;
+}
+
+ul#nav li:hover ul.flyout li:first-child {
+	background: url(../images/verticalMenu/listSelectedBg.png) repeat-x bottom;
+}
+
+ul#nav ul.flyout li:first-child {
+	height: 58px;
+	margin: 0 0 15px 0;
+}
+
+ul#nav ul.flyout li {
+	width: auto;
+	background: none;
+	list-style: none;
+	white-space: nowrap;
+	height: 30px;
+}
+
+ul#nav ul.flyout li a {
+	padding: 0;
+	color: #cdcdcd;
+	text-transform: none;
+	font-size: 12px;
+	padding: 10px 35px;
+}
+
+ul#nav ul.flyout li a:hover {
+	color: #ffffff;
+}
