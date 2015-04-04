@@ -44,7 +44,6 @@ namespace siparis.Controllers
                         row = 0;
                     }
                     else row = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == opportunitdetails.OPPORTUNITY_CODE).Max(x => x.ROW_ORDER_NO);
-
                     opportunitdetails.ROW_ORDER_NO = row + 1;
                     opportunitdetails.CUR_TYPE = stokcart.CUR_TYPE;
                     opportunitdetails.UNIT_PRICE = (float)stokcart.UNIT_PRICE;
