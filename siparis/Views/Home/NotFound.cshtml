@@ -1,7 +1,7 @@
-﻿
+﻿@using siparis.Models
 @{
 
-    ViewBag.Title = "NotFound";
+    ViewBag.Title = @Res.resGetir(64);
     Layout = "~/Views/Shared/_Layout Empty.cshtml";
 }
 
@@ -11,9 +11,9 @@
     </div>
     <div class="content-404">
         <img src="../content/images/404/404.png" class="img-responsive" alt="" />
-        <h1><b>OPPS!</b> We Couldn’t Find this Page</h1>
-        <p>Uh... So it looks like you brock something. The page you are looking for has up and Vanished.</p>
-        <h2>@Html.ActionLink("Bring me back Home","Index","Home")</h2>
+        <h1>@Res.resGetir(65)</h1>
+        <p>@Res.resGetir(66)</p>
+        <h2>@Html.ActionLink(@Res.resGetir(67),"Index","Home")</h2>
     </div>
 </div>
 
