@@ -248,7 +248,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialSample()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 2);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 6);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -256,7 +256,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialOffer()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 3);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 2);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -264,7 +264,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialDraft()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 4);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 15);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -272,7 +272,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialOrder()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 5);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 3);
             return PartialView("_GridViewPartialOrder", model.ToList());
         }
 
@@ -280,7 +280,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialInReview()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 6);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 16);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -288,7 +288,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialPending()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 7);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 17);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -296,7 +296,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialApproved()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 8);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 18);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -304,7 +304,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialEdited()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 9);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 19);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -312,7 +312,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialProcessed()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 10);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 20);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -320,7 +320,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialShipped()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 11);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 21);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -328,7 +328,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialCancelled()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 12);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 22);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -336,7 +336,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialDispatchNote()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 13);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 4);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -344,7 +344,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialInvoice()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 14);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 5);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
@@ -352,7 +352,7 @@ namespace siparis.Controllers
         public ActionResult GridViewPartialLinesheets()
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities();
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 15);
+            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 23);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
 
