@@ -26,15 +26,18 @@ namespace siparis.Controllers
         /// <param name="info"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult getCategoryProduct([ModelBinder(typeof(DevExpressEditorsBinder))] IndexDataViewModel model)
+        public ActionResult getCategoryProduct([ModelBinder(typeof(DevExpressEditorsBinder))] IndexDataViewModel model, int Id)
         {
-            int[] season = CheckBoxListExtension.GetSelectedValues<int>("COLOR");
 
-
+            ViewBag.Category = Id;
+            int[] season = CheckBoxListExtension.GetSelectedValues<int>("SEASON");
+            int[] color = CheckBoxListExtension.GetSelectedValues<int>("COLOR");
+            int[] size = CheckBoxListExtension.GetSelectedValues<int>("Size");
+          
             return View();
 
         }
-
+   
         //[HttpPost]
         //public ActionResult Index([ModelBinder(typeof(DevExpressEditorsBinder))] MyModel model)
         //{
