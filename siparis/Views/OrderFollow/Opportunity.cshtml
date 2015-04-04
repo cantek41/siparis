@@ -1,8 +1,14 @@
 ﻿@model System.Collections.IEnumerable
+@using siparis.Models
 @{
-    ViewBag.Title = "Opportunity";
+    ViewBag.Title = @Res.resGetir(83);
     Layout = "~/Views/Shared/_oMainLayout.cshtml";
 }
+<h2>@Res.resGetir(83)</h2>
 @Html.Partial("MasterDetailMasterPartial", Model)
+
+
+
+
 
 

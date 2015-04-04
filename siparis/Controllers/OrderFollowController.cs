@@ -14,7 +14,7 @@ namespace siparis.Controllers
         // GET: /Admin/
         public ActionResult Index()
         {
-            return View("girdMaster");
+            return View();
         }
         public ActionResult Opportunity()
         {
@@ -84,14 +84,15 @@ namespace siparis.Controllers
             return View(model.ToArray());
         }
 
-
+        [ValidateInput(false)]
         public ActionResult MasterDetail()
         {
             VdbSoftEntities db = db = new VdbSoftEntities();
             var model = from d in db.OPPORTUNITYMASTERs
                         select d;
-            return View(model);
+            return View(model.ToArray());
         }
+        [ValidateInput(false)]
         public ActionResult MasterDetailMasterPartial()
         {
             VdbSoftEntities db = new VdbSoftEntities();
@@ -99,6 +100,7 @@ namespace siparis.Controllers
                         select d;
             return PartialView("MasterDetailMasterPartial", model.ToArray());
         }
+        [ValidateInput(false)]
         public ActionResult MasterDetailDetailPartial(string customerID)
         {
 
@@ -210,7 +212,7 @@ namespace siparis.Controllers
                     return GridViewPartialShipped();
                     break;
                 case 12:
-                    return GridViewPartialCancelled();
+                    return GridViewPartialDraft();
                     break;
                 case 13:
                     return GridViewPartialDispatchNote();

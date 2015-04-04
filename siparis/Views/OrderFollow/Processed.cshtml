@@ -1,9 +1,11 @@
-﻿@{
-    ViewBag.Title = "Processed";
+﻿@using siparis.Models
+@{
+    ViewBag.Title =@Res.resGetir(86);
     Layout = "~/Views/Shared/_oMainLayout.cshtml";
+
 }
 
-<h2>Processed</h2>
+<h2>@Res.resGetir(86)</h2>
 
 @Html.Action("GridViewPartialProcessed")
 

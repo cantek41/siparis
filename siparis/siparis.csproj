@@ -877,9 +877,11 @@
     <Content Include="Views\OrderFollow\Sample.cshtml" />
     <Content Include="Views\Shared\TopHeaderPartial.cshtml" />
     <Content Include="Views\Shared\BottomHeaderPartial.cshtml" />
+
     <Content Include="Views\OrderFollow\girdMaster.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailDetailPartial.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailMasterPartial.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
@@ -909,7 +911,11 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39809/</IISUrl>
+
+
+          <IISUrl>http://localhost:39816/</IISUrl>
+
+
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

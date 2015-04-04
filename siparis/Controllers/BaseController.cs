@@ -22,10 +22,14 @@ namespace siparis.Controllers
             {
                 Session.Add("Sepet", sepetID);
             }
-          
+                
 
-            Res.languege = "TR";//Fix me
+        }
 
+        public ActionResult changeLanguage(string lang)
+        {
+            Res.languege = lang;
+            return RedirectToAction("Index", "Home");
         }
         public IEnumerable<OPPORTUNITYDETAIL> getCartProduct()
         {

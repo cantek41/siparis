@@ -1,9 +1,11 @@
-﻿@{
-    ViewBag.Title = "Shipped";
+﻿@using siparis.Models
+@{
+    ViewBag.Title = @Res.resGetir(88);
     Layout = "~/Views/Shared/_oMainLayout.cshtml";
+
 }
 
-<h2>Shipped</h2>
+<h2>@Res.resGetir(88)</h2>
 
 @Html.Action("GridViewPartialShipped")
 

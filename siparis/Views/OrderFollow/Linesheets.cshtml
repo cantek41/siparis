@@ -1,9 +1,11 @@
-﻿@{
-    ViewBag.Title = "Linesheets";
+@using siparis.Models
+@{
+    ViewBag.Title = @Res.resGetir(90);
     Layout = "~/Views/Shared/_oMainLayout.cshtml";
+
 }
 
-<h2>Linesheets</h2>
+<h2>@Res.resGetir(90)</h2>
 
 @Html.Action("GridViewPartialLinesheets")
 

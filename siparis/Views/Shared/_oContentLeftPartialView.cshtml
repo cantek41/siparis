@@ -1,3 +1,4 @@
+@using siparis.Models
 <div class="leftPanel">
     @Styles.Render("~/bundels/orangeMenuStyle")
     @Scripts.Render("~/bundles/orangeMenuJequery")
@@ -8,21 +9,21 @@
         <div class="sidebar">
             <div class="navContiner">
                 <ul id="nav">
-                    <li><a href="@Url.Action("Opportunity", "OrderFollow")">Opportunity</a></li>
-                    <li><a href="@Url.Action("Sample","OrderFollow")">Sample</a></li>
-                    <li><a href="@Url.Action("Offer","OrderFollow")">Offer</a></li>
-                    <li><a href="@Url.Action("Draft","OrderFollow")">Draft</a></li>
-                    <li><a href="@Url.Action("Order","OrderFollow")">Order</a></li>
-                    <li><a href="@Url.Action("InReview", "OrderFollow")">InReview</a></li>
-                    <li><a href="@Url.Action("Pending", "OrderFollow")">Pending</a></li>
-                    <li><a href="@Url.Action("Approved", "OrderFollow")">Approved</a></li>
-                    <li><a href="@Url.Action("Edited", "OrderFollow")">Edited</a></li>
-                    <li><a href="@Url.Action("Processed", "OrderFollow")">Processed</a></li>
-                    <li><a href="@Url.Action("Shipped", "OrderFollow")">Shipped</a></li>
-                    <li><a href="@Url.Action("Cancelled", "OrderFollow")">Cancelled</a></li>
-                    <li><a href="@Url.Action("DispatchNote", "OrderFollow")">Dispatch Note</a></li>
-                    <li><a href="@Url.Action("Invoice", "OrderFollow")">Invoice</a></li>
-                    <li><a href="@Url.Action("Linesheets", "OrderFollow")">Linesheets</a></li>   
+                    <li><a href="@Url.Action("Opportunity", "OrderFollow")">@Res.resGetir(83)</a></li>
+                    <li><a href="@Url.Action("Sample","OrderFollow")">@Res.resGetir(87)</a></li>
+                    <li><a href="@Url.Action("Offer","OrderFollow")">@Res.resGetir(82)</a></li>
+                    <li><a href="@Url.Action("Draft","OrderFollow")">@Res.resGetir(79)</a></li>
+                    <li><a href="@Url.Action("Order","OrderFollow")">@Res.resGetir(84)</a></li>
+                    <li><a href="@Url.Action("InReview", "OrderFollow")">@Res.resGetir(89)</a></li>
+                    <li><a href="@Url.Action("Pending", "OrderFollow")">@Res.resGetir(85)</a></li>
+                    <li><a href="@Url.Action("Approved", "OrderFollow")">@Res.resGetir(74)</a></li>
+                    <li><a href="@Url.Action("Edited", "OrderFollow")">@Res.resGetir(78)</a></li>
+                    <li><a href="@Url.Action("Processed", "OrderFollow")">@Res.resGetir(86)</a></li>
+                    <li><a href="@Url.Action("Shipped", "OrderFollow")">@Res.resGetir(88)</a></li>
+                    <li><a href="@Url.Action("Cancelled", "OrderFollow")">@Res.resGetir(76)</a></li>
+                    <li><a href="@Url.Action("DispatchNote", "OrderFollow")">@Res.resGetir(77)</a></li>
+                    <li><a href="@Url.Action("Invoice", "OrderFollow")">@Res.resGetir(81)</a></li>
+                    <li><a href="@Url.Action("Linesheets", "OrderFollow")">@Res.resGetir(90)</a></li>   
             </div>
             <div class="flyoutBg"></div>
         </div>

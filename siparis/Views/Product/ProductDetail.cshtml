@@ -1,6 +1,7 @@
-﻿@model siparis.Models.STOKCARD
+﻿@using siparis.Models
+@model siparis.Models.STOKCARD
 @{
-    ViewBag.Title = "ProductDetail";
+    ViewBag.Title = @Res.resGetir(26);
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <section>
@@ -73,16 +74,16 @@
                             <img src="../content/images/product-details/rating.png" alt="" />
                             <span>
                                 <span>@Model.CUR_TYPE @Model.UNIT_PRICE</span>
-                                <label>Quantity:</label>
+                                <label>@Res.resGetir(72)</label>
                                 <input type="text" value="1" />
                                 <button type="button" class="btn btn-fefault cart">
                                     <i class="fa fa-shopping-cart"></i>
-                                    Add to cart
+                                    @Res.resGetir(2)
                                 </button>
                             </span>
-                            <p><b>Availability:</b> @Model.UNIT</p>
-                            <p><b>Condition:</b> New</p>
-                            <p><b>Brand:</b> E-SHOPPER</p>
+                            <p><b>@Res.resGetir(91)</b> @Model.UNIT</p>
+                            <p><b>@Res.resGetir(92)</b> @Res.resGetir(93)</p>
+                            <p><b>@Res.resGetir(13)</b> @Res.resGetir(94)</p>
                             <a href=""><img src="../content/images/product-details/share.png" class="share img-responsive" alt="" /></a>
                         </div><!--/product-information-->
                     </div>

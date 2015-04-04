@@ -1,9 +1,12 @@
-﻿@{
-    ViewBag.Title = "Cancelled";
+﻿@using siparis.Models;
+@{
+    ViewBag.Title = @Res.resGetir(76);
     Layout = "~/Views/Shared/_oMainLayout.cshtml";
+
+
 }
 
-<h2>Cancelled</h2>
+<h2>@Res.resGetir(76)</h2>
 
 @Html.Action("GridViewPartialCancelled")
 

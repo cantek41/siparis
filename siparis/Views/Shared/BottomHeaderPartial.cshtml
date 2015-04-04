@@ -1,4 +1,5 @@
-﻿<div class="header-bottom">
+﻿@using siparis.Models
+<div class="header-bottom">
     <!--header-bottom-->
     <div class="container">
         <div class="row">
@@ -13,24 +14,24 @@
                 </div>
                 <div class="mainmenu pull-left">
                     <ul class="nav navbar-nav collapse navbar-collapse">
-                        <li><a href="@Url.Action("Index","Home")" class="active">Home</a></li>
+                        <li><a href="@Url.Action("Index","Home")" class="active">@Res.resGetir(24)</a></li>
                         <li class="dropdown">
-                            <a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                            <a href="#">@Res.resGetir(38)<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
-                                <li><a href="../Home/index">Products</a></li>
-                                <li><a href="../OrderFollow/Opportunity">Checkout</a></li>
-                                <li><a href="../Order/Chart">Cart</a></li>
-                                <li><a href="../Account/Login">Login</a></li>
+                                <li><a href="../Home/index">@Res.resGetir(25)</a></li>
+                                <li><a href="../OrderFollow/Opportunity">@Res.resGetir(21)</a></li>
+                                <li><a href="../Order/Chart">@Res.resGetir(22)</a></li>
+                                <li><a href="../Account/Login">@Res.resGetir(23)</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                        <li><a href="@Url.Action("Contact","Home")">@Res.resGetir(27)</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="search_box pull-right">
-                    <input type="text" placeholder="Search" />
+                    <input type="text" placeholder=@Res.resGetir(28) />
                 </div>
             </div>
         </div>
