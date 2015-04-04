@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<siparis.Models.OPPORTUNITYDETAIL>
+@using siparis.Models
 @{
-    ViewBag.Title = "Chart";
+    ViewBag.Title = @Res.resGetir(68);
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,19 +9,53 @@
     <div class="container">
         <div class="breadcrumbs">
             <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="active">Shopping Cart</li>
+                <li><a href="#">@Res.resGetir(24)</a></li>
+                <li class="active">@Res.resGetir(69)</li>
             </ol>
         </div>
+
+        <div class="col-md-12">
+            <div class="col-md-9"></div>
+            <div class="col-md-3">
+                <span class="cart_total_price" style="color: #FE980F;
+font-size: 24px;">Grand Total</span>
+                <br />
+                <br />
+                
+                <span class="cart_total_price" style="color: #FE980F;
+font-size: 24px;">---------------</span>
+
+
+
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <div class="col-md-9"></div>
+            <div class="col-md-3">
+
+                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Confirm" style=" float:left; margin-bottom:10px;" />
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
         <div class="table-responsive cart_info">
             <table class="table table-condensed">
                 <thead>
                     <tr class="cart_menu">
-                        <td class="image">Item</td>
+                        <td class="image">@Res.resGetir(70)</td>
                         <td class="description"></td>
-                        <td class="price">Price</td>
-                        <td class="quantity">Quantity</td>
-                        <td class="total">Total</td>
+                        <td class="price">@Res.resGetir(71)</td>
+                        <td class="quantity">@Res.resGetir(72)</td>
+                        <td class="total">@Res.resGetir(73)</td>
                         <td></td>
                     </tr>
                 </thead>
@@ -58,10 +93,40 @@
                                 </td>
                             </tr>
                         }
+                        @*<tr>
+                            <td></td>
+                            <td class="cart_total">asdasdasdasdasdasd</td>
+
+                            
+                        </tr>*@
+
+                      
                     </div>
                   
                 </tbody>
             </table>
+            <div class="col-md-12">
+                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <span class="cart_total_price">Grand Total</span>
+                    <br />
+                    <br />
+                    <span class="cart_total_price">---------------</span>
+
+
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-9"></div>
+                <div class="col-md-3">
+
+                    <input type="submit" name="submit" class="btn btn-primary pull-right" value="Confirm" style=" float:left; margin-top:20px;" />
+
+                </div>
+
+
+            </div>
         </div>
     </div>
 </section> <!--/#cart_items-->

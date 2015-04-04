@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿
+
+
+
+
+<!DOCTYPE html>
+
 
 <html>
 <head>
@@ -35,6 +41,7 @@
 )
 </head>
 <body>
+    @Html.Partial("TopHeaderPartial");
     @Html.DevExpress().Splitter(settings => {
         settings.Name = "MainSplitter";
         settings.AllowResize = false;
@@ -44,16 +51,16 @@
         settings.Styles.Pane.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(0);
         settings.Styles.Pane.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(0);
 
-        settings.Panes.Add(pane => {
-            pane.Name = "Header";
-            pane.AutoHeight = true;
-            pane.PaneStyle.BorderBottom.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
-            pane.PaneStyle.CssClass = "headerPane";
-            pane.SetContent(() => {
-                //Html.RenderPartial("HeaderPartialView");
-                Html.RenderPartial("_HeaderPartial");
-            });
-        });
+        //settings.Panes.Add(pane => {
+        //    pane.Name = "Header";
+        //    pane.AutoHeight = true;
+        //    pane.PaneStyle.BorderBottom.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
+        //    pane.PaneStyle.CssClass = "headerPane";
+        //    pane.SetContent(() => {
+        //        //Html.RenderPartial("HeaderPartialView");
+        //        Html.RenderPartial("_HeaderPartial");
+        //    });
+        //});
 
         settings.Panes.Add(pane => {
             pane.Name = "Content";
