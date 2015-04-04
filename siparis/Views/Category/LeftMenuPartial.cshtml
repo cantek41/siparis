@@ -1,4 +1,5 @@
 ﻿@model siparis.Models.IndexDataViewModel
+@using siparis.Models
 @{
     foreach (var stok in Model.stokgroup)
     {
@@ -18,7 +19,7 @@
 
 <div class="brands_products">
     <!--brands_products-->
-    <h2 style="margin-top:20px;">Brands</h2>
+    <h2 style="margin-top:20px;">@Res.resGetir(13)</h2>
     @{
         foreach (var stok in Model.stokbrand)
         {
@@ -37,7 +38,7 @@
 @using(Html.BeginForm())    
 {   <div class="brands_products">
         <!--brands_products-->
-        <h2 style="margin-top:20px;">SIZE</h2>
+        <h2 style="margin-top:20px;">@Res.resGetir(17)</h2>
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "Size";
@@ -67,7 +68,7 @@
 
     <div class="brands_products">
         <!--brands_products-->
-        <h2 style="margin-top:20px;">COLOR</h2>
+        <h2 style="margin-top:20px;">@Res.resGetir(18)</h2>
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "COLOR";
@@ -93,7 +94,7 @@
     </div><!--/brands_products-->
 
     <div class="brands_products">
-        <h2 style="margin-top:20px;">SEASON</h2>
+        <h2 style="margin-top:20px;">@Res.resGetir(19)</h2>
 
         @(Html.DevExpress().CheckBoxList(settings =>
         {
@@ -121,9 +122,9 @@
 
     <div class="price-range">
         <!--price-range-->
-        <h2>Price Range</h2>
+        <h2>@Res.resGetir(20)</h2>
         <div class="well text-center">
-            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
+            <input name="PRICE RANGE" type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
             <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
         </div>
     </div><!--/price-range-->

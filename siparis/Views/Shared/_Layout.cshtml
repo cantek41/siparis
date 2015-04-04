@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using siparis.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -41,8 +42,11 @@
 </head>
 <body>
     @*@Html.Partial("_HeaderPartial");*@
+
     @Html.Partial("TopHeaderPartial");
     @Html.Partial("BottomHeaderPartial")
+
+    
     @RenderBody()
     <hr />
     <!--Footer-->
@@ -56,12 +60,12 @@
                     <div class="col-sm-2">
                         <div class="single-widget">
                             <center>
-                                <h2>Service</h2>
+                                <h2>@Res.resGetir(32)</h2>
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">Online Help</a></li>
-                                    <li><a href="../Home/Contact">Contact Us</a></li>
-                                    <li><a href="#">Order Status</a></li>
-                                    <li><a href="#">Change Location</a></li>
+                                    <li><a href="#">@Res.resGetir(29)</a></li>
+                                    <li><a href="../Home/Contact">@Res.resGetir(4)</a></li>
+                                    <li><a href="#">@Res.resGetir(30)</a></li>
+                                    <li><a href="#">@Res.resGetir(31)</a></li>
                             </center>
                             </ul>
                         </div>
@@ -69,12 +73,12 @@
                     <div class="col-sm-2">
                         <div class="single-widget">
                             <center>
-                                <h2>Quick Shop</h2>
+                                <h2>@Res.resGetir(33)</h2>
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">Pestemal</a></li>
-                                    <li><a href="#">Peskir</a></li>
-                                    <li><a href="#">Scarf</a></li>
-                                    <li><a href="#">BathRobe</a></li>
+                                    <li><a href="#">@Res.resGetir(34)</a></li>
+                                    <li><a href="#">@Res.resGetir(35)</a></li>
+                                    <li><a href="#">@Res.resGetir(36)</a></li>
+                                    <li><a href="#">@Res.resGetir(37)</a></li>
                             </center>
                             </ul>
                         </div>
@@ -105,7 +109,7 @@
                     </div>*@
                     <div class="col-sm-2 ">
                         <div class="single-widget">
-                            <h2> Follow Us</h2>
+                            <h2> @Res.resGetir(7)</h2>
                             <ul>
                                 <li><a href="https://www.facebook.com/pages/modamcom/180760585455778" target="_blank"><i class="fa fa-facebook social-network-icon"style="margin-top:0px;"></i></a></li>
                                 <li><a href="https://twitter.com/modamcom" target="_blank"><i class=" fa fa-twitter social-network-icon"></i> </a></li>

@@ -1,7 +1,7 @@
 ﻿@model siparis.Models.IndexDataViewModel          
 @using siparis.Models
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = @Res.resGetir(63);
     siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;    
 
 }
@@ -46,7 +46,7 @@
 
                 <div class="features_items">
                     <!--features_items-->
-                    <h2 class="title text-center">Features Items</h2>
+                    <h2 class="title text-center">@Res.resGetir(14)</h2>
 
                     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
                     {
@@ -66,14 +66,14 @@
                                             <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" />
                                             <h2>@stok.UNIT_PRICE @stok.CUR_TYPE</h2>
                                             <p>@stok.NAME_TR</p>
-                                            <a class="btn btn-default add-to-cart" onclick="sepeteEkle(@stok.ID)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>Details</a>
+                                            <a class="btn btn-default add-to-cart" onclick="sepeteEkle(@stok.ID)"><i class="fa fa-shopping-cart"></i>@Res.resGetir(2)</a>
+                                            <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@Res.resGetir(3)</a>
                                         </div>
                                     </div>
                                     <div class="choose">
                                         <ul class="nav nav-pills nav-justified">
-                                            <li><a href=""><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                            <li><a href=""><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                                            <li><a href=""><i class="fa fa-plus-square"></i>@Res.resGetir(15)</a></li>
+                                            <li><a href=""><i class="fa fa-plus-square"></i>@Res.resGetir(16)</a></li>
                                         </ul>
                                     </div>
                                 </div>
