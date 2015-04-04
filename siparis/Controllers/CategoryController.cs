@@ -28,7 +28,9 @@ namespace siparis.Controllers
         [HttpPost]
         public ActionResult getCategoryProduct([ModelBinder(typeof(DevExpressEditorsBinder))] IndexDataViewModel model)
         {
-            int[] season = CheckBoxListExtension.GetSelectedValues<int>("COLOR");
+            int[] season = CheckBoxListExtension.GetSelectedValues<int>("SEASON");
+            int[] color = CheckBoxListExtension.GetSelectedValues<int>("COLOR");
+            int[] size = CheckBoxListExtension.GetSelectedValues<int>("Size");
 
 
             return View();
