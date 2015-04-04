@@ -875,6 +875,9 @@
     <Content Include="Views\Shared\_oRootLayout.cshtml" />
     <Content Include="Views\OrderFollow\Offer.cshtml" />
     <Content Include="Views\OrderFollow\Sample.cshtml" />
+    <Content Include="Views\Shared\TopHeaderPartial.cshtml" />
+    <Content Include="Views\Shared\BottomHeaderPartial.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

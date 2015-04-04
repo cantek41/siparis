@@ -1,4 +1,5 @@
 ﻿@model siparis.Models.IndexDataViewModel
+@using siparis.Models
 @{
     foreach (var stok in Model.stokgroup)
     {        
@@ -18,7 +19,7 @@
 
 <div class="brands_products">
     <!--brands_products-->
-    <h2 style="margin-top:20px;">Brands</h2>
+    <h2 style="margin-top:20px;">@Res.resGetir(13)</h2>
     @{
         foreach (var stok in Model.stokbrand)
         {

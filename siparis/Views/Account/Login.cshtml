@@ -1,7 +1,8 @@
 ﻿@model siparis.Models.LoginViewModel
+@using siparis.Models
 
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = @Res.resGetir(51);
 }
 
 
@@ -14,33 +15,51 @@
                     <div class="col-sm-4 col-sm-offset-1">
                         <div class="login-form">
                             <!--login form-->
-                            <h2>Login to your account</h2>
+                            <h2>@Res.resGetir(52)</h2>
                             <form action="#">
-                                <input type="text" placeholder="Name" />
-                                <input type="email" placeholder="Email Address" />
+
+                                <input type="text" placeholder="TC Kimlik No" />
+                                <input type="text" placeholder=@Res.resGetir(9)>
+                                <input type="email" placeholder=@Res.resGetir(10)>
+
                                 <span>
                                     <input type="checkbox" class="checkbox">
                                     Keep me signed in
                                 </span>
-                                <button type="submit" class="btn btn-default">Login</button>
+                                <button type="submit" class="btn btn-default">@Res.resGetir(23)</button>
                             </form>
                         </div><!--/login form-->
                     </div>
-                    <div class="col-sm-1">
+
+                    
+                    @*<div class="col-sm-1">
                         <h2 class="or">OR</h2>
+=======
+                    <div class="col-sm-1">
+                        <h2 class="or">@Res.resGetir(55)</h2>
+>>>>>>> 725686c1c57577cc26e500ccbaadb633e8ce8906
                     </div>
                     <div class="col-sm-4">
                         <div class="signup-form">
                             <!--sign up form-->
-                            <h2>New User Signup!</h2>
+                            <h2>@Res.resGetir(53)</h2>
                             <form action="#">
-                                <input type="text" placeholder="Name" />
-                                <input type="email" placeholder="Email Address" />
-                                <input type="password" placeholder="Password" />
+<<<<
+                        
+                         HEAD
+                                <input type="hidden" placeholder="Name" />
+                                <input type="hidden" placeholder="Email Address" />
+                                <input type="hidden" placeholder="Password" />
                                 <button type="submit" class="btn btn-default">Signup</button>
+=======
+                                <input type="text" placeholder=@Res.resGetir(9) />
+                                <input type="email" placeholder=@Res.resGetir(10) />
+                                <input type="password" placeholder=@Res.resGetir(54) />
+                                <button type="submit" class="btn btn-default">@Res.resGetir(56)</button>
+>>>>>>> 725686c1c57577cc26e500ccbaadb633e8ce8906
                             </form>
                         </div><!--/sign up form-->
-                    </div>
+                    </div>*@
                 </div>
             </div>
         

@@ -31,8 +31,8 @@
 }
 
 .toast-item p {
-    text-align: left;
-    margin-left: 50px;
+    text-align: center;
+    margin-left: 20px;
     line-height:1px;
 }
 
@@ -55,19 +55,19 @@
 }
 
 .toast-item-image-notice {
-    background:url(../images/notice.png);
+    background:url(../content/images/notice.png);
 }
 
 .toast-item-image-success {
-    background:url(../images/alert/success.png);
+    background:url(../content/images/alert/success.png);
 }
 
 .toast-item-image-warning {
-    background:url(../images/alert/warning.png);
+    background:url(../content/images/alert/warning.png);
 }
 
 .toast-item-image-error {
-    background:url(../images/alert/error.png);
+    background:url(../content/images/alert/error.png);
 }
 
 

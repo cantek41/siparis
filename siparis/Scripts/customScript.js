@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	// Adds title attributes and classnames to list items
-	 
+    $("ul#nav li a:contains('Opportunity')").addClass("dashboard").attr('title', 'Opportunity');
 	$("ul#nav li a:contains('Sample')").addClass("dashboard").attr('title', 'Sample');
 	$("ul#nav li a:contains('Offer')").addClass("pages").attr('title', 'Offer');
 	$("ul#nav li a:contains('Draft')").addClass("assets").attr('title', 'Draft');
