@@ -1,0 +1,34 @@
+<div class="leftPanel">
+    @Styles.Render("~/bundels/orangeMenuStyle")
+    @Scripts.Render("~/bundles/orangeMenuJequery")
+    <link href="~/Content/css/verticalMenu.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+   
+    <div class="container">
+        <div class="sidebar">
+            <div class="navContiner">
+                <ul id="nav">
+                    <li><a href="@Url.Action("Opportunity", "OrderFollow")">Opportunity</a></li>
+                    <li><a href="@Url.Action("Sample","OrderFollow")">Sample</a></li>
+                    <li><a href="@Url.Action("Offer","OrderFollow")">Offer</a></li>
+                    <li><a href="@Url.Action("Draft","OrderFollow")">Draft</a></li>
+                    <li><a href="@Url.Action("Order","OrderFollow")">Order</a></li>
+                    <li><a href="@Url.Action("InReview", "OrderFollow")">InReview</a></li>
+                    <li><a href="@Url.Action("Pending", "OrderFollow")">Pending</a></li>
+                    <li><a href="@Url.Action("Approved", "OrderFollow")">Approved</a></li>
+                    <li><a href="@Url.Action("Edited", "OrderFollow")">Edited</a></li>
+                    <li><a href="@Url.Action("Processed", "OrderFollow")">Processed</a></li>
+                    <li><a href="@Url.Action("Shipped", "OrderFollow")">Shipped</a></li>
+                    <li><a href="@Url.Action("Cancelled", "OrderFollow")">Cancelled</a></li>
+                    <li><a href="@Url.Action("DispatchNote", "OrderFollow")">Dispatch Note</a></li>
+                    <li><a href="@Url.Action("Invoice", "OrderFollow")">Invoice</a></li>
+                    <li><a href="@Url.Action("Linesheets", "OrderFollow")">Linesheets</a></li>   
+            </div>
+            <div class="flyoutBg"></div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/orangeMenuScript")
+    <script></script>
+    
+</div>

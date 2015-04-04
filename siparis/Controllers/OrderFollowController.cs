@@ -103,12 +103,12 @@ namespace siparis.Controllers
             }
 
             return gidecegisayfa(eskiSayfa);
-            
+
         }
 
-         public ActionResult gidecegisayfa(int eskiSayfa)
-         {
-             switch (eskiSayfa)
+        public ActionResult gidecegisayfa(int eskiSayfa)
+        {
+            switch (eskiSayfa)
             {
                 case 1:
                     return GridViewPartialOpportunity();
@@ -156,12 +156,12 @@ namespace siparis.Controllers
                     return GridViewPartialLinesheets();
                     break;
 
-                default:                   
+                default:
                     return PartialView("_GridViewPartialOpportunity");
                     break;
             }
-         }
-        
+        }
+
 
         [HttpPost, ValidateInput(false)]
         public ActionResult Progress(System.Int32 OPPORTUNITY_CODE)
@@ -178,7 +178,8 @@ namespace siparis.Controllers
                     {
                         opp.DOCUMENT_TYPE++;
                     }
-                    else {
+                    else
+                    {
                         opp.DOCUMENT_TYPE = -1;
                     }
 

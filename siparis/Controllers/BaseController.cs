@@ -16,9 +16,13 @@ namespace siparis.Controllers
         {
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
             int sepetID = (from d in db.OPPORTUNITYMASTERs
-                           where d.OPEN_CLOSE == 0 && d.APPOINTED_USER_CODE == 1// user ID gelmeli Fix Me
+                           where d.OPEN_CLOSE == 0 && d.DOCUMENT_TYPE==15 && d.APPOINTED_USER_CODE == 1// user ID gelmeli Fix Me
                            select d.OPPORTUNITY_CODE).FirstOrDefault();
-            Session.Add("Sepet", sepetID);
+            if (sepetID!=0)
+            {
+                Session.Add("Sepet", sepetID);
+            }
+          
 
             Res.languege = "TR";//Fix me
 
@@ -28,7 +32,7 @@ namespace siparis.Controllers
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
             IEnumerable<OPPORTUNITYDETAIL> model = from d in db.OPPORTUNITYDETAILs
                                                    join master in db.OPPORTUNITYMASTERs on d.OPPORTUNITY_CODE equals master.OPPORTUNITY_CODE
-                                                   where master.OPEN_CLOSE == 0 && master.APPOINTED_USER_CODE == 1 //fix me 
+                                                   where master.OPEN_CLOSE == 0 && master.APPOINTED_USER_CODE == 1 && master.DOCUMENT_TYPE==15//fix me 
                                                    select d;
             List<OPPORTUNITYDETAIL> sepet = new List<OPPORTUNITYDETAIL>();
             foreach (var item in model)

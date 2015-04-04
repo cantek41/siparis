@@ -89,7 +89,7 @@ font-size: 24px;">---------------</span>
                                     <p class="cart_total_price">@tutar @item.CUR_TYPE</p>
                                 </td>
                                 <td class="cart_delete">
-                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                    <a class="cart_quantity_delete" href="@Url.Action("removeCartProduct", "Order", new { oppCode=@item.OPPORTUNITY_CODE,row=@item.ROW_ORDER_NO }) "><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
                         }
