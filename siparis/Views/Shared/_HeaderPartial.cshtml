@@ -1,4 +1,5 @@
-﻿<header id="header">
+﻿@using siparis.Models
+<header id="header">
     <!--header-->
     <div class="header_top">
         <!--header_top-->
@@ -39,9 +40,9 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="@Url.Action("Chart","Order")"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="@Url.Action("Login", "Account")"><i class="fa fa-lock"></i> Login </a></li>
+                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i>@Res.resGetir(21)</a></li>
+                            <li><a href="@Url.Action("Chart","Order")"><i class="fa fa-shopping-cart"></i> @Res.resGetir(22)</a></li>
+                            <li><a href="@Url.Action("Login", "Account")"><i class="fa fa-lock"></i> @Res.resGetir(23) </a></li>
                         </ul>
                     </div>
                 </div>

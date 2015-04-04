@@ -1,11 +1,12 @@
-﻿@model System.Web.Mvc.HandleErrorInfo
+﻿@using siparis.Models
+@model System.Web.Mvc.HandleErrorInfo
 
 @{
     ViewBag.Title = "Error";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<h1 class="text-danger">@Res.resGetir(95)</h1>
+<h2 class="text-danger">@Res.resGetir(96)</h2>
 
 <body>
     <div class="container text-center">
@@ -14,9 +15,9 @@
         </div>
         <div class="content-404">
             <img src="../Content/images/404/404.png" class="img-responsive" alt="" />
-            <h1><b>OPPS!</b> We Couldn’t Find this Page</h1>
-            <p>Uh... So it looks like you brock something. The page you are looking for has up and Vanished.</p>
-            <h2><a href="index.html">Bring me back Home</a></h2>
+            <h1>< @Res.resGetir(65)</h1>
+            <p>@Res.resGetir(66)</p>
+            <h2><a href="index.html">@Res.resGetir(67)</a></h2>
         </div>
     </div>
 
