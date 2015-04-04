@@ -1,12 +1,16 @@
-﻿@{
+﻿
+@using siparis.Models
+
+@{
     ViewBag.Title = "Contact";
+   
 }
 
 <div id="contact-page" class="container">
     <div class="bg">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="title text-center">Contact <strong>Us</strong></h2>
+                <h2 class="title text-center">@Res.resGetir(4)</h2>
                 <div id="gmap" class="contact-map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3010.5892819511796!2d29.033055!3d41.01236199999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab81c94367b63%3A0xdc4ab7646047c0e0!2zQmHFn2thbiBTaywgQmFyYmFyb3MgTWguLCAzNDcxMCDDnHNrw7xkYXIvxLBzdGFuYnVsLCBUw7xya2l5ZQ!5e0!3m2!1str!2s!4v1427971038269" width="1140" height="385" frameborder="0" style="border:0"></iframe>
                 </div>
@@ -15,31 +19,31 @@
         <div class="row">
             <div class="col-sm-8">
                 <div class="contact-form">
-                    <h2 class="title text-center">Get In Touch</h2>
+                    <h2 class="title text-center">@Res.resGetir(6)</h2>
                     <div class="status alert alert-success" style="display:none"></div>
                     <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
                         <div class="form-group col-md-6">
-                            <input type="text" name="name" class="form-control" required="required" placeholder="Name" />
+                            <input type="text" name="name" class="form-control" required="required" placeholder=@Res.resGetir(9) />
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="email" name="email" class="form-control" required="required" placeholder="Email" />
+                            <input type="email" name="email" class="form-control" required="required" placeholder=@Res.resGetir(10) />
                         </div>
                         <div style="clear:both;"></div>
                         <div class="form-group col-md-12">
-                            <input type="text" name="subject" class="form-control" required="required" placeholder="Subject" />
+                            <input type="text" name="subject" class="form-control" required="required" placeholder=@Res.resGetir(11) />
                         </div>
                         <div class="form-group col-md-12">
-                            <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
+                            <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder=@Res.resGetir(12)></textarea>
                         </div>
                         <div class="form-group col-md-12">
-                            <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit" />
+                            <input type="submit" name="submit" class="btn btn-primary pull-right" value=@Res.resGetir(8) />
                         </div>
                     </form>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="contact-info">
-                    <h2 class="title text-center">Contact Info</h2>
+                    <h2 class="title text-center">@Res.resGetir(5)</h2>
                     <address>
                         <p>Modam Tekstil-Factory</p>
                         <p>Murat Dede Mh. Merkez Efendi Cd. No: 33</p>
@@ -56,7 +60,7 @@
                     </address>
                 </div>
                 <div class="social-networks">
-                    <h2 class="title text-center">Social Networking</h2>
+                    <h2 class="title text-center">@Res.resGetir(7)</h2>
                     <ul>
                         <li><a href="https://www.facebook.com/pages/modamcom/180760585455778"target="_blank"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="https://twitter.com/modamcom" target="_blank"><i class=" fa fa-twitter"></i></a></li>
