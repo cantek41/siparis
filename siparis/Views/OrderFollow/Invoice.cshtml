@@ -1,9 +1,10 @@
-﻿@{
-    ViewBag.Title = "Invoice";
+﻿@using siparis.Models
+@{
+    ViewBag.Title = @Res.resGetir(81);
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-<h2>Invoice</h2>
+<h2>@Res.resGetir(81)</h2>
 
 @Html.Action("GridViewPartialInvoice")
 

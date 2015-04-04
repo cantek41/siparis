@@ -1,9 +1,10 @@
-﻿@{
-    ViewBag.Title = "DispachNote";
+﻿@using siparis.Models
+@{
+    ViewBag.Title =@Res.resGetir(77);
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-<h2>DispachNote</h2>
+<h2>@Res.resGetir(77)</h2>
 
 @Html.Action("GridViewPartialDispatchNote")
 

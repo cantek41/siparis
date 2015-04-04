@@ -1,8 +1,9 @@
-﻿@{
-    ViewBag.Title = "InReview";
+﻿@using siparis.Models
+@{
+    ViewBag.Title = @Res.resGetir(89);
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-<h2>InReview</h2>
+<h2>@Res.resGetir(89)</h2>
 
 @Html.Action("GridViewPartialInReview")

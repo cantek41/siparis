@@ -1,10 +1,10 @@
-﻿
+﻿@using siparis.Models
 @{
-    ViewBag.Title = "Edited";
+    ViewBag.Title = @Res.resGetir(78);
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-<h2>Edited</h2>
+<h2>@Res.resGetir(78)</h2>
 
 @Html.Action("GridViewPartialEdited")
 

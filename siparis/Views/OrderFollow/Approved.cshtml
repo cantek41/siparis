@@ -1,8 +1,9 @@
-﻿@{
-    ViewBag.Title = "Approved";
+﻿@using siparis.Models
+@{
+    ViewBag.Title = @Res.resGetir(74);
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-<h2>Approved</h2>
+<h2>@Res.resGetir(74)</h2>
 
 @Html.Action("GridViewPartialApproved")

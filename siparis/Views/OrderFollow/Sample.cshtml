@@ -1,9 +1,10 @@
-﻿@{
-    ViewBag.Title = "Sample";
+﻿@using siparis.Models
+@{
+    ViewBag.Title = @Res.resGetir(87);
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-<h2>Sample</h2>
+<h2>@Res.resGetir(87)</h2>
 
 @Html.Action("GridViewPartialSample")
 

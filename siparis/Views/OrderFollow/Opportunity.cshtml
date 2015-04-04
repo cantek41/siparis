@@ -1,7 +1,11 @@
-﻿@{
-    ViewBag.Title = "Opportunity";
+﻿@using siparis.Models
+@{
+    ViewBag.Title = @Res.resGetir(83);
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
+
+<h2>@Res.resGetir(83)</h2>
+
 @Html.Action("GridViewPartialOpportunity")
 
 

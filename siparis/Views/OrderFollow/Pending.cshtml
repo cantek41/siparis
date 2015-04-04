@@ -1,8 +1,9 @@
-﻿@{
-    ViewBag.Title = "Pending";
+﻿@using siparis.Models
+@{
+    ViewBag.Title = @Res.resGetir(85);
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-<h2>Pending</h2>
+<h2>@Res.resGetir(85)</h2>
 
 @Html.Action("GridViewPartialPending")

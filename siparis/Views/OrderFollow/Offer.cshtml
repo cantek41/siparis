@@ -1,9 +1,9 @@
-﻿
+﻿@using siparis.Models
 @{
-    ViewBag.Title = "Offer";
+    ViewBag.Title = @Res.resGetir(82);
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-<h2>Offer</h2>
+<h2>@Res.resGetir(82)</h2>
 
 @Html.Action("GridViewPartialOffer")
