@@ -20,7 +20,7 @@
 
         settings.SettingsBehavior.ConfirmDelete = true;
         settings.CommandColumn.Visible = true;
-        settings.CommandColumn.ShowDeleteButton = true; 
+        settings.CommandColumn.ShowDeleteButton = true;
         settings.KeyFieldName = "OPPORTUNITY_CODE";
 
         settings.Columns.Add(column =>
@@ -28,12 +28,14 @@
             column.FieldName = "DOCUMENT_DATE";
             column.Name = "DOCUMENT_DATE";
             column.Caption = "DATE";
+            var txtProperties = column.PropertiesEdit as TextBoxProperties;
+            txtProperties.MaskSettings.Mask = "dd/mm/yyyy";
         });
         settings.Columns.Add(column =>
             {
                 column.FieldName = "OPPORTUNITY_CODE";
                 column.Name = "OPPORTUNITY_CODE";
-                column.Caption = "Code";
+                column.Caption = "CODE";
             });
         settings.Columns.Add(column =>
         {
@@ -67,15 +69,9 @@
             column.Name = "CREATE_USER";
             column.Caption = "CREATE_USER";
         });
-        
+
         settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = false;
         settings.SettingsDetail.ShowDetailRow = true;
-
-
-
-
-
-
         settings.SetDetailRowTemplateContent(c =>
         {
             //ViewContext.Writer.Write(

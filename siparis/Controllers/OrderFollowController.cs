@@ -84,13 +84,25 @@ namespace siparis.Controllers
             return View(model.ToArray());
         }
 
-        public IEnumerable<OPPORTUNITYMASTER> getOpp(int oppMasterType)
+        public IEnumerable<OrderMasterViewModel> getOpp(int oppMasterType)
         {
             TempData["DOCUMENT_TYPE"] = oppMasterType;
             VdbSoftEntities db = db = new VdbSoftEntities();
-            var model = from d in db.OPPORTUNITYMASTERs
-                        where d.DOCUMENT_TYPE == oppMasterType
-                        select d;
+            List<OrderMasterViewModel> model = (from d in db.OPPORTUNITYMASTERs
+                                                join com in db.COMPANies on d.COMPANY_CODE equals com.COMPANY_CODE
+                                                join con in db.CONTACTs on d.CONTACT_CODE equals con.CONTACT_CODE
+                                                join user in db.USERS on d.APPOINTED_USER_CODE equals user.USER_CODE
+                                                where d.DOCUMENT_TYPE == oppMasterType
+                                                select new OrderMasterViewModel
+                                                 {
+                                                     OPPORTUNITY_CODE = d.OPPORTUNITY_CODE,
+                                                     COMPANY_CODE = com.COMPANY_NAME,
+                                                     DOCUMENT_DATE=(DateTime)d.DOCUMENT_DATE,
+                                                     CONTACT_CODE=con.NAME+" "+con.SURNAME,
+                                                     APPOINTED_USER_CODE=user.AUSER_NAME+" "+user.SURNAME,
+                                                     CREATE_USER = user.AUSER_NAME + " " + user.SURNAME,
+                                                     TOTAL=(float)d.TOTAL
+                                                 }).ToList();          
             return model.ToArray();
         }
 

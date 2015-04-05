@@ -37,7 +37,7 @@ namespace siparis.Controllers
                         sepet.CONTACT_CODE = 0;
                         sepet.DOCUMENT_DATE = DateTime.Now;
                         sepet.CREATE_DATE = DateTime.Now;
-                        sepet.CREATE_USER = "1";//session dan gelecek Fix Mee
+                        sepet.CREATE_USER = "cantek41";//session dan gelecek Fix Mee
                         sepet.APPOINTED_USER_CODE = 1;// session dan almalı fix mee
                         db.OPPORTUNITYMASTERs.Add(sepet);
                         db.SaveChanges();

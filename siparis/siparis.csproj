@@ -499,6 +499,7 @@
     <Compile Include="Models\OPPORTUNITYMASTERVERSION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderMasterViewModel.cs" />
     <Compile Include="Models\PFORM.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -877,11 +878,9 @@
     <Content Include="Views\OrderFollow\Sample.cshtml" />
     <Content Include="Views\Shared\TopHeaderPartial.cshtml" />
     <Content Include="Views\Shared\BottomHeaderPartial.cshtml" />
-
     <Content Include="Views\OrderFollow\girdMaster.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailDetailPartial.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailMasterPartial.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
@@ -911,11 +910,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-
-
           <IISUrl>http://localhost:39816/</IISUrl>
-
-
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
