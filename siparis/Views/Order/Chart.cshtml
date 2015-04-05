@@ -3,6 +3,10 @@
 @{
     ViewBag.Title = @Res.resGetir(68);
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int oppCode=0;
+    if (Model.Count()>0)   
+        oppCode=Model.ElementAt(0).OPPORTUNITY_CODE;
+    
 }
 
 <section id="cart_items">
@@ -19,115 +23,123 @@
             <div class="col-md-3">
                 <span class="cart_total_price" style="color: #FE980F;
 font-size: 24px;">@Res.resGetir(97)</span>
-                <br />
-                <br />
-                
-                <span class="cart_total_price" style="color: #FE980F;
-font-size: 24px;">---------------</span>
+<br />
+<br />
+
+<span class="cart_total_price" style="color: #FE980F;
+font-size: 24px;">
+    @Model.Sum(x => x.TOTAL)@if (Model.Count() > 0)
+    { @Model.ElementAt(0).CUR_TYPE}
+</span>
+
+</div>
+</div>
+
+
+<div class="col-md-12">
+    <div class="col-md-9"></div>
+    <div class="col-md-3">
+        <a href="onayla?OppCode=@oppCode">
+            <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@Res.resGetir(98)</span></a>      
+        
+
+    </div>
+
+
+</div>
 
 
 
-            </div>
-        </div>
-
-
-        <div class="col-md-12">
-            <div class="col-md-9"></div>
-            <div class="col-md-3">
-
-                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Confirm" style=" float:left; margin-bottom:10px;" />
-
-            </div>
-
-
-        </div>
 
 
 
+<div class="table-responsive cart_info">
+    <table class="table table-condensed">
+        <thead>
+            <tr class="cart_menu">
+                <td class="image">@Res.resGetir(70)</td>
+                <td class="description"></td>
+                <td class="price">@Res.resGetir(71)</td>
+                <td class="quantity">@Res.resGetir(72)</td>
+                <td class="total">@Res.resGetir(73)</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
 
-
-
-        <div class="table-responsive cart_info">
-            <table class="table table-condensed">
-                <thead>
-                    <tr class="cart_menu">
-                        <td class="image">@Res.resGetir(70)</td>
-                        <td class="description"></td>
-                        <td class="price">@Res.resGetir(71)</td>
-                        <td class="quantity">@Res.resGetir(72)</td>
-                        <td class="total">@Res.resGetir(73)</td>
-                        <td></td>
+            <div class="product-image-wrapper">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="cart_product">
+                            <a href=""><img src="@item.STOKCARD.STOKCARDPICTUREs.ElementAt(0).PATH" style="width:100px;" alt=""></a>
+                        </td>
+                        <td class="cart_description">
+                            <h4><a href="">@item.STOKCARD.NAME_TR</a></h4>
+                            <p>Web ID: @item.STOKCARD.CODE</p>
+                        </td>
+                        <td class="cart_price">
+                            <p>@item.STOKCARD.UNIT_PRICE @item.STOKCARD.CUR_TYPE</p>
+                        </td>
+                        <td class="cart_quantity">
+                            <div class="cart_quantity_button">
+                                @using (Html.BeginForm("changeCartProduct","Order",FormMethod.Post))
+                                {      @*<a class="cart_quantity_up" href=""> + </a>*@
+                                    @Html.TextBoxFor(model => item.QUANTITY, new { @class = "cart_quantity_input", @size = "2" })
+                                    @Html.HiddenFor(model => item.OPPORTUNITY_CODE)
+                                    @Html.HiddenFor(model => item.ROW_ORDER_NO)
+                                    <input type="submit" value="" class="fa fa-check-square-o" />
+                                }
+                            </div>
+                        </td>
+                        @{float miktar = (float)item.QUANTITY;
+                        float fiyat = (float)item.STOKCARD.UNIT_PRICE;
+                        float tutar = miktar * fiyat;}
+                        <td class="cart_total">
+                            <p class="cart_total_price">@tutar @item.CUR_TYPE</p>
+                        </td>
+                        <td class="cart_delete">
+                            <a class="cart_quantity_delete" href="@Url.Action("removeCartProduct", "Order", new { oppCode=@item.OPPORTUNITY_CODE,row=@item.ROW_ORDER_NO }) "><i class="fa fa-times"></i></a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-
-                    <div class="product-image-wrapper">
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                               <td class="cart_product">
-                                    <a href=""><img src="@item.STOKCARD.STOKCARDPICTUREs.ElementAt(0).PATH" style="width:100px;" alt=""></a>
-                                </td>
-                                <td class="cart_description">
-                                    <h4><a href="">@item.STOKCARD.NAME_TR</a></h4>
-                                    <p>Web ID: @item.STOKCARD.CODE</p>
-                                </td>
-                                <td class="cart_price">
-                                    <p>@item.STOKCARD.UNIT_PRICE @item.STOKCARD.CUR_TYPE</p>
-                                </td>
-                                <td class="cart_quantity">
-                                    <div class="cart_quantity_button">
-                                        <a class="cart_quantity_up" href=""> + </a>
-                                        <input class="cart_quantity_input" type="text" name="quantity" value="@item.QUANTITY" autocomplete="off" size="2">
-                                        <a class="cart_quantity_down" href=""> - </a>
-                                    </div>
-                                </td>
-                                @{float miktar = (float)item.QUANTITY;
-                                float fiyat = (float)item.STOKCARD.UNIT_PRICE;
-                                float tutar = miktar * fiyat;}
-                                <td class="cart_total">
-                                    <p class="cart_total_price">@tutar @item.CUR_TYPE</p>
-                                </td>
-                                <td class="cart_delete">
-                                    <a class="cart_quantity_delete" href="@Url.Action("removeCartProduct", "Order", new { oppCode=@item.OPPORTUNITY_CODE,row=@item.ROW_ORDER_NO }) "><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
-                        }
-                        @*<tr>
-                            <td></td>
-                            <td class="cart_total">asdasdasdasdasdasd</td>
-
-                            
-                        </tr>*@
-
-                      
-                    </div>
-                  
-                </tbody>
-            </table>
-            <div class="col-md-12">
-                <div class="col-md-9"></div>
-                <div class="col-md-3">
-                    <span class="cart_total_price">@Res.resGetir(97)</span>
-                    <br />
-                    <br />
-                    <span class="cart_total_price">---------------</span>
+                }
+                @*<tr>
+                        <td></td>
+                        <td class="cart_total">asdasdasdasdasdasd</td>
 
 
-
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-9"></div>
-                <div class="col-md-3">
-
-                    <input type="submit" name="submit" class="btn btn-primary pull-right" value="@Res.resGetir(98)" style=" float:left; margin-top:20px;" />
-
-                </div>
+                    </tr>*@
 
 
             </div>
+
+        </tbody>
+    </table>
+    <div class="col-md-12">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <span class="cart_total_price">@Res.resGetir(97)</span>
+            <br />
+            <br />
+            <span class="cart_total_price">
+                @Model.Sum(x => x.TOTAL) @if (Model.Count() > 0)
+                { @Model.ElementAt(0).CUR_TYPE}
+            </span>
+
+
+
         </div>
     </div>
-</section> <!--/#cart_items-->
+    <div class="col-md-12">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <a href="onayla?OppCode=@oppCode">
+                <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@Res.resGetir(98)</span>
+            </a>  
+        </div>
 
+
+    </div>
+</div>
+</div>
+</section> <!--/#cart_items-->

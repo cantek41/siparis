@@ -4,6 +4,8 @@
     ViewBag.Title = @Res.resGetir(26);
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="~/Scripts/jquery.toastmessage.js"></script>
+<script src="~/Scripts/ajaxGonderi/ajaxGonder.js"></script>
 <section>
     <div class="container">
         <div class="row">
@@ -14,14 +16,6 @@
                     <div class="col-sm-5">
                         <div class="view-product">
                            <img src="@Model.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" />
-
-
-                           
-
-
-
-
-
                             <h3>ZOOM</h3>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -29,9 +23,6 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                <div class="item active">
-
-                                 
-
                                         <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH " alt=" "></a>
                                         <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt=""></a>
                                         <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt=""></a>
@@ -75,11 +66,12 @@
                             <span>
                                 <span>@Model.CUR_TYPE @Model.UNIT_PRICE</span>
                                 <label>@Res.resGetir(72)</label>
-                                <input type="text" value="1" />
-                                <button type="button" class="btn btn-fefault cart">
+                                <input id="miktar" type="text" value="1" />
+                                <button type="button" class="btn btn-fefault cart" onclick="sepeteEkleMiktarli(@Model.ID,$('#miktar').val())">
                                     <i class="fa fa-shopping-cart"></i>
                                     @Res.resGetir(2)
-                                </button>
+                                </button>                           
+
                             </span>
                             <p><b>@Res.resGetir(91)</b> @Model.UNIT</p>
                             <p><b>@Res.resGetir(92)</b> @Res.resGetir(93)</p>

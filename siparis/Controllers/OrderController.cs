@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
@@ -98,13 +99,12 @@ namespace siparis.Controllers
 
         }
 
-        
+
 
         [HttpGet]
         public ActionResult removeCartProduct(int oppCode, int row)
         {
             VdbSoftEntities db = new VdbSoftEntities();
-
             OPPORTUNITYDETAIL item = (from d in db.OPPORTUNITYDETAILs
                                       where d.ROW_ORDER_NO == row && d.OPPORTUNITY_CODE == oppCode
                                       select d).SingleOrDefault();
@@ -114,7 +114,33 @@ namespace siparis.Controllers
             return RedirectToAction("Chart");
         }
 
+        [HttpPost]
+        public ActionResult changeCartProduct(OPPORTUNITYDETAIL item)
+        {
+            VdbSoftEntities db = new VdbSoftEntities();
+            OPPORTUNITYDETAIL opp = (from d in db.OPPORTUNITYDETAILs
+                                     where d.OPPORTUNITY_CODE == item.OPPORTUNITY_CODE && d.ROW_ORDER_NO == item.ROW_ORDER_NO
+                                     select d).SingleOrDefault();
+            opp.QUANTITY = item.QUANTITY;
+            opp.TOTAL = item.QUANTITY * opp.UNIT_PRICE;
+            db.OPPORTUNITYDETAILs.Attach(opp);
+            db.Entry(opp).State = EntityState.Modified;
+            db.SaveChanges();
+            TotalHesapla(item.OPPORTUNITY_CODE);
+            return RedirectToAction("Chart");
+        }
 
+        public ActionResult onayla(string OppCode)
+        {
+            int op = Convert.ToInt32(OppCode);
+            VdbSoftEntities db = new VdbSoftEntities();
+            OPPORTUNITYMASTER master = db.OPPORTUNITYMASTERs.Find(op);
+            master.DOCUMENT_TYPE = 17;
+            db.OPPORTUNITYMASTERs.Attach(master);
+            db.Entry(master).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
 
         public ActionResult Chart()
         {
