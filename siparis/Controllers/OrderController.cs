@@ -135,10 +135,11 @@ namespace siparis.Controllers
             int op = Convert.ToInt32(OppCode);
             VdbSoftEntities db = new VdbSoftEntities();
             OPPORTUNITYMASTER master = db.OPPORTUNITYMASTERs.Find(op);
-            master.DOCUMENT_TYPE = 17;
+            master.DOCUMENT_TYPE = 18;
             db.OPPORTUNITYMASTERs.Attach(master);
             db.Entry(master).State = EntityState.Modified;
             db.SaveChanges();
+            Session.Remove("Sepet");
             return RedirectToAction("Index", "Home");
         }
 

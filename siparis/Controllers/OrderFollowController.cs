@@ -14,6 +14,7 @@ namespace siparis.Controllers
         // GET: /Admin/
         public ActionResult Index()
         {
+
             return View(getOpp(1));
         }
         public ActionResult Opportunity()
@@ -103,7 +104,7 @@ namespace siparis.Controllers
                                                      CREATE_USER = user.AUSER_NAME + " " + user.SURNAME,
                                                      TOTAL=(float)d.TOTAL
                                                  }).ToList();          
-            return model.ToArray();
+            return model;
         }
 
         [ValidateInput(false)]

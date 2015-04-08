@@ -1,12 +1,5 @@
-﻿﻿@model System.Collections.IEnumerable
-    @using siparis.Models
-@{
-
-    ViewBag.Title = @Res.resGetir(80);
+﻿@model IEnumerable<siparis.Models.OrderMasterViewModel>
+@{   
     Layout = "~/Views/Shared/_oMainLayout.cshtml";
-
 }
-
-<h2>@Res.resGetir(80)</h2>
-
 @Html.Partial("MasterDetailMasterPartial", Model)
