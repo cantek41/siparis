@@ -857,7 +857,6 @@
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\OrderFollow\Index.cshtml" />
@@ -904,7 +903,7 @@
     <Content Include="Views\OrderFollow\MasterDetailMasterPartial.cshtml" />
     <Content Include="Views\Stok\AddStok.cshtml" />
     <Content Include="Views\Account\RoleCreate.cshtml" />
-    <Content Include="Views\Account\FirstLogin.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
