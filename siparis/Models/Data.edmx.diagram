@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f1412ce69383466884723ae2b957825c" Name="Diagram1" ZoomLevel="82">
+      <Diagram DiagramId="f1412ce69383466884723ae2b957825c" Name="Diagram1" ZoomLevel="42">
         <EntityTypeShape EntityType="VdbSoftModel.C__MigrationHistory" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.ACTIVITY" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYCC" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
@@ -21,10 +21,6 @@
         <EntityTypeShape EntityType="VdbSoftModel.ADDRESS" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.AREMINDER" Width="1.5" PointX="18.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.AREPEATER" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.AspNetRole" Width="1.5" PointX="7.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.AspNetUser" Width="1.5" PointX="10" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.ASSOCIATION" Width="1.5" PointX="9.75" PointY="18.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.CAR" Width="1.5" PointX="11.75" PointY="18.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.CITEM" Width="1.5" PointX="18.75" PointY="14.75" IsExpanded="true" />
@@ -149,15 +145,12 @@
         <EntityTypeShape EntityType="VdbSoftModel.USERBANK" Width="1.5" PointX="12.75" PointY="38.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.USERCASH" Width="1.5" PointX="39.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.USERWHAREHOUSE" Width="1.5" PointX="39.75" PointY="14.75" IsExpanded="true" />
-        <AssociationConnector Association="VdbSoftModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="VdbSoftModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.FK_PHONE_COMPANY" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.FK_PHONE_CONTACT" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.FK_OPPORTUNITYDETAIL_STOKCARD" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKGROUP" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.FK_STOKCARDPICTURE_STOKCARD" ManuallyRouted="false" />
-        <AssociationConnector Association="VdbSoftModel.AspNetUserRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="VdbSoftModel.STOKBODY" Width="1.5" PointX="0.75" PointY="14.25" />
         <EntityTypeShape EntityType="VdbSoftModel.STOKBRAND" Width="1.5" PointX="0.75" PointY="3.5" />
         <EntityTypeShape EntityType="VdbSoftModel.STOKCOLOR" Width="1.5" PointX="0.75" PointY="17.25" />
@@ -166,6 +159,26 @@
         <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKBRAND" />
         <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKCOLOR" />
         <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKSEASON" />
+        <EntityTypeShape EntityType="VdbSoftModel.aspnet_Applications" Width="1.5" PointX="29.625" PointY="42.125" />
+        <EntityTypeShape EntityType="VdbSoftModel.aspnet_Membership" Width="1.5" PointX="36.875" PointY="40.75" />
+        <EntityTypeShape EntityType="VdbSoftModel.aspnet_Paths" Width="1.5" PointX="31.875" PointY="40.625" />
+        <EntityTypeShape EntityType="VdbSoftModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="34.125" PointY="44.125" />
+        <EntityTypeShape EntityType="VdbSoftModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="34.125" PointY="40.625" />
+        <EntityTypeShape EntityType="VdbSoftModel.aspnet_Profile" Width="1.5" PointX="36.375" PointY="48.125" />
+        <EntityTypeShape EntityType="VdbSoftModel.aspnet_Roles" Width="1.5" PointX="31.875" PointY="50" />
+        <EntityTypeShape EntityType="VdbSoftModel.aspnet_SchemaVersions" Width="1.5" PointX="15.375" PointY="39.75" />
+        <EntityTypeShape EntityType="VdbSoftModel.aspnet_Users" Width="1.5" PointX="34.125" PointY="47.625" />
+        <EntityTypeShape EntityType="VdbSoftModel.aspnet_WebEvent_Events" Width="1.5" PointX="24.375" PointY="39.75" />
+        <AssociationConnector Association="VdbSoftModel.FK__aspnet_Me__Appli__34E8D562" />
+        <AssociationConnector Association="VdbSoftModel.FK__aspnet_Pa__Appli__668030F6" />
+        <AssociationConnector Association="VdbSoftModel.FK__aspnet_Ro__Appli__536D5C82" />
+        <AssociationConnector Association="VdbSoftModel.FK__aspnet_Us__Appli__24B26D99" />
+        <AssociationConnector Association="VdbSoftModel.FK__aspnet_Me__UserI__35DCF99B" />
+        <AssociationConnector Association="VdbSoftModel.FK__aspnet_Pe__PathI__6C390A4C" />
+        <AssociationConnector Association="VdbSoftModel.FK__aspnet_Pe__PathI__70099B30" />
+        <AssociationConnector Association="VdbSoftModel.FK__aspnet_Pe__UserI__70FDBF69" />
+        <AssociationConnector Association="VdbSoftModel.FK__aspnet_Pr__UserI__49E3F248" />
+        <AssociationConnector Association="VdbSoftModel.aspnet_UsersInRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

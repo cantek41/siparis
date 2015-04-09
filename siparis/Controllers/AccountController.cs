@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
@@ -66,6 +67,9 @@ namespace siparis.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            VdbSoftEntities db=new VdbSoftEntities();
+            ViewData["Roles"] = from d in db.aspnet_Roles
+                                select new { Key = d.RoleId, Text = d.RoleName };
             return View();
         }
 
@@ -74,24 +78,32 @@ namespace siparis.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
+
+
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                MembershipCreateStatus memberShipCreateStaus = new MembershipCreateStatus();
+                try
                 {
-                    await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    Membership.CreateUser(model.UserName, model.Password);
+                    if (memberShipCreateStaus==MembershipCreateStatus.Success)
+                    {
+                        FormsAuthentication.SetAuthCookie(model.UserName, false);
+                        TempData["Mesaj"] = "İşelem Tamam";
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    AddErrors(result);
-                }
-            }
 
-            // If we got this far, something failed, redisplay form
+                    TempData["Mesaj"] = ex.ToString();
+                }              
+            }
+            VdbSoftEntities db = new VdbSoftEntities();
+            ViewData["Roles"] = from d in db.aspnet_Roles
+                                select new { Key = d.RoleId, Text = d.RoleName };          
             return View(model);
         }
 

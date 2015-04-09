@@ -85,6 +85,9 @@ namespace siparis.Models
         public string ISACTIVE { get; set; }
         public Nullable<int> WEB_AMOUNT { get; set; }
         public int ID { get; set; }
+        public string SERIAL_NO1 { get; set; }
+        public string SERIAL_NO2 { get; set; }
+        public string SERIAL_NO3 { get; set; }
     
         public virtual ICollection<OPPORTUNITYDETAIL> OPPORTUNITYDETAILs { get; set; }
         public virtual STOKGROUP STOKGROUP { get; set; }

@@ -45,6 +45,10 @@ namespace siparis.Models
 
     public class RegisterViewModel
     {
+        
+        [Display(Name = "Role name")]
+        public string RolName { get; set; }
+
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using siparis.Models;
 
 namespace siparis
 {
@@ -33,6 +35,7 @@ namespace siparis
             //   appSecret: "");
 
             //app.UseGoogleAuthentication();
+            
         }
     }
 }

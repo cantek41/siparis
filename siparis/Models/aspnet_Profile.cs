@@ -12,13 +12,14 @@ namespace siparis.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetUserClaim
+    public partial class aspnet_Profile
     {
-        public int Id { get; set; }
-        public string ClaimType { get; set; }
-        public string ClaimValue { get; set; }
-        public string User_Id { get; set; }
+        public System.Guid UserId { get; set; }
+        public string PropertyNames { get; set; }
+        public string PropertyValuesString { get; set; }
+        public byte[] PropertyValuesBinary { get; set; }
+        public System.DateTime LastUpdatedDate { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
+        public virtual aspnet_Users aspnet_Users { get; set; }
     }
 }

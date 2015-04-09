@@ -5,6 +5,10 @@
 }
 
 <h2>@ViewBag.Title.</h2>
+@if (TempData["Mesaj"] != null)
+{
+    <dialog>@TempData["Mesaj"]</dialog>
+}
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
@@ -12,6 +16,12 @@
     <h4>@Res.resGetir(58)</h4>
     <hr />
     @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.LabelFor(m => m.RolName, null, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.RolName, new SelectList((System.Collections.IEnumerable)ViewData["Roles"], "Id", "Name"), new { @class = "form-control" })
+        </div>
+    </div>
     <div class="form-group">
         @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
