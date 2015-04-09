@@ -67,9 +67,9 @@ namespace siparis.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            VdbSoftEntities db=new VdbSoftEntities();
+            VdbSoftEntities db = new VdbSoftEntities();
             ViewData["Roles"] = from d in db.aspnet_Roles
-                                select new { Key = d.RoleId, Text = d.RoleName };
+                                select new { Key = d.RoleName, Text = d.RoleName };
             return View();
         }
 
@@ -80,31 +80,48 @@ namespace siparis.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterViewModel model)
         {
-
-
             if (ModelState.IsValid)
             {
                 MembershipCreateStatus memberShipCreateStaus = new MembershipCreateStatus();
                 try
                 {
                     Membership.CreateUser(model.UserName, model.Password);
-                    if (memberShipCreateStaus==MembershipCreateStatus.Success)
+                    if (memberShipCreateStaus == MembershipCreateStatus.Success)
                     {
-                        FormsAuthentication.SetAuthCookie(model.UserName, false);
+                        if (model.RolName!=null)
+                        {
+                            if (!Roles.IsUserInRole(model.UserName, model.RolName))
+                            {
+                                Roles.AddUsersToRole(new string[] { model.UserName }, model.RolName);
+                            }                            
+                        }                      
+                        // FormsAuthentication.SetAuthCookie(model.UserName, false);
                         TempData["Mesaj"] = "İşelem Tamam";
-                        return RedirectToAction("Index", "Home");
+                        return View();
                     }
                 }
                 catch (Exception ex)
                 {
 
                     TempData["Mesaj"] = ex.ToString();
-                }              
+                }
             }
             VdbSoftEntities db = new VdbSoftEntities();
             ViewData["Roles"] = from d in db.aspnet_Roles
-                                select new { Key = d.RoleId, Text = d.RoleName };          
+                                select new { Key = d.RoleId, Text = d.RoleName };
             return View(model);
+        }
+
+        public ActionResult RoleCreate()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult RoleCreate(string roleName)
+        {
+            Roles.CreateRole(roleName);
+            TempData["Mesaj"] = "Başarılı";
+            return View(); 
         }
 
         //
@@ -390,7 +407,8 @@ namespace siparis.Controllers
 
         private class ChallengeResult : HttpUnauthorizedResult
         {
-            public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
             {
             }
 

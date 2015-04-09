@@ -899,6 +899,7 @@
     <Content Include="Views\OrderFollow\girdMaster.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailDetailPartial.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailMasterPartial.cshtml" />
+    <Content Include="Views\Account\RoleCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

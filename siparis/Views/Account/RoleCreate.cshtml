@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "RoleCreate";
+}
+
+<h2>RoleCreate</h2>
+
+@if (TempData["Mesaj"] != null)
+{
+    <dialog>@TempData["Mesaj"]</dialog>
+}
+@using (Html.BeginForm())
+{
+     @Html.TextBox("roleName")
+    <input type="submit" value="Create"/>
+}
