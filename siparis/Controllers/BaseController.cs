@@ -12,10 +12,11 @@ namespace siparis.Controllers
     [Authorize (Roles="Admin,Bayi")]
     public class BaseController : Controller
     {
+        public static string dbName = "VdbSoft";
        
         public void checkCart()
         {
-            siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
+            siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
             int sepetID = (from d in db.OPPORTUNITYMASTERs
                            where d.OPEN_CLOSE == 0 && d.DOCUMENT_TYPE==15 && d.APPOINTED_USER_CODE == 1// user ID gelmeli Fix Me
                            select d.OPPORTUNITY_CODE).FirstOrDefault();
@@ -34,7 +35,7 @@ namespace siparis.Controllers
         }
         public IEnumerable<OPPORTUNITYDETAIL> getCartProduct()
         {
-            siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
+            siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
             IEnumerable<OPPORTUNITYDETAIL> model = from d in db.OPPORTUNITYDETAILs
                                                    join master in db.OPPORTUNITYMASTERs on d.OPPORTUNITY_CODE equals master.OPPORTUNITY_CODE
                                                    where master.OPEN_CLOSE == 0 && master.APPOINTED_USER_CODE == 1 && master.DOCUMENT_TYPE==15//fix me 
@@ -51,7 +52,7 @@ namespace siparis.Controllers
         }
         public static STOKCARD getProduct(int ID = 1)
         {
-            siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
+            siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
             STOKCARD st = (from d in db.STOKCARDs
                            where d.ID == ID
                            select d).FirstOrDefault();
@@ -60,7 +61,7 @@ namespace siparis.Controllers
 
         public void addProductGroup(STOKGROUP stokgrup)
         {
-            siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
+            siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
 
             stokgrup.CREATE_DATE = DateTime.Now;
             stokgrup.LAST_UPDATE = DateTime.Now;
@@ -73,7 +74,7 @@ namespace siparis.Controllers
         {
 
 
-            siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
+            siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
 
             stokgrup.CREATE_DATE = DateTime.Now;
             stokgrup.LAST_UPDATE = DateTime.Now;
@@ -87,7 +88,7 @@ namespace siparis.Controllers
         public void AddProduct(STOKCARD stokcart)
         {
 
-            siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
+            siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
 
             stokcart.CREATE_DATE = DateTime.Now;
             stokcart.LAST_UPDATE = DateTime.Now;
@@ -99,7 +100,7 @@ namespace siparis.Controllers
 
         public static IEnumerable<STOKCARD> getProductAll()
         {
-            siparis.Models.VdbSoftEntities db = new VdbSoftEntities();
+            siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
             var model = from d in db.STOKCARDs
                         select d;
             return model;
@@ -108,7 +109,7 @@ namespace siparis.Controllers
 
         public void TotalHesapla(int oppMasterID)
         {
-            using (VdbSoftEntities db = new VdbSoftEntities())
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
                 float toplam = (float)db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == oppMasterID).Sum(x => x.TOTAL);
                 OPPORTUNITYMASTER oppMaster = db.OPPORTUNITYMASTERs.Find(oppMasterID);

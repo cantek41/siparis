@@ -498,6 +498,7 @@ warning 6002: The table/view 'VdbSoft.dbo.ARREMINDER' does not have a primary ke
           <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
           <Property Name="IsAnonymous" Type="bit" Nullable="false" />
           <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+          <Property Name="UserCode" Type="int" />
         </EntityType>
         <EntityType Name="aspnet_UsersInRoles">
           <Key>
@@ -6643,6 +6644,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="VdbSoftModel.FK__aspnet_Pe__UserI__70FDBF69" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
           <NavigationProperty Name="aspnet_Profile" Relationship="VdbSoftModel.FK__aspnet_Pr__UserI__49E3F248" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
           <NavigationProperty Name="aspnet_Roles" Relationship="VdbSoftModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+          <Property Name="UserCode" Type="Int32" />
         </EntityType>
         <EntityType Name="aspnet_WebEvent_Events">
           <Key>
@@ -9515,6 +9517,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySetMapping Name="aspnet_Users">
             <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Users">
               <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
                 <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
                 <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
                 <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />

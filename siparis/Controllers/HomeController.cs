@@ -7,15 +7,15 @@ using siparis.Models;
 
 namespace siparis.Controllers
 {
-    [Authorize]
+   
     public class HomeController : BaseController
     {
         
-        [Authorize]
+        
         public ActionResult Index()
         {
             checkCart();           
-            VdbSoftEntities db = new VdbSoftEntities();
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
             SortingPagingInfo info = new SortingPagingInfo();
             info.SortField = "ID";
             info.SortDirection = "ascending";
@@ -44,7 +44,7 @@ namespace siparis.Controllers
         [HttpPost]
         public ActionResult Index(SortingPagingInfo info)
         {
-            VdbSoftEntities db = new VdbSoftEntities();
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
 
             IQueryable<STOKCARD> query = null;
             switch (info.SortField)

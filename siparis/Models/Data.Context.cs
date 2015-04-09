@@ -10,21 +10,42 @@
 namespace siparis.Models
 {
     using System;
+    using System.Configuration;
     using System.Data.Entity;
+    using System.Data.Entity.Core.EntityClient;
     using System.Data.Entity.Infrastructure;
-    using Microsoft.AspNet.Identity.EntityFramework;
-
-    public partial class VdbSoftEntities : IdentityDbContext
+    using System.Data.Entity.ModelConfiguration.Conventions;
+    
+    public partial class VdbSoftEntities : DbContext
     {
-        public VdbSoftEntities()
-            : base("name=VdbSoftEntities")
+        public VdbSoftEntities(string Dbname)
+            : base(ConnectionString(Dbname))
         {
         }
-    
+        public static string ConnectionString(string dbname)
+        {
+            string _connectionString;
+
+
+            string baseConnectionString = ConfigurationManager.ConnectionStrings["VdbSoftEntities"].ConnectionString;
+            string connString = baseConnectionString.Replace("VdbSoft", dbname);
+            var entityBuilder = new EntityConnectionStringBuilder
+            {
+                //Provider = "System.Data.SqlClient",
+                //ProviderConnectionString = connString
+             //   Metadata = @"res://*/Models.Data.csdl|res://*/Models.Data.ssdl|res://*/Models.Data.msl"
+            };            
+   
+            _connectionString = entityBuilder.ToString();
+
+            return connString;
+
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+    
     
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<ACTIVITY> ACTIVITies { get; set; }

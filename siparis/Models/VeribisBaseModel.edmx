@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VeribisModelBase.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DATABASEUPDATE">
+          <Key>
+            <PropertyRef Name="VeriTabaniVersiyon_ID" />
+          </Key>
+          <Property Name="VeriTabaniVersiyon_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VersiyonNo" Type="int" />
+          <Property Name="GuncellemeZamani" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Veribis.dbo.LOGIN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LOGIN">
+          <Key>
+            <PropertyRef Name="CUSTOMER_CODE" />
+          </Key>
+          <Property Name="CUSTOMER_CODE" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="DB_NAME" Type="nvarchar" MaxLength="30" />
+          <Property Name="CUSTOMER_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAIN_SERVER" Type="nvarchar" MaxLength="100" />
+          <Property Name="LOGIN_CODE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Veribis.dbo.RELATION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RELATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAIN_USER" Type="int" />
+          <Property Name="SUB_USER" Type="int" />
+        </EntityType>
+        <EntityType Name="RESMOBILE">
+          <Key>
+            <PropertyRef Name="R_ID" />
+          </Key>
+          <Property Name="R_ID" Type="int" Nullable="false" />
+          <Property Name="TR" Type="nvarchar" MaxLength="150" />
+          <Property Name="EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="GR" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Veribis.dbo.SUPPORT' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SUPPORT">
+          <Property Name="SUPPORT_CODE" Type="int" />
+          <Property Name="SUPPORT_TYPE1" Type="int" />
+          <Property Name="SUPPORT_TYPE2" Type="int" />
+          <Property Name="USER_COMMERCIAL_CODE" Type="varchar" MaxLength="5" />
+          <Property Name="USER_CODE" Type="int" />
+          <Property Name="SUBJECT" Type="varchar(max)" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="RESULT" Type="varchar(max)" />
+          <Property Name="RESULT_DATE" Type="datetime" />
+          <Property Name="STATUS" Type="int" />
+          <Property Name="SOURCE_SUPPORT_CODE" Type="int" />
+          <Property Name="CONFIRMATION_DATE" Type="datetime" />
+          <Property Name="FILE01" Type="varbinary(max)" />
+          <Property Name="FILE02" Type="varbinary(max)" />
+          <Property Name="FILE03" Type="varbinary(max)" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Veribis.dbo.USER_LOGIN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="USER_LOGIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityContainer Name="VeribisModelBaseStoreContainer">
+          <EntitySet Name="DATABASEUPDATE" EntityType="Self.DATABASEUPDATE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESMOBILE" EntityType="Self.RESMOBILE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOGIN" EntityType="Self.LOGIN" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LOGIN].[CUSTOMER_CODE] AS [CUSTOMER_CODE], 
+    [LOGIN].[DB_NAME] AS [DB_NAME], 
+    [LOGIN].[CUSTOMER_NAME] AS [CUSTOMER_NAME], 
+    [LOGIN].[MAIN_SERVER] AS [MAIN_SERVER], 
+    [LOGIN].[LOGIN_CODE] AS [LOGIN_CODE]
+    FROM [dbo].[LOGIN] AS [LOGIN]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RELATION" EntityType="Self.RELATION" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RELATION].[ID] AS [ID], 
+    [RELATION].[MAIN_USER] AS [MAIN_USER], 
+    [RELATION].[SUB_USER] AS [SUB_USER]
+    FROM [dbo].[RELATION] AS [RELATION]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="USER_LOGIN" EntityType="Self.USER_LOGIN" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [USER_LOGIN].[ID] AS [ID], 
+    [USER_LOGIN].[UserID] AS [UserID], 
+    [USER_LOGIN].[Email] AS [Email]
+    FROM [dbo].[USER_LOGIN] AS [USER_LOGIN]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VeribisModelBase" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DATABASEUPDATE">
+          <Key>
+            <PropertyRef Name="VeriTabaniVersiyon_ID" />
+          </Key>
+          <Property Name="VeriTabaniVersiyon_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VersiyonNo" Type="Int32" />
+          <Property Name="GuncellemeZamani" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RESMOBILE">
+          <Key>
+            <PropertyRef Name="R_ID" />
+          </Key>
+          <Property Name="R_ID" Type="Int32" Nullable="false" />
+          <Property Name="TR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="EN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="GR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LOGIN">
+          <Key>
+            <PropertyRef Name="CUSTOMER_CODE" />
+          </Key>
+          <Property Name="CUSTOMER_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DB_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CUSTOMER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAIN_SERVER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LOGIN_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RELATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAIN_USER" Type="Int32" />
+          <Property Name="SUB_USER" Type="Int32" />
+        </EntityType>
+        <EntityType Name="USER_LOGIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="VeribisEntitiesBase" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DATABASEUPDATEs" EntityType="Self.DATABASEUPDATE" />
+          <EntitySet Name="RESMOBILEs" EntityType="Self.RESMOBILE" />
+          <EntitySet Name="LOGINs" EntityType="Self.LOGIN" />
+          <EntitySet Name="RELATIONs" EntityType="Self.RELATION" />
+          <EntitySet Name="USER_LOGIN" EntityType="Self.USER_LOGIN" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VeribisModelBaseStoreContainer" CdmEntityContainer="VeribisEntitiesBase">
+          <EntitySetMapping Name="DATABASEUPDATEs">
+            <EntityTypeMapping TypeName="VeribisModelBase.DATABASEUPDATE">
+              <MappingFragment StoreEntitySet="DATABASEUPDATE">
+                <ScalarProperty Name="VeriTabaniVersiyon_ID" ColumnName="VeriTabaniVersiyon_ID" />
+                <ScalarProperty Name="VersiyonNo" ColumnName="VersiyonNo" />
+                <ScalarProperty Name="GuncellemeZamani" ColumnName="GuncellemeZamani" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESMOBILEs">
+            <EntityTypeMapping TypeName="VeribisModelBase.RESMOBILE">
+              <MappingFragment StoreEntitySet="RESMOBILE">
+                <ScalarProperty Name="R_ID" ColumnName="R_ID" />
+                <ScalarProperty Name="TR" ColumnName="TR" />
+                <ScalarProperty Name="EN" ColumnName="EN" />
+                <ScalarProperty Name="GR" ColumnName="GR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGINs">
+            <EntityTypeMapping TypeName="VeribisModelBase.LOGIN">
+              <MappingFragment StoreEntitySet="LOGIN">
+                <ScalarProperty Name="CUSTOMER_CODE" ColumnName="CUSTOMER_CODE" />
+                <ScalarProperty Name="DB_NAME" ColumnName="DB_NAME" />
+                <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+                <ScalarProperty Name="MAIN_SERVER" ColumnName="MAIN_SERVER" />
+                <ScalarProperty Name="LOGIN_CODE" ColumnName="LOGIN_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RELATIONs">
+            <EntityTypeMapping TypeName="VeribisModelBase.RELATION">
+              <MappingFragment StoreEntitySet="RELATION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MAIN_USER" ColumnName="MAIN_USER" />
+                <ScalarProperty Name="SUB_USER" ColumnName="SUB_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_LOGIN">
+            <EntityTypeMapping TypeName="VeribisModelBase.USER_LOGIN">
+              <MappingFragment StoreEntitySet="USER_LOGIN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

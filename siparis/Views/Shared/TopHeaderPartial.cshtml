@@ -1,4 +1,13 @@
 ﻿@using siparis.Models
+@{
+    string firmaAdi = null;
+    if (HttpContext.Current.Session["FirmaAdi"]!=null)
+    {
+        firmaAdi = HttpContext.Current.Session["FirmaAdi"].ToString();
+    }
+     
+
+}
 <header id="header">
     <!--header-->
     <div class="header_top">
@@ -37,24 +46,24 @@
                     <div class="logo pull-left">
                         <a href="@Url.Action("index","Home")">
                             @*<img src="~/Content/images/home/logo.png" />*@
-                            <span style="font-family:Bahamas;color:#000000;font-size:40px;">modam</span>
+                            <span style="font-family:Bahamas;color:#000000;font-size:40px;">@firmaAdi</span>
                         </a>
                     </div>
 
 
-            </div>
-            <div class="col-sm-8">
-                <div class="shop-menu pull-right">
-                    <ul class="nav navbar-nav">
-                        <li><a href="../OrderFollow/Opportunity"><i class="fa fa-crosshairs"></i> @Res.resGetir(21)</a></li>
-                        <li><a href="@Url.Action("Chart","Order")"><i class="fa fa-shopping-cart"></i> @Res.resGetir(22)</a></li>
-                        <li><a href="@Url.Action("Login", "Account")"><i class="fa fa-lock"></i> @Res.resGetir(23) </a></li>
-                    </ul>
+                </div>
+                <div class="col-sm-8">
+                    <div class="shop-menu pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="../OrderFollow/Opportunity"><i class="fa fa-crosshairs"></i> @Res.resGetir(21)</a></li>
+                            <li><a href="@Url.Action("Chart","Order")"><i class="fa fa-shopping-cart"></i> @Res.resGetir(22)</a></li>
+                            <li><a href="@Url.Action("Login", "Account")"><i class="fa fa-lock"></i> @Res.resGetir(23) </a></li>
+                        </ul>
 
+                    </div>
                 </div>
             </div>
-        </div>
-    </div><!--/header-middle-->
+        </div><!--/header-middle-->
 
 
 

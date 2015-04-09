@@ -224,6 +224,9 @@
     <Compile Include="Models\aspnet_WebEvent_Events.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DATABASEUPDATE.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IndexDataViewModel.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\OrderFollowController.cs" />
@@ -463,6 +466,9 @@
     <Compile Include="Models\LICENSE_PLATE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LOGIN.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LOGREPORT.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -554,9 +560,15 @@
     <Compile Include="Models\RE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RELATION.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Res.cs" />
     <Compile Include="Models\RESDE.cs">
       <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RESMOBILE.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\REVENUEDETAIL.cs">
       <DependentUpon>Data.tt</DependentUpon>
@@ -681,6 +693,24 @@
     </Compile>
     <Compile Include="Models\USERWHAREHOUSE.cs">
       <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USER_LOGIN.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VeribisBaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeribisBaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VeribisBaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VeribisBaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeribisBaseModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\VMMAILFILEREPORT.cs">
       <DependentUpon>Data.tt</DependentUpon>
@@ -821,6 +851,23 @@
       <DependentUpon>Data.edmx</DependentUpon>
       <LastGenOutput>Data.cs</LastGenOutput>
     </Content>
+    <EntityDeploy Include="Models\VeribisBaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VeribisBaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\VeribisBaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VeribisBaseModel.edmx</DependentUpon>
+      <LastGenOutput>VeribisBaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\VeribisBaseModel.edmx.diagram">
+      <DependentUpon>VeribisBaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\VeribisBaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VeribisBaseModel.edmx</DependentUpon>
+      <LastGenOutput>VeribisBaseModel.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\siparis.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -929,7 +976,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39841/</IISUrl>
+          <IISUrl>http://localhost:39821/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

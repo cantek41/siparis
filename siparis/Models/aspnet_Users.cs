@@ -27,6 +27,7 @@ namespace siparis.Models
         public string MobileAlias { get; set; }
         public bool IsAnonymous { get; set; }
         public System.DateTime LastActivityDate { get; set; }
+        public Nullable<int> UserCode { get; set; }
     
         public virtual aspnet_Applications aspnet_Applications { get; set; }
         public virtual aspnet_Membership aspnet_Membership { get; set; }

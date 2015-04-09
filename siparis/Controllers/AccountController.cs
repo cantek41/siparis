@@ -5,11 +5,13 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Profile;
 using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using siparis.Models;
+using System.Data.Entity;
 
 namespace siparis.Controllers
 {
@@ -41,16 +43,40 @@ namespace siparis.Controllers
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
                 var user = UserManager.FindAsync(model.UserName, model.Password);
-                //  await UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false);                    
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);
+                    using (VeribisEntitiesBase veribisDB = new VeribisEntitiesBase())
+                    {    
+                      
+                        dbName = veribisDB.LOGINs.Where(x => x.CUSTOMER_CODE == model.TCode).Select(x => x.DB_NAME).FirstOrDefault();
+                    }
+                    using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+                    {
+                        int userCompanyCode = (int)db.USERS.Where(x => x.USER_NAME == model.UserName).Select(x => x.CONTACT_CODE).FirstOrDefault();
+                        COMPANY company = db.COMPANies.Where(x=>x.COMPANY_CODE==userCompanyCode).FirstOrDefault();
+                        Session.Add("FirmaAdi", company.COMPANY_NAME);
+                    }
+
+
+                    //ProfileBase profile = ProfileBase.Create(model.UserName,true);
+                    //if (profile!=null)
+                    //{
+                    //    profile.SetPropertyValue("Adi", model.UserName);
+                    //    using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+                    //    {
+                    //        COMPANY company = db.COMPANies.Find(model.TCode);
+                    //        profile.SetPropertyValue("FirmaAdi", company.COMPANY_NAME);
+                    //    }
+                    //    profile.Save();
+
+                    //}
+
                     return RedirectToLocal(returnUrl);
                 }
                 else
@@ -68,7 +94,7 @@ namespace siparis.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            VdbSoftEntities db = new VdbSoftEntities();
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
             ViewData["Roles"] = from d in db.aspnet_Roles
                                 select new { Key = d.RoleName, Text = d.RoleName };
             return View();
@@ -87,15 +113,17 @@ namespace siparis.Controllers
                 try
                 {
                     Membership.CreateUser(model.UserName, model.Password);
+                    UserSave(model);
                     if (memberShipCreateStaus == MembershipCreateStatus.Success)
                     {
-                        if (model.RolName!=null)
+                        if (model.RolName != null)
                         {
                             if (!Roles.IsUserInRole(model.UserName, model.RolName))
                             {
                                 Roles.AddUsersToRole(new string[] { model.UserName }, model.RolName);
-                            }                            
-                        }                      
+                            }
+
+                        }
                         // FormsAuthentication.SetAuthCookie(model.UserName, false);
                         ViewBag.Mesaj = "İşelem Tamam";
                         return View();
@@ -107,23 +135,46 @@ namespace siparis.Controllers
                     ViewBag.Mesaj = ex.ToString();
                 }
             }
-            VdbSoftEntities db = new VdbSoftEntities();
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
             ViewData["Roles"] = from d in db.aspnet_Roles
                                 select new { Key = d.RoleId, Text = d.RoleName };
             return View(model);
         }
+
+
+        public void UserSave(RegisterViewModel model)
+        {
+            int userCode = 0;
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                userCode = db.USERS.Max(x => x.USER_CODE);
+                userCode++;
+                USER userAdd = new USER();
+                userAdd.USER_CODE = userCode;
+                userAdd.USER_NAME = model.UserName;
+                userAdd.USER_LANGUAGE = "TR";
+                userAdd.USER_PASSWORD = "q";
+                db.USERS.Add(userAdd);
+                aspnet_Users memUser = db.aspnet_Users.Where(x => x.UserName == model.UserName).FirstOrDefault();
+                memUser.UserCode = userCode;
+                db.aspnet_Users.Attach(memUser);
+                db.Entry(memUser).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+        }
+
         [Authorize(Roles = "Admin")]
         public ActionResult RoleCreate()
         {
             return View();
         }
-        [Authorize(Roles="Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult RoleCreate(string roleName)
         {
             Roles.CreateRole(roleName);
             ViewBag.Mesaj = "Başarılı";
-            return View(); 
+            return View();
         }
 
         //

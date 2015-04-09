@@ -3,15 +3,11 @@
 
 @{
     ViewBag.Title = @Res.resGetir(51);
+    Layout = null;
 }
-
-
-
-
-
 <!--form-->
 <div class="container">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Login","Account",FormMethod.Post))
     {
         <div class="row">
             <div class="col-sm-4 col-sm-offset-1">
