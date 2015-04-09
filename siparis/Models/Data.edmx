@@ -2258,6 +2258,9 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="ISACTIVE" Type="nvarchar" MaxLength="10" />
           <Property Name="WEB_AMOUNT" Type="int" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SERIAL_NO1" Type="nvarchar" MaxLength="50" />
+          <Property Name="SERIAL_NO2" Type="nvarchar" MaxLength="50" />
+          <Property Name="SERIAL_NO3" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="STOKCARD_">
           <Key>
@@ -5217,6 +5220,9 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <NavigationProperty Name="STOKBRAND" Relationship="VdbSoftModel.FK_STOKCARD_STOKBRAND" FromRole="STOKCARD" ToRole="STOKBRAND" />
           <NavigationProperty Name="STOKCOLOR" Relationship="VdbSoftModel.FK_STOKCARD_STOKCOLOR" FromRole="STOKCARD" ToRole="STOKCOLOR" />
           <NavigationProperty Name="STOKSEASON" Relationship="VdbSoftModel.FK_STOKCARD_STOKSEASON" FromRole="STOKCARD" ToRole="STOKSEASON" />
+          <Property Name="SERIAL_NO1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SERIAL_NO2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SERIAL_NO3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="STOKCARD_">
           <Key>
@@ -8170,6 +8176,9 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySetMapping Name="STOKCARDs">
             <EntityTypeMapping TypeName="VdbSoftModel.STOKCARD">
               <MappingFragment StoreEntitySet="STOKCARD">
+                <ScalarProperty Name="SERIAL_NO3" ColumnName="SERIAL_NO3" />
+                <ScalarProperty Name="SERIAL_NO2" ColumnName="SERIAL_NO2" />
+                <ScalarProperty Name="SERIAL_NO1" ColumnName="SERIAL_NO1" />
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="UPPER_CODE" ColumnName="UPPER_CODE" />
                 <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />

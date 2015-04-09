@@ -194,6 +194,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\StokController.cs" />
     <Compile Include="Models\IndexDataViewModel.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\OrderFollowController.cs" />
@@ -881,6 +882,7 @@
     <Content Include="Views\OrderFollow\girdMaster.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailDetailPartial.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailMasterPartial.cshtml" />
+    <Content Include="Views\Stok\AddStok.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
