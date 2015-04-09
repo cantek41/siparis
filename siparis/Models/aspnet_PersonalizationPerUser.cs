@@ -12,16 +12,15 @@ namespace siparis.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetRole
+    public partial class aspnet_PersonalizationPerUser
     {
-        public AspNetRole()
-        {
-            this.AspNetUsers = new HashSet<AspNetUser>();
-        }
+        public System.Guid Id { get; set; }
+        public Nullable<System.Guid> PathId { get; set; }
+        public Nullable<System.Guid> UserId { get; set; }
+        public byte[] PageSettings { get; set; }
+        public System.DateTime LastUpdatedDate { get; set; }
     
-        public string Id { get; set; }
-        public string Name { get; set; }
-    
-        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
+        public virtual aspnet_Paths aspnet_Paths { get; set; }
+        public virtual aspnet_Users aspnet_Users { get; set; }
     }
 }

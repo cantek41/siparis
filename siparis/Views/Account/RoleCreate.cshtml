@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "RoleCreate";
+}
+
+<h2>RoleCreate</h2>
+
+@if (ViewBag.Mesaj != null)
+{
+    <div>@ViewBag.Mesaj</div>
+}
+@using (Html.BeginForm())
+{
+     @Html.TextBox("roleName")
+    <input type="submit" value="Create"/>
+}

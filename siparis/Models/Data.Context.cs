@@ -12,8 +12,9 @@ namespace siparis.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class VdbSoftEntities : DbContext
+    using Microsoft.AspNet.Identity.EntityFramework;
+
+    public partial class VdbSoftEntities : IdentityDbContext
     {
         public VdbSoftEntities()
             : base("name=VdbSoftEntities")
@@ -41,10 +42,6 @@ namespace siparis.Models
         public virtual DbSet<ADDRESS> ADDRESSes { get; set; }
         public virtual DbSet<AREMINDER> AREMINDERs { get; set; }
         public virtual DbSet<AREPEATER> AREPEATERs { get; set; }
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<ASSOCIATION> ASSOCIATIONs { get; set; }
         public virtual DbSet<CAR> CARs { get; set; }
         public virtual DbSet<CITEM> CITEMS { get; set; }
@@ -173,5 +170,15 @@ namespace siparis.Models
         public virtual DbSet<STOKBRAND> STOKBRANDs { get; set; }
         public virtual DbSet<STOKCOLOR> STOKCOLORs { get; set; }
         public virtual DbSet<STOKSEASON> STOKSEASONs { get; set; }
+        public virtual DbSet<aspnet_Applications> aspnet_Applications { get; set; }
+        public virtual DbSet<aspnet_Membership> aspnet_Membership { get; set; }
+        public virtual DbSet<aspnet_Paths> aspnet_Paths { get; set; }
+        public virtual DbSet<aspnet_PersonalizationAllUsers> aspnet_PersonalizationAllUsers { get; set; }
+        public virtual DbSet<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
+        public virtual DbSet<aspnet_Profile> aspnet_Profile { get; set; }
+        public virtual DbSet<aspnet_Roles> aspnet_Roles { get; set; }
+        public virtual DbSet<aspnet_SchemaVersions> aspnet_SchemaVersions { get; set; }
+        public virtual DbSet<aspnet_Users> aspnet_Users { get; set; }
+        public virtual DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
     }
 }

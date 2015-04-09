@@ -12,12 +12,10 @@ namespace siparis.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetUserLogin
+    public partial class aspnet_SchemaVersions
     {
-        public string UserId { get; set; }
-        public string LoginProvider { get; set; }
-        public string ProviderKey { get; set; }
-    
-        public virtual AspNetUser AspNetUser { get; set; }
+        public string Feature { get; set; }
+        public string CompatibleSchemaVersion { get; set; }
+        public bool IsCurrentVersion { get; set; }
     }
 }

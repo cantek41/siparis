@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
@@ -24,6 +25,11 @@ namespace siparis.Controllers
         {
             UserManager = userManager;
         }
+        public ActionResult FirstLogin(string returnUrl)
+        {
+           
+            return View();
+        }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
@@ -41,14 +47,15 @@ namespace siparis.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                var user = UserManager.FindAsync(model.UserName, model.Password);
+                //  await UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
-                    await SignInAsync(user, model.RememberMe);
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);                    
                     return RedirectToLocal(returnUrl);
                 }
                 else
@@ -66,6 +73,9 @@ namespace siparis.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            VdbSoftEntities db = new VdbSoftEntities();
+            ViewData["Roles"] = from d in db.aspnet_Roles
+                                select new { Key = d.RoleName, Text = d.RoleName };
             return View();
         }
 
@@ -74,25 +84,51 @@ namespace siparis.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                MembershipCreateStatus memberShipCreateStaus = new MembershipCreateStatus();
+                try
                 {
-                    await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    Membership.CreateUser(model.UserName, model.Password);
+                    if (memberShipCreateStaus == MembershipCreateStatus.Success)
+                    {
+                        if (model.RolName!=null)
+                        {
+                            if (!Roles.IsUserInRole(model.UserName, model.RolName))
+                            {
+                                Roles.AddUsersToRole(new string[] { model.UserName }, model.RolName);
+                            }                            
+                        }                      
+                        // FormsAuthentication.SetAuthCookie(model.UserName, false);
+                        ViewBag.Mesaj = "İşelem Tamam";
+                        return View();
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    AddErrors(result);
+
+                    ViewBag.Mesaj = ex.ToString();
                 }
             }
-
-            // If we got this far, something failed, redisplay form
+            VdbSoftEntities db = new VdbSoftEntities();
+            ViewData["Roles"] = from d in db.aspnet_Roles
+                                select new { Key = d.RoleId, Text = d.RoleName };
             return View(model);
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult RoleCreate()
+        {
+            return View();
+        }
+        [Authorize(Roles="Admin")]
+        [HttpPost]
+        public ActionResult RoleCreate(string roleName)
+        {
+            Roles.CreateRole(roleName);
+            ViewBag.Mesaj = "Başarılı";
+            return View(); 
         }
 
         //
@@ -378,7 +414,8 @@ namespace siparis.Controllers
 
         private class ChallengeResult : HttpUnauthorizedResult
         {
-            public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
             {
             }
 

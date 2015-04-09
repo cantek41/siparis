@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 namespace siparis.Controllers
 {
+    //[Authorize (Roles="Admin,Bayi")]
     public class BaseController : Controller
     {
        

@@ -30,6 +30,10 @@ namespace siparis.Models
 
     public class LoginViewModel
     {
+
+        [Required]
+        [Display(Name = "Ticari Kod")]
+        public string TCode { get; set; }
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
@@ -45,6 +49,10 @@ namespace siparis.Models
 
     public class RegisterViewModel
     {
+        
+        [Display(Name = "Role name")]
+        public string RolName { get; set; }
+
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
