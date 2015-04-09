@@ -7,9 +7,11 @@ using siparis.Models;
 
 namespace siparis.Controllers
 {
+    [Authorize]
     public class HomeController : BaseController
     {
         
+        [Authorize]
         public ActionResult Index()
         {
             checkCart();           

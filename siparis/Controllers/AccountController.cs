@@ -42,14 +42,15 @@ namespace siparis.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                var user = UserManager.FindAsync(model.UserName, model.Password);
+                //  await UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
-                    await SignInAsync(user, model.RememberMe);
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);                    
                     return RedirectToLocal(returnUrl);
                 }
                 else
@@ -96,14 +97,14 @@ namespace siparis.Controllers
                             }                            
                         }                      
                         // FormsAuthentication.SetAuthCookie(model.UserName, false);
-                        TempData["Mesaj"] = "İşelem Tamam";
+                        ViewBag.Mesaj = "İşelem Tamam";
                         return View();
                     }
                 }
                 catch (Exception ex)
                 {
 
-                    TempData["Mesaj"] = ex.ToString();
+                    ViewBag.Mesaj = ex.ToString();
                 }
             }
             VdbSoftEntities db = new VdbSoftEntities();
@@ -111,16 +112,17 @@ namespace siparis.Controllers
                                 select new { Key = d.RoleId, Text = d.RoleName };
             return View(model);
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult RoleCreate()
         {
             return View();
         }
+        [Authorize(Roles="Admin")]
         [HttpPost]
         public ActionResult RoleCreate(string roleName)
         {
             Roles.CreateRole(roleName);
-            TempData["Mesaj"] = "Başarılı";
+            ViewBag.Mesaj = "Başarılı";
             return View(); 
         }
 

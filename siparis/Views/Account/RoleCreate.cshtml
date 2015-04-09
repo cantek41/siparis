@@ -5,9 +5,9 @@
 
 <h2>RoleCreate</h2>
 
-@if (TempData["Mesaj"] != null)
+@if (ViewBag.Mesaj != null)
 {
-    <dialog>@TempData["Mesaj"]</dialog>
+    <div>@ViewBag.Mesaj</div>
 }
 @using (Html.BeginForm())
 {
