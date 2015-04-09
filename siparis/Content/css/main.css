@@ -12,6 +12,35 @@ body {
   position: relative;
   font-weight:400;
 }
+.editforayarla{
+
+
+}
+.editforayarla input{
+    width:90%;
+
+}
+.paddingayar {
+
+padding-left:0px;
+
+}
+.edithizala{
+    width:208px;
+}
+.edithizala input{
+    width:208px;
+}
+.editmargin {
+    padding-left:23px;
+    
+
+}
+.editmargin input {
+    
+    padding-left:21px;
+    width:149px;
+}
 
 ul li {
   list-style: none;

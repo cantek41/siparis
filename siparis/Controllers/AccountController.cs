@@ -27,6 +27,11 @@ namespace siparis.Controllers
         {
             UserManager = userManager;
         }
+        public ActionResult FirstLogin(string returnUrl)
+        {
+           
+            return View();
+        }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
