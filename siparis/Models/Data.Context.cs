@@ -22,6 +22,11 @@ namespace siparis.Models
             : base(ConnectionString(Dbname))
         {
         }
+
+        public VdbSoftEntities()
+        {
+            // TODO: Complete member initialization
+        }
         public static string ConnectionString(string dbname)
         {
             string _connectionString;

@@ -194,6 +194,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\StokController.cs" />
     <Compile Include="Models\aspnet_Applications.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -947,6 +948,7 @@
     <Content Include="Views\OrderFollow\MasterDetailDetailPartial.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailMasterPartial.cshtml" />
     <Content Include="Views\Account\RoleCreate.cshtml" />
+    <Content Include="Views\Stok\AddStok.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
