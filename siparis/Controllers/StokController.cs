@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using siparis.Models;
 using System.Data.Entity;
+using System.Collections;
 
 namespace siparis.Controllers
 {
@@ -15,16 +16,7 @@ namespace siparis.Controllers
         public ActionResult AddStok()
         {
             VdbSoftEntities db = new VdbSoftEntities();
-            TempData["Category"] = new SelectList(from d in db.STOKGROUPs
-                                                  select new { Key = d.STOK_GROUP_CODE, Text = d.NAME_TR });
-            TempData["Brand"] = new SelectList(from d in db.STOKBRANDs
-                                               select new { Key = d.BRAND_CODE, Text = d.NAME_TR });
-            TempData["Color"] = new SelectList(from d in db.STOKCOLORs
-                                               select new { Key = d.COLOR_CODE, Text = d.NAME_TR });
-            TempData["Season"] = new SelectList(from d in db.STOKSEASONs
-                                                select new { Key = d.SEASON_CODE, Text = d.NAME_TR });
-            TempData["Body"] = new SelectList(from d in db.STOKBODies
-                                              select new { Key = d.BODY_CODE, Text = d.NAME_TR });
+            ViewDataDoldur();
             return View();
         }
 
@@ -51,16 +43,16 @@ namespace siparis.Controllers
         public void ViewDataDoldur()
         {
             VdbSoftEntities db = new VdbSoftEntities();
-            TempData["Category"] = new SelectList(from d in db.STOKGROUPs
-                                                  select new { Key = d.STOK_GROUP_CODE, Text = d.NAME_TR });
-            TempData["Brand"] = new SelectList(from d in db.STOKBRANDs
-                                               select new { Key = d.BRAND_CODE, Text = d.NAME_TR });
-            TempData["Color"] = new SelectList(from d in db.STOKCOLORs
-                                               select new { Key = d.COLOR_CODE, Text = d.NAME_TR });
-            TempData["Season"] = new SelectList(from d in db.STOKSEASONs
-                                                select new { Key = d.SEASON_CODE, Text = d.NAME_TR });
-            TempData["Body"] = new SelectList(from d in db.STOKBODies
-                                              select new { Key = d.BODY_CODE, Text = d.NAME_TR });
+            ViewData["Category"] = new SelectList(from d in db.STOKGROUPs
+                                                  select  d.NAME_TR );
+            ViewData["Brand"] = new SelectList(from d in db.STOKBRANDs
+                                               select d.NAME_TR );
+            ViewData["Color"] = new SelectList(from d in db.STOKCOLORs
+                                               select d.NAME_TR );
+            ViewData["Season"] = new SelectList((System.Collections.IEnumerable)from d in db.STOKSEASONs
+                                                select d.NAME_TR );
+            ViewData["Body"] = new SelectList(from d in db.STOKBODies
+                                              select d.NAME_TR);
         }
 
         public ActionResult EditStok(STOKCARD stok)
