@@ -43,16 +43,16 @@ namespace siparis.Controllers
         public void ViewDataDoldur()
         {
             VdbSoftEntities db = new VdbSoftEntities();
-            ViewData["Category"] = new SelectList(from d in db.STOKGROUPs
-                                                  select  d.NAME_TR );
-            ViewData["Brand"] = new SelectList(from d in db.STOKBRANDs
-                                               select d.NAME_TR );
-            ViewData["Color"] = new SelectList(from d in db.STOKCOLORs
-                                               select d.NAME_TR );
-            ViewData["Season"] = new SelectList((System.Collections.IEnumerable)from d in db.STOKSEASONs
-                                                select d.NAME_TR );
-            ViewData["Body"] = new SelectList(from d in db.STOKBODies
-                                              select d.NAME_TR);
+            ViewData["Category"] = (from d in db.STOKGROUPs
+                                                  select new { Key = d.STOK_GROUP_CODE, Text = d.NAME_TR });
+            ViewData["Brand"] = (from d in db.STOKBRANDs
+                                               select new { Key = d.BRAND_CODE, Text = d.NAME_TR });
+            ViewData["Color"] = (from d in db.STOKCOLORs
+                                               select new { Key = d.COLOR_CODE, Text = d.NAME_TR });
+            ViewData["Season"] = (from d in db.STOKSEASONs
+                                                select new { Key = d.SEASON_CODE, Text = d.NAME_TR });
+            ViewData["Body"] = (from d in db.STOKBODies
+                                              select new { Key = d.BODY_CODE, Text = d.NAME_TR });
         }
 
         public ActionResult EditStok(STOKCARD stok)
