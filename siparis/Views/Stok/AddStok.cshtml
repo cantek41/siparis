@@ -9,6 +9,7 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
+      
         <div class="col-md-1"></div>
         <div class="col-md-11" style="margin-bottom:20px;">
 
@@ -160,7 +161,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 @Html.LabelFor(model => model.UNIT1_MULTIPLIER, new { @class = "control-label col-md-5" })
-                                <div class="col-md-7">
+                                <div class="col-md-7 border-ayar">
                                     @Html.EditorFor(model => model.UNIT1_MULTIPLIER)
                                     @Html.ValidationMessageFor(model => model.UNIT1_MULTIPLIER)
                                 </div>
@@ -168,7 +169,7 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.UNIT1_WEIGHT, new { @class = "control-label col-md-5" })
-                                <div class="col-md-7">
+                                <div class="col-md-7 border-ayar">
                                     @Html.EditorFor(model => model.UNIT1_WEIGHT)
                                     @Html.ValidationMessageFor(model => model.UNIT1_WEIGHT)
                                 </div>
@@ -176,7 +177,7 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.UNIT1_WIDTH, new { @class = "control-label col-md-5" })
-                                <div class="col-md-7">
+                                <div class="col-md-7 border-ayar">
                                     @Html.EditorFor(model => model.UNIT1_WIDTH)
                                     @Html.ValidationMessageFor(model => model.UNIT1_WIDTH)
                                 </div>
@@ -184,7 +185,7 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.UNIT1_LENGTH, new { @class = "control-label col-md-5" })
-                                <div class="col-md-7">
+                                <div class="col-md-7 border-ayar">
                                     @Html.EditorFor(model => model.UNIT1_LENGTH)
                                     @Html.ValidationMessageFor(model => model.UNIT1_LENGTH)
                                 </div>
@@ -192,21 +193,21 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.UNIT1_HEIGHT, new { @class = "control-label col-md-5" })
-                                <div class="col-md-7">
+                                <div class="col-md-7 border-ayar">
                                     @Html.EditorFor(model => model.UNIT1_HEIGHT)
                                     @Html.ValidationMessageFor(model => model.UNIT1_HEIGHT)
                                 </div>
                             </div>
                             <div class="form-group">
                                 @Html.LabelFor(model => model.UNIT1_TARE, new { @class = "control-label col-md-5" })
-                                <div class="col-md-7">
+                                <div class="col-md-7 border-ayar">
                                     @Html.EditorFor(model => model.UNIT1_TARE)
                                     @Html.ValidationMessageFor(model => model.UNIT1_TARE)
                                 </div>
                             </div>
                             <div class="form-group">
                                 @Html.LabelFor(model => model.MIN_QUANTITY, new { @class = "control-label col-md-5" })
-                                <div class="col-md-7">
+                                <div class="col-md-7 border-ayar">
                                     @Html.EditorFor(model => model.MIN_QUANTITY)
                                     @Html.ValidationMessageFor(model => model.MIN_QUANTITY)
                                 </div>
@@ -214,7 +215,7 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.MAX_QUANTITY, new { @class = "control-label col-md-5" })
-                                <div class="col-md-7">
+                                <div class="col-md-7 border-ayar">
                                     @Html.EditorFor(model => model.MAX_QUANTITY)
                                     @Html.ValidationMessageFor(model => model.MAX_QUANTITY)
                                 </div>
@@ -222,14 +223,14 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.ORDER_QUANTITY, new { @class = "control-label col-md-5" })
-                                <div class="col-md-7">
+                                <div class="col-md-7 border-ayar">
                                     @Html.EditorFor(model => model.ORDER_QUANTITY)
                                     @Html.ValidationMessageFor(model => model.ORDER_QUANTITY)
                                 </div>
                             </div>
                             <div class="form-group">
                                 @Html.LabelFor(model => model.RETAIL_TAX, new { @class = "control-label col-md-5" })
-                                <div class="col-md-7">
+                                <div class="col-md-7 border-ayar">
                                     @Html.EditorFor(model => model.RETAIL_TAX)
                                     @Html.ValidationMessageFor(model => model.RETAIL_TAX)
                                 </div>
@@ -245,7 +246,7 @@
 
                         <div class="col-md-10">
                             <input type="submit" value="Create" class="btn btn-default" style="margin-top: 30px; margin-left: 140px; background-color: #FE980F; color: white;" />
-                            <input type="button" value="Update" class="btn btn-default" style="margin-top: 30px; background-color: #FE980F; color: white;" />
+                            <input type="submit" value="Update" class="btn btn-default" style="margin-top: 30px; background-color: #FE980F; color: white;" />
                         </div>
                     </div>
 
@@ -261,7 +262,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.DES_TR, new { @class = "control-label col-md-1" })
-                            <div class="col-md-11">
+                            <div class="col-md-11 border-ayar">
                                 @Html.EditorFor(model => model.DES_TR)
                                 @Html.ValidationMessageFor(model => model.DES_TR)
                             </div>
@@ -269,14 +270,14 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.DES_EN, new { @class = "control-label col-md-1" })
-                            <div class="col-md-11">
+                            <div class="col-md-11 border-ayar">
                                 @Html.EditorFor(model => model.DES_EN)
                                 @Html.ValidationMessageFor(model => model.DES_EN)
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.DES_GR, new { @class = "control-label col-md-1" })
-                            <div class="col-md-11">
+                            <div class="col-md-11 border-ayar">
                                 @Html.EditorFor(model => model.DES_GR)
                                 @Html.ValidationMessageFor(model => model.DES_GR)
                             </div>
@@ -294,7 +295,7 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-default" style="margin-top: 20px; background-color: #FE980F;color:white;" />
+                            <input type="submit" value="Update" class="btn btn-default" style="margin-top: 20px; background-color: #FE980F;color:white;" />
                         </div>
                     </div>
 
@@ -309,7 +310,7 @@
                     <div class="col-md-7">
                         <div class="form-group">
                             @Html.LabelFor(model => model.UNIT2_NAME, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.UNIT2_NAME)
                                 @Html.ValidationMessageFor(model => model.UNIT2_NAME)
                             </div>
@@ -317,7 +318,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.UNIT2_MULTIPLIER, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.UNIT2_MULTIPLIER)
                                 @Html.ValidationMessageFor(model => model.UNIT2_MULTIPLIER)
                             </div>
@@ -325,7 +326,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.UNIT2_WEIGHT, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.UNIT2_WEIGHT)
                                 @Html.ValidationMessageFor(model => model.UNIT2_WEIGHT)
                             </div>
@@ -333,7 +334,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.UNIT2_WIDTH, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.UNIT2_WIDTH)
                                 @Html.ValidationMessageFor(model => model.UNIT2_WIDTH)
                             </div>
@@ -341,7 +342,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.UNIT2_LENGTH, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.UNIT2_LENGTH)
                                 @Html.ValidationMessageFor(model => model.UNIT2_LENGTH)
                             </div>
@@ -349,7 +350,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.UNIT2_HEIGHT, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.UNIT2_HEIGHT)
                                 @Html.ValidationMessageFor(model => model.UNIT2_HEIGHT)
                             </div>
@@ -357,7 +358,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.UNIT2_TARE, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.UNIT2_TARE)
                                 @Html.ValidationMessageFor(model => model.UNIT2_TARE)
                             </div>
@@ -374,7 +375,7 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-1 col-md-11" style="margin-top:20px;">
-                            <input type="submit" value="Create" class="btn btn-default" style="background-color: #FE980F;color:white;" />
+                            <input type="submit" value="Update" class="btn btn-default" style="background-color: #FE980F;color:white;" />
                         </div>
                     </div>
 
@@ -389,7 +390,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             @Html.LabelFor(model => model.NAME_SHORT, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.NAME_SHORT)
                                 @Html.ValidationMessageFor(model => model.NAME_SHORT)
                             </div>
@@ -397,7 +398,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.ISHIDDEN, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.ISHIDDEN)
                                 @Html.ValidationMessageFor(model => model.ISHIDDEN)
                             </div>
@@ -405,7 +406,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.SPECIAL_CODE1, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.SPECIAL_CODE1)
                                 @Html.ValidationMessageFor(model => model.SPECIAL_CODE1)
                             </div>
@@ -413,7 +414,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.SPECIAL_CODE2, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.SPECIAL_CODE2)
                                 @Html.ValidationMessageFor(model => model.SPECIAL_CODE2)
                             </div>
@@ -421,7 +422,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.SPECIAL_CODE3, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.SPECIAL_CODE3)
                                 @Html.ValidationMessageFor(model => model.SPECIAL_CODE3)
                             </div>
@@ -429,7 +430,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.TYPE, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.TYPE)
                                 @Html.ValidationMessageFor(model => model.TYPE)
                             </div>
@@ -437,14 +438,14 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.MANUFACTURER_PRODUCT_CODE, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.MANUFACTURER_PRODUCT_CODE)
                                 @Html.ValidationMessageFor(model => model.MANUFACTURER_PRODUCT_CODE)
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.MODEL_CODE, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.MODEL_CODE)
                                 @Html.ValidationMessageFor(model => model.MODEL_CODE)
                             </div>
@@ -452,7 +453,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.SEASON_CODE, "SEASON_CODE", new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.DropDownList("SEASON_CODE", TempData["Season"] as SelectList)
                                 @Html.ValidationMessageFor(model => model.SEASON_CODE)
                             </div>
@@ -462,7 +463,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.BARCODE_01, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.BARCODE_01)
                                 @Html.ValidationMessageFor(model => model.BARCODE_01)
                             </div>
@@ -470,21 +471,21 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.BARCODE_02, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.BARCODE_02)
                                 @Html.ValidationMessageFor(model => model.BARCODE_02)
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.BARCODE_03, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.BARCODE_03)
                                 @Html.ValidationMessageFor(model => model.BARCODE_03)
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.WEB_TRANSFER, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.WEB_TRANSFER)
                                 @Html.ValidationMessageFor(model => model.WEB_TRANSFER)
                             </div>
@@ -495,7 +496,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.MANUFACTURER_COMPANY_CODE, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.MANUFACTURER_COMPANY_CODE)
                                 @Html.ValidationMessageFor(model => model.MANUFACTURER_COMPANY_CODE)
                             </div>
@@ -503,14 +504,14 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.DETAILS_FOLLOW, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.DETAILS_FOLLOW)
                                 @Html.ValidationMessageFor(model => model.DETAILS_FOLLOW)
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.CATEGORY_CODE, "CATEGORY_CODE", new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.DropDownList("CATEGORY_CODE", TempData["Category"] as SelectList)
                                 @Html.ValidationMessageFor(model => model.CATEGORY_CODE)
                             </div>
@@ -518,7 +519,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.MAIN_GRUP, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.MAIN_GRUP)
                                 @Html.ValidationMessageFor(model => model.MAIN_GRUP)
                             </div>
@@ -526,14 +527,14 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.SUB_GRUP1, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.SUB_GRUP1)
                                 @Html.ValidationMessageFor(model => model.SUB_GRUP1)
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.SUB_GRUP2, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.SUB_GRUP2)
                                 @Html.ValidationMessageFor(model => model.SUB_GRUP2)
                             </div>
@@ -543,7 +544,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.SECTOR_CODE, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.SECTOR_CODE)
                                 @Html.ValidationMessageFor(model => model.SECTOR_CODE)
                             </div>
@@ -551,7 +552,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.RAYON_CODE, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.RAYON_CODE)
                                 @Html.ValidationMessageFor(model => model.RAYON_CODE)
                             </div>
@@ -559,7 +560,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PACK_CODE, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.EditorFor(model => model.PACK_CODE)
                                 @Html.ValidationMessageFor(model => model.PACK_CODE)
                             </div>
@@ -567,7 +568,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.BRAND_CODE, "BRAND_CODE", new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.DropDownList("BRAND_CODE", TempData["Brand"] as SelectList)
                                 @Html.ValidationMessageFor(model => model.BRAND_CODE)
                             </div>
@@ -575,7 +576,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.BODY_CODE, "BODY_CODE", new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.DropDownList("BODY_CODE", TempData["Body"] as SelectList)
                                 @Html.ValidationMessageFor(model => model.BODY_CODE)
                             </div>
@@ -583,7 +584,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.COLOR_CODE, "COLOR_CODE", new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            <div class="col-md-10 border-ayar">
                                 @Html.DropDownList("COLOR_CODE", TempData["Color"] as SelectList)
                                 @Html.ValidationMessageFor(model => model.COLOR_CODE)
                             </div>
@@ -597,7 +598,7 @@
 
 
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" style="background-color: #FE980F;color:white;" />
+                        <input type="submit" value="Update" class="btn btn-default" style="background-color: #FE980F;color:white;" />
                     </div>
 
 
@@ -608,7 +609,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.SERIAL_NO1, new { @class = "control-label col-md-1" })
-                            <div class="col-md-11">
+                            <div class="col-md-11 border-ayar">
                                 @Html.EditorFor(model => model.SERIAL_NO1)
                                 @Html.ValidationMessageFor(model => model.SERIAL_NO1)
                             </div>
@@ -616,7 +617,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.SERIAL_NO2, new { @class = "control-label col-md-1" })
-                            <div class="col-md-11">
+                            <div class="col-md-11 border-ayar">
                                 @Html.EditorFor(model => model.SERIAL_NO2)
                                 @Html.ValidationMessageFor(model => model.SERIAL_NO2)
                             </div>
@@ -624,7 +625,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.SERIAL_NO3, new { @class = "control-label col-md-1" })
-                            <div class="col-md-11">
+                            <div class="col-md-11 border-ayar">
                                 @Html.EditorFor(model => model.SERIAL_NO3)
                                 @Html.ValidationMessageFor(model => model.SERIAL_NO3)
                             </div>
@@ -633,7 +634,7 @@
 
                     </div>
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" style="margin-top: 20px; background-color: #FE980F; color: white;" />
+                        <input type="submit" value="Update" class="btn btn-default" style="margin-top: 20px; background-color: #FE980F; color: white;" />
                     </div>
 
 
