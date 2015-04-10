@@ -14,7 +14,7 @@ namespace siparis.Models
         {
 
             string str = null;
-            using (VdbSoftEntities db = new VdbSoftEntities())
+            using (VdbSoftEntities db = new VdbSoftEntities(siparis.Controllers.BaseController.dbName))
             {
 
                 switch (languege)

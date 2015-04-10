@@ -16,7 +16,7 @@ namespace siparis.Controllers
         {
             try
             {
-                using (VdbSoftEntities db = new VdbSoftEntities())
+                using (VdbSoftEntities db = new VdbSoftEntities(dbName))
                 {
                     #region Sepet Var mı
                     if (Session["Sepet"] == null)
@@ -104,7 +104,7 @@ namespace siparis.Controllers
         [HttpGet]
         public ActionResult removeCartProduct(int oppCode, int row)
         {
-            VdbSoftEntities db = new VdbSoftEntities();
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
             OPPORTUNITYDETAIL item = (from d in db.OPPORTUNITYDETAILs
                                       where d.ROW_ORDER_NO == row && d.OPPORTUNITY_CODE == oppCode
                                       select d).SingleOrDefault();
@@ -117,7 +117,7 @@ namespace siparis.Controllers
         [HttpPost]
         public ActionResult changeCartProduct(OPPORTUNITYDETAIL item)
         {
-            VdbSoftEntities db = new VdbSoftEntities();
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
             OPPORTUNITYDETAIL opp = (from d in db.OPPORTUNITYDETAILs
                                      where d.OPPORTUNITY_CODE == item.OPPORTUNITY_CODE && d.ROW_ORDER_NO == item.ROW_ORDER_NO
                                      select d).SingleOrDefault();
@@ -133,7 +133,7 @@ namespace siparis.Controllers
         public ActionResult onayla(string OppCode)
         {
             int op = Convert.ToInt32(OppCode);
-            VdbSoftEntities db = new VdbSoftEntities();
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
             OPPORTUNITYMASTER master = db.OPPORTUNITYMASTERs.Find(op);
             master.DOCUMENT_TYPE = 18;
             db.OPPORTUNITYMASTERs.Attach(master);

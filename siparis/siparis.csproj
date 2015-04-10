@@ -194,7 +194,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\StokController.cs" />
     <Compile Include="Models\aspnet_Applications.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -224,6 +223,9 @@
     </Compile>
     <Compile Include="Models\aspnet_WebEvent_Events.cs">
       <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DATABASEUPDATE.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IndexDataViewModel.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -464,6 +466,9 @@
     <Compile Include="Models\LICENSE_PLATE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LOGIN.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LOGREPORT.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -555,9 +560,15 @@
     <Compile Include="Models\RE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RELATION.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Res.cs" />
     <Compile Include="Models\RESDE.cs">
       <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RESMOBILE.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\REVENUEDETAIL.cs">
       <DependentUpon>Data.tt</DependentUpon>
@@ -683,6 +694,24 @@
     <Compile Include="Models\USERWHAREHOUSE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\USER_LOGIN.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VeribisBaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeribisBaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VeribisBaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VeribisBaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeribisBaseModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\VMMAILFILEREPORT.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -697,7 +726,6 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\jquery.toastmessage.css" />
-    <Content Include="Content\css\style.css" />
     <Content Include="Content\css\verticalMenu.css" />
     <Content Include="Content\images\404\404.png" />
     <Content Include="Content\images\alert\error.png" />
@@ -745,7 +773,6 @@
     <Content Include="Content\images\home\sale.png" />
     <Content Include="Content\images\home\searchicon.png" />
     <Content Include="Content\images\home\shipping.jpg" />
-    <Content Include="Content\images\logo\logomuz.png" />
     <Content Include="Content\images\product-details\1.jpg" />
     <Content Include="Content\images\product-details\new.jpg" />
     <Content Include="Content\images\product-details\rating.png" />
@@ -824,6 +851,23 @@
       <DependentUpon>Data.edmx</DependentUpon>
       <LastGenOutput>Data.cs</LastGenOutput>
     </Content>
+    <EntityDeploy Include="Models\VeribisBaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VeribisBaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\VeribisBaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VeribisBaseModel.edmx</DependentUpon>
+      <LastGenOutput>VeribisBaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\VeribisBaseModel.edmx.diagram">
+      <DependentUpon>VeribisBaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\VeribisBaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VeribisBaseModel.edmx</DependentUpon>
+      <LastGenOutput>VeribisBaseModel.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\siparis.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -857,6 +901,7 @@
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\OrderFollow\Index.cshtml" />
@@ -901,9 +946,7 @@
     <Content Include="Views\OrderFollow\girdMaster.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailDetailPartial.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailMasterPartial.cshtml" />
-    <Content Include="Views\Stok\AddStok.cshtml" />
     <Content Include="Views\Account\RoleCreate.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
