@@ -56,6 +56,15 @@ border-radius:3px;
     border-style:inset;
     border-color:#363432;
 }
+.editmargin select{
+    width:149px;
+    border-radius:3px;
+    margin-bottom:10px;
+    border-width:1px;
+    border-style:inset;
+    border-color:#363432;
+    color:black;
+}
 .border-ayar{
    
 }
@@ -78,6 +87,12 @@ border-radius:3px;
     background-color:white;
     height:27px;
     font-size:12px;
+}
+.deshizla{
+    
+}
+.deshizala input{
+    width:100%;
 }
 .generalhizala {
     
