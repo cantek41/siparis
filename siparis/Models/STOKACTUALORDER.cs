@@ -12,16 +12,14 @@ namespace siparis.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class STOKGROUP1
+    public partial class STOKACTUALORDER
     {
-        public string STOK_GROUP_CODE { get; set; }
-        public string UPPER_GROUP_CODE { get; set; }
-        public string NAME_TR { get; set; }
-        public string NAME_EN { get; set; }
-        public string NAME_GR { get; set; }
-        public string LAST_UPDATE_USER { get; set; }
-        public Nullable<System.DateTime> LAST_UPDATE { get; set; }
-        public Nullable<System.DateTime> CREATE_DATE { get; set; }
-        public string CREATE_USER { get; set; }
+        public int ID { get; set; }
+        public Nullable<int> OPPORTUNITY_CODE { get; set; }
+        public string STOK_CODE { get; set; }
+        public Nullable<int> QUANTITY { get; set; }
+        public Nullable<int> WAREHOUSE { get; set; }
+    
+        public virtual OPPORTUNITYMASTER OPPORTUNITYMASTER { get; set; }
     }
 }

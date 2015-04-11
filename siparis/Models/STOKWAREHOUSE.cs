@@ -12,14 +12,19 @@ namespace siparis.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OPPORTUNITYDETAILADDAREA
+    public partial class STOKWAREHOUSE
     {
-        public int OPPORTUNITY_CODE { get; set; }
-        public int ROW_ORDER_NO { get; set; }
-        public string C1 { get; set; }
-        public string C2 { get; set; }
-        public string ek1 { get; set; }
-        public string PLAKA { get; set; }
-        public string SASE { get; set; }
+        public STOKWAREHOUSE()
+        {
+            this.STOKACTUALs = new HashSet<STOKACTUAL>();
+        }
+    
+        public int ID { get; set; }
+        public string NAME { get; set; }
+        public Nullable<System.DateTime> CREATE_DATE { get; set; }
+        public Nullable<int> CREATE_USER { get; set; }
+        public Nullable<System.DateTime> LAST_UPDATE { get; set; }
+    
+        public virtual ICollection<STOKACTUAL> STOKACTUALs { get; set; }
     }
 }

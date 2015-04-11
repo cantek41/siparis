@@ -17,9 +17,11 @@ namespace siparis.Models
         public STOKCARD()
         {
             this.OPPORTUNITYDETAILs = new HashSet<OPPORTUNITYDETAIL>();
+            this.STOKACTUALs = new HashSet<STOKACTUAL>();
             this.STOKCARDPICTUREs = new HashSet<STOKCARDPICTURE>();
         }
     
+        public int ID { get; set; }
         public string CODE { get; set; }
         public string UPPER_CODE { get; set; }
         public string NAME_TR { get; set; }
@@ -84,17 +86,19 @@ namespace siparis.Models
         public string WEB_TRANSFER { get; set; }
         public string ISACTIVE { get; set; }
         public Nullable<int> WEB_AMOUNT { get; set; }
-        public int ID { get; set; }
         public string SERIAL_NO1 { get; set; }
         public string SERIAL_NO2 { get; set; }
         public string SERIAL_NO3 { get; set; }
+        public Nullable<int> PRODUCTION_TIME { get; set; }
+        public Nullable<int> MAX_SEND_TIME { get; set; }
     
         public virtual ICollection<OPPORTUNITYDETAIL> OPPORTUNITYDETAILs { get; set; }
-        public virtual STOKGROUP STOKGROUP { get; set; }
-        public virtual ICollection<STOKCARDPICTURE> STOKCARDPICTUREs { get; set; }
+        public virtual ICollection<STOKACTUAL> STOKACTUALs { get; set; }
         public virtual STOKBODY STOKBODY { get; set; }
         public virtual STOKBRAND STOKBRAND { get; set; }
         public virtual STOKCOLOR STOKCOLOR { get; set; }
+        public virtual STOKGROUP STOKGROUP { get; set; }
         public virtual STOKSEASON STOKSEASON { get; set; }
+        public virtual ICollection<STOKCARDPICTURE> STOKCARDPICTUREs { get; set; }
     }
 }
