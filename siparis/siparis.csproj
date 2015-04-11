@@ -725,6 +725,7 @@
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\jquery.toastmessage.css" />
     <Content Include="Content\css\verticalMenu.css" />
@@ -788,18 +789,32 @@
     <Content Include="Content\images\shop\product7.jpg" />
     <Content Include="Content\images\shop\product8.jpg" />
     <Content Include="Content\images\shop\product9.jpg" />
-    <Content Include="Content\images\verticalMenu\assets.png" />
-    <Content Include="Content\images\verticalMenu\comments.png" />
-    <Content Include="Content\images\verticalMenu\dashboard.png" />
+    <Content Include="Content\images\verticalMenu\blank.png" />
+    <Content Include="Content\images\verticalMenu\calculator.png" />
+    <Content Include="Content\images\verticalMenu\cancel.png" />
+    <Content Include="Content\images\verticalMenu\cart.png" />
+    <Content Include="Content\images\verticalMenu\check.png" />
+    <Content Include="Content\images\verticalMenu\edit.png" />
+    <Content Include="Content\images\verticalMenu\facebook-like.png" />
+    <Content Include="Content\images\verticalMenu\fast-forward.png" />
+    <Content Include="Content\images\verticalMenu\home.png" />
+    <Content Include="Content\images\verticalMenu\inbox.png" />
+    <Content Include="Content\images\verticalMenu\invoice.png" />
     <Content Include="Content\images\verticalMenu\listBg.png" />
     <Content Include="Content\images\verticalMenu\listSelectedBg.png" />
-    <Content Include="Content\images\verticalMenu\maps.png" />
-    <Content Include="Content\images\verticalMenu\pages.png" />
-    <Content Include="Content\images\verticalMenu\search.png" />
-    <Content Include="Content\images\verticalMenu\settings.png" />
+    <Content Include="Content\images\verticalMenu\ok.png" />
+    <Content Include="Content\images\verticalMenu\order.png" />
+    <Content Include="Content\images\verticalMenu\procent-badge.png" />
+    <Content Include="Content\images\verticalMenu\process.png" />
+    <Content Include="Content\images\verticalMenu\solutions.png" />
+    <Content Include="Content\images\verticalMenu\text-file-4.png" />
     <Content Include="Content\images\verticalMenu\texture.png" />
+    <Content Include="Content\images\verticalMenu\time.png" />
+    <Content Include="Content\images\verticalMenu\today.png" />
     <Content Include="Content\images\verticalMenu\trash.png" />
-    <Content Include="Content\images\verticalMenu\widgets.png" />
+    <Content Include="Content\images\verticalMenu\truck.png" />
+    <Content Include="Content\images\verticalMenu\x-mark.png" />
+    <Content Include="Content\images\verticalMenu\zoom.png" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\ajaxGonderi\ajaxGonder.js" />
@@ -978,7 +993,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39816/</IISUrl>
+          <IISUrl>http://localhost:39822/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
