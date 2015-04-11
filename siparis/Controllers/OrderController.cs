@@ -135,7 +135,7 @@ namespace siparis.Controllers
             int op = Convert.ToInt32(OppCode);
             VdbSoftEntities db = new VdbSoftEntities(dbName);
             OPPORTUNITYMASTER master = db.OPPORTUNITYMASTERs.Find(op);
-            master.DOCUMENT_TYPE = 18;
+            master.DOCUMENT_TYPE = 3;
             db.OPPORTUNITYMASTERs.Attach(master);
             db.Entry(master).State = EntityState.Modified;
             db.SaveChanges();

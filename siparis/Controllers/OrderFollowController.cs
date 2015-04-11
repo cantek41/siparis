@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using DevExpress.Web.Mvc;
 using siparis.Models;
 
 namespace siparis.Controllers
 {
+    [Authorize]
     public class OrderFollowController : BaseController
     {
         //
@@ -17,8 +19,16 @@ namespace siparis.Controllers
 
             return View(getOpp(1));
         }
+
         public ActionResult Opportunity()
         {
+
+            RolePrincipal r = (RolePrincipal)User;
+            string[] rol = r.GetRoles();
+            if (!rol.Contains("Admin"))
+            {
+                return View();
+            }
             return View(getOpp(1));
         }
         public ActionResult Edited()
@@ -98,14 +108,15 @@ namespace siparis.Controllers
                                                  {
                                                      OPPORTUNITY_CODE = d.OPPORTUNITY_CODE,
                                                      COMPANY_CODE = com.COMPANY_NAME,
-                                                     DOCUMENT_DATE=(DateTime)d.DOCUMENT_DATE,
-                                                     CONTACT_CODE=con.NAME+" "+con.SURNAME,
-                                                     APPOINTED_USER_CODE=user.AUSER_NAME+" "+user.SURNAME,
+                                                     DOCUMENT_DATE = (DateTime)d.DOCUMENT_DATE,
+                                                     CONTACT_CODE = con.NAME + " " + con.SURNAME,
+                                                     APPOINTED_USER_CODE = user.AUSER_NAME + " " + user.SURNAME,
                                                      CREATE_USER = user.AUSER_NAME + " " + user.SURNAME,
-                                                     TOTAL=(float)d.TOTAL
-                                                 }).ToList();          
+                                                     TOTAL = (float)d.TOTAL
+                                                 }).ToList();
             return model;
         }
+
 
         [ValidateInput(false)]
         public ActionResult MasterDetail(int DOCUMENT_TYPE)
@@ -131,9 +142,13 @@ namespace siparis.Controllers
             return PartialView("MasterDetailDetailPartial", model.ToArray());
         }
 
+
         [HttpPost, ValidateInput(false)]
         public ActionResult Cencel(System.Int32 OPPORTUNITY_CODE)
         {
+            RolePrincipal r = (RolePrincipal)User;
+            string[] rol = r.GetRoles();
+
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
             int eskiSayfa = 0;
             if (OPPORTUNITY_CODE >= 0)
@@ -284,8 +299,12 @@ namespace siparis.Controllers
             return PartialView("_GridViewPartialOpportunity");
         }
 
+        [HttpPost]
         public ActionResult CustomButtonClick(string clickedButton)
         {
+            RolePrincipal r = (RolePrincipal)User;
+            string[] rol = r.GetRoles();
+
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
             int eskiSayfa = 0;
             int OPPORTUNITY_CODE = Convert.ToInt32(clickedButton);
@@ -295,13 +314,25 @@ namespace siparis.Controllers
                 {
                     OPPORTUNITYMASTER opp = db.OPPORTUNITYMASTERs.Find(OPPORTUNITY_CODE);
                     eskiSayfa = (int)opp.DOCUMENT_TYPE;
-                    if (eskiSayfa < 15)
+
+                    switch (rol[0])
                     {
-                        opp.DOCUMENT_TYPE++;
-                    }
-                    else
-                    {
-                        opp.DOCUMENT_TYPE = -1;
+                        case "Admin":
+                            break;
+                        case "Bayi":
+                            switch (eskiSayfa)
+                            {
+                                case 15:
+                                    opp.DOCUMENT_TYPE = 3;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "Depo":
+                            break;
+                        default:
+                            break;
                     }
 
 
@@ -319,8 +350,6 @@ namespace siparis.Controllers
             return gidecegisayfa(eskiSayfa);
 
         }
-
-
 
 
         [ValidateInput(false)]
@@ -442,9 +471,6 @@ namespace siparis.Controllers
             var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 23);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
-
-
-
 
     }
 }

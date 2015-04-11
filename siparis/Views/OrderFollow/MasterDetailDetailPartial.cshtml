@@ -3,13 +3,18 @@
     {
         settings.Name = "detailGrid_" + ViewData["OPPORTUNITY_CODE"];
         settings.SettingsDetail.MasterGridName = "grid";
+       
         settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "MasterDetailDetailPartial", CustomerID = ViewData["OPPORTUNITY_CODE"] };
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        
         settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "CencelRow" };
+       
 
+        
         settings.SettingsBehavior.ConfirmDelete = true;
         settings.CommandColumn.Visible = true;
         settings.CommandColumn.ShowDeleteButton = true;
+        
         settings.KeyFieldName = "ROW_ORDER_NO;OPPORTUNITY_CODE";
         settings.Columns.Add(column =>
         {
@@ -72,7 +77,8 @@
         //        e.Value = price * quantity;
         //    }
         //};
-        settings.Settings.ShowFooter = true;
+       // settings.Settings.ShowFooter = true;
         //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "Total");
         //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "Quantity");
+      
     }).Bind(Model).GetHtml()

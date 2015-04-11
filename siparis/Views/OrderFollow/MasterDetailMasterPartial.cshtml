@@ -2,22 +2,19 @@
     settings =>
     {
         settings.Name = "grid";
-
-
         settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "GridViewPartialOpportunity" };
+                
         settings.CustomActionRouteValues = new { Controller = "OrderFollow", Action = "CustomButtonClick" };
-
         settings.CommandColumn.CustomButtons.Add(new GridViewCommandColumnCustomButton()
         {
             ID = "First10",
             Text = "Onayla"
         });
-        settings.ClientSideEvents.CustomButtonClick = "function(s,e){GridViewFirsat.PerformCallback({clickedButton : s.GetRowKey(e.visibleIndex)});}";
-
+        settings.ClientSideEvents.CustomButtonClick = "function(s,e){grid.PerformCallback({clickedButton : s.GetRowKey(e.visibleIndex)});}";
+        
         settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "MasterDetailMasterPartial", DOCUMENT_TYPE = TempData["DOCUMENT_TYPE"] };
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
         settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "Cencel" };
-
         settings.SettingsBehavior.ConfirmDelete = true;
         settings.CommandColumn.Visible = true;
         settings.CommandColumn.ShowDeleteButton = true;

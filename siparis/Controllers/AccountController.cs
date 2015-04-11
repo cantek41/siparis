@@ -66,6 +66,7 @@ namespace siparis.Controllers
                         int userContactCode = (int)db.USERS.Where(x => x.USER_NAME == model.UserName).Select(x => x.CONTACT_CODE).FirstOrDefault();
                         COMPANY company =db.COMPANies.Find(db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).Select(x=>x.COMPANY_CODE).FirstOrDefault());
                         Session.Add("FirmaAdi", company.COMPANY_NAME);
+                        Session.Add("User_Code", userContactCode);
                     }
 
 
