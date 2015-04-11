@@ -81,44 +81,78 @@ ul#nav li:hover {
 	background: url(../images/verticalMenu/listSelectedBg.png) repeat-x bottom;
 }
 
-ul#nav li a.dashboard {
-	background: url(../images/verticalMenu/dashboard.png) 35px 50% no-repeat;
+ul#nav li a.opportunity {
+	background: url(../images/verticalMenu/blank.png) 35px 50% no-repeat;
 }
 
-ul#nav li a.pages {
-	background: url(../images/verticalMenu/pages.png) 35px 50% no-repeat;
+ul#nav li a.sample {
+	background: url(../images/verticalMenu/inbox.png) 35px 50% no-repeat;
 }
 
-ul#nav li a.assets {
-	background: url(../images/verticalMenu/assets.png) 35px 50% no-repeat;
+ul#nav li a.offer {
+	background: url(../images/verticalMenu/procent-badge.png) 35px 50% no-repeat;
 }
 
-ul#nav li a.widgets {
-	background: url(../images/verticalMenu/widgets.png) 35px 50% no-repeat;
+ul#nav li a.draft {
+	background: url(../images/verticalMenu/order.png) 35px 50% no-repeat;
 }
 
-ul#nav li a.comments {
-	background: url(../images/verticalMenu/comments.png) 35px 50% no-repeat;
+ul#nav li a.order {
+	background: url(../images/verticalMenu/cart.png) 35px 50% no-repeat;
 }
 
-ul#nav li a.settings {
-	background: url(../images/verticalMenu/settings.png) 35px 50% no-repeat;
+ul#nav li a.review {
+	background: url(../images/verticalMenu/zoom.png) 35px 50% no-repeat;
 }
 
-ul#nav li a.maps {
-	background: url(../images/verticalMenu/maps.png) 35px 50% no-repeat;
+ul#nav li a.pending {
+	background: url(../images/verticalMenu/time.png) 35px 50% no-repeat;
 }
 
-ul#nav li a.trash {
+ul#nav li a.approved {
+	background: url(../images/verticalMenu/check.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.edit {
+	background: url(../images/verticalMenu/edit.png) 35px 50% no-repeat;
+}
+
+
+ul#nav li a.process {
+	background: url(../images/verticalMenu/process.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.ship-confirm {
+	background: url(../images/verticalMenu/ok.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.shipping {
+	background: url(../images/verticalMenu/truck.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.shipped {
+	background: url(../images/verticalMenu/facebook-like.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.cancel {
 	background: url(../images/verticalMenu/trash.png) 35px 50% no-repeat;
 }
 
-ul#nav li a.search {
-	background: url(../images/verticalMenu/search.png) 35px 50% no-repeat;
+ul#nav li a.dispatch {
+	background: url(../images/verticalMenu/invoice.png) 35px 50% no-repeat;
 }
 
+ul#nav li a.invoice {
+	background: url(../images/verticalMenu/calculator.png) 35px 50% no-repeat;
+}
+
+ul#nav li a.linesheet {
+	background: url(../images/verticalMenu/solutions.png) 35px 50% no-repeat;
+}
 
 /**  Nav Flyout  **/
+
+
 
 ul#nav ul.flyout {
 	position: absolute;

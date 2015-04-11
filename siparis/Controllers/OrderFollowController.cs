@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using DevExpress.Web.Mvc;
 using siparis.Models;
 
 namespace siparis.Controllers
 {
+    [Authorize]
     public class OrderFollowController : BaseController
     {
         //
@@ -15,10 +17,18 @@ namespace siparis.Controllers
         public ActionResult Index()
         {
 
-            return View(getOpp(1));
+            return View();
         }
+
         public ActionResult Opportunity()
         {
+
+            RolePrincipal r = (RolePrincipal)User;
+            string[] rol = r.GetRoles();
+            if (!rol.Contains("Admin"))
+            {
+                return View();
+            }
             return View(getOpp(1));
         }
         public ActionResult Edited()
@@ -77,6 +87,17 @@ namespace siparis.Controllers
         {
             return View(getOpp(23));
         }
+
+        public ActionResult Shipping()
+        {
+            return View(getOpp(24));
+        }
+        public ActionResult ShippingConfirm()
+        {
+            return View(getOpp(25));
+        }
+
+
         public ActionResult girdMaster()
         {
             VdbSoftEntities db = db = new VdbSoftEntities(dbName);
@@ -98,14 +119,15 @@ namespace siparis.Controllers
                                                  {
                                                      OPPORTUNITY_CODE = d.OPPORTUNITY_CODE,
                                                      COMPANY_CODE = com.COMPANY_NAME,
-                                                     DOCUMENT_DATE=(DateTime)d.DOCUMENT_DATE,
-                                                     CONTACT_CODE=con.NAME+" "+con.SURNAME,
-                                                     APPOINTED_USER_CODE=user.AUSER_NAME+" "+user.SURNAME,
+                                                     DOCUMENT_DATE = (DateTime)d.DOCUMENT_DATE,
+                                                     CONTACT_CODE = con.NAME + " " + con.SURNAME,
+                                                     APPOINTED_USER_CODE = user.AUSER_NAME + " " + user.SURNAME,
                                                      CREATE_USER = user.AUSER_NAME + " " + user.SURNAME,
-                                                     TOTAL=(float)d.TOTAL
-                                                 }).ToList();          
+                                                     TOTAL = (float)d.TOTAL
+                                                 }).ToList();
             return model;
         }
+
 
         [ValidateInput(false)]
         public ActionResult MasterDetail(int DOCUMENT_TYPE)
@@ -131,9 +153,13 @@ namespace siparis.Controllers
             return PartialView("MasterDetailDetailPartial", model.ToArray());
         }
 
+
         [HttpPost, ValidateInput(false)]
         public ActionResult Cencel(System.Int32 OPPORTUNITY_CODE)
         {
+            RolePrincipal r = (RolePrincipal)User;
+            string[] rol = r.GetRoles();
+
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
             int eskiSayfa = 0;
             if (OPPORTUNITY_CODE >= 0)
@@ -142,7 +168,48 @@ namespace siparis.Controllers
                 {
                     OPPORTUNITYMASTER opp = db.OPPORTUNITYMASTERs.Find(OPPORTUNITY_CODE);
                     eskiSayfa = (int)opp.DOCUMENT_TYPE;
-                    opp.DOCUMENT_TYPE = 12;
+                    switch (rol[0])
+                    {
+                        case "Admin":
+                            switch (eskiSayfa)
+                            {
+                                case 3:
+                                    opp.DOCUMENT_TYPE = 22;
+                                    break;
+                                case 19:
+                                    opp.DOCUMENT_TYPE = 22;
+                                    break;
+
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "Bayi":
+                            switch (eskiSayfa)
+                            {
+                                case 15:
+                                    opp.DOCUMENT_TYPE = 22;
+                                    break;
+                                case 19:
+                                    opp.DOCUMENT_TYPE = 22;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "Depo":
+                            switch (eskiSayfa)
+                            {
+                                case 20:
+                                    opp.DOCUMENT_TYPE = 19;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                     db.OPPORTUNITYMASTERs.Attach(opp);
                     var entry = db.Entry(opp);
                     entry.Property(e => e.DOCUMENT_TYPE).IsModified = true;
@@ -154,8 +221,7 @@ namespace siparis.Controllers
                     ViewData["EditError"] = e.Message;
                 }
             }
-
-            return gidecegisayfa(eskiSayfa);
+            return RedirectToAction(gidecegisayfa(eskiSayfa));
 
         }
 
@@ -187,105 +253,17 @@ namespace siparis.Controllers
                 }
             }
 
-            return gidecegisayfa(eskiSayfa);
+            return RedirectToAction(gidecegisayfa(eskiSayfa));
 
         }
 
 
-        public ActionResult gidecegisayfa(int eskiSayfa)
-        {
-            switch (eskiSayfa)
-            {
-                case 1:
-                    return GridViewPartialOpportunity();
-                    break;
-                case 2:
-                    return GridViewPartialSample();
-                    break;
-                case 3:
-                    return GridViewPartialOffer();
-                    break;
-                case 4:
-                    return GridViewPartialDraft();
-                    break;
-                case 5:
-                    return GridViewPartialOrder();
-                    break;
-                case 6:
-                    return GridViewPartialInReview();
-                    break;
-                case 7:
-                    return GridViewPartialPending();
-                    break;
-                case 8:
-                    return GridViewPartialApproved();
-                    break;
-                case 9:
-                    return GridViewPartialEdited();
-                    break;
-                case 10:
-                    return GridViewPartialProcessed();
-                    break;
-                case 11:
-                    return GridViewPartialShipped();
-                    break;
-                case 12:
-                    return GridViewPartialDraft();
-                    break;
-                case 13:
-                    return GridViewPartialDispatchNote();
-                    break;
-                case 14:
-                    return GridViewPartialInvoice();
-                    break;
-                case 15:
-                    return GridViewPartialLinesheets();
-                    break;
-
-                default:
-                    return PartialView("_GridViewPartialOpportunity");
-                    break;
-            }
-        }
-
-
-        [HttpPost, ValidateInput(false)]
-        public ActionResult Progress(System.Int32 OPPORTUNITY_CODE)
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            int eskiSayfa = 0;
-            if (OPPORTUNITY_CODE >= 0)
-            {
-                try
-                {
-                    OPPORTUNITYMASTER opp = db.OPPORTUNITYMASTERs.Find(OPPORTUNITY_CODE);
-                    eskiSayfa = (int)opp.DOCUMENT_TYPE;
-                    if (eskiSayfa < 15)
-                    {
-                        opp.DOCUMENT_TYPE++;
-                    }
-                    else
-                    {
-                        opp.DOCUMENT_TYPE = -1;
-                    }
-
-
-                    db.OPPORTUNITYMASTERs.Attach(opp);
-                    var entry = db.Entry(opp);
-                    entry.Property(e => e.DOCUMENT_TYPE).IsModified = true;
-                    //this.UpdateModel(entry);
-                    db.SaveChanges();
-                }
-                catch (Exception e)
-                {
-                    ViewData["EditError"] = e.Message;
-                }
-            }
-            return PartialView("_GridViewPartialOpportunity");
-        }
-
+        [HttpPost]
         public ActionResult CustomButtonClick(string clickedButton)
         {
+            RolePrincipal r = (RolePrincipal)User;
+            string[] rol = r.GetRoles();
+
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
             int eskiSayfa = 0;
             int OPPORTUNITY_CODE = Convert.ToInt32(clickedButton);
@@ -295,33 +273,154 @@ namespace siparis.Controllers
                 {
                     OPPORTUNITYMASTER opp = db.OPPORTUNITYMASTERs.Find(OPPORTUNITY_CODE);
                     eskiSayfa = (int)opp.DOCUMENT_TYPE;
-                    if (eskiSayfa < 15)
+
+                    switch (rol[0])
                     {
-                        opp.DOCUMENT_TYPE++;
-                    }
-                    else
-                    {
-                        opp.DOCUMENT_TYPE = -1;
+                        case "Admin":
+                            switch (eskiSayfa)
+                            {
+                                case 3:
+                                    opp.DOCUMENT_TYPE = 18;
+                                    break;
+                                case 17:
+                                    opp.DOCUMENT_TYPE = 18;
+                                    break;
+                                case 19:
+                                    opp.DOCUMENT_TYPE = 3;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "Bayi":
+                            switch (eskiSayfa)
+                            {
+                                case 15:
+                                    opp.DOCUMENT_TYPE = 3;
+                                    break;
+                                case 19:
+                                    opp.DOCUMENT_TYPE = 3;
+                                    break;
+                                case 23:
+                                    opp.DOCUMENT_TYPE = 3;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "Depo":
+                            switch (eskiSayfa)
+                            {
+                                case 18:
+                                    opp.DOCUMENT_TYPE = 20;
+                                    break;
+                                case 20:
+                                    opp.DOCUMENT_TYPE = 24;
+                                    break;
+                                case 24:
+                                    opp.DOCUMENT_TYPE = 21;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        default:
+                            break;
                     }
 
-
-                    db.OPPORTUNITYMASTERs.Attach(opp);
-                    var entry = db.Entry(opp);
-                    entry.Property(e => e.DOCUMENT_TYPE).IsModified = true;
-                    //this.UpdateModel(entry);
-                    db.SaveChanges();
+                    oppSave(db, opp, eskiSayfa);
+                    //db.OPPORTUNITYMASTERs.Attach(opp);
+                    //var entry = db.Entry(opp);
+                    //entry.Property(e => e.DOCUMENT_TYPE).IsModified = true; 
+                    //db.SaveChanges();
                 }
                 catch (Exception e)
                 {
                     ViewData["EditError"] = e.Message;
                 }
             }
-            return gidecegisayfa(eskiSayfa);
+            return RedirectToAction(gidecegisayfa(eskiSayfa));
 
         }
 
+        private void oppSave(VdbSoftEntities db, OPPORTUNITYMASTER opp, int eskiSayfa)
+        {
+            OPPORTUNITYHISTORY history = new OPPORTUNITYHISTORY();
+            history.ACTUEL_DOCUMENT_TYPE = opp.DOCUMENT_TYPE;
+            history.LAST_DOCUMENT_TYPE = eskiSayfa;
+            history.OPPORTUNITY_CODE = opp.OPPORTUNITY_CODE;
+            history.LAST_UPDATE = DateTime.Now;
+            history.LAST_UPDATE_USER = getUserCode();
+            db.OPPORTUNITYHISTORies.Add(history);
+            db.OPPORTUNITYMASTERs.Attach(opp);
+            var entry = db.Entry(opp);
+            entry.Property(e => e.DOCUMENT_TYPE).IsModified = true;
+            db.SaveChanges();
+        }
 
 
+        public string gidecegisayfa(int eskiSayfa)
+        {
+            string sayfa = null;
+            switch (eskiSayfa)
+            {
+                case 1:
+                    sayfa = "Opportunity";
+                    break;
+                case 2:
+                    sayfa = "Offer";
+                    break;
+                case 3:
+                    sayfa = "Order";
+                    break;
+                case 4:
+                    sayfa = "DispatchNote";
+                    break;
+                case 5:
+                    sayfa = "Invoice";
+                    break;
+                case 6:
+                    sayfa = "Sample";
+                    break;
+                case 15:
+                    sayfa = "Draft";
+                    break;
+                case 16:
+                    sayfa = "InReview";
+                    break;
+                case 17:
+                    sayfa = "Pending";
+                    break;
+                case 18:
+                    sayfa = "Approved";
+                    break;
+                case 19:
+                    sayfa = "Edited";
+                    break;
+                case 20:
+                    sayfa = "Processed";
+                    break;
+                case 21:
+                    sayfa = "Shipped";
+                    break;
+                case 22:
+                    sayfa = "Cancelled";
+                    break;
+                case 23:
+                    sayfa = "LineSheets";
+                    break;
+                case 24:
+                    sayfa = "Shipping";
+                    break;
+                case 25:
+                    sayfa = "ShippingConfirm";
+                    break;
+                default:
+                    sayfa = "Opportunity";
+                    break;
+            }
+            return sayfa;
+        }
 
         [ValidateInput(false)]
         public ActionResult GridViewPartialOpportunity()
@@ -442,9 +541,6 @@ namespace siparis.Controllers
             var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 23);
             return PartialView("_GridViewPartialOpportunity", model.ToList());
         }
-
-
-
 
     }
 }

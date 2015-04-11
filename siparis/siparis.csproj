@@ -195,49 +195,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\StokController.cs" />
-    <Compile Include="Models\aspnet_Applications.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Membership.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Paths.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_PersonalizationAllUsers.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_PersonalizationPerUser.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Profile.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Roles.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_SchemaVersions.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Users.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_WebEvent_Events.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DATABASEUPDATE.cs">
-      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IndexDataViewModel.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\OrderFollowController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ACTIVITY.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -307,6 +264,36 @@
     <Compile Include="Models\ARREMINDER.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\aspnet_Applications.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Paths.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Profile.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Roles.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_SchemaVersions.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Users.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_WebEvent_Events.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ASSOCIATION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -341,6 +328,9 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\COMPANYSECTION.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\COMPANYSOCIALMEDIA.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\COMPANYUSERRELATION.cs">
@@ -451,6 +441,19 @@
     <Compile Include="Models\GROUPMULTI.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IndexDataViewModel.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderFollowController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DATABASEUPDATE.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LANGUAGE.cs">
       <DependentUpon>Data.tt</DependentUpon>
@@ -509,19 +512,13 @@
     <Compile Include="Models\OPPORTUNITYDETAIL.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OPPORTUNITYDETAILADDAREA.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\OPPORTUNITYDETAILVERSION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OPPORTUNITYDETAILVERSIONADDAREA.cs">
+    <Compile Include="Models\OPPORTUNITYHISTORY.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OPPORTUNITYMASTER.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\OPPORTUNITYMASTERVERSION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderMasterViewModel.cs" />
@@ -589,9 +586,6 @@
     <Compile Include="Models\RU.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SALES_ORI2.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\SELLER_BALANCE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -617,6 +611,12 @@
     <Compile Include="Models\SPECDESCIRIPTION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\STOKACTUAL.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STOKACTUALORDER.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\STOKBODY.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -626,13 +626,10 @@
     <Compile Include="Models\STOKCARD.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\STOKCARD1.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\STOKCARDPICTURE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\STOKCARD_.cs">
+    <Compile Include="Models\STOKCARDUSERPRICE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\STOKCOLOR.cs">
@@ -641,10 +638,10 @@
     <Compile Include="Models\STOKGROUP.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\STOKGROUP1.cs">
+    <Compile Include="Models\STOKSEASON.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\STOKSEASON.cs">
+    <Compile Include="Models\STOKWAREHOUSE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
@@ -725,6 +722,7 @@
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\jquery.toastmessage.css" />
     <Content Include="Content\css\verticalMenu.css" />
@@ -788,18 +786,32 @@
     <Content Include="Content\images\shop\product7.jpg" />
     <Content Include="Content\images\shop\product8.jpg" />
     <Content Include="Content\images\shop\product9.jpg" />
-    <Content Include="Content\images\verticalMenu\assets.png" />
-    <Content Include="Content\images\verticalMenu\comments.png" />
-    <Content Include="Content\images\verticalMenu\dashboard.png" />
+    <Content Include="Content\images\verticalMenu\blank.png" />
+    <Content Include="Content\images\verticalMenu\calculator.png" />
+    <Content Include="Content\images\verticalMenu\cancel.png" />
+    <Content Include="Content\images\verticalMenu\cart.png" />
+    <Content Include="Content\images\verticalMenu\check.png" />
+    <Content Include="Content\images\verticalMenu\edit.png" />
+    <Content Include="Content\images\verticalMenu\facebook-like.png" />
+    <Content Include="Content\images\verticalMenu\fast-forward.png" />
+    <Content Include="Content\images\verticalMenu\home.png" />
+    <Content Include="Content\images\verticalMenu\inbox.png" />
+    <Content Include="Content\images\verticalMenu\invoice.png" />
     <Content Include="Content\images\verticalMenu\listBg.png" />
     <Content Include="Content\images\verticalMenu\listSelectedBg.png" />
-    <Content Include="Content\images\verticalMenu\maps.png" />
-    <Content Include="Content\images\verticalMenu\pages.png" />
-    <Content Include="Content\images\verticalMenu\search.png" />
-    <Content Include="Content\images\verticalMenu\settings.png" />
+    <Content Include="Content\images\verticalMenu\ok.png" />
+    <Content Include="Content\images\verticalMenu\order.png" />
+    <Content Include="Content\images\verticalMenu\procent-badge.png" />
+    <Content Include="Content\images\verticalMenu\process.png" />
+    <Content Include="Content\images\verticalMenu\solutions.png" />
+    <Content Include="Content\images\verticalMenu\text-file-4.png" />
     <Content Include="Content\images\verticalMenu\texture.png" />
+    <Content Include="Content\images\verticalMenu\time.png" />
+    <Content Include="Content\images\verticalMenu\today.png" />
     <Content Include="Content\images\verticalMenu\trash.png" />
-    <Content Include="Content\images\verticalMenu\widgets.png" />
+    <Content Include="Content\images\verticalMenu\truck.png" />
+    <Content Include="Content\images\verticalMenu\x-mark.png" />
+    <Content Include="Content\images\verticalMenu\zoom.png" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\ajaxGonderi\ajaxGonder.js" />
@@ -835,23 +847,6 @@
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Fonts\glyphicons-halflings-regular.woff" />
     <Content Include="ClassDiagram1.cd" />
-    <EntityDeploy Include="Models\Data.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Data.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Data.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Data.edmx</DependentUpon>
-      <LastGenOutput>Data.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Data.edmx.diagram">
-      <DependentUpon>Data.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Data.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Data.edmx</DependentUpon>
-      <LastGenOutput>Data.cs</LastGenOutput>
-    </Content>
     <EntityDeploy Include="Models\VeribisBaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>VeribisBaseModel.Designer.cs</LastGenOutput>
@@ -868,6 +863,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VeribisBaseModel.edmx</DependentUpon>
       <LastGenOutput>VeribisBaseModel.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\Data.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Data.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Data.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Data.edmx</DependentUpon>
+      <LastGenOutput>Data.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Data.edmx.diagram">
+      <DependentUpon>Data.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Data.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Data.edmx</DependentUpon>
+      <LastGenOutput>Data.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\siparis.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -948,6 +960,8 @@
     <Content Include="Views\OrderFollow\MasterDetailDetailPartial.cshtml" />
     <Content Include="Views\OrderFollow\MasterDetailMasterPartial.cshtml" />
     <Content Include="Views\Account\RoleCreate.cshtml" />
+    <Content Include="Views\OrderFollow\Shipping.cshtml" />
+    <Content Include="Views\OrderFollow\ShippingConfirm.cshtml" />
     <Content Include="Views\Stok\AddStok.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -978,7 +992,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39816/</IISUrl>
+          <IISUrl>http://localhost:39842/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

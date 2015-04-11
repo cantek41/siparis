@@ -15,7 +15,7 @@ namespace siparis.Models
     using System.Data.Entity.Core.EntityClient;
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.ModelConfiguration.Conventions;
-    
+
     public partial class VdbSoftEntities : DbContext
     {
         public VdbSoftEntities(string Dbname)
@@ -38,9 +38,9 @@ namespace siparis.Models
             {
                 //Provider = "System.Data.SqlClient",
                 //ProviderConnectionString = connString
-             //   Metadata = @"res://*/Models.Data.csdl|res://*/Models.Data.ssdl|res://*/Models.Data.msl"
-            };            
-   
+                //   Metadata = @"res://*/Models.Data.csdl|res://*/Models.Data.ssdl|res://*/Models.Data.msl"
+            };
+
             _connectionString = entityBuilder.ToString();
 
             return connString;
@@ -68,6 +68,16 @@ namespace siparis.Models
         public virtual DbSet<ADDRESS> ADDRESSes { get; set; }
         public virtual DbSet<AREMINDER> AREMINDERs { get; set; }
         public virtual DbSet<AREPEATER> AREPEATERs { get; set; }
+        public virtual DbSet<aspnet_Applications> aspnet_Applications { get; set; }
+        public virtual DbSet<aspnet_Membership> aspnet_Membership { get; set; }
+        public virtual DbSet<aspnet_Paths> aspnet_Paths { get; set; }
+        public virtual DbSet<aspnet_PersonalizationAllUsers> aspnet_PersonalizationAllUsers { get; set; }
+        public virtual DbSet<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
+        public virtual DbSet<aspnet_Profile> aspnet_Profile { get; set; }
+        public virtual DbSet<aspnet_Roles> aspnet_Roles { get; set; }
+        public virtual DbSet<aspnet_SchemaVersions> aspnet_SchemaVersions { get; set; }
+        public virtual DbSet<aspnet_Users> aspnet_Users { get; set; }
+        public virtual DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
         public virtual DbSet<ASSOCIATION> ASSOCIATIONs { get; set; }
         public virtual DbSet<CAR> CARs { get; set; }
         public virtual DbSet<CITEM> CITEMS { get; set; }
@@ -119,11 +129,9 @@ namespace siparis.Models
         public virtual DbSet<MENUD> MENUDs { get; set; }
         public virtual DbSet<NOTE> NOTES { get; set; }
         public virtual DbSet<OPPORTUNITYDETAIL> OPPORTUNITYDETAILs { get; set; }
-        public virtual DbSet<OPPORTUNITYDETAILADDAREA> OPPORTUNITYDETAILADDAREAs { get; set; }
         public virtual DbSet<OPPORTUNITYDETAILVERSION> OPPORTUNITYDETAILVERSIONs { get; set; }
-        public virtual DbSet<OPPORTUNITYDETAILVERSIONADDAREA> OPPORTUNITYDETAILVERSIONADDAREAs { get; set; }
+        public virtual DbSet<OPPORTUNITYHISTORY> OPPORTUNITYHISTORies { get; set; }
         public virtual DbSet<OPPORTUNITYMASTER> OPPORTUNITYMASTERs { get; set; }
-        public virtual DbSet<OPPORTUNITYMASTERVERSION> OPPORTUNITYMASTERVERSIONs { get; set; }
         public virtual DbSet<PFORM> PFORMs { get; set; }
         public virtual DbSet<PHONE> PHONEs { get; set; }
         public virtual DbSet<PHONECODE> PHONECODEs { get; set; }
@@ -146,12 +154,16 @@ namespace siparis.Models
         public virtual DbSet<SPEC> SPECs { get; set; }
         public virtual DbSet<SPECDESCIRIPTION> SPECDESCIRIPTIONs { get; set; }
         public virtual DbSet<SPEC1> SPECS1 { get; set; }
+        public virtual DbSet<STOKACTUAL> STOKACTUALs { get; set; }
+        public virtual DbSet<STOKACTUALORDER> STOKACTUALORDERs { get; set; }
+        public virtual DbSet<STOKBODY> STOKBODies { get; set; }
+        public virtual DbSet<STOKBRAND> STOKBRANDs { get; set; }
         public virtual DbSet<STOKCARD> STOKCARDs { get; set; }
-        public virtual DbSet<STOKCARD_> STOKCARD_ { get; set; }
-        public virtual DbSet<STOKCARD1> STOKCARD1 { get; set; }
         public virtual DbSet<STOKCARDPICTURE> STOKCARDPICTUREs { get; set; }
+        public virtual DbSet<STOKCOLOR> STOKCOLORs { get; set; }
         public virtual DbSet<STOKGROUP> STOKGROUPs { get; set; }
-        public virtual DbSet<STOKGROUP1> STOKGROUP1 { get; set; }
+        public virtual DbSet<STOKSEASON> STOKSEASONs { get; set; }
+        public virtual DbSet<STOKWAREHOUSE> STOKWAREHOUSEs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TFILE> TFILEs { get; set; }
         public virtual DbSet<TRANSFER> TRANSFERs { get; set; }
@@ -177,6 +189,7 @@ namespace siparis.Models
         public virtual DbSet<BACKGROUNDCOLOR> BACKGROUNDCOLORs { get; set; }
         public virtual DbSet<BACKGROUNDPICTURE> BACKGROUNDPICTUREs { get; set; }
         public virtual DbSet<COMPANYSECTION> COMPANYSECTIONs { get; set; }
+        public virtual DbSet<COMPANYSOCIALMEDIA> COMPANYSOCIALMEDIAs { get; set; }
         public virtual DbSet<CUR> CURs { get; set; }
         public virtual DbSet<EXCELD1> EXCELDs1 { get; set; }
         public virtual DbSet<MENUBACKGROUNDPICTURE> MENUBACKGROUNDPICTUREs { get; set; }
@@ -186,25 +199,11 @@ namespace siparis.Models
         public virtual DbSet<PROJECTMODULE> PROJECTMODULEs { get; set; }
         public virtual DbSet<PSQL> PSQLs { get; set; }
         public virtual DbSet<RU> RUs { get; set; }
-        public virtual DbSet<SALES_ORI2> SALES_ORI2 { get; set; }
         public virtual DbSet<SELLER_BALANCE> SELLER_BALANCE { get; set; }
         public virtual DbSet<SELLER_DETAIL> SELLER_DETAIL { get; set; }
+        public virtual DbSet<STOKCARDUSERPRICE> STOKCARDUSERPRICEs { get; set; }
         public virtual DbSet<USERBANK> USERBANKs { get; set; }
         public virtual DbSet<USERCASH> USERCASHes { get; set; }
         public virtual DbSet<USERWHAREHOUSE> USERWHAREHOUSEs { get; set; }
-        public virtual DbSet<STOKBODY> STOKBODies { get; set; }
-        public virtual DbSet<STOKBRAND> STOKBRANDs { get; set; }
-        public virtual DbSet<STOKCOLOR> STOKCOLORs { get; set; }
-        public virtual DbSet<STOKSEASON> STOKSEASONs { get; set; }
-        public virtual DbSet<aspnet_Applications> aspnet_Applications { get; set; }
-        public virtual DbSet<aspnet_Membership> aspnet_Membership { get; set; }
-        public virtual DbSet<aspnet_Paths> aspnet_Paths { get; set; }
-        public virtual DbSet<aspnet_PersonalizationAllUsers> aspnet_PersonalizationAllUsers { get; set; }
-        public virtual DbSet<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
-        public virtual DbSet<aspnet_Profile> aspnet_Profile { get; set; }
-        public virtual DbSet<aspnet_Roles> aspnet_Roles { get; set; }
-        public virtual DbSet<aspnet_SchemaVersions> aspnet_SchemaVersions { get; set; }
-        public virtual DbSet<aspnet_Users> aspnet_Users { get; set; }
-        public virtual DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
     }
 }

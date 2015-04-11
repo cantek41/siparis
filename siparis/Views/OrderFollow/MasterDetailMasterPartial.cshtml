@@ -1,26 +1,67 @@
-﻿@Html.DevExpress().GridView(
+﻿@{
+    bool masterOnayla = false;
+    bool masterEdit = false;
+    bool masterDelete = false;
+    string[] rol = Roles.GetRolesForUser();
+    switch (rol[0])
+    {
+        case "Admin":
+            masterOnayla = true;
+            masterEdit = true;
+            masterDelete = true;
+            break;
+        case "Bayi":
+            if ((int)TempData["DOCUMENT_TYPE"] == 15 || (int)TempData["DOCUMENT_TYPE"] == 19)
+            {
+                masterOnayla = true;
+                masterDelete = true;
+            }
+            break;
+        case "Depo":
+            if ((int)TempData["DOCUMENT_TYPE"] == 18 || (int)TempData["DOCUMENT_TYPE"] == 20 || (int)TempData["DOCUMENT_TYPE"] == 24)
+            {
+                masterOnayla = true;
+            }
+            if ((int)TempData["DOCUMENT_TYPE"] == 20 )
+            {
+                masterDelete = true;
+            }
+            break;
+        default:
+            break;
+    }
+}
+@Html.DevExpress().GridView(
     settings =>
     {
         settings.Name = "grid";
-
-
         settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "GridViewPartialOpportunity" };
-        settings.CustomActionRouteValues = new { Controller = "OrderFollow", Action = "CustomButtonClick" };
-
-        settings.CommandColumn.CustomButtons.Add(new GridViewCommandColumnCustomButton()
-        {
-            ID = "First10",
-            Text = "Onayla"
-        });
-        settings.ClientSideEvents.CustomButtonClick = "function(s,e){GridViewFirsat.PerformCallback({clickedButton : s.GetRowKey(e.visibleIndex)});}";
-
         settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "MasterDetailMasterPartial", DOCUMENT_TYPE = TempData["DOCUMENT_TYPE"] };
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
-        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "Cencel" };
-
-        settings.SettingsBehavior.ConfirmDelete = true;
         settings.CommandColumn.Visible = true;
-        settings.CommandColumn.ShowDeleteButton = true;
+
+        //Onayla
+        if (masterOnayla)
+        {
+            settings.CustomActionRouteValues = new { Controller = "OrderFollow", Action = "CustomButtonClick" };
+            settings.CommandColumn.CustomButtons.Add(new GridViewCommandColumnCustomButton()
+            {
+                ID = "First10",
+                Text = "Onayla"
+            });
+            settings.ClientSideEvents.CustomButtonClick = "function(s,e){grid.PerformCallback({clickedButton : s.GetRowKey(e.visibleIndex)});}";
+        }
+        ///end onayla
+
+        //delete
+        if (masterDelete)
+        {
+            settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "Cencel" };
+            settings.CommandColumn.ShowDeleteButton = true;
+            settings.SettingsBehavior.ConfirmDelete = true;
+        }
+        //end delete
+
         settings.KeyFieldName = "OPPORTUNITY_CODE";
 
         settings.Columns.Add(column =>
