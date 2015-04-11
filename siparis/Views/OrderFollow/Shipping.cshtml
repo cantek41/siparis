@@ -1,0 +1,8 @@
+﻿@model IEnumerable<siparis.Models.OrderMasterViewModel>
+﻿@using siparis.Models
+@{
+    ViewBag.Title = @Res.resGetir(100);
+    Layout = "~/Views/Shared/_oMainLayout.cshtml";
+}
+<h2>@Res.resGetir(100)</h2>
+@Html.Partial("MasterDetailMasterPartial", Model)

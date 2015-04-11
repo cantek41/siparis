@@ -1,20 +1,45 @@
-﻿@Html.DevExpress().GridView(
+﻿@{
+    bool masterOnayla = false;
+    bool masterEdit = false;
+    bool masterDelete = false;
+    string[] rol = Roles.GetRolesForUser();
+    switch (rol[0])
+    {
+        case "Admin":
+            masterOnayla = true;
+            masterEdit = true;
+            masterDelete = true;
+            break;
+        case "Bayi":
+            if ((int)TempData["DOCUMENT_TYPE"] == 15 || (int)TempData["DOCUMENT_TYPE"] == 19)
+            {
+                masterOnayla = true;
+                masterDelete = true;
+            }
+            break;
+        case "Depo":
+            break;
+        default:
+            break;
+    }
+}
+@Html.DevExpress().GridView(
     settings =>
     {
         settings.Name = "detailGrid_" + ViewData["OPPORTUNITY_CODE"];
         settings.SettingsDetail.MasterGridName = "grid";
-       
         settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "MasterDetailDetailPartial", CustomerID = ViewData["OPPORTUNITY_CODE"] };
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
-        
-        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "CencelRow" };
-       
+        if (masterDelete)
+        {
+            settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "CencelRow" };
+            settings.SettingsBehavior.ConfirmDelete = true;
+            settings.CommandColumn.Visible = true;
+            settings.CommandColumn.ShowDeleteButton = true;
 
-        
-        settings.SettingsBehavior.ConfirmDelete = true;
-        settings.CommandColumn.Visible = true;
-        settings.CommandColumn.ShowDeleteButton = true;
-        
+        }
+
+
         settings.KeyFieldName = "ROW_ORDER_NO;OPPORTUNITY_CODE";
         settings.Columns.Add(column =>
         {
@@ -77,8 +102,8 @@
         //        e.Value = price * quantity;
         //    }
         //};
-       // settings.Settings.ShowFooter = true;
+        // settings.Settings.ShowFooter = true;
         //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "Total");
         //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "Quantity");
-      
+
     }).Bind(Model).GetHtml()

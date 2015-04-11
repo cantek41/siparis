@@ -17,7 +17,7 @@ namespace siparis.Controllers
         public ActionResult Index()
         {
 
-            return View(getOpp(1));
+            return View();
         }
 
         public ActionResult Opportunity()
@@ -87,6 +87,17 @@ namespace siparis.Controllers
         {
             return View(getOpp(23));
         }
+
+        public ActionResult Shipping()
+        {
+            return View(getOpp(24));
+        }
+        public ActionResult ShippingConfirm()
+        {
+            return View(getOpp(25));
+        }
+
+        
         public ActionResult girdMaster()
         {
             VdbSoftEntities db = db = new VdbSoftEntities(dbName);
@@ -157,7 +168,48 @@ namespace siparis.Controllers
                 {
                     OPPORTUNITYMASTER opp = db.OPPORTUNITYMASTERs.Find(OPPORTUNITY_CODE);
                     eskiSayfa = (int)opp.DOCUMENT_TYPE;
-                    opp.DOCUMENT_TYPE = 12;
+                    switch (rol[0])
+                    {
+                        case "Admin":
+                            switch (eskiSayfa)
+                            {
+                                case 3:
+                                    opp.DOCUMENT_TYPE = 22;
+                                    break;
+                                case 19:
+                                    opp.DOCUMENT_TYPE = 22;
+                                    break;
+                              
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "Bayi":
+                            switch (eskiSayfa)
+                            {
+                                case 15:
+                                    opp.DOCUMENT_TYPE = 22;
+                                    break;
+                                case 19:
+                                    opp.DOCUMENT_TYPE = 22;
+                                    break;                                
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "Depo":
+                            switch (eskiSayfa)
+                            {
+                                case 20:
+                                    opp.DOCUMENT_TYPE = 19;
+                                    break;                              
+                                default:
+                                    break;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                     db.OPPORTUNITYMASTERs.Attach(opp);
                     var entry = db.Entry(opp);
                     entry.Property(e => e.DOCUMENT_TYPE).IsModified = true;
@@ -169,8 +221,7 @@ namespace siparis.Controllers
                     ViewData["EditError"] = e.Message;
                 }
             }
-
-            return gidecegisayfa(eskiSayfa);
+            return RedirectToAction(gidecegisayfa(eskiSayfa));
 
         }
 
@@ -202,103 +253,74 @@ namespace siparis.Controllers
                 }
             }
 
-            return gidecegisayfa(eskiSayfa);
+            return RedirectToAction(gidecegisayfa(eskiSayfa));
 
         }
 
 
-        public ActionResult gidecegisayfa(int eskiSayfa)
+        public string gidecegisayfa(int eskiSayfa)
         {
+            string sayfa = null;
             switch (eskiSayfa)
             {
                 case 1:
-                    return GridViewPartialOpportunity();
+                    sayfa = "Opportunity";
                     break;
                 case 2:
-                    return GridViewPartialSample();
+                    sayfa = "Offer";
                     break;
                 case 3:
-                    return GridViewPartialOffer();
+                    sayfa = "Order";
                     break;
                 case 4:
-                    return GridViewPartialDraft();
+                    sayfa = "DispatchNote";
                     break;
                 case 5:
-                    return GridViewPartialOrder();
+                    sayfa = "Invoice";
                     break;
                 case 6:
-                    return GridViewPartialInReview();
-                    break;
-                case 7:
-                    return GridViewPartialPending();
-                    break;
-                case 8:
-                    return GridViewPartialApproved();
-                    break;
-                case 9:
-                    return GridViewPartialEdited();
-                    break;
-                case 10:
-                    return GridViewPartialProcessed();
-                    break;
-                case 11:
-                    return GridViewPartialShipped();
-                    break;
-                case 12:
-                    return GridViewPartialDraft();
-                    break;
-                case 13:
-                    return GridViewPartialDispatchNote();
-                    break;
-                case 14:
-                    return GridViewPartialInvoice();
-                    break;
+                    sayfa = "Sample";
+                    break;               
                 case 15:
-                    return GridViewPartialLinesheets();
+                    sayfa = "Draft";
                     break;
-
+                case 16:
+                    sayfa = "InReview";
+                    break;
+                case 17:
+                    sayfa = "Pending";
+                    break;
+                case 18:
+                    sayfa = "Approved";
+                    break;
+                case 19:
+                    sayfa = "Edited";
+                    break;
+                case 20:
+                    sayfa = "Processed";
+                    break;
+                case 21:
+                    sayfa = "Shipped";
+                    break;
+                case 22:
+                    sayfa = "Cancelled";
+                    break;
+                case 23:
+                    sayfa = "LineSheets";
+                    break;
+                case 24:
+                    sayfa = "Shipping";
+                    break;
+                case 25:
+                    sayfa = "ShippingConfirm";
+                    break;
                 default:
-                    return PartialView("_GridViewPartialOpportunity");
+                    sayfa = "Opportunity";
                     break;
             }
+            return sayfa;
         }
-
-
-        [HttpPost, ValidateInput(false)]
-        public ActionResult Progress(System.Int32 OPPORTUNITY_CODE)
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            int eskiSayfa = 0;
-            if (OPPORTUNITY_CODE >= 0)
-            {
-                try
-                {
-                    OPPORTUNITYMASTER opp = db.OPPORTUNITYMASTERs.Find(OPPORTUNITY_CODE);
-                    eskiSayfa = (int)opp.DOCUMENT_TYPE;
-                    if (eskiSayfa < 15)
-                    {
-                        opp.DOCUMENT_TYPE++;
-                    }
-                    else
-                    {
-                        opp.DOCUMENT_TYPE = -1;
-                    }
-
-
-                    db.OPPORTUNITYMASTERs.Attach(opp);
-                    var entry = db.Entry(opp);
-                    entry.Property(e => e.DOCUMENT_TYPE).IsModified = true;
-                    //this.UpdateModel(entry);
-                    db.SaveChanges();
-                }
-                catch (Exception e)
-                {
-                    ViewData["EditError"] = e.Message;
-                }
-            }
-            return PartialView("_GridViewPartialOpportunity");
-        }
-
+       
         [HttpPost]
         public ActionResult CustomButtonClick(string clickedButton)
         {
@@ -318,6 +340,20 @@ namespace siparis.Controllers
                     switch (rol[0])
                     {
                         case "Admin":
+                            switch (eskiSayfa)
+                            {
+                                case 3:
+                                    opp.DOCUMENT_TYPE = 18;
+                                    break;
+                                case 17:
+                                    opp.DOCUMENT_TYPE = 18;
+                                    break;
+                                case 19:
+                                    opp.DOCUMENT_TYPE = 3;
+                                    break;   
+                                default:
+                                    break;
+                            }
                             break;
                         case "Bayi":
                             switch (eskiSayfa)
@@ -325,11 +361,31 @@ namespace siparis.Controllers
                                 case 15:
                                     opp.DOCUMENT_TYPE = 3;
                                     break;
+                                case 19:
+                                    opp.DOCUMENT_TYPE = 3;
+                                    break;
+                                case 23:
+                                    opp.DOCUMENT_TYPE = 3;
+                                    break;
                                 default:
                                     break;
                             }
                             break;
                         case "Depo":
+                            switch (eskiSayfa)
+                            {
+                                case 18:
+                                    opp.DOCUMENT_TYPE = 20;
+                                    break;
+                                case 20:
+                                    opp.DOCUMENT_TYPE = 24;
+                                    break;
+                                case 24:
+                                    opp.DOCUMENT_TYPE = 21;
+                                    break;
+                                default:
+                                    break;
+                            }
                             break;
                         default:
                             break;
@@ -347,7 +403,7 @@ namespace siparis.Controllers
                     ViewData["EditError"] = e.Message;
                 }
             }
-            return gidecegisayfa(eskiSayfa);
+            return RedirectToAction(gidecegisayfa(eskiSayfa));
 
         }
 
