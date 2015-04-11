@@ -18,6 +18,11 @@ body {
 }
 .editforayarla input{
     width:90%;
+   border-radius:3px;
+    margin-bottom:10px;
+    border-width:1px;
+    border-style:inset;
+    border-color:#363432;
 
 }
 .paddingayar {
@@ -30,6 +35,11 @@ padding-left:0px;
 }
 .edithizala input{
     width:208px;
+border-radius:3px;
+    margin-bottom:10px;
+    border-width:1px;
+    border-style:inset;
+    border-color:#363432;
 }
 .editmargin {
     padding-left:23px;
@@ -40,6 +50,56 @@ padding-left:0px;
     
     padding-left:21px;
     width:149px;
+   border-radius:3px;
+    margin-bottom:10px;
+    border-width:1px;
+    border-style:inset;
+    border-color:#363432;
+}
+.editmargin select{
+    width:149px;
+    border-radius:3px;
+    margin-bottom:10px;
+    border-width:1px;
+    border-style:inset;
+    border-color:#363432;
+    color:black;
+    background-color:white;
+}
+.border-ayar{
+   
+}
+.border-ayar input {
+   
+    border-radius:3px;
+    margin-bottom:10px;
+    border-width:1px;
+    border-style:inset;
+    border-color:#363432;
+    
+}
+.border-ayar select{
+     border-radius:3px;
+    margin-bottom:5px;
+    border-width:1px;
+    border-style:inset;
+    border-color:#363432;
+    color:black;
+    background-color:white;
+    height:27px;
+    font-size:12px;
+}
+.deshizla{
+    
+}
+.deshizala input{
+    width:100%;
+}
+.generalhizala {
+    
+}
+.generalhizala input{
+   width:100%;
 }
 
 ul li {

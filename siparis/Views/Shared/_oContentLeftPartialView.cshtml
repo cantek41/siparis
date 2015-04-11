@@ -1,10 +1,10 @@
 @using siparis.Models
 <div class="leftPanel">
-    @Styles.Render("~/bundels/orangeMenuStyle")
-    @Scripts.Render("~/bundles/orangeMenuJequery")
+    @*@Styles.Render("~/bundels/orangeMenuStyle")
+    @Scripts.Render("~/bundles/orangeMenuJequery")*@
     <link href="~/Content/css/verticalMenu.css" rel="stylesheet" />
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-   
+
     <div class="container">
         <div class="sidebar">
             <div class="navContiner">
@@ -19,17 +19,21 @@
                     <li><a href="@Url.Action("Approved", "OrderFollow")">@Res.resGetir(74)</a></li>
                     <li><a href="@Url.Action("Edited", "OrderFollow")">@Res.resGetir(78)</a></li>
                     <li><a href="@Url.Action("Processed", "OrderFollow")">@Res.resGetir(86)</a></li>
+                    <li><a href="@Url.Action("ShippingConfirm", "OrderFollow")">@Res.resGetir(101)</a></li>
+                    <li><a href="@Url.Action("Shipping", "OrderFollow")">@Res.resGetir(100)</a></li>
                     <li><a href="@Url.Action("Shipped", "OrderFollow")">@Res.resGetir(88)</a></li>
                     <li><a href="@Url.Action("Cancelled", "OrderFollow")">@Res.resGetir(76)</a></li>
                     <li><a href="@Url.Action("DispatchNote", "OrderFollow")">@Res.resGetir(77)</a></li>
                     <li><a href="@Url.Action("Invoice", "OrderFollow")">@Res.resGetir(81)</a></li>
-                    <li><a href="@Url.Action("Linesheets", "OrderFollow")">@Res.resGetir(90)</a></li>   
+                    <li><a href="@Url.Action("Linesheets", "OrderFollow")">@Res.resGetir(90)</a></li>
+                </ul>
             </div>
             <div class="flyoutBg"></div>
         </div>
     </div>
 
     @Scripts.Render("~/bundles/orangeMenuScript")
-    <script></script>
-    
+  
+    <script src="~/Scripts/customScript.js"></script>
+
 </div>
