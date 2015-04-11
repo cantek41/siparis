@@ -725,6 +725,7 @@
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\jquery.toastmessage.css" />
+    <Content Include="Content\css\js-image-slider.css" />
     <Content Include="Content\css\verticalMenu.css" />
     <Content Include="Content\images\404\404.png" />
     <Content Include="Content\images\alert\error.png" />
@@ -786,6 +787,13 @@
     <Content Include="Content\images\shop\product7.jpg" />
     <Content Include="Content\images\shop\product8.jpg" />
     <Content Include="Content\images\shop\product9.jpg" />
+    <Content Include="Content\images\slider\bullet.png" />
+    <Content Include="Content\images\slider\image-slider-1.jpg" />
+    <Content Include="Content\images\slider\image-slider-2.jpg" />
+    <Content Include="Content\images\slider\image-slider-3.jpg" />
+    <Content Include="Content\images\slider\image-slider-4.jpg" />
+    <Content Include="Content\images\slider\image-slider-5.jpg" />
+    <Content Include="Content\images\slider\loading.gif" />
     <Content Include="Content\images\verticalMenu\blank.png" />
     <Content Include="Content\images\verticalMenu\calculator.png" />
     <Content Include="Content\images\verticalMenu\cancel.png" />
@@ -824,6 +832,7 @@
     <Content Include="Scripts\jquery.prettyPhoto.js" />
     <Content Include="Scripts\jquery.scrollUp.min.js" />
     <Content Include="Scripts\jquery.toastmessage.js" />
+    <Content Include="Scripts\js-image-slider.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\menuJequery.js" />
     <Content Include="Scripts\price-range.js" />
@@ -963,6 +972,7 @@
     <Content Include="Views\OrderFollow\Shipping.cshtml" />
     <Content Include="Views\OrderFollow\ShippingConfirm.cshtml" />
     <Content Include="Views\Stok\AddStok.cshtml" />
+    <Content Include="Views\Shared\SliderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
