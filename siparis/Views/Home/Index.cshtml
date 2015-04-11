@@ -1,8 +1,8 @@
-﻿@model siparis.Models.IndexDataViewModel          
+﻿@model siparis.Models.IndexDataViewModel
 @using siparis.Models
 @{
     ViewBag.Title = @Res.resGetir(63);
-    siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;    
+    siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
 
 }
 <script src="~/Scripts/jquery.toastmessage.js"></script>
@@ -18,14 +18,8 @@
     });
 </script>
 
-<center>
-    <section id="advertisement" style="background: #FE980F; height: 40px;margin-bottom:10px;width:1170px;">
-        <div class="container">
-            @*<img src="../Content/images/shop/advertisement.jpg" alt="" />*@
-        </div>
-    </section>
-</center>
 
+@{Html.RenderPartial("SliderPartial");}
 <section>
     <div class="container">
         <div class="row">
@@ -34,9 +28,8 @@
                     <h2>@Res.resGetir(1)</h2>
                     <div class="panel-group category-products" id="accordian">
                         <!--category-productsr-->
-                 
                         @{Html.RenderPartial("LeftMenuPartial");}
-                    
+
                     </div><!--/category-products-->
 
                 </div>
@@ -67,11 +60,11 @@
                                             <h2>@stok.UNIT_PRICE @stok.CUR_TYPE</h2>
                                             <p>@stok.NAME_TR</p>
                                             <div>
-                                                <p> STOK:  @stok.UNIT</p> 
-                                                <p>SİPARİS: <input style="border-width: 1px; border-style: solid; border-color: #fe980f;border-radius:4px;text-align:center;" id="miktar" type="text"  size="2" value="1" /> </p>
+                                                <p> STOK:  @stok.UNIT</p>
+                                                <p>SİPARİS: <input style="border-width: 1px; border-style: solid; border-color: #fe980f;border-radius:4px;text-align:center;" id="miktar" type="text" size="2" value="1" /> </p>
                                             </div>
-                                            
-                                          
+
+
                                             <a class="btn btn-default add-to-cart" onclick="sepeteEkleMiktarli(@stok.ID,$('#miktar').val())"><i class="fa fa-shopping-cart"></i>@Res.resGetir(2)</a>
                                             <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@Res.resGetir(3)</a>
                                         </div>
