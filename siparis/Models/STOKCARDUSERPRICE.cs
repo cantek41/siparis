@@ -12,14 +12,13 @@ namespace siparis.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OPPORTUNITYDETAILVERSIONADDAREA
+    public partial class STOKCARDUSERPRICE
     {
-        public int OPPORTUNITY_CODE { get; set; }
-        public int ROW_ORDER_NO { get; set; }
-        public string VERSION { get; set; }
-        public string C1 { get; set; }
-        public string C2 { get; set; }
-        public string PLAKA { get; set; }
-        public string SASE { get; set; }
+        public int ID { get; set; }
+        public Nullable<int> USER_CODE { get; set; }
+        public Nullable<int> STOK_ID { get; set; }
+        public Nullable<decimal> PRICE { get; set; }
+        public string CUR_TYPE { get; set; }
+        public Nullable<int> PRICE_TYPE { get; set; }
     }
 }

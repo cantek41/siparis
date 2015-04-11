@@ -17,6 +17,7 @@ namespace siparis.Models
         public OPPORTUNITYMASTER()
         {
             this.OPPORTUNITYDETAILs = new HashSet<OPPORTUNITYDETAIL>();
+            this.STOKACTUALORDERs = new HashSet<STOKACTUALORDER>();
         }
     
         public int OPPORTUNITY_CODE { get; set; }
@@ -80,5 +81,6 @@ namespace siparis.Models
         public Nullable<int> SOURCE_CODE { get; set; }
     
         public virtual ICollection<OPPORTUNITYDETAIL> OPPORTUNITYDETAILs { get; set; }
+        public virtual ICollection<STOKACTUALORDER> STOKACTUALORDERs { get; set; }
     }
 }

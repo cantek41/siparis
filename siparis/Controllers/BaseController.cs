@@ -13,20 +13,43 @@ namespace siparis.Controllers
     public class BaseController : Controller
     {
         public static string dbName = "VdbSoft";
-       
+
         public void checkCart()
         {
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
             int sepetID = (from d in db.OPPORTUNITYMASTERs
-                           where d.OPEN_CLOSE == 0 && d.DOCUMENT_TYPE==15 && d.APPOINTED_USER_CODE == 1// user ID gelmeli Fix Me
+                           where d.OPEN_CLOSE == 0 && d.DOCUMENT_TYPE == 15 && d.APPOINTED_USER_CODE == 1// user ID gelmeli Fix Me
                            select d.OPPORTUNITY_CODE).FirstOrDefault();
-            if (sepetID!=0)
+            if (sepetID != 0)
             {
                 Session.Add("Sepet", sepetID);
             }
-                
 
         }
+
+        public int getUserCode()
+        {
+            int userCode = 0;
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                userCode = (int)db.aspnet_Users.Where(x => x.UserName == User.Identity.Name).Select(x => x.UserCode).FirstOrDefault();
+                return userCode;
+            }
+
+        }
+
+        public string getCompany()
+        {
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                int userContactCode = (int)db.USERS.Where(x => x.USER_NAME == User.Identity.Name).Select(x => x.CONTACT_CODE).FirstOrDefault();
+                COMPANY company = db.COMPANies.Find(db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).Select(x => x.COMPANY_CODE).FirstOrDefault());
+                return company.COMPANY_NAME;                
+            }
+        }
+
+
+        
 
         public ActionResult changeLanguage(string lang)
         {
@@ -38,7 +61,7 @@ namespace siparis.Controllers
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
             IEnumerable<OPPORTUNITYDETAIL> model = from d in db.OPPORTUNITYDETAILs
                                                    join master in db.OPPORTUNITYMASTERs on d.OPPORTUNITY_CODE equals master.OPPORTUNITY_CODE
-                                                   where master.OPEN_CLOSE == 0 && master.APPOINTED_USER_CODE == 1 && master.DOCUMENT_TYPE==15//fix me 
+                                                   where master.OPEN_CLOSE == 0 && master.APPOINTED_USER_CODE == 1 && master.DOCUMENT_TYPE == 15//fix me 
                                                    select d;
             List<OPPORTUNITYDETAIL> sepet = new List<OPPORTUNITYDETAIL>();
             foreach (var item in model)

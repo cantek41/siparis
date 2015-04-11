@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="VdbSoftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="VdbSoftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -558,6 +558,28 @@ warning 6002: The table/view 'VdbSoft.dbo.BACKGROUNDPICTURE' does not have a pri
           <Property Name="USER_CODE" Type="int" />
           <Property Name="FILE_SIZE" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.BUDGET' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="BUDGET">
+          <Property Name="BUDGET_CODE" Type="int" />
+          <Property Name="COMPANY_CODE" Type="int" />
+          <Property Name="COMPANY_COMMERCIAL_CODE" Type="nvarchar" MaxLength="30" />
+          <Property Name="COMPANY_NAME" Type="nvarchar" MaxLength="200" />
+          <Property Name="COMPANY_TYPE" Type="nvarchar" MaxLength="10" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
+          <Property Name="USER_CODE" Type="int" />
+          <Property Name="DATE" Type="date" />
+          <Property Name="QUANTITY" Type="real" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
+          <Property Name="UNIT_PRICE" Type="real" />
+          <Property Name="CUR_TYPE" Type="nvarchar" MaxLength="5" />
+          <Property Name="CUR_VALUE" Type="real" />
+          <Property Name="TOTAL" Type="real" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="CREATE_USER" Type="int" />
+          <Property Name="CONFIRMATION_STATUS" Type="int" />
+        </EntityType>-->
         <EntityType Name="CAR">
           <Key>
             <PropertyRef Name="CONTACT_CODE" />
@@ -695,6 +717,17 @@ warning 6002: The table/view 'VdbSoft.dbo.COMPANYSECTION' does not have a primar
           <Property Name="LAST_UPDATE" Type="datetime" Nullable="false" />
           <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
           <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VdbSoft.dbo.COMPANYSOCIALMEDIA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="COMPANYSOCIALMEDIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COMPANY_CODE" Type="int" />
+          <Property Name="SOCIAL_MEDIA_TYPE" Type="int" />
+          <Property Name="SOCIAL_MEDIA_LINK" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="COMPANYUSERRELATION">
           <Key>
@@ -877,6 +910,13 @@ warning 6002: The table/view 'VdbSoft.dbo.CUR' does not have a primary key defin
           <Property Name="ROW_ORDER_NO" Type="int" />
           <Property Name="CUR_EXT" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.DOCUMENTGROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DOCUMENTGROUP">
+          <Property Name="FILE_CODE" Type="int" />
+          <Property Name="GROUP_CODE" Type="int" />
+          <Property Name="TYPE" Type="int" />
+        </EntityType>-->
         <EntityType Name="ENTEGRATION">
           <Key>
             <PropertyRef Name="ROW_ORDER_NO" />
@@ -1070,6 +1110,14 @@ warning 6002: The table/view 'VdbSoft.dbo.EXCELD' does not have a primary key de
           <Property Name="EN" Type="nvarchar(max)" />
           <Property Name="GR" Type="nvarchar(max)" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.FOOTTEXTRELATION' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="FOOTTEXTRELATION">
+          <Property Name="CODE" Type="int" />
+          <Property Name="OPPORTUNITY_CODE" Type="int" />
+          <Property Name="TEXT_CODE" Type="int" />
+          <Property Name="ORDER_NO" Type="int" />
+        </EntityType>-->
         <EntityType Name="FORMADDITIONALAREA">
           <Key>
             <PropertyRef Name="FORM_NAME" />
@@ -1182,6 +1230,13 @@ warning 6002: The table/view 'VdbSoft.dbo.EXCELD' does not have a primary key de
           <Property Name="FORM_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MTYPE" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.FORMMENU' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="FORMMENU">
+          <Property Name="FORM_ID" Type="int" />
+          <Property Name="CONTROL_NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="R_ID" Type="int" />
+        </EntityType>-->
         <EntityType Name="FORMREPLACMENT">
           <Key>
             <PropertyRef Name="FORM_NAME" />
@@ -1514,6 +1569,15 @@ warning 6002: The table/view 'VdbSoft.dbo.MENULOAD' does not have a primary key 
           <Property Name="TYPE" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.MENUPARAMETRE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="MENUPARAMETRE">
+          <Property Name="PARAMETRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="RES" Type="int" />
+          <Property Name="GROUP_CODE" Type="int" />
+          <Property Name="LANGUAGE" Type="nchar" MaxLength="10" />
+          <Property Name="TYPE" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'VdbSoft.dbo.MENUREPORTLOAD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="MENUREPORTLOAD">
           <Key>
@@ -1577,19 +1641,6 @@ warning 6002: The table/view 'VdbSoft.dbo.MENUREPORTLOAD' does not have a primar
           <Property Name="BUYING_DISCOUNT_PERCENT" Type="real" />
           <Property Name="DETAILDESCRIPTION" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="OPPORTUNITYDETAILADDAREA">
-          <Key>
-            <PropertyRef Name="OPPORTUNITY_CODE" />
-            <PropertyRef Name="ROW_ORDER_NO" />
-          </Key>
-          <Property Name="OPPORTUNITY_CODE" Type="int" Nullable="false" />
-          <Property Name="ROW_ORDER_NO" Type="int" Nullable="false" />
-          <Property Name="C1" Type="nvarchar(max)" />
-          <Property Name="C2" Type="nvarchar(max)" />
-          <Property Name="ek1" Type="nvarchar(max)" />
-          <Property Name="PLAKA" Type="nvarchar(max)" />
-          <Property Name="SASE" Type="nvarchar(max)" />
-        </EntityType>
         <EntityType Name="OPPORTUNITYDETAILVERSION">
           <Key>
             <PropertyRef Name="OPPORTUNITY_CODE" />
@@ -1626,19 +1677,16 @@ warning 6002: The table/view 'VdbSoft.dbo.MENUREPORTLOAD' does not have a primar
           <Property Name="BUYING_DISCOUNT_PERCENT" Type="real" />
           <Property Name="DETAILDESCRIPTION" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="OPPORTUNITYDETAILVERSIONADDAREA">
+        <EntityType Name="OPPORTUNITYHISTORY">
           <Key>
-            <PropertyRef Name="OPPORTUNITY_CODE" />
-            <PropertyRef Name="ROW_ORDER_NO" />
-            <PropertyRef Name="VERSION" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="OPPORTUNITY_CODE" Type="int" Nullable="false" />
-          <Property Name="ROW_ORDER_NO" Type="int" Nullable="false" />
-          <Property Name="VERSION" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="C1" Type="nvarchar(max)" />
-          <Property Name="C2" Type="nvarchar(max)" />
-          <Property Name="PLAKA" Type="nvarchar(max)" />
-          <Property Name="SASE" Type="nvarchar(max)" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OPPORTUNITY_CODE" Type="int" />
+          <Property Name="LAST_DOCUMENT_TYPE" Type="int" />
+          <Property Name="ACTUEL_DOCUMENT_TYPE" Type="int" />
+          <Property Name="LAST_UPDATE_USER" Type="int" />
+          <Property Name="LAST_UPDATE" Type="datetime" />
         </EntityType>
         <EntityType Name="OPPORTUNITYMASTER">
           <Key>
@@ -1704,71 +1752,6 @@ warning 6002: The table/view 'VdbSoft.dbo.MENUREPORTLOAD' does not have a primar
           <Property Name="APPROVMENT_STATUS" Type="nvarchar" MaxLength="50" />
           <Property Name="SOURCE_CODE" Type="int" />
         </EntityType>
-        <EntityType Name="OPPORTUNITYMASTERVERSION">
-          <Key>
-            <PropertyRef Name="OPPORTUNITY_CODE" />
-            <PropertyRef Name="VERSION" />
-          </Key>
-          <Property Name="OPPORTUNITY_CODE" Type="int" Nullable="false" />
-          <Property Name="VERSION" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CONTACT_CODE" Type="int" Nullable="false" />
-          <Property Name="COMPANY_CODE" Type="int" Nullable="false" />
-          <Property Name="DOCUMENT_TYPE" Type="int" />
-          <Property Name="DOCUMENT_NO1" Type="nvarchar" MaxLength="20" />
-          <Property Name="CERTIFICATE_NO" Type="nvarchar" MaxLength="20" />
-          <Property Name="NORMAL_BACK" Type="int" />
-          <Property Name="SELLING_BUYING" Type="int" />
-          <Property Name="PROCESS_TYPE" Type="int" />
-          <Property Name="CURRENT_CODE" Type="nvarchar" MaxLength="50" />
-          <Property Name="CURRENT_NAME" Type="nvarchar" MaxLength="100" />
-          <Property Name="DOCUMENT_DATE" Type="datetime" />
-          <Property Name="CERTIFICATE_DATE" Type="datetime" />
-          <Property Name="OPEN_CLOSE" Type="int" />
-          <Property Name="PEYMENT_TERM" Type="datetime" />
-          <Property Name="PAYMENT_TYPE" Type="int" />
-          <Property Name="WAREHOUSE" Type="int" />
-          <Property Name="REPRESENT" Type="int" />
-          <Property Name="CATEGORY" Type="int" />
-          <Property Name="SEARCH_METHOD" Type="int" />
-          <Property Name="SEARCH_STEP" Type="int" />
-          <Property Name="REVISION" Type="int" />
-          <Property Name="FORM_NO" Type="int" />
-          <Property Name="PROJECT_CODE" Type="int" />
-          <Property Name="WINNER_COMPANY_CODE" Type="int" />
-          <Property Name="LAST_POSITION" Type="int" />
-          <Property Name="WHY_LOST" Type="nvarchar" MaxLength="50" />
-          <Property Name="APPOINTED_USER_CODE" Type="int" />
-          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
-          <Property Name="LAST_UPDATE" Type="datetime" />
-          <Property Name="CREATE_DATE" Type="datetime" />
-          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
-          <Property Name="WE_WIN" Type="int" />
-          <Property Name="TOTAL_UPB" Type="real" />
-          <Property Name="FREE_STOK" Type="nvarchar" MaxLength="1" />
-          <Property Name="SECTION_CODE" Type="int" />
-          <Property Name="BANK_CODE" Type="int" />
-          <Property Name="CASH_CODE" Type="int" />
-          <Property Name="DOCUMENT_NO2" Type="nvarchar" MaxLength="20" />
-          <Property Name="EXPLANATION" Type="nvarchar(max)" />
-          <Property Name="GROUPS" Type="int" />
-          <Property Name="DELIVERY_TYPE" Type="int" />
-          <Property Name="DISCONT" Type="real" />
-          <Property Name="TRANSPORT" Type="real" />
-          <Property Name="INSURANCE" Type="real" />
-          <Property Name="TAX" Type="real" />
-          <Property Name="TOTAL" Type="real" />
-          <Property Name="AVAILABLE_DATE" Type="datetime" />
-          <Property Name="EXT01" Type="int" />
-          <Property Name="TRANSPORT_FIRM" Type="int" />
-          <Property Name="INSURANCE_CUR_TYPE" Type="nvarchar" MaxLength="5" />
-          <Property Name="INSURANCE_UPBK" Type="real" />
-          <Property Name="TRANSPORT_CUR_TYPE" Type="nvarchar" MaxLength="5" />
-          <Property Name="TRANSPORT_UPBK" Type="real" />
-          <Property Name="DISCONT_CUR_TYPE" Type="nvarchar" MaxLength="5" />
-          <Property Name="DISCONT_FPB" Type="real" />
-          <Property Name="APPROVMENT_STATUS" Type="nvarchar" MaxLength="1" />
-          <Property Name="SOURCE_CODE" Type="int" />
-        </EntityType>
         <EntityType Name="PFORM">
           <Key>
             <PropertyRef Name="ID" />
@@ -1785,6 +1768,16 @@ warning 6002: The table/view 'VdbSoft.dbo.MENUREPORTLOAD' does not have a primar
           <Property Name="EMPTY_ACTION" Type="nvarchar" MaxLength="1" />
           <Property Name="CONTROL_INFO" Type="nvarchar(max)" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.PGROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PGROUP">
+          <Property Name="ID" Type="int" />
+          <Property Name="ROW_ORDER_NO" Type="int" />
+          <Property Name="EXP_TR" Type="nvarchar" MaxLength="150" />
+          <Property Name="EXP_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="EXP_OT" Type="nvarchar" MaxLength="150" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="150" />
+        </EntityType>-->
         <EntityType Name="PHONE">
           <Key>
             <PropertyRef Name="PHONE_CODE" />
@@ -1852,6 +1845,20 @@ warning 6002: The table/view 'VdbSoft.dbo.MENUREPORTLOAD' does not have a primar
           <Property Name="ROW" Type="nvarchar(max)" />
           <Property Name="LAN_CODE" Type="nvarchar" MaxLength="4" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.PREFORMABANKRELATION' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PREFORMABANKRELATION">
+          <Property Name="OPPORTUNITY_CODE" Type="int" />
+          <Property Name="BANK_CODE" Type="int" />
+          <Property Name="VERSION" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.PREFORMAORIGENRELATION' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PREFORMAORIGENRELATION">
+          <Property Name="OPPORTUNITY_CODE" Type="int" />
+          <Property Name="TRANSPORT_CODE" Type="int" />
+          <Property Name="VERSION" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
         <EntityType Name="PROGRAMPREFIX">
           <Key>
             <PropertyRef Name="PROGRAM_CODE" />
@@ -1994,6 +2001,16 @@ warning 6002: The table/view 'VdbSoft.dbo.PSQL' does not have a primary key defi
           <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="NOTE" Type="nvarchar(max)" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.RIVALCOMPANYGROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RIVALCOMPANYGROUP">
+          <Property Name="RIVAL_COMPANY_CODE" Type="int" />
+          <Property Name="RIVAL_GROUP_CODE" Type="int" />
+          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
+          <Property Name="LAST_UPDATE" Type="datetime" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
+        </EntityType>-->
         <EntityType Name="RIVALPRODUCT">
           <Key>
             <PropertyRef Name="RIVAL_PRODUCT_CODE" />
@@ -2031,6 +2048,34 @@ warning 6002: The table/view 'VdbSoft.dbo.PSQL' does not have a primary key defi
           <Property Name="EQUIVALENT_PRODUCT_NAME" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.RP_KARLILIK' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RP_KARLILIK">
+          <Property Name="COMPANY_CODE" Type="nvarchar" MaxLength="150" />
+          <Property Name="COMPANY_NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="TOPLAM_BUTCE_SAAT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SAAT_BASI_UCRET" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SOZLESME_TUTARI" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GERCEKLESEN_SAAT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GERCEKLESEN_SAAT_BASI_UCRET" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FARK" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.RP_PROJE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RP_PROJE">
+          <Property Name="PERSONEL_NO" Type="nvarchar" MaxLength="30" />
+          <Property Name="PERSONEL" Type="nvarchar" MaxLength="250" />
+          <Property Name="PERSONEL_LEVEL" Type="nvarchar" MaxLength="50" />
+          <Property Name="MESAI_NORMAL" Type="int" />
+          <Property Name="MESAI_FAZLA" Type="int" />
+          <Property Name="TOPLAM_BUTCE_SAAT" Type="int" />
+          <Property Name="ORAN1" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="YANSITILMAYAN" Type="int" />
+          <Property Name="ORAN2" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KULLANIM" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="COMPANY_NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="PROJE_ADI" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'VdbSoft.dbo.RU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="RU">
           <Key>
@@ -2054,37 +2099,31 @@ warning 6002: The table/view 'VdbSoft.dbo.RU' does not have a primary key define
           <Property Name="ADET" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'VdbSoft.dbo.SALES_ORI2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="SALES_ORI2">
-          <Key>
-            <PropertyRef Name="DOCUMENT_NO1" />
-            <PropertyRef Name="DOCUMENT_DATE" />
-            <PropertyRef Name="STOK_CODE" />
-            <PropertyRef Name="CREATE_USER" />
-          </Key>
-          <Property Name="DOCUMENT_NO1" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="DOCUMENT_DATE" Type="datetime" Nullable="false" />
-          <Property Name="STOK_CODE" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="QUANTITY" Type="real" />
-          <Property Name="QUANTITY_C" Type="real" />
-          <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
-          <Property Name="QUANTITY_OF_PACKET" Type="real" />
-          <Property Name="DAMAGED_QUANTITY" Type="real" />
-          <Property Name="DAMAGED_QUANTITY_C" Type="real" />
-          <Property Name="DAMAGED_UNIT" Type="nvarchar" MaxLength="50" />
-          <Property Name="DAMAGED_EXP" Type="nvarchar(max)" />
-          <Property Name="MIS_QUANTITY" Type="real" />
-          <Property Name="MIS_QUANTITY_C" Type="real" />
-          <Property Name="MIS_UNIT" Type="nvarchar" MaxLength="50" />
-          <Property Name="MIS_EXP" Type="nvarchar(max)" />
-          <Property Name="EXTRA_QUANTITY" Type="real" />
-          <Property Name="EXTRA_QUANTITY_C" Type="real" />
-          <Property Name="EXTRA_UNIT" Type="nvarchar" MaxLength="50" />
-          <Property Name="EXTRA_EXP" Type="nvarchar(max)" />
-          <Property Name="CREATE_DATE" Type="datetime" />
-          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="COMPANY_COMMERCIAL_CODE" Type="nvarchar" MaxLength="30" />
-        </EntityType>
+warning 6013: The table/view 'VdbSoft.dbo.SALES_ORI' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SALES_ORI">
+          <Property Name="EVRAKTARIHI" Type="datetime" />
+          <Property Name="EVRAKNO1" Type="nvarchar" MaxLength="50" />
+          <Property Name="EVRAKNO2" Type="nvarchar" MaxLength="50" />
+          <Property Name="CARIKODU" Type="nvarchar" MaxLength="50" />
+          <Property Name="STOKKODU" Type="nvarchar" MaxLength="50" />
+          <Property Name="STOKHEDEFGRUP" Type="nvarchar" MaxLength="40" />
+          <Property Name="KOLIICIADET" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="MIKTAR" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="STOKBIRIM" Type="nvarchar" MaxLength="40" />
+          <Property Name="KOLIMIKTAR" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="KOLIBIRIMFIYAT" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="TOPLAMKOLIFIYAT" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="TOPLAMADET" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ADETBIRIMFIYAT" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ISKONTOORAN" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ISKONTOTOPLAM" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ISKONTOLUTOPLAM" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="PARACINSI" Type="nvarchar" MaxLength="10" />
+          <Property Name="VERGIYUZDE" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="VERGITUTAR" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="GENELTOPLAM" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="GRUP02" Type="nvarchar" MaxLength="30" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'VdbSoft.dbo.SELLER_BALANCE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SELLER_BALANCE">
@@ -2257,6 +2296,26 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="SPECT_CODE" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="RATIO" Type="int" />
         </EntityType>
+        <EntityType Name="STOKACTUAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DEPOT_ID" Type="int" Nullable="false" />
+          <Property Name="STOK_ID" Type="int" Nullable="false" />
+          <Property Name="QUANTITY" Type="int" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="STOKACTUALORDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OPPORTUNITY_CODE" Type="int" />
+          <Property Name="STOK_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="QUANTITY" Type="int" />
+          <Property Name="WAREHOUSE" Type="int" />
+        </EntityType>
         <EntityType Name="STOKBODY">
           <Key>
             <PropertyRef Name="BODY_CODE" />
@@ -2281,8 +2340,9 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="CODE" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="UPPER_CODE" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="UPPER_CODE" Type="nvarchar" MaxLength="150" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
@@ -2345,110 +2405,11 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="WEB_TRANSFER" Type="nvarchar" MaxLength="10" />
           <Property Name="ISACTIVE" Type="nvarchar" MaxLength="10" />
           <Property Name="WEB_AMOUNT" Type="int" />
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SERIAL_NO1" Type="nvarchar" MaxLength="50" />
           <Property Name="SERIAL_NO2" Type="nvarchar" MaxLength="50" />
           <Property Name="SERIAL_NO3" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="STOKCARD_">
-          <Key>
-            <PropertyRef Name="CODE" />
-          </Key>
-          <Property Name="CODE" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="UPPER_CODE" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
-          <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
-          <Property Name="UNIT" Type="int" />
-          <Property Name="TAX" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="UNIT_PRICE" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="CUR_TYPE" Type="nvarchar" MaxLength="10" />
-          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
-          <Property Name="LAST_UPDATE" Type="datetime" />
-          <Property Name="CREATE_DATE" Type="datetime" />
-          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
-          <Property Name="DES_TR" Type="nvarchar(max)" />
-          <Property Name="DES_EN" Type="nvarchar(max)" />
-          <Property Name="DES_GR" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="STOKCARD1">
-          <Key>
-            <PropertyRef Name="CODE" />
-          </Key>
-          <Property Name="CODE" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="UPPER_CODE" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
-          <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
-          <Property Name="UNIT" Type="int" />
-          <Property Name="TAX" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="UNIT_PRICE" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="CUR_TYPE" Type="varchar" MaxLength="10" />
-          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
-          <Property Name="LAST_UPDATE" Type="datetime" />
-          <Property Name="CREATE_DATE" Type="datetime" />
-          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
-          <Property Name="DES_TR" Type="nvarchar(max)" />
-          <Property Name="DES_EN" Type="nvarchar(max)" />
-          <Property Name="DES_OT" Type="nvarchar(max)" />
-          <Property Name="NAME_SHORT" Type="nvarchar" MaxLength="100" />
-          <Property Name="ISHIDDEN" Type="nvarchar" MaxLength="1" />
-          <Property Name="SPECIAL_CODE1" Type="nvarchar" MaxLength="100" />
-          <Property Name="SPECIAL_CODE2" Type="nvarchar" MaxLength="100" />
-          <Property Name="SPECIAL_CODE3" Type="nvarchar" MaxLength="100" />
-          <Property Name="TYPE" Type="int" />
-          <Property Name="MANUFACTURER_PRODUCT_CODE" Type="nvarchar" MaxLength="100" />
-          <Property Name="MANUFACTURER_COMPANY_CODE" Type="nvarchar" MaxLength="100" />
-          <Property Name="DETAILS_FOLLOW" Type="nvarchar" MaxLength="1" />
-          <Property Name="UNIT1_NAME" Type="nvarchar" MaxLength="100" />
-          <Property Name="UNIT1_MULTIPLIER" Type="real" />
-          <Property Name="UNIT1_WEIGHT" Type="real" />
-          <Property Name="UNIT1_WIDTH" Type="real" />
-          <Property Name="UNIT1_LENGTH" Type="real" />
-          <Property Name="UNIT1_HEIGHT" Type="real" />
-          <Property Name="UNIT1_TARE" Type="real" />
-          <Property Name="UNIT2_NAME" Type="real" />
-          <Property Name="UNIT2_MULTIPLIER" Type="real" />
-          <Property Name="UNIT2_WEIGHT" Type="real" />
-          <Property Name="UNIT2_WIDTH" Type="real" />
-          <Property Name="UNIT2_LENGTH" Type="real" />
-          <Property Name="UNIT2_HEIGHT" Type="real" />
-          <Property Name="UNIT2_TARE" Type="real" />
-          <Property Name="MIN_QUANTITY" Type="int" />
-          <Property Name="MAX_QUANTITY" Type="int" />
-          <Property Name="ORDER_QUANTITY" Type="real" />
-          <Property Name="RETAIL_TAX" Type="real" />
-          <Property Name="BULK_TAX" Type="real" />
-          <Property Name="CATEGORY_CODE" Type="nvarchar" MaxLength="100" />
-          <Property Name="MAIN_GRUP" Type="nvarchar" MaxLength="100" />
-          <Property Name="SUB_GRUP1" Type="nvarchar" MaxLength="100" />
-          <Property Name="SUB_GRUP2" Type="nvarchar" MaxLength="100" />
-          <Property Name="SECTOR_CODE" Type="int" />
-          <Property Name="RAYON_CODE" Type="nvarchar" MaxLength="100" />
-          <Property Name="PACK_CODE" Type="nvarchar" MaxLength="100" />
-          <Property Name="BRAND_CODE" Type="nvarchar" MaxLength="100" />
-          <Property Name="BODY_CODE" Type="nvarchar" MaxLength="100" />
-          <Property Name="COLOR_CODE" Type="nvarchar" MaxLength="100" />
-          <Property Name="MODEL_CODE" Type="nvarchar" MaxLength="100" />
-          <Property Name="SEASON_CODE" Type="nvarchar" MaxLength="100" />
-          <Property Name="ACTIVE_COST" Type="real" />
-          <Property Name="ACTIVE_COST_CURRENCY" Type="nvarchar" MaxLength="5" />
-          <Property Name="PURCHASE_PRICE" Type="real" />
-          <Property Name="PURCHASE_CURRENCY" Type="real" />
-          <Property Name="SALES_PRICE" Type="real" />
-          <Property Name="SALES_CURRENCY" Type="real" />
-          <Property Name="PICTURE1" Type="varbinary(max)" />
-          <Property Name="PICTURE2" Type="varbinary(max)" />
-          <Property Name="PICTURE3" Type="varbinary(max)" />
-          <Property Name="PICTURE4" Type="varbinary(max)" />
-          <Property Name="BARCODE_01" Type="nvarchar" MaxLength="100" />
-          <Property Name="BARCODE_02" Type="nvarchar" MaxLength="100" />
-          <Property Name="BARCODE_03" Type="nvarchar" MaxLength="100" />
-          <Property Name="WEB_TRANSFER" Type="nvarchar" MaxLength="1" />
-          <Property Name="ISACTIVE" Type="nvarchar" MaxLength="1" />
-          <Property Name="MAXLOAD" Type="int" />
-          <Property Name="MAXHEIGHT" Type="tinyint" />
-          <Property Name="MAXBOM" Type="tinyint" />
+          <Property Name="PRODUCTION_TIME" Type="int" />
+          <Property Name="MAX_SEND_TIME" Type="int" />
         </EntityType>
         <EntityType Name="STOKCARDPICTURE">
           <Key>
@@ -2460,6 +2421,19 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="PATH" Type="nvarchar(max)" />
           <Property Name="TYPE" Type="int" />
           <Property Name="COLOR_CODE" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="STOKCARDUSERPRICE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_CODE" Type="int" />
+          <Property Name="STOK_ID" Type="int" />
+          <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CUR_TYPE" Type="nchar" MaxLength="10" />
+          <Property Name="PRICE_TYPE" Type="int" />
         </EntityType>
         <EntityType Name="STOKCOLOR">
           <Key>
@@ -2487,21 +2461,6 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="MLEVEL" Type="int" />
           <Property Name="FULL_PATH_TEXT" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="STOKGROUP1">
-          <Key>
-            <PropertyRef Name="STOK_GROUP_CODE" />
-            <PropertyRef Name="UPPER_GROUP_CODE" />
-          </Key>
-          <Property Name="STOK_GROUP_CODE" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="UPPER_GROUP_CODE" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="NAME_TR" Type="nvarchar" MaxLength="150" />
-          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
-          <Property Name="NAME_GR" Type="nvarchar" MaxLength="150" />
-          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
-          <Property Name="LAST_UPDATE" Type="datetime" />
-          <Property Name="CREATE_DATE" Type="datetime" />
-          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
-        </EntityType>
         <EntityType Name="STOKSEASON">
           <Key>
             <PropertyRef Name="SEASON_CODE" />
@@ -2511,6 +2470,16 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
           <Property Name="VISIBLE" Type="bit" />
+        </EntityType>
+        <EntityType Name="STOKWAREHOUSE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="CREATE_USER" Type="int" />
+          <Property Name="LAST_UPDATE" Type="datetime" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -2633,6 +2602,14 @@ warning 6002: The table/view 'VdbSoft.dbo.USERCASH' does not have a primary key 
           <Property Name="USER_CODE" Type="int" Nullable="false" />
           <Property Name="COMPANY_CODE" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.USERDONEM' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="USERDONEM">
+          <Property Name="USER_CODE" Type="int" />
+          <Property Name="DATE" Type="datetime" />
+          <Property Name="OPEN_CLOSE" Type="int" />
+          <Property Name="DONEM" Type="int" />
+        </EntityType>-->
         <EntityType Name="USERINFO">
           <Key>
             <PropertyRef Name="CONTACT_CODE" />
@@ -2695,6 +2672,20 @@ warning 6002: The table/view 'VdbSoft.dbo.USERCASH' does not have a primary key 
           <Property Name="USER_CODE" Type="int" Nullable="false" />
           <Property Name="REGION_CODE" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'VdbSoft.dbo.USERRIGHT' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="USERRIGHT">
+          <Property Name="MENU_NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="USER_CODE" Type="int" />
+          <Property Name="MAIN" Type="nvarchar" MaxLength="10" />
+          <Property Name="NODE_NO" Type="nvarchar" MaxLength="10" />
+          <Property Name="OBJECT_NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="P_NECESSARY" Type="int" />
+          <Property Name="ORDER_NO" Type="int" />
+          <Property Name="R_ID" Type="int" />
+          <Property Name="OPER_NO" Type="int" />
+          <Property Name="WINDOWSTATE" Type="int" />
+        </EntityType>-->
         <EntityType Name="USERRIGHTBASE">
           <Key>
             <PropertyRef Name="MAIN" />
@@ -2957,6 +2948,18 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_STOKACTUALORDER_OPPORTUNITYMASTER">
+          <End Role="OPPORTUNITYMASTER" Type="Self.OPPORTUNITYMASTER" Multiplicity="0..1" />
+          <End Role="STOKACTUALORDER" Type="Self.STOKACTUALORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OPPORTUNITYMASTER">
+              <PropertyRef Name="OPPORTUNITY_CODE" />
+            </Principal>
+            <Dependent Role="STOKACTUALORDER">
+              <PropertyRef Name="OPPORTUNITY_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_STOKCARD_STOKBODY">
           <End Role="STOKBODY" Type="Self.STOKBODY" Multiplicity="0..1" />
           <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
@@ -3014,6 +3017,30 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </Principal>
             <Dependent Role="STOKCARD">
               <PropertyRef Name="SEASON_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARDDEPOT_STOKCARD">
+          <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="1" />
+          <End Role="STOKACTUAL" Type="Self.STOKACTUAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKCARD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="STOKACTUAL">
+              <PropertyRef Name="STOK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARDDEPOT_STOKDEPOT">
+          <End Role="STOKWAREHOUSE" Type="Self.STOKWAREHOUSE" Multiplicity="1" />
+          <End Role="STOKACTUAL" Type="Self.STOKACTUAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKWAREHOUSE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="STOKACTUAL">
+              <PropertyRef Name="DEPOT_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3108,11 +3135,9 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="MENUD" EntityType="Self.MENUD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NOTES" EntityType="Self.NOTES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OPPORTUNITYDETAIL" EntityType="Self.OPPORTUNITYDETAIL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OPPORTUNITYDETAILADDAREA" EntityType="Self.OPPORTUNITYDETAILADDAREA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OPPORTUNITYDETAILVERSION" EntityType="Self.OPPORTUNITYDETAILVERSION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OPPORTUNITYDETAILVERSIONADDAREA" EntityType="Self.OPPORTUNITYDETAILVERSIONADDAREA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OPPORTUNITYHISTORY" EntityType="Self.OPPORTUNITYHISTORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OPPORTUNITYMASTER" EntityType="Self.OPPORTUNITYMASTER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OPPORTUNITYMASTERVERSION" EntityType="Self.OPPORTUNITYMASTERVERSION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PFORM" EntityType="Self.PFORM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHONE" EntityType="Self.PHONE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHONECODE" EntityType="Self.PHONECODE" Schema="dbo" store:Type="Tables" />
@@ -3135,16 +3160,16 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="SPEC" EntityType="Self.SPEC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SPECDESCIRIPTION" EntityType="Self.SPECDESCIRIPTION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SPECS" EntityType="Self.SPECS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKACTUAL" EntityType="Self.STOKACTUAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKACTUALORDER" EntityType="Self.STOKACTUALORDER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKBODY" EntityType="Self.STOKBODY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKBRAND" EntityType="Self.STOKBRAND" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCARD" EntityType="Self.STOKCARD" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="STOKCARD_" EntityType="Self.STOKCARD_" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="STOKCARD1" EntityType="Self.STOKCARD1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCARDPICTURE" EntityType="Self.STOKCARDPICTURE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCOLOR" EntityType="Self.STOKCOLOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKGROUP" EntityType="Self.STOKGROUP" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="STOKGROUP1" EntityType="Self.STOKGROUP1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKSEASON" EntityType="Self.STOKSEASON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKWAREHOUSE" EntityType="Self.STOKWAREHOUSE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TFILE" EntityType="Self.TFILE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRANSFER" EntityType="Self.TRANSFER" Schema="dbo" store:Type="Tables" />
@@ -3262,6 +3287,14 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
     [COMPANYSECTION].[CREATE_DATE] AS [CREATE_DATE], 
     [COMPANYSECTION].[CREATE_USER] AS [CREATE_USER]
     FROM [dbo].[COMPANYSECTION] AS [COMPANYSECTION]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="COMPANYSOCIALMEDIA" EntityType="Self.COMPANYSOCIALMEDIA" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [COMPANYSOCIALMEDIA].[ID] AS [ID], 
+    [COMPANYSOCIALMEDIA].[COMPANY_CODE] AS [COMPANY_CODE], 
+    [COMPANYSOCIALMEDIA].[SOCIAL_MEDIA_TYPE] AS [SOCIAL_MEDIA_TYPE], 
+    [COMPANYSOCIALMEDIA].[SOCIAL_MEDIA_LINK] AS [SOCIAL_MEDIA_LINK]
+    FROM [dbo].[COMPANYSOCIALMEDIA] AS [COMPANYSOCIALMEDIA]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="CUR" EntityType="Self.CUR" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3387,32 +3420,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
     [RU].[ADET] AS [ADET]
     FROM [dbo].[RU] AS [RU]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="SALES_ORI2" EntityType="Self.SALES_ORI2" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [SALES_ORI2].[DOCUMENT_NO1] AS [DOCUMENT_NO1], 
-    [SALES_ORI2].[DOCUMENT_DATE] AS [DOCUMENT_DATE], 
-    [SALES_ORI2].[STOK_CODE] AS [STOK_CODE], 
-    [SALES_ORI2].[QUANTITY] AS [QUANTITY], 
-    [SALES_ORI2].[QUANTITY_C] AS [QUANTITY_C], 
-    [SALES_ORI2].[UNIT] AS [UNIT], 
-    [SALES_ORI2].[QUANTITY_OF_PACKET] AS [QUANTITY_OF_PACKET], 
-    [SALES_ORI2].[DAMAGED_QUANTITY] AS [DAMAGED_QUANTITY], 
-    [SALES_ORI2].[DAMAGED_QUANTITY_C] AS [DAMAGED_QUANTITY_C], 
-    [SALES_ORI2].[DAMAGED_UNIT] AS [DAMAGED_UNIT], 
-    [SALES_ORI2].[DAMAGED_EXP] AS [DAMAGED_EXP], 
-    [SALES_ORI2].[MIS_QUANTITY] AS [MIS_QUANTITY], 
-    [SALES_ORI2].[MIS_QUANTITY_C] AS [MIS_QUANTITY_C], 
-    [SALES_ORI2].[MIS_UNIT] AS [MIS_UNIT], 
-    [SALES_ORI2].[MIS_EXP] AS [MIS_EXP], 
-    [SALES_ORI2].[EXTRA_QUANTITY] AS [EXTRA_QUANTITY], 
-    [SALES_ORI2].[EXTRA_QUANTITY_C] AS [EXTRA_QUANTITY_C], 
-    [SALES_ORI2].[EXTRA_UNIT] AS [EXTRA_UNIT], 
-    [SALES_ORI2].[EXTRA_EXP] AS [EXTRA_EXP], 
-    [SALES_ORI2].[CREATE_DATE] AS [CREATE_DATE], 
-    [SALES_ORI2].[CREATE_USER] AS [CREATE_USER], 
-    [SALES_ORI2].[COMPANY_COMMERCIAL_CODE] AS [COMPANY_COMMERCIAL_CODE]
-    FROM [dbo].[SALES_ORI2] AS [SALES_ORI2]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="SELLER_BALANCE" EntityType="Self.SELLER_BALANCE" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [SELLER_BALANCE].[ID] AS [ID], 
@@ -3444,6 +3451,16 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
     [SELLER_DETAIL].[SELLER_BALANCE] AS [SELLER_BALANCE], 
     [SELLER_DETAIL].[APPOINTED_USER_CODE] AS [APPOINTED_USER_CODE]
     FROM [dbo].[SELLER_DETAIL] AS [SELLER_DETAIL]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="STOKCARDUSERPRICE" EntityType="Self.STOKCARDUSERPRICE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [STOKCARDUSERPRICE].[ID] AS [ID], 
+    [STOKCARDUSERPRICE].[USER_CODE] AS [USER_CODE], 
+    [STOKCARDUSERPRICE].[STOK_ID] AS [STOK_ID], 
+    [STOKCARDUSERPRICE].[PRICE] AS [PRICE], 
+    [STOKCARDUSERPRICE].[CUR_TYPE] AS [CUR_TYPE], 
+    [STOKCARDUSERPRICE].[PRICE_TYPE] AS [PRICE_TYPE]
+    FROM [dbo].[STOKCARDUSERPRICE] AS [STOKCARDUSERPRICE]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="USERBANK" EntityType="Self.USERBANK" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3529,6 +3546,10 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="CONTACT" EntitySet="CONTACT" />
             <End Role="PHONE" EntitySet="PHONE" />
           </AssociationSet>
+          <AssociationSet Name="FK_STOKACTUALORDER_OPPORTUNITYMASTER" Association="Self.FK_STOKACTUALORDER_OPPORTUNITYMASTER">
+            <End Role="OPPORTUNITYMASTER" EntitySet="OPPORTUNITYMASTER" />
+            <End Role="STOKACTUALORDER" EntitySet="STOKACTUALORDER" />
+          </AssociationSet>
           <AssociationSet Name="FK_STOKCARD_STOKBODY" Association="Self.FK_STOKCARD_STOKBODY">
             <End Role="STOKBODY" EntitySet="STOKBODY" />
             <End Role="STOKCARD" EntitySet="STOKCARD" />
@@ -3549,12 +3570,21 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="STOKSEASON" EntitySet="STOKSEASON" />
             <End Role="STOKCARD" EntitySet="STOKCARD" />
           </AssociationSet>
+          <AssociationSet Name="FK_STOKCARDDEPOT_STOKCARD" Association="Self.FK_STOKCARDDEPOT_STOKCARD">
+            <End Role="STOKCARD" EntitySet="STOKCARD" />
+            <End Role="STOKACTUAL" EntitySet="STOKACTUAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOKCARDDEPOT_STOKDEPOT" Association="Self.FK_STOKCARDDEPOT_STOKDEPOT">
+            <End Role="STOKWAREHOUSE" EntitySet="STOKWAREHOUSE" />
+            <End Role="STOKACTUAL" EntitySet="STOKACTUAL" />
+          </AssociationSet>
           <AssociationSet Name="FK_STOKCARDPICTURE_STOKCARD" Association="Self.FK_STOKCARDPICTURE_STOKCARD">
             <End Role="STOKCARD" EntitySet="STOKCARD" />
             <End Role="STOKCARDPICTURE" EntitySet="STOKCARDPICTURE" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VdbSoftModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -3842,6 +3872,150 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
           <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredApplicationName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="Self.FK__aspnet_Me__Appli__34E8D562" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pa__Appli__668030F6" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="Self.FK__aspnet_Ro__Appli__536D5C82" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Us__Appli__24B26D99" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobilePIN" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordQuestion" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordAnswer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Me__Appli__34E8D562" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Me__UserI__35DCF99B" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="Path" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Pa__Appli__668030F6" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="Self.FK__aspnet_Pe__PathI__6C390A4C" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="Self.FK__aspnet_Pe__PathI__70099B30" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="PageSettings" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pe__PathI__6C390A4C" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="PageSettings" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pe__PathI__70099B30" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Pe__UserI__70FDBF69" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="PropertyNames" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PropertyValuesString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PropertyValuesBinary" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Pr__UserI__49E3F248" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredRoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Ro__Appli__536D5C82" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+          </Key>
+          <Property Name="Feature" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompatibleSchemaVersion" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobileAlias" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserCode" Type="Int32" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Us__Appli__24B26D99" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="Self.FK__aspnet_Me__UserI__35DCF99B" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="Self.FK__aspnet_Pe__UserI__70FDBF69" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
+          <NavigationProperty Name="aspnet_Profile" Relationship="Self.FK__aspnet_Pr__UserI__49E3F248" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="Self.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EventSequence" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventOccurrence" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventCode" Type="Int32" Nullable="false" />
+          <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MachineName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RequestUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ExceptionType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ASSOCIATION">
           <Key>
@@ -4739,19 +4913,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <NavigationProperty Name="OPPORTUNITYMASTER" Relationship="Self.FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER" FromRole="OPPORTUNITYDETAIL" ToRole="OPPORTUNITYMASTER" />
           <NavigationProperty Name="STOKCARD" Relationship="Self.FK_OPPORTUNITYDETAIL_STOKCARD" FromRole="OPPORTUNITYDETAIL" ToRole="STOKCARD" />
         </EntityType>
-        <EntityType Name="OPPORTUNITYDETAILADDAREA">
-          <Key>
-            <PropertyRef Name="OPPORTUNITY_CODE" />
-            <PropertyRef Name="ROW_ORDER_NO" />
-          </Key>
-          <Property Name="OPPORTUNITY_CODE" Type="Int32" Nullable="false" />
-          <Property Name="ROW_ORDER_NO" Type="Int32" Nullable="false" />
-          <Property Name="C1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="C2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ek1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PLAKA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SASE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="OPPORTUNITYDETAILVERSION">
           <Key>
             <PropertyRef Name="OPPORTUNITY_CODE" />
@@ -4788,19 +4949,16 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="BUYING_DISCOUNT_PERCENT" Type="Single" />
           <Property Name="DETAILDESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="OPPORTUNITYDETAILVERSIONADDAREA">
+        <EntityType Name="OPPORTUNITYHISTORY">
           <Key>
-            <PropertyRef Name="OPPORTUNITY_CODE" />
-            <PropertyRef Name="ROW_ORDER_NO" />
-            <PropertyRef Name="VERSION" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="OPPORTUNITY_CODE" Type="Int32" Nullable="false" />
-          <Property Name="ROW_ORDER_NO" Type="Int32" Nullable="false" />
-          <Property Name="VERSION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="C1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="C2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PLAKA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SASE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OPPORTUNITY_CODE" Type="Int32" />
+          <Property Name="LAST_DOCUMENT_TYPE" Type="Int32" />
+          <Property Name="ACTUEL_DOCUMENT_TYPE" Type="Int32" />
+          <Property Name="LAST_UPDATE_USER" Type="Int32" />
+          <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="OPPORTUNITYMASTER">
           <Key>
@@ -4866,71 +5024,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="APPROVMENT_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SOURCE_CODE" Type="Int32" />
           <NavigationProperty Name="OPPORTUNITYDETAILs" Relationship="Self.FK_OPPORTUNITYDETAIL_OPPORTUNITYMASTER" FromRole="OPPORTUNITYMASTER" ToRole="OPPORTUNITYDETAIL" />
-        </EntityType>
-        <EntityType Name="OPPORTUNITYMASTERVERSION">
-          <Key>
-            <PropertyRef Name="OPPORTUNITY_CODE" />
-            <PropertyRef Name="VERSION" />
-          </Key>
-          <Property Name="OPPORTUNITY_CODE" Type="Int32" Nullable="false" />
-          <Property Name="VERSION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CONTACT_CODE" Type="Int32" Nullable="false" />
-          <Property Name="COMPANY_CODE" Type="Int32" Nullable="false" />
-          <Property Name="DOCUMENT_TYPE" Type="Int32" />
-          <Property Name="DOCUMENT_NO1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="CERTIFICATE_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="NORMAL_BACK" Type="Int32" />
-          <Property Name="SELLING_BUYING" Type="Int32" />
-          <Property Name="PROCESS_TYPE" Type="Int32" />
-          <Property Name="CURRENT_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CURRENT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DOCUMENT_DATE" Type="DateTime" Precision="3" />
-          <Property Name="CERTIFICATE_DATE" Type="DateTime" Precision="3" />
-          <Property Name="OPEN_CLOSE" Type="Int32" />
-          <Property Name="PEYMENT_TERM" Type="DateTime" Precision="3" />
-          <Property Name="PAYMENT_TYPE" Type="Int32" />
-          <Property Name="WAREHOUSE" Type="Int32" />
-          <Property Name="REPRESENT" Type="Int32" />
-          <Property Name="CATEGORY" Type="Int32" />
-          <Property Name="SEARCH_METHOD" Type="Int32" />
-          <Property Name="SEARCH_STEP" Type="Int32" />
-          <Property Name="REVISION" Type="Int32" />
-          <Property Name="FORM_NO" Type="Int32" />
-          <Property Name="PROJECT_CODE" Type="Int32" />
-          <Property Name="WINNER_COMPANY_CODE" Type="Int32" />
-          <Property Name="LAST_POSITION" Type="Int32" />
-          <Property Name="WHY_LOST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="APPOINTED_USER_CODE" Type="Int32" />
-          <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="WE_WIN" Type="Int32" />
-          <Property Name="TOTAL_UPB" Type="Single" />
-          <Property Name="FREE_STOK" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="SECTION_CODE" Type="Int32" />
-          <Property Name="BANK_CODE" Type="Int32" />
-          <Property Name="CASH_CODE" Type="Int32" />
-          <Property Name="DOCUMENT_NO2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="EXPLANATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="GROUPS" Type="Int32" />
-          <Property Name="DELIVERY_TYPE" Type="Int32" />
-          <Property Name="DISCONT" Type="Single" />
-          <Property Name="TRANSPORT" Type="Single" />
-          <Property Name="INSURANCE" Type="Single" />
-          <Property Name="TAX" Type="Single" />
-          <Property Name="TOTAL" Type="Single" />
-          <Property Name="AVAILABLE_DATE" Type="DateTime" Precision="3" />
-          <Property Name="EXT01" Type="Int32" />
-          <Property Name="TRANSPORT_FIRM" Type="Int32" />
-          <Property Name="INSURANCE_CUR_TYPE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="INSURANCE_UPBK" Type="Single" />
-          <Property Name="TRANSPORT_CUR_TYPE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="TRANSPORT_UPBK" Type="Single" />
-          <Property Name="DISCONT_CUR_TYPE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="DISCONT_FPB" Type="Single" />
-          <Property Name="APPROVMENT_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="SOURCE_CODE" Type="Int32" />
+          <NavigationProperty Name="STOKACTUALORDERs" Relationship="Self.FK_STOKACTUALORDER_OPPORTUNITYMASTER" FromRole="OPPORTUNITYMASTER" ToRole="STOKACTUALORDER" />
         </EntityType>
         <EntityType Name="PFORM">
           <Key>
@@ -5300,12 +5394,58 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="SPECT_CODE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RATIO" Type="Int32" />
         </EntityType>
+        <EntityType Name="STOKACTUAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DEPOT_ID" Type="Int32" Nullable="false" />
+          <Property Name="STOK_ID" Type="Int32" Nullable="false" />
+          <Property Name="QUANTITY" Type="Int32" />
+          <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="STOKCARD" Relationship="Self.FK_STOKCARDDEPOT_STOKCARD" FromRole="STOKACTUAL" ToRole="STOKCARD" />
+          <NavigationProperty Name="STOKWAREHOUSE" Relationship="Self.FK_STOKCARDDEPOT_STOKDEPOT" FromRole="STOKACTUAL" ToRole="STOKWAREHOUSE" />
+        </EntityType>
+        <EntityType Name="STOKACTUALORDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OPPORTUNITY_CODE" Type="Int32" />
+          <Property Name="STOK_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QUANTITY" Type="Int32" />
+          <Property Name="WAREHOUSE" Type="Int32" />
+          <NavigationProperty Name="OPPORTUNITYMASTER" Relationship="Self.FK_STOKACTUALORDER_OPPORTUNITYMASTER" FromRole="STOKACTUALORDER" ToRole="OPPORTUNITYMASTER" />
+        </EntityType>
+        <EntityType Name="STOKBODY">
+          <Key>
+            <PropertyRef Name="BODY_CODE" />
+          </Key>
+          <Property Name="BODY_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLE" Type="Boolean" />
+          <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKBODY" FromRole="STOKBODY" ToRole="STOKCARD" />
+        </EntityType>
+        <EntityType Name="STOKBRAND">
+          <Key>
+            <PropertyRef Name="BRAND_CODE" />
+          </Key>
+          <Property Name="BRAND_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLE" Type="Boolean" />
+          <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKBRAND" FromRole="STOKBRAND" ToRole="STOKCARD" />
+        </EntityType>
         <EntityType Name="STOKCARD">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UPPER_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UPPER_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -5368,117 +5508,19 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="WEB_TRANSFER" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="ISACTIVE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="WEB_AMOUNT" Type="Int32" />
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="OPPORTUNITYDETAILs" Relationship="Self.FK_OPPORTUNITYDETAIL_STOKCARD" FromRole="STOKCARD" ToRole="OPPORTUNITYDETAIL" />
-          <NavigationProperty Name="STOKGROUP" Relationship="Self.FK_STOKCARD_STOKGROUP" FromRole="STOKCARD" ToRole="STOKGROUP" />
-          <NavigationProperty Name="STOKCARDPICTUREs" Relationship="Self.FK_STOKCARDPICTURE_STOKCARD" FromRole="STOKCARD" ToRole="STOKCARDPICTURE" />
-          <NavigationProperty Name="STOKBODY" Relationship="VdbSoftModel.FK_STOKCARD_STOKBODY" FromRole="STOKCARD" ToRole="STOKBODY" />
-          <NavigationProperty Name="STOKBRAND" Relationship="VdbSoftModel.FK_STOKCARD_STOKBRAND" FromRole="STOKCARD" ToRole="STOKBRAND" />
-          <NavigationProperty Name="STOKCOLOR" Relationship="VdbSoftModel.FK_STOKCARD_STOKCOLOR" FromRole="STOKCARD" ToRole="STOKCOLOR" />
-          <NavigationProperty Name="STOKSEASON" Relationship="VdbSoftModel.FK_STOKCARD_STOKSEASON" FromRole="STOKCARD" ToRole="STOKSEASON" />
           <Property Name="SERIAL_NO1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SERIAL_NO2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SERIAL_NO3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="STOKCARD_">
-          <Key>
-            <PropertyRef Name="CODE" />
-          </Key>
-          <Property Name="CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UPPER_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="UNIT" Type="Int32" />
-          <Property Name="TAX" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="UNIT_PRICE" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="CUR_TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="DES_TR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DES_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DES_GR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="STOKCARD1">
-          <Key>
-            <PropertyRef Name="CODE" />
-          </Key>
-          <Property Name="CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UPPER_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="UNIT" Type="Int32" />
-          <Property Name="TAX" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="UNIT_PRICE" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="CUR_TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="DES_TR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DES_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DES_OT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_SHORT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ISHIDDEN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="SPECIAL_CODE1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SPECIAL_CODE2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SPECIAL_CODE3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="TYPE" Type="Int32" />
-          <Property Name="MANUFACTURER_PRODUCT_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MANUFACTURER_COMPANY_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DETAILS_FOLLOW" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="UNIT1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="UNIT1_MULTIPLIER" Type="Single" />
-          <Property Name="UNIT1_WEIGHT" Type="Single" />
-          <Property Name="UNIT1_WIDTH" Type="Single" />
-          <Property Name="UNIT1_LENGTH" Type="Single" />
-          <Property Name="UNIT1_HEIGHT" Type="Single" />
-          <Property Name="UNIT1_TARE" Type="Single" />
-          <Property Name="UNIT2_NAME" Type="Single" />
-          <Property Name="UNIT2_MULTIPLIER" Type="Single" />
-          <Property Name="UNIT2_WEIGHT" Type="Single" />
-          <Property Name="UNIT2_WIDTH" Type="Single" />
-          <Property Name="UNIT2_LENGTH" Type="Single" />
-          <Property Name="UNIT2_HEIGHT" Type="Single" />
-          <Property Name="UNIT2_TARE" Type="Single" />
-          <Property Name="MIN_QUANTITY" Type="Int32" />
-          <Property Name="MAX_QUANTITY" Type="Int32" />
-          <Property Name="ORDER_QUANTITY" Type="Single" />
-          <Property Name="RETAIL_TAX" Type="Single" />
-          <Property Name="BULK_TAX" Type="Single" />
-          <Property Name="CATEGORY_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MAIN_GRUP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SUB_GRUP1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SUB_GRUP2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SECTOR_CODE" Type="Int32" />
-          <Property Name="RAYON_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PACK_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BRAND_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BODY_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="COLOR_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MODEL_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SEASON_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ACTIVE_COST" Type="Single" />
-          <Property Name="ACTIVE_COST_CURRENCY" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="PURCHASE_PRICE" Type="Single" />
-          <Property Name="PURCHASE_CURRENCY" Type="Single" />
-          <Property Name="SALES_PRICE" Type="Single" />
-          <Property Name="SALES_CURRENCY" Type="Single" />
-          <Property Name="PICTURE1" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="PICTURE2" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="PICTURE3" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="PICTURE4" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="BARCODE_01" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BARCODE_02" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BARCODE_03" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="WEB_TRANSFER" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="ISACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="MAXLOAD" Type="Int32" />
-          <Property Name="MAXHEIGHT" Type="Byte" />
-          <Property Name="MAXBOM" Type="Byte" />
+          <Property Name="PRODUCTION_TIME" Type="Int32" />
+          <Property Name="MAX_SEND_TIME" Type="Int32" />
+          <NavigationProperty Name="OPPORTUNITYDETAILs" Relationship="Self.FK_OPPORTUNITYDETAIL_STOKCARD" FromRole="STOKCARD" ToRole="OPPORTUNITYDETAIL" />
+          <NavigationProperty Name="STOKACTUALs" Relationship="Self.FK_STOKCARDDEPOT_STOKCARD" FromRole="STOKCARD" ToRole="STOKACTUAL" />
+          <NavigationProperty Name="STOKBODY" Relationship="Self.FK_STOKCARD_STOKBODY" FromRole="STOKCARD" ToRole="STOKBODY" />
+          <NavigationProperty Name="STOKBRAND" Relationship="Self.FK_STOKCARD_STOKBRAND" FromRole="STOKCARD" ToRole="STOKBRAND" />
+          <NavigationProperty Name="STOKCOLOR" Relationship="Self.FK_STOKCARD_STOKCOLOR" FromRole="STOKCARD" ToRole="STOKCOLOR" />
+          <NavigationProperty Name="STOKGROUP" Relationship="Self.FK_STOKCARD_STOKGROUP" FromRole="STOKCARD" ToRole="STOKGROUP" />
+          <NavigationProperty Name="STOKSEASON" Relationship="Self.FK_STOKCARD_STOKSEASON" FromRole="STOKCARD" ToRole="STOKSEASON" />
+          <NavigationProperty Name="STOKCARDPICTUREs" Relationship="Self.FK_STOKCARDPICTURE_STOKCARD" FromRole="STOKCARD" ToRole="STOKCARDPICTURE" />
         </EntityType>
         <EntityType Name="STOKCARDPICTURE">
           <Key>
@@ -5491,6 +5533,17 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="TYPE" Type="Int32" />
           <Property Name="COLOR_CODE" Type="Int32" />
           <NavigationProperty Name="STOKCARD" Relationship="Self.FK_STOKCARDPICTURE_STOKCARD" FromRole="STOKCARDPICTURE" ToRole="STOKCARD" />
+        </EntityType>
+        <EntityType Name="STOKCOLOR">
+          <Key>
+            <PropertyRef Name="COLOR_CODE" />
+          </Key>
+          <Property Name="COLOR_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLE" Type="Boolean" />
+          <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKCOLOR" FromRole="STOKCOLOR" ToRole="STOKCARD" />
         </EntityType>
         <EntityType Name="STOKGROUP">
           <Key>
@@ -5509,20 +5562,27 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="FULL_PATH_TEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKGROUP" FromRole="STOKGROUP" ToRole="STOKCARD" />
         </EntityType>
-        <EntityType Name="STOKGROUP1">
+        <EntityType Name="STOKSEASON">
           <Key>
-            <PropertyRef Name="STOK_GROUP_CODE" />
-            <PropertyRef Name="UPPER_GROUP_CODE" />
+            <PropertyRef Name="SEASON_CODE" />
           </Key>
-          <Property Name="STOK_GROUP_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UPPER_GROUP_CODE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NAME_TR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_EN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_GR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
+          <Property Name="SEASON_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLE" Type="Boolean" />
+          <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKSEASON" FromRole="STOKSEASON" ToRole="STOKCARD" />
+        </EntityType>
+        <EntityType Name="STOKWAREHOUSE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CREATE_USER" Type="Int32" />
+          <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="STOKACTUALs" Relationship="Self.FK_STOKCARDDEPOT_STOKDEPOT" FromRole="STOKWAREHOUSE" ToRole="STOKACTUAL" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -5883,6 +5943,15 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
+        <EntityType Name="COMPANYSOCIALMEDIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COMPANY_CODE" Type="Int32" />
+          <Property Name="SOCIAL_MEDIA_TYPE" Type="Int32" />
+          <Property Name="SOCIAL_MEDIA_LINK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="CUR">
           <Key>
             <PropertyRef Name="CURDATE" />
@@ -6031,36 +6100,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="IGNE_SAYISI" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="ADET" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
-        <EntityType Name="SALES_ORI2">
-          <Key>
-            <PropertyRef Name="DOCUMENT_NO1" />
-            <PropertyRef Name="DOCUMENT_DATE" />
-            <PropertyRef Name="STOK_CODE" />
-            <PropertyRef Name="CREATE_USER" />
-          </Key>
-          <Property Name="DOCUMENT_NO1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DOCUMENT_DATE" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="STOK_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="QUANTITY" Type="Single" />
-          <Property Name="QUANTITY_C" Type="Single" />
-          <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="QUANTITY_OF_PACKET" Type="Single" />
-          <Property Name="DAMAGED_QUANTITY" Type="Single" />
-          <Property Name="DAMAGED_QUANTITY_C" Type="Single" />
-          <Property Name="DAMAGED_UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DAMAGED_EXP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MIS_QUANTITY" Type="Single" />
-          <Property Name="MIS_QUANTITY_C" Type="Single" />
-          <Property Name="MIS_UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MIS_EXP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EXTRA_QUANTITY" Type="Single" />
-          <Property Name="EXTRA_QUANTITY_C" Type="Single" />
-          <Property Name="EXTRA_UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EXTRA_EXP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="COMPANY_COMMERCIAL_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="SELLER_BALANCE">
           <Key>
             <PropertyRef Name="ID" />
@@ -6095,6 +6134,17 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="SELLER_BALANCE" Type="Single" />
           <Property Name="APPOINTED_USER_CODE" Type="Int32" />
         </EntityType>
+        <EntityType Name="STOKCARDUSERPRICE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_CODE" Type="Int32" />
+          <Property Name="STOK_ID" Type="Int32" />
+          <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CUR_TYPE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PRICE_TYPE" Type="Int32" />
+        </EntityType>
         <EntityType Name="USERBANK">
           <Key>
             <PropertyRef Name="BANK_CODE" />
@@ -6122,6 +6172,114 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
           <Property Name="CREATE_USER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <Association Name="FK__aspnet_Me__Appli__34E8D562">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pa__Appli__668030F6">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Paths">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Ro__Appli__536D5C82">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Roles">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__Appli__24B26D99">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Users">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Me__UserI__35DCF99B">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__6C390A4C">
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="1" />
+          <End Role="aspnet_PersonalizationAllUsers" Type="Self.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationAllUsers">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__70099B30">
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__UserI__70FDBF69">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pr__UserI__49E3F248">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Profile" Type="Self.aspnet_Profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PHONE_COMPANY">
           <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="0..1" />
           <End Role="PHONE" Type="Self.PHONE" Multiplicity="*" />
@@ -6170,6 +6328,78 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_STOKACTUALORDER_OPPORTUNITYMASTER">
+          <End Role="OPPORTUNITYMASTER" Type="Self.OPPORTUNITYMASTER" Multiplicity="0..1" />
+          <End Role="STOKACTUALORDER" Type="Self.STOKACTUALORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OPPORTUNITYMASTER">
+              <PropertyRef Name="OPPORTUNITY_CODE" />
+            </Principal>
+            <Dependent Role="STOKACTUALORDER">
+              <PropertyRef Name="OPPORTUNITY_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARDDEPOT_STOKCARD">
+          <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="1" />
+          <End Role="STOKACTUAL" Type="Self.STOKACTUAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKCARD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="STOKACTUAL">
+              <PropertyRef Name="STOK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARDDEPOT_STOKDEPOT">
+          <End Role="STOKWAREHOUSE" Type="Self.STOKWAREHOUSE" Multiplicity="1" />
+          <End Role="STOKACTUAL" Type="Self.STOKACTUAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKWAREHOUSE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="STOKACTUAL">
+              <PropertyRef Name="DEPOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARD_STOKBODY">
+          <End Role="STOKBODY" Type="Self.STOKBODY" Multiplicity="0..1" />
+          <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKBODY">
+              <PropertyRef Name="BODY_CODE" />
+            </Principal>
+            <Dependent Role="STOKCARD">
+              <PropertyRef Name="BODY_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARD_STOKBRAND">
+          <End Role="STOKBRAND" Type="Self.STOKBRAND" Multiplicity="0..1" />
+          <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKBRAND">
+              <PropertyRef Name="BRAND_CODE" />
+            </Principal>
+            <Dependent Role="STOKCARD">
+              <PropertyRef Name="BRAND_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARD_STOKCOLOR">
+          <End Role="STOKCOLOR" Type="Self.STOKCOLOR" Multiplicity="0..1" />
+          <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKCOLOR">
+              <PropertyRef Name="COLOR_CODE" />
+            </Principal>
+            <Dependent Role="STOKCARD">
+              <PropertyRef Name="COLOR_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_STOKCARD_STOKGROUP">
           <End Role="STOKGROUP" Type="Self.STOKGROUP" Multiplicity="0..1" />
           <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
@@ -6179,6 +6409,18 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </Principal>
             <Dependent Role="STOKCARD">
               <PropertyRef Name="CATEGORY_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARD_STOKSEASON">
+          <End Role="STOKSEASON" Type="Self.STOKSEASON" Multiplicity="0..1" />
+          <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKSEASON">
+              <PropertyRef Name="SEASON_CODE" />
+            </Principal>
+            <Dependent Role="STOKCARD">
+              <PropertyRef Name="SEASON_CODE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -6193,6 +6435,10 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               <PropertyRef Name="STOK_ID" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <Association Name="aspnet_UsersInRoles">
+          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
         </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
@@ -6211,6 +6457,16 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="ADDRESSes" EntityType="Self.ADDRESS" />
           <EntitySet Name="AREMINDERs" EntityType="Self.AREMINDER" />
           <EntitySet Name="AREPEATERs" EntityType="Self.AREPEATER" />
+          <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" />
+          <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" />
+          <EntitySet Name="aspnet_Paths" EntityType="Self.aspnet_Paths" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="Self.aspnet_PersonalizationAllUsers" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="Self.aspnet_PersonalizationPerUser" />
+          <EntitySet Name="aspnet_Profile" EntityType="Self.aspnet_Profile" />
+          <EntitySet Name="aspnet_Roles" EntityType="Self.aspnet_Roles" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="Self.aspnet_SchemaVersions" />
+          <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" />
           <EntitySet Name="ASSOCIATIONs" EntityType="Self.ASSOCIATION" />
           <EntitySet Name="CARs" EntityType="Self.CAR" />
           <EntitySet Name="CITEMS" EntityType="Self.CITEM" />
@@ -6262,11 +6518,9 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="MENUDs" EntityType="Self.MENUD" />
           <EntitySet Name="NOTES" EntityType="Self.NOTE" />
           <EntitySet Name="OPPORTUNITYDETAILs" EntityType="Self.OPPORTUNITYDETAIL" />
-          <EntitySet Name="OPPORTUNITYDETAILADDAREAs" EntityType="Self.OPPORTUNITYDETAILADDAREA" />
           <EntitySet Name="OPPORTUNITYDETAILVERSIONs" EntityType="Self.OPPORTUNITYDETAILVERSION" />
-          <EntitySet Name="OPPORTUNITYDETAILVERSIONADDAREAs" EntityType="Self.OPPORTUNITYDETAILVERSIONADDAREA" />
+          <EntitySet Name="OPPORTUNITYHISTORies" EntityType="Self.OPPORTUNITYHISTORY" />
           <EntitySet Name="OPPORTUNITYMASTERs" EntityType="Self.OPPORTUNITYMASTER" />
-          <EntitySet Name="OPPORTUNITYMASTERVERSIONs" EntityType="Self.OPPORTUNITYMASTERVERSION" />
           <EntitySet Name="PFORMs" EntityType="Self.PFORM" />
           <EntitySet Name="PHONEs" EntityType="Self.PHONE" />
           <EntitySet Name="PHONECODEs" EntityType="Self.PHONECODE" />
@@ -6289,12 +6543,16 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="SPECs" EntityType="Self.SPEC" />
           <EntitySet Name="SPECDESCIRIPTIONs" EntityType="Self.SPECDESCIRIPTION" />
           <EntitySet Name="SPECS1" EntityType="Self.SPEC1" />
+          <EntitySet Name="STOKACTUALs" EntityType="Self.STOKACTUAL" />
+          <EntitySet Name="STOKACTUALORDERs" EntityType="Self.STOKACTUALORDER" />
+          <EntitySet Name="STOKBODies" EntityType="Self.STOKBODY" />
+          <EntitySet Name="STOKBRANDs" EntityType="Self.STOKBRAND" />
           <EntitySet Name="STOKCARDs" EntityType="Self.STOKCARD" />
-          <EntitySet Name="STOKCARD_" EntityType="Self.STOKCARD_" />
-          <EntitySet Name="STOKCARD1" EntityType="Self.STOKCARD1" />
           <EntitySet Name="STOKCARDPICTUREs" EntityType="Self.STOKCARDPICTURE" />
+          <EntitySet Name="STOKCOLORs" EntityType="Self.STOKCOLOR" />
           <EntitySet Name="STOKGROUPs" EntityType="Self.STOKGROUP" />
-          <EntitySet Name="STOKGROUP1" EntityType="Self.STOKGROUP1" />
+          <EntitySet Name="STOKSEASONs" EntityType="Self.STOKSEASON" />
+          <EntitySet Name="STOKWAREHOUSEs" EntityType="Self.STOKWAREHOUSE" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TFILEs" EntityType="Self.TFILE" />
           <EntitySet Name="TRANSFERs" EntityType="Self.TRANSFER" />
@@ -6320,6 +6578,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="BACKGROUNDCOLORs" EntityType="Self.BACKGROUNDCOLOR" />
           <EntitySet Name="BACKGROUNDPICTUREs" EntityType="Self.BACKGROUNDPICTURE" />
           <EntitySet Name="COMPANYSECTIONs" EntityType="Self.COMPANYSECTION" />
+          <EntitySet Name="COMPANYSOCIALMEDIAs" EntityType="Self.COMPANYSOCIALMEDIA" />
           <EntitySet Name="CURs" EntityType="Self.CUR" />
           <EntitySet Name="EXCELDs1" EntityType="Self.EXCELD1" />
           <EntitySet Name="MENUBACKGROUNDPICTUREs" EntityType="Self.MENUBACKGROUNDPICTURE" />
@@ -6329,12 +6588,48 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="PROJECTMODULEs" EntityType="Self.PROJECTMODULE" />
           <EntitySet Name="PSQLs" EntityType="Self.PSQL" />
           <EntitySet Name="RUs" EntityType="Self.RU" />
-          <EntitySet Name="SALES_ORI2" EntityType="Self.SALES_ORI2" />
           <EntitySet Name="SELLER_BALANCE" EntityType="Self.SELLER_BALANCE" />
           <EntitySet Name="SELLER_DETAIL" EntityType="Self.SELLER_DETAIL" />
+          <EntitySet Name="STOKCARDUSERPRICEs" EntityType="Self.STOKCARDUSERPRICE" />
           <EntitySet Name="USERBANKs" EntityType="Self.USERBANK" />
           <EntitySet Name="USERCASHes" EntityType="Self.USERCASH" />
           <EntitySet Name="USERWHAREHOUSEs" EntityType="Self.USERWHAREHOUSE" />
+          <AssociationSet Name="FK__aspnet_Me__Appli__34E8D562" Association="Self.FK__aspnet_Me__Appli__34E8D562">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pa__Appli__668030F6" Association="Self.FK__aspnet_Pa__Appli__668030F6">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Ro__Appli__536D5C82" Association="Self.FK__aspnet_Ro__Appli__536D5C82">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__Appli__24B26D99" Association="Self.FK__aspnet_Us__Appli__24B26D99">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Me__UserI__35DCF99B" Association="Self.FK__aspnet_Me__UserI__35DCF99B">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__6C390A4C" Association="Self.FK__aspnet_Pe__PathI__6C390A4C">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__70099B30" Association="Self.FK__aspnet_Pe__PathI__70099B30">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__UserI__70FDBF69" Association="Self.FK__aspnet_Pe__UserI__70FDBF69">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pr__UserI__49E3F248" Association="Self.FK__aspnet_Pr__UserI__49E3F248">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+          </AssociationSet>
           <AssociationSet Name="FK_PHONE_COMPANY" Association="Self.FK_PHONE_COMPANY">
             <End Role="COMPANY" EntitySet="COMPANies" />
             <End Role="PHONE" EntitySet="PHONEs" />
@@ -6351,433 +6646,47 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="STOKCARD" EntitySet="STOKCARDs" />
             <End Role="OPPORTUNITYDETAIL" EntitySet="OPPORTUNITYDETAILs" />
           </AssociationSet>
+          <AssociationSet Name="FK_STOKACTUALORDER_OPPORTUNITYMASTER" Association="Self.FK_STOKACTUALORDER_OPPORTUNITYMASTER">
+            <End Role="OPPORTUNITYMASTER" EntitySet="OPPORTUNITYMASTERs" />
+            <End Role="STOKACTUALORDER" EntitySet="STOKACTUALORDERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOKCARDDEPOT_STOKCARD" Association="Self.FK_STOKCARDDEPOT_STOKCARD">
+            <End Role="STOKCARD" EntitySet="STOKCARDs" />
+            <End Role="STOKACTUAL" EntitySet="STOKACTUALs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOKCARDDEPOT_STOKDEPOT" Association="Self.FK_STOKCARDDEPOT_STOKDEPOT">
+            <End Role="STOKWAREHOUSE" EntitySet="STOKWAREHOUSEs" />
+            <End Role="STOKACTUAL" EntitySet="STOKACTUALs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOKCARD_STOKBODY" Association="Self.FK_STOKCARD_STOKBODY">
+            <End Role="STOKBODY" EntitySet="STOKBODies" />
+            <End Role="STOKCARD" EntitySet="STOKCARDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOKCARD_STOKBRAND" Association="Self.FK_STOKCARD_STOKBRAND">
+            <End Role="STOKBRAND" EntitySet="STOKBRANDs" />
+            <End Role="STOKCARD" EntitySet="STOKCARDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOKCARD_STOKCOLOR" Association="Self.FK_STOKCARD_STOKCOLOR">
+            <End Role="STOKCOLOR" EntitySet="STOKCOLORs" />
+            <End Role="STOKCARD" EntitySet="STOKCARDs" />
+          </AssociationSet>
           <AssociationSet Name="FK_STOKCARD_STOKGROUP" Association="Self.FK_STOKCARD_STOKGROUP">
             <End Role="STOKGROUP" EntitySet="STOKGROUPs" />
+            <End Role="STOKCARD" EntitySet="STOKCARDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOKCARD_STOKSEASON" Association="Self.FK_STOKCARD_STOKSEASON">
+            <End Role="STOKSEASON" EntitySet="STOKSEASONs" />
             <End Role="STOKCARD" EntitySet="STOKCARDs" />
           </AssociationSet>
           <AssociationSet Name="FK_STOKCARDPICTURE_STOKCARD" Association="Self.FK_STOKCARDPICTURE_STOKCARD">
             <End Role="STOKCARD" EntitySet="STOKCARDs" />
             <End Role="STOKCARDPICTURE" EntitySet="STOKCARDPICTUREs" />
           </AssociationSet>
-          <EntitySet Name="STOKBODies" EntityType="VdbSoftModel.STOKBODY" />
-          <EntitySet Name="STOKBRANDs" EntityType="VdbSoftModel.STOKBRAND" />
-          <EntitySet Name="STOKCOLORs" EntityType="VdbSoftModel.STOKCOLOR" />
-          <EntitySet Name="STOKSEASONs" EntityType="VdbSoftModel.STOKSEASON" />
-          <AssociationSet Name="FK_STOKCARD_STOKBODY" Association="VdbSoftModel.FK_STOKCARD_STOKBODY">
-            <End Role="STOKBODY" EntitySet="STOKBODies" />
-            <End Role="STOKCARD" EntitySet="STOKCARDs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_STOKCARD_STOKBRAND" Association="VdbSoftModel.FK_STOKCARD_STOKBRAND">
-            <End Role="STOKBRAND" EntitySet="STOKBRANDs" />
-            <End Role="STOKCARD" EntitySet="STOKCARDs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_STOKCARD_STOKCOLOR" Association="VdbSoftModel.FK_STOKCARD_STOKCOLOR">
-            <End Role="STOKCOLOR" EntitySet="STOKCOLORs" />
-            <End Role="STOKCARD" EntitySet="STOKCARDs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_STOKCARD_STOKSEASON" Association="VdbSoftModel.FK_STOKCARD_STOKSEASON">
-            <End Role="STOKSEASON" EntitySet="STOKSEASONs" />
-            <End Role="STOKCARD" EntitySet="STOKCARDs" />
-          </AssociationSet>
-          <EntitySet Name="aspnet_Applications" EntityType="VdbSoftModel.aspnet_Applications" />
-          <EntitySet Name="aspnet_Membership" EntityType="VdbSoftModel.aspnet_Membership" />
-          <EntitySet Name="aspnet_Paths" EntityType="VdbSoftModel.aspnet_Paths" />
-          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="VdbSoftModel.aspnet_PersonalizationAllUsers" />
-          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="VdbSoftModel.aspnet_PersonalizationPerUser" />
-          <EntitySet Name="aspnet_Profile" EntityType="VdbSoftModel.aspnet_Profile" />
-          <EntitySet Name="aspnet_Roles" EntityType="VdbSoftModel.aspnet_Roles" />
-          <EntitySet Name="aspnet_SchemaVersions" EntityType="VdbSoftModel.aspnet_SchemaVersions" />
-          <EntitySet Name="aspnet_Users" EntityType="VdbSoftModel.aspnet_Users" />
-          <EntitySet Name="aspnet_WebEvent_Events" EntityType="VdbSoftModel.aspnet_WebEvent_Events" />
-          <AssociationSet Name="FK__aspnet_Me__Appli__34E8D562" Association="VdbSoftModel.FK__aspnet_Me__Appli__34E8D562">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pa__Appli__668030F6" Association="VdbSoftModel.FK__aspnet_Pa__Appli__668030F6">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Ro__Appli__536D5C82" Association="VdbSoftModel.FK__aspnet_Ro__Appli__536D5C82">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__Appli__24B26D99" Association="VdbSoftModel.FK__aspnet_Us__Appli__24B26D99">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Me__UserI__35DCF99B" Association="VdbSoftModel.FK__aspnet_Me__UserI__35DCF99B">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__6C390A4C" Association="VdbSoftModel.FK__aspnet_Pe__PathI__6C390A4C">
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__70099B30" Association="VdbSoftModel.FK__aspnet_Pe__PathI__70099B30">
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__UserI__70FDBF69" Association="VdbSoftModel.FK__aspnet_Pe__UserI__70FDBF69">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pr__UserI__49E3F248" Association="VdbSoftModel.FK__aspnet_Pr__UserI__49E3F248">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
-          </AssociationSet>
-          <AssociationSet Name="aspnet_UsersInRoles" Association="VdbSoftModel.aspnet_UsersInRoles">
+          <AssociationSet Name="aspnet_UsersInRoles" Association="Self.aspnet_UsersInRoles">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="STOKBODY">
-          <Key>
-            <PropertyRef Name="BODY_CODE" />
-          </Key>
-          <Property Name="BODY_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="VISIBLE" Type="Boolean" />
-          <NavigationProperty Name="STOKCARDs" Relationship="VdbSoftModel.FK_STOKCARD_STOKBODY" FromRole="STOKBODY" ToRole="STOKCARD" />
-        </EntityType>
-        <EntityType Name="STOKBRAND">
-          <Key>
-            <PropertyRef Name="BRAND_CODE" />
-          </Key>
-          <Property Name="BRAND_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="VISIBLE" Type="Boolean" />
-          <NavigationProperty Name="STOKCARDs" Relationship="VdbSoftModel.FK_STOKCARD_STOKBRAND" FromRole="STOKBRAND" ToRole="STOKCARD" />
-        </EntityType>
-        <EntityType Name="STOKCOLOR">
-          <Key>
-            <PropertyRef Name="COLOR_CODE" />
-          </Key>
-          <Property Name="COLOR_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="VISIBLE" Type="Boolean" />
-          <NavigationProperty Name="STOKCARDs" Relationship="VdbSoftModel.FK_STOKCARD_STOKCOLOR" FromRole="STOKCOLOR" ToRole="STOKCARD" />
-        </EntityType>
-        <EntityType Name="STOKSEASON">
-          <Key>
-            <PropertyRef Name="SEASON_CODE" />
-          </Key>
-          <Property Name="SEASON_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="VISIBLE" Type="Boolean" />
-          <NavigationProperty Name="STOKCARDs" Relationship="VdbSoftModel.FK_STOKCARD_STOKSEASON" FromRole="STOKSEASON" ToRole="STOKCARD" />
-        </EntityType>
-        <Association Name="FK_STOKCARD_STOKBODY">
-          <End Type="VdbSoftModel.STOKBODY" Role="STOKBODY" Multiplicity="0..1" />
-          <End Type="VdbSoftModel.STOKCARD" Role="STOKCARD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="STOKBODY">
-              <PropertyRef Name="BODY_CODE" />
-            </Principal>
-            <Dependent Role="STOKCARD">
-              <PropertyRef Name="BODY_CODE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_STOKCARD_STOKBRAND">
-          <End Type="VdbSoftModel.STOKBRAND" Role="STOKBRAND" Multiplicity="0..1" />
-          <End Type="VdbSoftModel.STOKCARD" Role="STOKCARD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="STOKBRAND">
-              <PropertyRef Name="BRAND_CODE" />
-            </Principal>
-            <Dependent Role="STOKCARD">
-              <PropertyRef Name="BRAND_CODE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_STOKCARD_STOKCOLOR">
-          <End Type="VdbSoftModel.STOKCOLOR" Role="STOKCOLOR" Multiplicity="0..1" />
-          <End Type="VdbSoftModel.STOKCARD" Role="STOKCARD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="STOKCOLOR">
-              <PropertyRef Name="COLOR_CODE" />
-            </Principal>
-            <Dependent Role="STOKCARD">
-              <PropertyRef Name="COLOR_CODE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_STOKCARD_STOKSEASON">
-          <End Type="VdbSoftModel.STOKSEASON" Role="STOKSEASON" Multiplicity="0..1" />
-          <End Type="VdbSoftModel.STOKCARD" Role="STOKCARD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="STOKSEASON">
-              <PropertyRef Name="SEASON_CODE" />
-            </Principal>
-            <Dependent Role="STOKCARD">
-              <PropertyRef Name="SEASON_CODE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="aspnet_Applications">
-          <Key>
-            <PropertyRef Name="ApplicationId" />
-          </Key>
-          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Membership" Relationship="VdbSoftModel.FK__aspnet_Me__Appli__34E8D562" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
-          <NavigationProperty Name="aspnet_Paths" Relationship="VdbSoftModel.FK__aspnet_Pa__Appli__668030F6" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
-          <NavigationProperty Name="aspnet_Roles" Relationship="VdbSoftModel.FK__aspnet_Ro__Appli__536D5C82" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
-          <NavigationProperty Name="aspnet_Users" Relationship="VdbSoftModel.FK__aspnet_Us__Appli__24B26D99" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
-        </EntityType>
-        <EntityType Name="aspnet_Membership">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
-          <Property Name="UserId" Type="Guid" Nullable="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
-          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="MobilePIN" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="LoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordQuestion" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordAnswer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
-          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
-          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
-          <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
-          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="VdbSoftModel.FK__aspnet_Me__Appli__34E8D562" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_Users" Relationship="VdbSoftModel.FK__aspnet_Me__UserI__35DCF99B" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
-        </EntityType>
-        <EntityType Name="aspnet_Paths">
-          <Key>
-            <PropertyRef Name="PathId" />
-          </Key>
-          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
-          <Property Name="PathId" Type="Guid" Nullable="false" />
-          <Property Name="Path" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="LoweredPath" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="VdbSoftModel.FK__aspnet_Pa__Appli__668030F6" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="VdbSoftModel.FK__aspnet_Pe__PathI__6C390A4C" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
-          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="VdbSoftModel.FK__aspnet_Pe__PathI__70099B30" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
-        </EntityType>
-        <EntityType Name="aspnet_PersonalizationAllUsers">
-          <Key>
-            <PropertyRef Name="PathId" />
-          </Key>
-          <Property Name="PathId" Type="Guid" Nullable="false" />
-          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="aspnet_Paths" Relationship="VdbSoftModel.FK__aspnet_Pe__PathI__6C390A4C" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
-        </EntityType>
-        <EntityType Name="aspnet_PersonalizationPerUser">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="PathId" Type="Guid" />
-          <Property Name="UserId" Type="Guid" />
-          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="aspnet_Paths" Relationship="VdbSoftModel.FK__aspnet_Pe__PathI__70099B30" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
-          <NavigationProperty Name="aspnet_Users" Relationship="VdbSoftModel.FK__aspnet_Pe__UserI__70FDBF69" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
-        </EntityType>
-        <EntityType Name="aspnet_Profile">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="Guid" Nullable="false" />
-          <Property Name="PropertyNames" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PropertyValuesString" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PropertyValuesBinary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="aspnet_Users" Relationship="VdbSoftModel.FK__aspnet_Pr__UserI__49E3F248" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
-        </EntityType>
-        <EntityType Name="aspnet_Roles">
-          <Key>
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
-          <Property Name="RoleId" Type="Guid" Nullable="false" />
-          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="VdbSoftModel.FK__aspnet_Ro__Appli__536D5C82" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_Users" Relationship="VdbSoftModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
-        </EntityType>
-        <EntityType Name="aspnet_SchemaVersions">
-          <Key>
-            <PropertyRef Name="Feature" />
-            <PropertyRef Name="CompatibleSchemaVersion" />
-          </Key>
-          <Property Name="Feature" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="CompatibleSchemaVersion" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="aspnet_Users">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
-          <Property Name="UserId" Type="Guid" Nullable="false" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="MobileAlias" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
-          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="VdbSoftModel.FK__aspnet_Us__Appli__24B26D99" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_Membership" Relationship="VdbSoftModel.FK__aspnet_Me__UserI__35DCF99B" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
-          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="VdbSoftModel.FK__aspnet_Pe__UserI__70FDBF69" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
-          <NavigationProperty Name="aspnet_Profile" Relationship="VdbSoftModel.FK__aspnet_Pr__UserI__49E3F248" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
-          <NavigationProperty Name="aspnet_Roles" Relationship="VdbSoftModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
-          <Property Name="UserCode" Type="Int32" />
-        </EntityType>
-        <EntityType Name="aspnet_WebEvent_Events">
-          <Key>
-            <PropertyRef Name="EventId" />
-          </Key>
-          <Property Name="EventId" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
-          <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EventTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EventType" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EventSequence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
-          <Property Name="EventOccurrence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
-          <Property Name="EventCode" Type="Int32" Nullable="false" />
-          <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
-          <Property Name="Message" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
-          <Property Name="ApplicationPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="MachineName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="RequestUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
-          <Property Name="ExceptionType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK__aspnet_Me__Appli__34E8D562">
-          <End Type="VdbSoftModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="VdbSoftModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Membership">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pa__Appli__668030F6">
-          <End Type="VdbSoftModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="VdbSoftModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Paths">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Ro__Appli__536D5C82">
-          <End Type="VdbSoftModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="VdbSoftModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Roles">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Us__Appli__24B26D99">
-          <End Type="VdbSoftModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="VdbSoftModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Users">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Me__UserI__35DCF99B">
-          <End Type="VdbSoftModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
-          <End Type="VdbSoftModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_Membership">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__PathI__6C390A4C">
-          <End Type="VdbSoftModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="1" />
-          <End Type="VdbSoftModel.aspnet_PersonalizationAllUsers" Role="aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Paths">
-              <PropertyRef Name="PathId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationAllUsers">
-              <PropertyRef Name="PathId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__PathI__70099B30">
-          <End Type="VdbSoftModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="0..1" />
-          <End Type="VdbSoftModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Paths">
-              <PropertyRef Name="PathId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationPerUser">
-              <PropertyRef Name="PathId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__UserI__70FDBF69">
-          <End Type="VdbSoftModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
-          <End Type="VdbSoftModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationPerUser">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pr__UserI__49E3F248">
-          <End Type="VdbSoftModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
-          <End Type="VdbSoftModel.aspnet_Profile" Role="aspnet_Profile" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_Profile">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="aspnet_UsersInRoles">
-          <End Type="VdbSoftModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
-          <End Type="VdbSoftModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7071,6 +6980,139 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
                 <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
                 <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
                 <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Applications">
+            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Applications">
+              <MappingFragment StoreEntitySet="aspnet_Applications">
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Membership">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Paths">
+            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Paths">
+              <MappingFragment StoreEntitySet="aspnet_Paths">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
+            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_PersonalizationAllUsers">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationPerUser">
+            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_PersonalizationPerUser">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Profile">
+            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Profile">
+              <MappingFragment StoreEntitySet="aspnet_Profile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+                <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+                <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Roles">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_SchemaVersions">
+            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_SchemaVersions">
+              <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+                <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+                <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Users">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_WebEvent_Events">
+            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_WebEvent_Events">
+              <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+                <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+                <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+                <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -7982,19 +8024,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OPPORTUNITYDETAILADDAREAs">
-            <EntityTypeMapping TypeName="VdbSoftModel.OPPORTUNITYDETAILADDAREA">
-              <MappingFragment StoreEntitySet="OPPORTUNITYDETAILADDAREA">
-                <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
-                <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
-                <ScalarProperty Name="C1" ColumnName="C1" />
-                <ScalarProperty Name="C2" ColumnName="C2" />
-                <ScalarProperty Name="ek1" ColumnName="ek1" />
-                <ScalarProperty Name="PLAKA" ColumnName="PLAKA" />
-                <ScalarProperty Name="SASE" ColumnName="SASE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="OPPORTUNITYDETAILVERSIONs">
             <EntityTypeMapping TypeName="VdbSoftModel.OPPORTUNITYDETAILVERSION">
               <MappingFragment StoreEntitySet="OPPORTUNITYDETAILVERSION">
@@ -8030,16 +8059,15 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OPPORTUNITYDETAILVERSIONADDAREAs">
-            <EntityTypeMapping TypeName="VdbSoftModel.OPPORTUNITYDETAILVERSIONADDAREA">
-              <MappingFragment StoreEntitySet="OPPORTUNITYDETAILVERSIONADDAREA">
+          <EntitySetMapping Name="OPPORTUNITYHISTORies">
+            <EntityTypeMapping TypeName="VdbSoftModel.OPPORTUNITYHISTORY">
+              <MappingFragment StoreEntitySet="OPPORTUNITYHISTORY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
-                <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
-                <ScalarProperty Name="VERSION" ColumnName="VERSION" />
-                <ScalarProperty Name="C1" ColumnName="C1" />
-                <ScalarProperty Name="C2" ColumnName="C2" />
-                <ScalarProperty Name="PLAKA" ColumnName="PLAKA" />
-                <ScalarProperty Name="SASE" ColumnName="SASE" />
+                <ScalarProperty Name="LAST_DOCUMENT_TYPE" ColumnName="LAST_DOCUMENT_TYPE" />
+                <ScalarProperty Name="ACTUEL_DOCUMENT_TYPE" ColumnName="ACTUEL_DOCUMENT_TYPE" />
+                <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
+                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8101,71 +8129,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
                 <ScalarProperty Name="TRANSPORT_UPBK" ColumnName="TRANSPORT_UPBK" />
                 <ScalarProperty Name="INSURANCE_CUR_TYPE" ColumnName="INSURANCE_CUR_TYPE" />
                 <ScalarProperty Name="INSURANCE_UPBK" ColumnName="INSURANCE_UPBK" />
-                <ScalarProperty Name="DISCONT_CUR_TYPE" ColumnName="DISCONT_CUR_TYPE" />
-                <ScalarProperty Name="DISCONT_FPB" ColumnName="DISCONT_FPB" />
-                <ScalarProperty Name="APPROVMENT_STATUS" ColumnName="APPROVMENT_STATUS" />
-                <ScalarProperty Name="SOURCE_CODE" ColumnName="SOURCE_CODE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OPPORTUNITYMASTERVERSIONs">
-            <EntityTypeMapping TypeName="VdbSoftModel.OPPORTUNITYMASTERVERSION">
-              <MappingFragment StoreEntitySet="OPPORTUNITYMASTERVERSION">
-                <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
-                <ScalarProperty Name="VERSION" ColumnName="VERSION" />
-                <ScalarProperty Name="CONTACT_CODE" ColumnName="CONTACT_CODE" />
-                <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
-                <ScalarProperty Name="DOCUMENT_TYPE" ColumnName="DOCUMENT_TYPE" />
-                <ScalarProperty Name="DOCUMENT_NO1" ColumnName="DOCUMENT_NO1" />
-                <ScalarProperty Name="CERTIFICATE_NO" ColumnName="CERTIFICATE_NO" />
-                <ScalarProperty Name="NORMAL_BACK" ColumnName="NORMAL_BACK" />
-                <ScalarProperty Name="SELLING_BUYING" ColumnName="SELLING_BUYING" />
-                <ScalarProperty Name="PROCESS_TYPE" ColumnName="PROCESS_TYPE" />
-                <ScalarProperty Name="CURRENT_CODE" ColumnName="CURRENT_CODE" />
-                <ScalarProperty Name="CURRENT_NAME" ColumnName="CURRENT_NAME" />
-                <ScalarProperty Name="DOCUMENT_DATE" ColumnName="DOCUMENT_DATE" />
-                <ScalarProperty Name="CERTIFICATE_DATE" ColumnName="CERTIFICATE_DATE" />
-                <ScalarProperty Name="OPEN_CLOSE" ColumnName="OPEN_CLOSE" />
-                <ScalarProperty Name="PEYMENT_TERM" ColumnName="PEYMENT_TERM" />
-                <ScalarProperty Name="PAYMENT_TYPE" ColumnName="PAYMENT_TYPE" />
-                <ScalarProperty Name="WAREHOUSE" ColumnName="WAREHOUSE" />
-                <ScalarProperty Name="REPRESENT" ColumnName="REPRESENT" />
-                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
-                <ScalarProperty Name="SEARCH_METHOD" ColumnName="SEARCH_METHOD" />
-                <ScalarProperty Name="SEARCH_STEP" ColumnName="SEARCH_STEP" />
-                <ScalarProperty Name="REVISION" ColumnName="REVISION" />
-                <ScalarProperty Name="FORM_NO" ColumnName="FORM_NO" />
-                <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
-                <ScalarProperty Name="WINNER_COMPANY_CODE" ColumnName="WINNER_COMPANY_CODE" />
-                <ScalarProperty Name="LAST_POSITION" ColumnName="LAST_POSITION" />
-                <ScalarProperty Name="WHY_LOST" ColumnName="WHY_LOST" />
-                <ScalarProperty Name="APPOINTED_USER_CODE" ColumnName="APPOINTED_USER_CODE" />
-                <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
-                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
-                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
-                <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
-                <ScalarProperty Name="WE_WIN" ColumnName="WE_WIN" />
-                <ScalarProperty Name="TOTAL_UPB" ColumnName="TOTAL_UPB" />
-                <ScalarProperty Name="FREE_STOK" ColumnName="FREE_STOK" />
-                <ScalarProperty Name="SECTION_CODE" ColumnName="SECTION_CODE" />
-                <ScalarProperty Name="BANK_CODE" ColumnName="BANK_CODE" />
-                <ScalarProperty Name="CASH_CODE" ColumnName="CASH_CODE" />
-                <ScalarProperty Name="DOCUMENT_NO2" ColumnName="DOCUMENT_NO2" />
-                <ScalarProperty Name="EXPLANATION" ColumnName="EXPLANATION" />
-                <ScalarProperty Name="GROUPS" ColumnName="GROUPS" />
-                <ScalarProperty Name="DELIVERY_TYPE" ColumnName="DELIVERY_TYPE" />
-                <ScalarProperty Name="DISCONT" ColumnName="DISCONT" />
-                <ScalarProperty Name="TRANSPORT" ColumnName="TRANSPORT" />
-                <ScalarProperty Name="INSURANCE" ColumnName="INSURANCE" />
-                <ScalarProperty Name="TAX" ColumnName="TAX" />
-                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
-                <ScalarProperty Name="AVAILABLE_DATE" ColumnName="AVAILABLE_DATE" />
-                <ScalarProperty Name="EXT01" ColumnName="EXT01" />
-                <ScalarProperty Name="TRANSPORT_FIRM" ColumnName="TRANSPORT_FIRM" />
-                <ScalarProperty Name="INSURANCE_CUR_TYPE" ColumnName="INSURANCE_CUR_TYPE" />
-                <ScalarProperty Name="INSURANCE_UPBK" ColumnName="INSURANCE_UPBK" />
-                <ScalarProperty Name="TRANSPORT_CUR_TYPE" ColumnName="TRANSPORT_CUR_TYPE" />
-                <ScalarProperty Name="TRANSPORT_UPBK" ColumnName="TRANSPORT_UPBK" />
                 <ScalarProperty Name="DISCONT_CUR_TYPE" ColumnName="DISCONT_CUR_TYPE" />
                 <ScalarProperty Name="DISCONT_FPB" ColumnName="DISCONT_FPB" />
                 <ScalarProperty Name="APPROVMENT_STATUS" ColumnName="APPROVMENT_STATUS" />
@@ -8549,12 +8512,54 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="STOKACTUALs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKACTUAL">
+              <MappingFragment StoreEntitySet="STOKACTUAL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DEPOT_ID" ColumnName="DEPOT_ID" />
+                <ScalarProperty Name="STOK_ID" ColumnName="STOK_ID" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKACTUALORDERs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKACTUALORDER">
+              <MappingFragment StoreEntitySet="STOKACTUALORDER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
+                <ScalarProperty Name="STOK_CODE" ColumnName="STOK_CODE" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="WAREHOUSE" ColumnName="WAREHOUSE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKBODies">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKBODY">
+              <MappingFragment StoreEntitySet="STOKBODY">
+                <ScalarProperty Name="BODY_CODE" ColumnName="BODY_CODE" />
+                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
+                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKBRANDs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKBRAND">
+              <MappingFragment StoreEntitySet="STOKBRAND">
+                <ScalarProperty Name="BRAND_CODE" ColumnName="BRAND_CODE" />
+                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
+                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="STOKCARDs">
             <EntityTypeMapping TypeName="VdbSoftModel.STOKCARD">
               <MappingFragment StoreEntitySet="STOKCARD">
-                <ScalarProperty Name="SERIAL_NO3" ColumnName="SERIAL_NO3" />
-                <ScalarProperty Name="SERIAL_NO2" ColumnName="SERIAL_NO2" />
-                <ScalarProperty Name="SERIAL_NO1" ColumnName="SERIAL_NO1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="UPPER_CODE" ColumnName="UPPER_CODE" />
                 <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
@@ -8619,109 +8624,11 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
                 <ScalarProperty Name="WEB_TRANSFER" ColumnName="WEB_TRANSFER" />
                 <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
                 <ScalarProperty Name="WEB_AMOUNT" ColumnName="WEB_AMOUNT" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="STOKCARD_">
-            <EntityTypeMapping TypeName="VdbSoftModel.STOKCARD_">
-              <MappingFragment StoreEntitySet="STOKCARD_">
-                <ScalarProperty Name="CODE" ColumnName="CODE" />
-                <ScalarProperty Name="UPPER_CODE" ColumnName="UPPER_CODE" />
-                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
-                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
-                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
-                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
-                <ScalarProperty Name="TAX" ColumnName="TAX" />
-                <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
-                <ScalarProperty Name="CUR_TYPE" ColumnName="CUR_TYPE" />
-                <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
-                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
-                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
-                <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
-                <ScalarProperty Name="DES_TR" ColumnName="DES_TR" />
-                <ScalarProperty Name="DES_EN" ColumnName="DES_EN" />
-                <ScalarProperty Name="DES_GR" ColumnName="DES_GR" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="STOKCARD1">
-            <EntityTypeMapping TypeName="VdbSoftModel.STOKCARD1">
-              <MappingFragment StoreEntitySet="STOKCARD1">
-                <ScalarProperty Name="CODE" ColumnName="CODE" />
-                <ScalarProperty Name="UPPER_CODE" ColumnName="UPPER_CODE" />
-                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
-                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
-                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
-                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
-                <ScalarProperty Name="TAX" ColumnName="TAX" />
-                <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
-                <ScalarProperty Name="CUR_TYPE" ColumnName="CUR_TYPE" />
-                <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
-                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
-                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
-                <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
-                <ScalarProperty Name="DES_TR" ColumnName="DES_TR" />
-                <ScalarProperty Name="DES_EN" ColumnName="DES_EN" />
-                <ScalarProperty Name="DES_OT" ColumnName="DES_OT" />
-                <ScalarProperty Name="NAME_SHORT" ColumnName="NAME_SHORT" />
-                <ScalarProperty Name="ISHIDDEN" ColumnName="ISHIDDEN" />
-                <ScalarProperty Name="SPECIAL_CODE1" ColumnName="SPECIAL_CODE1" />
-                <ScalarProperty Name="SPECIAL_CODE2" ColumnName="SPECIAL_CODE2" />
-                <ScalarProperty Name="SPECIAL_CODE3" ColumnName="SPECIAL_CODE3" />
-                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-                <ScalarProperty Name="MANUFACTURER_PRODUCT_CODE" ColumnName="MANUFACTURER_PRODUCT_CODE" />
-                <ScalarProperty Name="MANUFACTURER_COMPANY_CODE" ColumnName="MANUFACTURER_COMPANY_CODE" />
-                <ScalarProperty Name="DETAILS_FOLLOW" ColumnName="DETAILS_FOLLOW" />
-                <ScalarProperty Name="UNIT1_NAME" ColumnName="UNIT1_NAME" />
-                <ScalarProperty Name="UNIT1_MULTIPLIER" ColumnName="UNIT1_MULTIPLIER" />
-                <ScalarProperty Name="UNIT1_WEIGHT" ColumnName="UNIT1_WEIGHT" />
-                <ScalarProperty Name="UNIT1_WIDTH" ColumnName="UNIT1_WIDTH" />
-                <ScalarProperty Name="UNIT1_LENGTH" ColumnName="UNIT1_LENGTH" />
-                <ScalarProperty Name="UNIT1_HEIGHT" ColumnName="UNIT1_HEIGHT" />
-                <ScalarProperty Name="UNIT1_TARE" ColumnName="UNIT1_TARE" />
-                <ScalarProperty Name="UNIT2_NAME" ColumnName="UNIT2_NAME" />
-                <ScalarProperty Name="UNIT2_MULTIPLIER" ColumnName="UNIT2_MULTIPLIER" />
-                <ScalarProperty Name="UNIT2_WEIGHT" ColumnName="UNIT2_WEIGHT" />
-                <ScalarProperty Name="UNIT2_WIDTH" ColumnName="UNIT2_WIDTH" />
-                <ScalarProperty Name="UNIT2_LENGTH" ColumnName="UNIT2_LENGTH" />
-                <ScalarProperty Name="UNIT2_HEIGHT" ColumnName="UNIT2_HEIGHT" />
-                <ScalarProperty Name="UNIT2_TARE" ColumnName="UNIT2_TARE" />
-                <ScalarProperty Name="MIN_QUANTITY" ColumnName="MIN_QUANTITY" />
-                <ScalarProperty Name="MAX_QUANTITY" ColumnName="MAX_QUANTITY" />
-                <ScalarProperty Name="ORDER_QUANTITY" ColumnName="ORDER_QUANTITY" />
-                <ScalarProperty Name="RETAIL_TAX" ColumnName="RETAIL_TAX" />
-                <ScalarProperty Name="BULK_TAX" ColumnName="BULK_TAX" />
-                <ScalarProperty Name="CATEGORY_CODE" ColumnName="CATEGORY_CODE" />
-                <ScalarProperty Name="MAIN_GRUP" ColumnName="MAIN_GRUP" />
-                <ScalarProperty Name="SUB_GRUP1" ColumnName="SUB_GRUP1" />
-                <ScalarProperty Name="SUB_GRUP2" ColumnName="SUB_GRUP2" />
-                <ScalarProperty Name="SECTOR_CODE" ColumnName="SECTOR_CODE" />
-                <ScalarProperty Name="RAYON_CODE" ColumnName="RAYON_CODE" />
-                <ScalarProperty Name="PACK_CODE" ColumnName="PACK_CODE" />
-                <ScalarProperty Name="BRAND_CODE" ColumnName="BRAND_CODE" />
-                <ScalarProperty Name="BODY_CODE" ColumnName="BODY_CODE" />
-                <ScalarProperty Name="COLOR_CODE" ColumnName="COLOR_CODE" />
-                <ScalarProperty Name="MODEL_CODE" ColumnName="MODEL_CODE" />
-                <ScalarProperty Name="SEASON_CODE" ColumnName="SEASON_CODE" />
-                <ScalarProperty Name="ACTIVE_COST" ColumnName="ACTIVE_COST" />
-                <ScalarProperty Name="ACTIVE_COST_CURRENCY" ColumnName="ACTIVE_COST_CURRENCY" />
-                <ScalarProperty Name="PURCHASE_PRICE" ColumnName="PURCHASE_PRICE" />
-                <ScalarProperty Name="PURCHASE_CURRENCY" ColumnName="PURCHASE_CURRENCY" />
-                <ScalarProperty Name="SALES_PRICE" ColumnName="SALES_PRICE" />
-                <ScalarProperty Name="SALES_CURRENCY" ColumnName="SALES_CURRENCY" />
-                <ScalarProperty Name="PICTURE1" ColumnName="PICTURE1" />
-                <ScalarProperty Name="PICTURE2" ColumnName="PICTURE2" />
-                <ScalarProperty Name="PICTURE3" ColumnName="PICTURE3" />
-                <ScalarProperty Name="PICTURE4" ColumnName="PICTURE4" />
-                <ScalarProperty Name="BARCODE_01" ColumnName="BARCODE_01" />
-                <ScalarProperty Name="BARCODE_02" ColumnName="BARCODE_02" />
-                <ScalarProperty Name="BARCODE_03" ColumnName="BARCODE_03" />
-                <ScalarProperty Name="WEB_TRANSFER" ColumnName="WEB_TRANSFER" />
-                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
-                <ScalarProperty Name="MAXLOAD" ColumnName="MAXLOAD" />
-                <ScalarProperty Name="MAXHEIGHT" ColumnName="MAXHEIGHT" />
-                <ScalarProperty Name="MAXBOM" ColumnName="MAXBOM" />
+                <ScalarProperty Name="SERIAL_NO1" ColumnName="SERIAL_NO1" />
+                <ScalarProperty Name="SERIAL_NO2" ColumnName="SERIAL_NO2" />
+                <ScalarProperty Name="SERIAL_NO3" ColumnName="SERIAL_NO3" />
+                <ScalarProperty Name="PRODUCTION_TIME" ColumnName="PRODUCTION_TIME" />
+                <ScalarProperty Name="MAX_SEND_TIME" ColumnName="MAX_SEND_TIME" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8734,6 +8641,17 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
                 <ScalarProperty Name="PATH" ColumnName="PATH" />
                 <ScalarProperty Name="TYPE" ColumnName="TYPE" />
                 <ScalarProperty Name="COLOR_CODE" ColumnName="COLOR_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKCOLORs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKCOLOR">
+              <MappingFragment StoreEntitySet="STOKCOLOR">
+                <ScalarProperty Name="COLOR_CODE" ColumnName="COLOR_CODE" />
+                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
+                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8754,18 +8672,25 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="STOKGROUP1">
-            <EntityTypeMapping TypeName="VdbSoftModel.STOKGROUP1">
-              <MappingFragment StoreEntitySet="STOKGROUP1">
-                <ScalarProperty Name="STOK_GROUP_CODE" ColumnName="STOK_GROUP_CODE" />
-                <ScalarProperty Name="UPPER_GROUP_CODE" ColumnName="UPPER_GROUP_CODE" />
+          <EntitySetMapping Name="STOKSEASONs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKSEASON">
+              <MappingFragment StoreEntitySet="STOKSEASON">
+                <ScalarProperty Name="SEASON_CODE" ColumnName="SEASON_CODE" />
                 <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
                 <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
                 <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
-                <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
-                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
+                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKWAREHOUSEs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKWAREHOUSE">
+              <MappingFragment StoreEntitySet="STOKWAREHOUSE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
                 <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9136,6 +9061,16 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="COMPANYSOCIALMEDIAs">
+            <EntityTypeMapping TypeName="VdbSoftModel.COMPANYSOCIALMEDIA">
+              <MappingFragment StoreEntitySet="COMPANYSOCIALMEDIA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
+                <ScalarProperty Name="SOCIAL_MEDIA_TYPE" ColumnName="SOCIAL_MEDIA_TYPE" />
+                <ScalarProperty Name="SOCIAL_MEDIA_LINK" ColumnName="SOCIAL_MEDIA_LINK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="CURs">
             <EntityTypeMapping TypeName="VdbSoftModel.CUR">
               <MappingFragment StoreEntitySet="CUR">
@@ -9278,34 +9213,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SALES_ORI2">
-            <EntityTypeMapping TypeName="VdbSoftModel.SALES_ORI2">
-              <MappingFragment StoreEntitySet="SALES_ORI2">
-                <ScalarProperty Name="DOCUMENT_NO1" ColumnName="DOCUMENT_NO1" />
-                <ScalarProperty Name="DOCUMENT_DATE" ColumnName="DOCUMENT_DATE" />
-                <ScalarProperty Name="STOK_CODE" ColumnName="STOK_CODE" />
-                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
-                <ScalarProperty Name="QUANTITY_C" ColumnName="QUANTITY_C" />
-                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
-                <ScalarProperty Name="QUANTITY_OF_PACKET" ColumnName="QUANTITY_OF_PACKET" />
-                <ScalarProperty Name="DAMAGED_QUANTITY" ColumnName="DAMAGED_QUANTITY" />
-                <ScalarProperty Name="DAMAGED_QUANTITY_C" ColumnName="DAMAGED_QUANTITY_C" />
-                <ScalarProperty Name="DAMAGED_UNIT" ColumnName="DAMAGED_UNIT" />
-                <ScalarProperty Name="DAMAGED_EXP" ColumnName="DAMAGED_EXP" />
-                <ScalarProperty Name="MIS_QUANTITY" ColumnName="MIS_QUANTITY" />
-                <ScalarProperty Name="MIS_QUANTITY_C" ColumnName="MIS_QUANTITY_C" />
-                <ScalarProperty Name="MIS_UNIT" ColumnName="MIS_UNIT" />
-                <ScalarProperty Name="MIS_EXP" ColumnName="MIS_EXP" />
-                <ScalarProperty Name="EXTRA_QUANTITY" ColumnName="EXTRA_QUANTITY" />
-                <ScalarProperty Name="EXTRA_QUANTITY_C" ColumnName="EXTRA_QUANTITY_C" />
-                <ScalarProperty Name="EXTRA_UNIT" ColumnName="EXTRA_UNIT" />
-                <ScalarProperty Name="EXTRA_EXP" ColumnName="EXTRA_EXP" />
-                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
-                <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
-                <ScalarProperty Name="COMPANY_COMMERCIAL_CODE" ColumnName="COMPANY_COMMERCIAL_CODE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SELLER_BALANCE">
             <EntityTypeMapping TypeName="VdbSoftModel.SELLER_BALANCE">
               <MappingFragment StoreEntitySet="SELLER_BALANCE">
@@ -9342,6 +9249,18 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="STOKCARDUSERPRICEs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKCARDUSERPRICE">
+              <MappingFragment StoreEntitySet="STOKCARDUSERPRICE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+                <ScalarProperty Name="STOK_ID" ColumnName="STOK_ID" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="CUR_TYPE" ColumnName="CUR_TYPE" />
+                <ScalarProperty Name="PRICE_TYPE" ColumnName="PRICE_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="USERBANKs">
             <EntityTypeMapping TypeName="VdbSoftModel.USERBANK">
               <MappingFragment StoreEntitySet="USERBANK">
@@ -9372,189 +9291,12 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="STOKBODies">
-            <EntityTypeMapping TypeName="VdbSoftModel.STOKBODY">
-              <MappingFragment StoreEntitySet="STOKBODY">
-                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
-                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
-                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
-                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
-                <ScalarProperty Name="BODY_CODE" ColumnName="BODY_CODE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="STOKBRANDs">
-            <EntityTypeMapping TypeName="VdbSoftModel.STOKBRAND">
-              <MappingFragment StoreEntitySet="STOKBRAND">
-                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
-                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
-                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
-                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
-                <ScalarProperty Name="BRAND_CODE" ColumnName="BRAND_CODE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="STOKCOLORs">
-            <EntityTypeMapping TypeName="VdbSoftModel.STOKCOLOR">
-              <MappingFragment StoreEntitySet="STOKCOLOR">
-                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
-                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
-                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
-                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
-                <ScalarProperty Name="COLOR_CODE" ColumnName="COLOR_CODE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="STOKSEASONs">
-            <EntityTypeMapping TypeName="VdbSoftModel.STOKSEASON">
-              <MappingFragment StoreEntitySet="STOKSEASON">
-                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
-                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
-                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
-                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
-                <ScalarProperty Name="SEASON_CODE" ColumnName="SEASON_CODE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Applications">
-            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Applications">
-              <MappingFragment StoreEntitySet="aspnet_Applications">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
-                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Membership">
-            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Membership">
-              <MappingFragment StoreEntitySet="aspnet_Membership">
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
-                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
-                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
-                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
-                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
-                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
-                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
-                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
-                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
-                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
-                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
-                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
-                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Paths">
-            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Paths">
-              <MappingFragment StoreEntitySet="aspnet_Paths">
-                <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
-                <ScalarProperty Name="Path" ColumnName="Path" />
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
-            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_PersonalizationAllUsers">
-              <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_PersonalizationPerUser">
-            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_PersonalizationPerUser">
-              <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Profile">
-            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Profile">
-              <MappingFragment StoreEntitySet="aspnet_Profile">
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
-                <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
-                <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Roles">
-            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Roles">
-              <MappingFragment StoreEntitySet="aspnet_Roles">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_SchemaVersions">
-            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_SchemaVersions">
-              <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
-                <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
-                <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
-                <ScalarProperty Name="Feature" ColumnName="Feature" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Users">
-            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_Users">
-              <MappingFragment StoreEntitySet="aspnet_Users">
-                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
-                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
-                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
-                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
-                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_WebEvent_Events">
-            <EntityTypeMapping TypeName="VdbSoftModel.aspnet_WebEvent_Events">
-              <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
-                <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
-                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
-                <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
-                <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
-                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
-                <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
-                <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
-                <ScalarProperty Name="EventType" ColumnName="EventType" />
-                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
-                <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
-                <ScalarProperty Name="EventId" ColumnName="EventId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="VdbSoftModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
-            <EndProperty Name="aspnet_Users">
-              <ScalarProperty Name="UserId" ColumnName="UserId" />
-            </EndProperty>
             <EndProperty Name="aspnet_Roles">
               <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

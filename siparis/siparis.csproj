@@ -194,49 +194,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Models\aspnet_Applications.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Membership.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Paths.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_PersonalizationAllUsers.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_PersonalizationPerUser.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Profile.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Roles.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_SchemaVersions.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Users.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_WebEvent_Events.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DATABASEUPDATE.cs">
-      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IndexDataViewModel.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\OrderFollowController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ACTIVITY.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -306,6 +263,36 @@
     <Compile Include="Models\ARREMINDER.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\aspnet_Applications.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Paths.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Profile.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Roles.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_SchemaVersions.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Users.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_WebEvent_Events.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ASSOCIATION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -340,6 +327,9 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\COMPANYSECTION.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\COMPANYSOCIALMEDIA.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\COMPANYUSERRELATION.cs">
@@ -389,6 +379,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Data.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DATABASEUPDATE.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ENTEGRATION.cs">
       <DependentUpon>Data.tt</DependentUpon>
@@ -450,6 +443,16 @@
     <Compile Include="Models\GROUPMULTI.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IndexDataViewModel.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderFollowController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LANGUAGE.cs">
       <DependentUpon>Data.tt</DependentUpon>
@@ -508,19 +511,13 @@
     <Compile Include="Models\OPPORTUNITYDETAIL.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OPPORTUNITYDETAILADDAREA.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\OPPORTUNITYDETAILVERSION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OPPORTUNITYDETAILVERSIONADDAREA.cs">
+    <Compile Include="Models\OPPORTUNITYHISTORY.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OPPORTUNITYMASTER.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\OPPORTUNITYMASTERVERSION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderMasterViewModel.cs" />
@@ -588,9 +585,6 @@
     <Compile Include="Models\RU.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SALES_ORI2.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\SELLER_BALANCE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -616,6 +610,12 @@
     <Compile Include="Models\SPECDESCIRIPTION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\STOKACTUAL.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STOKACTUALORDER.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\STOKBODY.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -625,13 +625,10 @@
     <Compile Include="Models\STOKCARD.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\STOKCARD1.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\STOKCARDPICTURE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\STOKCARD_.cs">
+    <Compile Include="Models\STOKCARDUSERPRICE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\STOKCOLOR.cs">
@@ -640,10 +637,10 @@
     <Compile Include="Models\STOKGROUP.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\STOKGROUP1.cs">
+    <Compile Include="Models\STOKSEASON.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\STOKSEASON.cs">
+    <Compile Include="Models\STOKWAREHOUSE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
@@ -834,23 +831,6 @@
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Fonts\glyphicons-halflings-regular.woff" />
     <Content Include="ClassDiagram1.cd" />
-    <EntityDeploy Include="Models\Data.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Data.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Data.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Data.edmx</DependentUpon>
-      <LastGenOutput>Data.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Data.edmx.diagram">
-      <DependentUpon>Data.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Data.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Data.edmx</DependentUpon>
-      <LastGenOutput>Data.cs</LastGenOutput>
-    </Content>
     <EntityDeploy Include="Models\VeribisBaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>VeribisBaseModel.Designer.cs</LastGenOutput>
@@ -867,6 +847,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VeribisBaseModel.edmx</DependentUpon>
       <LastGenOutput>VeribisBaseModel.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\Data.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Data.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Data.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Data.edmx</DependentUpon>
+      <LastGenOutput>Data.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Data.edmx.diagram">
+      <DependentUpon>Data.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Data.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Data.edmx</DependentUpon>
+      <LastGenOutput>Data.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\siparis.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

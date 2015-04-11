@@ -97,7 +97,7 @@ namespace siparis.Controllers
             return View(getOpp(25));
         }
 
-        
+
         public ActionResult girdMaster()
         {
             VdbSoftEntities db = db = new VdbSoftEntities(dbName);
@@ -179,7 +179,7 @@ namespace siparis.Controllers
                                 case 19:
                                     opp.DOCUMENT_TYPE = 22;
                                     break;
-                              
+
                                 default:
                                     break;
                             }
@@ -192,7 +192,7 @@ namespace siparis.Controllers
                                     break;
                                 case 19:
                                     opp.DOCUMENT_TYPE = 22;
-                                    break;                                
+                                    break;
                                 default:
                                     break;
                             }
@@ -202,7 +202,7 @@ namespace siparis.Controllers
                             {
                                 case 20:
                                     opp.DOCUMENT_TYPE = 19;
-                                    break;                              
+                                    break;
                                 default:
                                     break;
                             }
@@ -258,69 +258,6 @@ namespace siparis.Controllers
         }
 
 
-        public string gidecegisayfa(int eskiSayfa)
-        {
-            string sayfa = null;
-            switch (eskiSayfa)
-            {
-                case 1:
-                    sayfa = "Opportunity";
-                    break;
-                case 2:
-                    sayfa = "Offer";
-                    break;
-                case 3:
-                    sayfa = "Order";
-                    break;
-                case 4:
-                    sayfa = "DispatchNote";
-                    break;
-                case 5:
-                    sayfa = "Invoice";
-                    break;
-                case 6:
-                    sayfa = "Sample";
-                    break;               
-                case 15:
-                    sayfa = "Draft";
-                    break;
-                case 16:
-                    sayfa = "InReview";
-                    break;
-                case 17:
-                    sayfa = "Pending";
-                    break;
-                case 18:
-                    sayfa = "Approved";
-                    break;
-                case 19:
-                    sayfa = "Edited";
-                    break;
-                case 20:
-                    sayfa = "Processed";
-                    break;
-                case 21:
-                    sayfa = "Shipped";
-                    break;
-                case 22:
-                    sayfa = "Cancelled";
-                    break;
-                case 23:
-                    sayfa = "LineSheets";
-                    break;
-                case 24:
-                    sayfa = "Shipping";
-                    break;
-                case 25:
-                    sayfa = "ShippingConfirm";
-                    break;
-                default:
-                    sayfa = "Opportunity";
-                    break;
-            }
-            return sayfa;
-        }
-       
         [HttpPost]
         public ActionResult CustomButtonClick(string clickedButton)
         {
@@ -350,7 +287,7 @@ namespace siparis.Controllers
                                     break;
                                 case 19:
                                     opp.DOCUMENT_TYPE = 3;
-                                    break;   
+                                    break;
                                 default:
                                     break;
                             }
@@ -391,12 +328,11 @@ namespace siparis.Controllers
                             break;
                     }
 
-
-                    db.OPPORTUNITYMASTERs.Attach(opp);
-                    var entry = db.Entry(opp);
-                    entry.Property(e => e.DOCUMENT_TYPE).IsModified = true;
-                    //this.UpdateModel(entry);
-                    db.SaveChanges();
+                    oppSave(db, opp, eskiSayfa);
+                    //db.OPPORTUNITYMASTERs.Attach(opp);
+                    //var entry = db.Entry(opp);
+                    //entry.Property(e => e.DOCUMENT_TYPE).IsModified = true; 
+                    //db.SaveChanges();
                 }
                 catch (Exception e)
                 {
@@ -407,6 +343,84 @@ namespace siparis.Controllers
 
         }
 
+        private void oppSave(VdbSoftEntities db, OPPORTUNITYMASTER opp, int eskiSayfa)
+        {
+            OPPORTUNITYHISTORY history = new OPPORTUNITYHISTORY();
+            history.ACTUEL_DOCUMENT_TYPE = opp.DOCUMENT_TYPE;
+            history.LAST_DOCUMENT_TYPE = eskiSayfa;
+            history.OPPORTUNITY_CODE = opp.OPPORTUNITY_CODE;
+            history.LAST_UPDATE = DateTime.Now;
+            history.LAST_UPDATE_USER = getUserCode();
+            db.OPPORTUNITYHISTORies.Add(history);
+            db.OPPORTUNITYMASTERs.Attach(opp);
+            var entry = db.Entry(opp);
+            entry.Property(e => e.DOCUMENT_TYPE).IsModified = true;
+            db.SaveChanges();
+        }
+
+
+        public string gidecegisayfa(int eskiSayfa)
+        {
+            string sayfa = null;
+            switch (eskiSayfa)
+            {
+                case 1:
+                    sayfa = "Opportunity";
+                    break;
+                case 2:
+                    sayfa = "Offer";
+                    break;
+                case 3:
+                    sayfa = "Order";
+                    break;
+                case 4:
+                    sayfa = "DispatchNote";
+                    break;
+                case 5:
+                    sayfa = "Invoice";
+                    break;
+                case 6:
+                    sayfa = "Sample";
+                    break;
+                case 15:
+                    sayfa = "Draft";
+                    break;
+                case 16:
+                    sayfa = "InReview";
+                    break;
+                case 17:
+                    sayfa = "Pending";
+                    break;
+                case 18:
+                    sayfa = "Approved";
+                    break;
+                case 19:
+                    sayfa = "Edited";
+                    break;
+                case 20:
+                    sayfa = "Processed";
+                    break;
+                case 21:
+                    sayfa = "Shipped";
+                    break;
+                case 22:
+                    sayfa = "Cancelled";
+                    break;
+                case 23:
+                    sayfa = "LineSheets";
+                    break;
+                case 24:
+                    sayfa = "Shipping";
+                    break;
+                case 25:
+                    sayfa = "ShippingConfirm";
+                    break;
+                default:
+                    sayfa = "Opportunity";
+                    break;
+            }
+            return sayfa;
+        }
 
         [ValidateInput(false)]
         public ActionResult GridViewPartialOpportunity()
