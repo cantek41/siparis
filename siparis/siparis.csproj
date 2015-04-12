@@ -804,13 +804,11 @@
     <Content Include="Content\images\shop\product7.jpg" />
     <Content Include="Content\images\shop\product8.jpg" />
     <Content Include="Content\images\shop\product9.jpg" />
-    <Content Include="Content\images\slider\bullet.png" />
-    <Content Include="Content\images\slider\image-slider-1.jpg" />
-    <Content Include="Content\images\slider\image-slider-2.jpg" />
-    <Content Include="Content\images\slider\image-slider-3.jpg" />
-    <Content Include="Content\images\slider\image-slider-4.jpg" />
-    <Content Include="Content\images\slider\image-slider-5.jpg" />
+    <Content Include="Content\images\slider\bullets.png" />
     <Content Include="Content\images\slider\loading.gif" />
+    <Content Include="Content\images\slider\slider-1.jpg" />
+    <Content Include="Content\images\slider\slider-2.jpg" />
+    <Content Include="Content\images\slider\slider-3.jpg" />
     <Content Include="Content\images\verticalMenu\blank.png" />
     <Content Include="Content\images\verticalMenu\calculator.png" />
     <Content Include="Content\images\verticalMenu\cancel.png" />

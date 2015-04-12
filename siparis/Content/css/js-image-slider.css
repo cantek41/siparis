@@ -5,10 +5,12 @@
 {
     position:relative;
     margin:0 auto; /*center-aligned*/
+   
 }
 
 #slider, #slider div.sliderInner {
     width:1170px;height:250px;/* Must be the same size as the slider images */
+     
 }
 
 #slider {
@@ -17,6 +19,7 @@
 	margin:0 auto; /*center-aligned*/
     transform: translate3d(0,0,0);
     box-shadow: 0px 1px 5px #999999;
+    border:solid 10px #ffad41;
 }
 
 /* image wrapper */
@@ -67,7 +70,7 @@
 /* ------ built-in navigation bullets wrapper ------*/
 /* Note: check themes\2\js-image-slider.css to see how to hide nav bullets */
 #slider div.navBulletsWrapper  {
-    top:220px;/* Its position is relative to the #slider */
+    top:200px;/* Its position is relative to the #slider */
 	text-align:center;
 	background:none;
 	position:relative;
