@@ -9,6 +9,7 @@
 
 namespace siparis.Models
 {
+
     using System;
     using System.Configuration;
     using System.Data.Entity;
@@ -50,7 +51,6 @@ namespace siparis.Models
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
-    
     
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<ACTIVITY> ACTIVITies { get; set; }
@@ -164,6 +164,7 @@ namespace siparis.Models
         public virtual DbSet<STOKGROUP> STOKGROUPs { get; set; }
         public virtual DbSet<STOKSEASON> STOKSEASONs { get; set; }
         public virtual DbSet<STOKWAREHOUSE> STOKWAREHOUSEs { get; set; }
+        public virtual DbSet<STOKWAREHOUSEPRODUCT> STOKWAREHOUSEPRODUCTs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TFILE> TFILEs { get; set; }
         public virtual DbSet<TRANSFER> TRANSFERs { get; set; }

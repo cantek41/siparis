@@ -448,7 +448,6 @@ namespace siparis.Controllers
             return PartialView("_OrderDetailGrid", model.ToArray());
         }
 
-
         public ActionResult orderPartial(string clickedButton)
         {
             int oppCode = 1, rowCode = 1;
@@ -458,9 +457,22 @@ namespace siparis.Controllers
                 rowCode = Convert.ToInt32(keys[0]);
                 oppCode = Convert.ToInt32(keys[1]);
             }
-
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == oppCode).Where(x => x.ROW_ORDER_NO == rowCode).FirstOrDefault();
+            OPPORTUNITYDETAIL model = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == oppCode).Where(x => x.ROW_ORDER_NO == rowCode).FirstOrDefault();
+
+            List<STOKWAREHOUSEPRODUCT> depolarUrun = new List<STOKWAREHOUSEPRODUCT>();
+            List<STOKACTUAL> depolar = (from product in db.STOKACTUALs
+                                        join actuelorder in db.STOKACTUALORDERs on product.STOK_CODE equals actuelorder.STOK_CODE
+                                        where product.STOK_CODE == model.STOK_CODE && (product.QUANTITY - actuelorder.QUANTITY) > 0
+                                        select new STOKACTUAL
+                                        {
+                                            DEPOT_ID=product.DEPOT_ID,
+                                            STOK_CODE=product.STOK_CODE
+
+                                        }).ToList();
+
+
+
             return PartialView("_orderPartial", model);
         }
     }

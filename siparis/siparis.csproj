@@ -644,6 +644,9 @@
     <Compile Include="Models\STOKWAREHOUSE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\STOKWAREHOUSEPRODUCT.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
