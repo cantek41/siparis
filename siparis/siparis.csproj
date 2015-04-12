@@ -647,6 +647,7 @@
     <Compile Include="Models\STOKWAREHOUSEPRODUCT.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StokWareHouseViewModel.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>

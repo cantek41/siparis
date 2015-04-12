@@ -20,7 +20,7 @@
     }
 </script>
 
-@Html.DevExpress().Panel(settings =>
+@*@Html.DevExpress().Panel(settings =>
 {
     settings.Name = "detailPanel";
     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
@@ -29,7 +29,7 @@
     settings.SettingsCollapsing.ExpandEffect = PanelExpandEffect.PopupToTop;
     settings.SettingsCollapsing.AnimationType = AnimationType.Slide;
     settings.SettingsAdaptivity.CollapseAtWindowInnerHeight = 680;
-    settings.SettingsAdaptivity.HideAtWindowInnerHeight = 500;
+    settings.SettingsAdaptivity.HideAtWindowInnerHeight = 100;
     settings.Styles.ExpandBar.Width = System.Web.UI.WebControls.Unit.Percentage(100);
     settings.Styles.ExpandBar.CssClass = "bar";
     settings.Styles.Panel.BorderTop.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
@@ -38,7 +38,7 @@
         ViewContext.Writer.Write("<div class='title'>Orders</div>");        
     });
    
-}).GetHtml()
+}).GetHtml()*@
 @Html.Partial("_OrderMasterGrid", Model)
 
 @Html.DevExpress().Panel(settings =>
