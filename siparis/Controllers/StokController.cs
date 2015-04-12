@@ -53,6 +53,15 @@ namespace siparis.Controllers
                                                 select new { Key = d.SEASON_CODE, Text = d.NAME_TR });
             ViewData["Body"] = (from d in db.STOKBODies
                                               select new { Key = d.BODY_CODE, Text = d.NAME_TR });
+            ViewData["ishidden"] = (from d in db.GROUPS
+                                    where d.GROUP_CODE == 62
+                                         select d.EXP_TR );
+            ViewData["CurType"] = (from d in db.CURTYPEs
+                                select  d.CUR_SYMBOL );
+            ViewData["Unit"] = (from d in db.GROUPS
+                                    where d.GROUP_CODE == 59
+                                    select d.EXP_TR);
+           
         }
 
         public ActionResult EditStok(STOKCARD stok)

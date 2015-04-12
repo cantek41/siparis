@@ -51,18 +51,39 @@
    info.CurrentPageIndex)
                         foreach (var stok in Model.stokcard)
                         {
-                            <div class="col-sm-4">
-                                <div class="product-image-wrapper">
+                            <div class="col-sm-4" >
+                                <div class="product-image-wrapper" style="border-bottom:3px;border-right:3px;border-top:1px;border-left:1px;   border-style:solid; border-color:#a59c9c ;">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
                                             @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
                                             <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" />
                                             <h2>@stok.UNIT_PRICE @stok.CUR_TYPE</h2>
                                             <p>@stok.NAME_TR</p>
-                                            <div>
-                                                <p> STOK:  @stok.UNIT</p>
-                                                <p>SİPARİS: <input style="border-width: 1px; border-style: solid; border-color: #fe980f;border-radius:4px;text-align:center;" id="miktar" type="text" size="2" value="1" /> </p>
+
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    <span> @Res.resGetir(102):  </span>
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input style="border-width: 1px; border-style: solid; border-color: #fe980f;border-radius:4px;text-align:center;" id="miktar" type="text" size="2" value=@stok.UNIT />
+
+                                                </div>
                                             </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="col-md-6">
+                                                        <span>@Res.resGetir(84):  </span>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input style="border-width: 1px; border-style: solid; border-color: #fe980f;border-radius:4px;text-align:center;" id="miktar" type="text" size="2" value="1" />
+
+                                                    </div>
+                                                   
+                                                </div>
+                                          
+
 
 
                                             <a class="btn btn-default add-to-cart" onclick="sepeteEkleMiktarli(@stok.ID,$('#miktar').val())"><i class="fa fa-shopping-cart"></i>@Res.resGetir(2)</a>

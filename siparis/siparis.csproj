@@ -820,6 +820,8 @@
     <Content Include="Content\images\verticalMenu\truck.png" />
     <Content Include="Content\images\verticalMenu\x-mark.png" />
     <Content Include="Content\images\verticalMenu\zoom.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\ajaxGonderi\ajaxGonder.js" />
@@ -973,6 +975,9 @@
     <Content Include="Views\OrderFollow\ShippingConfirm.cshtml" />
     <Content Include="Views\Stok\AddStok.cshtml" />
     <Content Include="Views\Shared\SliderPartial.cshtml" />
+    <Content Include="Views\Shared\ContentLeftPartialView.cshtml" />
+    <Content Include="Views\Shared\_mainLayout.cshtml" />
+    <Content Include="Views\Shared\_rootLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
