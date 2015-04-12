@@ -129,29 +129,6 @@ namespace siparis.Controllers
         }
 
 
-        [ValidateInput(false)]
-        public ActionResult MasterDetail(int DOCUMENT_TYPE)
-        {
-
-            return View(getOpp(DOCUMENT_TYPE));
-        }
-        [ValidateInput(false)]
-        public ActionResult MasterDetailMasterPartial(int DOCUMENT_TYPE)
-        {
-            return PartialView("MasterDetailMasterPartial", getOpp(DOCUMENT_TYPE));
-        }
-        [ValidateInput(false)]
-        public ActionResult MasterDetailDetailPartial(string customerID)
-        {
-
-            ViewData["COURSE_CODE"] = customerID;
-            int cID = Convert.ToInt32(customerID);
-            VdbSoftEntities db = new VdbSoftEntities(dbName);
-            var model = from d in db.OPPORTUNITYDETAILs
-                        where d.OPPORTUNITY_CODE == cID
-                        select d;
-            return PartialView("MasterDetailDetailPartial", model.ToArray());
-        }
 
 
         [HttpPost, ValidateInput(false)]
@@ -423,124 +400,79 @@ namespace siparis.Controllers
         }
 
         [ValidateInput(false)]
-        public ActionResult GridViewPartialOpportunity()
+        public ActionResult MasterDetail(int DOCUMENT_TYPE)
         {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 1);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
+
+            return View(getOpp(DOCUMENT_TYPE));
         }
+        [ValidateInput(false)]
+        public ActionResult MasterDetailMasterPartial(int DOCUMENT_TYPE)
+        {
+            return PartialView("MasterDetailMasterPartial", getOpp(DOCUMENT_TYPE));
+        }
+        [ValidateInput(false)]
+        public ActionResult MasterDetailDetailPartial(string customerID)
+        {
+
+            ViewData["COURSE_CODE"] = customerID;
+            int cID = Convert.ToInt32(customerID);
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            var model = from d in db.OPPORTUNITYDETAILs
+                        where d.OPPORTUNITY_CODE == cID
+                        select d;
+            return PartialView("MasterDetailDetailPartial", model.ToArray());
+        }
+
+
 
         [ValidateInput(false)]
-        public ActionResult GridViewPartialSample()
+        public ActionResult OrderMasterGrid(int DOCUMENT_TYPE)
         {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 6);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
-        }
 
+            return View(getOpp(DOCUMENT_TYPE));
+        }
         [ValidateInput(false)]
-        public ActionResult GridViewPartialOffer()
+        public ActionResult OrderMasterGridPartial(int DOCUMENT_TYPE)
         {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 2);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
+            return PartialView("_OrderMasterGrid", getOpp(DOCUMENT_TYPE));
         }
-
         [ValidateInput(false)]
-        public ActionResult GridViewPartialDraft()
+        public ActionResult OrderDetailGrid(string customerID)
         {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 15);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
+            ViewData["COURSE_CODE"] = customerID;
+            int cID = Convert.ToInt32(customerID);
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            var model = from d in db.OPPORTUNITYDETAILs
+                        where d.OPPORTUNITY_CODE == cID
+                        select d;
+            return PartialView("_OrderDetailGrid", model.ToArray());
         }
 
-        [ValidateInput(false)]
-        public ActionResult GridViewPartialOrder()
+        public ActionResult orderPartial(string clickedButton)
         {
+            int oppCode = 1, rowCode = 1;
+            if (clickedButton != null)
+            {
+                string[] keys = clickedButton.Split('|');
+                rowCode = Convert.ToInt32(keys[0]);
+                oppCode = Convert.ToInt32(keys[1]);
+            }
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 3);
-            return PartialView("_GridViewPartialOrder", model.ToList());
-        }
+            OPPORTUNITYDETAIL model = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == oppCode).Where(x => x.ROW_ORDER_NO == rowCode).FirstOrDefault();
 
-        [ValidateInput(false)]
-        public ActionResult GridViewPartialInReview()
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 16);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
-        }
+            List<STOKWAREHOUSEPRODUCT> depolarUrun = new List<STOKWAREHOUSEPRODUCT>();
+            List<STOKWAREHOUSEPRODUCT> depolar = (from product in db.STOKACTUALs
+                                        join actuelorder in db.STOKACTUALORDERs on product.STOK_CODE equals actuelorder.STOK_CODE
+                                        where product.STOK_CODE == model.STOK_CODE && (product.QUANTITY - actuelorder.QUANTITY) > 0
+                                                  select new STOKWAREHOUSEPRODUCT
+                                        {
+                                            
 
-        [ValidateInput(false)]
-        public ActionResult GridViewPartialPending()
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 17);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
-        }
+                                        }).ToList();
 
-        [ValidateInput(false)]
-        public ActionResult GridViewPartialApproved()
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 18);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
-        }
 
-        [ValidateInput(false)]
-        public ActionResult GridViewPartialEdited()
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 19);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
-        }
 
-        [ValidateInput(false)]
-        public ActionResult GridViewPartialProcessed()
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 20);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
+            return PartialView("_orderPartial", model);
         }
-
-        [ValidateInput(false)]
-        public ActionResult GridViewPartialShipped()
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 21);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
-        }
-
-        [ValidateInput(false)]
-        public ActionResult GridViewPartialCancelled()
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 22);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
-        }
-
-        [ValidateInput(false)]
-        public ActionResult GridViewPartialDispatchNote()
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 4);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
-        }
-
-        [ValidateInput(false)]
-        public ActionResult GridViewPartialInvoice()
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 5);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
-        }
-
-        [ValidateInput(false)]
-        public ActionResult GridViewPartialLinesheets()
-        {
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            var model = db.OPPORTUNITYMASTERs.Where(x => x.DOCUMENT_TYPE == 23);
-            return PartialView("_GridViewPartialOpportunity", model.ToList());
-        }
-
     }
 }

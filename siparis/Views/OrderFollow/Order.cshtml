@@ -2,10 +2,60 @@
 @using siparis.Models
 @{
     ViewBag.Title = @Res.resGetir(84);
-    Layout = "~/Views/Shared/_oMainLayout.cshtml";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
 
 }
-
 <h2>@Res.resGetir(84)</h2>
 
-@Html.Partial("MasterDetailMasterPartial", Model)
+<script>
+    function OnGetRowValues(value) {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("orderPartial", "OrderFollow")',
+            data: { 'clickedButton': value },
+            success: function (data) {
+                $('#detailPaneled').html(data)
+            }
+        });
+    }
+</script>
+
+@Html.DevExpress().Panel(settings =>
+{
+    settings.Name = "detailPanel";
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.Styles.Panel.CssClass = "detailPanel";
+    settings.Collapsible = true;
+    settings.SettingsCollapsing.ExpandEffect = PanelExpandEffect.PopupToTop;
+    settings.SettingsCollapsing.AnimationType = AnimationType.Slide;
+    settings.SettingsAdaptivity.CollapseAtWindowInnerHeight = 680;
+    settings.SettingsAdaptivity.HideAtWindowInnerHeight = 500;
+    settings.Styles.ExpandBar.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.Styles.ExpandBar.CssClass = "bar";
+    settings.Styles.Panel.BorderTop.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
+    settings.SetContent(() =>
+    {
+        ViewContext.Writer.Write("<div class='title'>Orders</div>");        
+    });
+   
+}).GetHtml()
+@Html.Partial("_OrderMasterGrid", Model)
+
+@Html.DevExpress().Panel(settings =>
+{
+    settings.Name = "detailPaneled";
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.Styles.Panel.CssClass = "detailPanel";
+    settings.Collapsible = true;
+    settings.SettingsCollapsing.ExpandEffect = PanelExpandEffect.PopupToTop;
+    settings.SettingsCollapsing.AnimationType = AnimationType.Slide;
+    settings.SettingsAdaptivity.CollapseAtWindowInnerHeight = 680;
+    settings.SettingsAdaptivity.HideAtWindowInnerHeight = 380;
+    settings.Styles.ExpandBar.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.Styles.ExpandBar.CssClass = "bar";
+    settings.Styles.Panel.BorderTop.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
+    settings.SetContent(() =>
+    {
+        Html.RenderAction("orderPartial");
+    });
+}).GetHtml()

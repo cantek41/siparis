@@ -22,7 +22,7 @@
             {
                 masterOnayla = true;
             }
-            if ((int)TempData["DOCUMENT_TYPE"] == 20 )
+            if ((int)TempData["DOCUMENT_TYPE"] == 20)
             {
                 masterDelete = true;
             }
@@ -35,28 +35,18 @@
     settings =>
     {
         settings.Name = "grid";
-        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "GridViewPartialOpportunity" };
-        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "MasterDetailMasterPartial", DOCUMENT_TYPE = TempData["DOCUMENT_TYPE"] };
+        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "OrderMasterGridPartial", DOCUMENT_TYPE = TempData["DOCUMENT_TYPE"] };
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
         settings.CommandColumn.Visible = true;
 
         settings.Settings.VerticalScrollBarMode = ScrollBarMode.Visible;
-        settings.Settings.VerticalScrollableHeight = 500;
+        settings.Settings.VerticalScrollableHeight = 400;
         settings.SettingsPager.PageSize = 50;
         settings.SettingsPager.NumericButtonCount = 6;
         settings.SettingsPager.EnableAdaptivity = true;
 
         //Onayla
-        if (masterOnayla)
-        {
-            settings.CustomActionRouteValues = new { Controller = "OrderFollow", Action = "CustomButtonClick" };
-            settings.CommandColumn.CustomButtons.Add(new GridViewCommandColumnCustomButton()
-            {
-                ID = "First10",
-                Text = "Onayla"
-            });
-            settings.ClientSideEvents.CustomButtonClick = "function(s,e){grid.PerformCallback({clickedButton : s.GetRowKey(e.visibleIndex)});}";
-        }
+       
         ///end onayla
 
         //delete
@@ -128,7 +118,7 @@
             //    "<br />" +
             //    "<br />"
             //);
-            Html.RenderAction("MasterDetailDetailPartial", new { CustomerID = DataBinder.Eval(c.DataItem, "OPPORTUNITY_CODE") });
+            Html.RenderAction("OrderDetailGrid", new { CustomerID = DataBinder.Eval(c.DataItem, "OPPORTUNITY_CODE") });
         });
         settings.PreRender = (sender, e) =>
         {

@@ -1,3 +1,4 @@
+
 <div class="leftPanel">
         @* DXCOMMENT: Configure the left panel's menu *@
     @Html.DevExpress().NavBar(settings => {
@@ -8,11 +9,14 @@
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
         settings.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(0);
         settings.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(0);
+        settings.ClientSideEvents.Init = "function(s,e){s.CollapseAll();}";
         settings.GroupDataBound = (sender, e) =>
         {
             if (!User.IsInRole(e.Group.Text))
             {
                 e.Group.Enabled = false;
+                e.Group.AllowDragging = false;
+                e.Group.ClientVisible = false;
             }
         };
     }).BindToXML(HttpContext.Current.Server.MapPath("~/App_Data/SideMenu.xml"), "/menu/*").GetHtml()

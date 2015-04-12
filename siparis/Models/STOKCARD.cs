@@ -17,7 +17,6 @@ namespace siparis.Models
         public STOKCARD()
         {
             this.OPPORTUNITYDETAILs = new HashSet<OPPORTUNITYDETAIL>();
-            this.STOKACTUALs = new HashSet<STOKACTUAL>();
             this.STOKCARDPICTUREs = new HashSet<STOKCARDPICTURE>();
         }
     
@@ -93,7 +92,6 @@ namespace siparis.Models
         public Nullable<int> MAX_SEND_TIME { get; set; }
     
         public virtual ICollection<OPPORTUNITYDETAIL> OPPORTUNITYDETAILs { get; set; }
-        public virtual ICollection<STOKACTUAL> STOKACTUALs { get; set; }
         public virtual STOKBODY STOKBODY { get; set; }
         public virtual STOKBRAND STOKBRAND { get; set; }
         public virtual STOKCOLOR STOKCOLOR { get; set; }
