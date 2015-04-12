@@ -2597,14 +2597,19 @@ h2.title {
     color: #FE980F;
 }
 
-/*** index için ***/
+/*** index ve detay sayfasına ek stiller ***/
 
-.etiket {
+.etiket, .detayEtiket {
     text-align: left;
-    padding-left: 20px;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
-    margin-bottom: 10px;
+    font-weight:600;
+    color: #696763;
+   
+}
+.etiket {
+padding-left: 20px;
+margin-bottom: 10px;
 }
 
 .buyukharf {
@@ -2624,7 +2629,10 @@ h2.title {
 
 
 
-.renk {
-color: #363432;
+
+.alt {
+    clear:both;
+    margin-top:20px;
+    padding:5px;
 }
 
