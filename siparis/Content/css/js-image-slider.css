@@ -1,17 +1,16 @@
-/* http://www.menucool.com */
-
 #sliderFrame, #sliderFrame div {
-    box-sizing: content-box;
+    /*box-sizing: content-box;*/
 }
 #sliderFrame 
 {
     position:relative;
-    width:100%;
     margin:0 auto; /*center-aligned*/
+   
 }
 
 #slider, #slider div.sliderInner {
-    width:700px;height:306px;/* Must be the same size as the slider images */
+    width:1170px;height:250px;/* Must be the same size as the slider images */
+     
 }
 
 #slider {
@@ -20,6 +19,7 @@
 	margin:0 auto; /*center-aligned*/
     transform: translate3d(0,0,0);
     box-shadow: 0px 1px 5px #999999;
+    border:solid 10px #ffad41;
 }
 
 /* image wrapper */
@@ -37,7 +37,6 @@
 #slider div.mc-caption-bg, #slider div.mc-caption-bg2 {
 	position:absolute;
 	width:100%;
-	height:auto;
 	padding:10px 0;/* 10px will increase the height.*/
 	left:0px; /*if the caption needs to be aligned from right, specify by right instead of left. i.e. right:20px;*/
 	bottom:0px;/*if the caption needs to be aligned from top, specify by top instead of bottom. i.e. top:150px;*/
@@ -71,7 +70,7 @@
 /* ------ built-in navigation bullets wrapper ------*/
 /* Note: check themes\2\js-image-slider.css to see how to hide nav bullets */
 #slider div.navBulletsWrapper  {
-    top:320px;/* Its position is relative to the #slider */
+    top:200px;/* Its position is relative to the #slider */
 	text-align:center;
 	background:none;
 	position:relative;
@@ -83,7 +82,7 @@
 {
     width:11px; height:11px;
     font-size:0;color:White;/*hide the index number in the bullet element*/
-    background:transparent url(../../Content/images/slider/bullet.png) no-repeat 0 0;
+    background:transparent url(../../Content/images/slider/bullets.png) no-repeat 0 0;
     display:inline-block; *display:inline; zoom:1;
     overflow:hidden;cursor:pointer;
     margin:0 6px;/* set distance between each bullet*/

@@ -1,6 +1,13 @@
+<style>
+    .baslik
+    {
+        font-family:'Bauhaus 93';
+        font-size:24px;
+    }
+</style>
 <div class="headerTop">
     <div class="templateTitle">
-        @Html.ActionLink("Project Title", "Index", "Home")
+        @Html.ActionLink("modam", "Index", "Home", null, new {@class="baslik"})
     </div>
     <div class="loginControl">
         @Html.Partial("LogOnPartialView")

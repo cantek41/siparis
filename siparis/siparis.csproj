@@ -777,6 +777,23 @@
     <Content Include="Content\images\home\sale.png" />
     <Content Include="Content\images\home\searchicon.png" />
     <Content Include="Content\images\home\shipping.jpg" />
+    <Content Include="Content\images\icons\blank.png" />
+    <Content Include="Content\images\icons\calculator.png" />
+    <Content Include="Content\images\icons\cancel.png" />
+    <Content Include="Content\images\icons\cart.png" />
+    <Content Include="Content\images\icons\check.png" />
+    <Content Include="Content\images\icons\edit.png" />
+    <Content Include="Content\images\icons\inbox.png" />
+    <Content Include="Content\images\icons\dispatch.png" />
+    <Content Include="Content\images\icons\like.png" />
+    <Content Include="Content\images\icons\offer.png" />
+    <Content Include="Content\images\icons\ok.png" />
+    <Content Include="Content\images\icons\services.png" />
+    <Content Include="Content\images\icons\solution.png" />
+    <Content Include="Content\images\icons\time.png" />
+    <Content Include="Content\images\icons\trash.png" />
+    <Content Include="Content\images\icons\truck.png" />
+    <Content Include="Content\images\icons\zoom.png" />
     <Content Include="Content\images\product-details\1.jpg" />
     <Content Include="Content\images\product-details\new.jpg" />
     <Content Include="Content\images\product-details\rating.png" />
@@ -791,13 +808,11 @@
     <Content Include="Content\images\shop\product7.jpg" />
     <Content Include="Content\images\shop\product8.jpg" />
     <Content Include="Content\images\shop\product9.jpg" />
-    <Content Include="Content\images\slider\bullet.png" />
-    <Content Include="Content\images\slider\image-slider-1.jpg" />
-    <Content Include="Content\images\slider\image-slider-2.jpg" />
-    <Content Include="Content\images\slider\image-slider-3.jpg" />
-    <Content Include="Content\images\slider\image-slider-4.jpg" />
-    <Content Include="Content\images\slider\image-slider-5.jpg" />
+    <Content Include="Content\images\slider\bullets.png" />
     <Content Include="Content\images\slider\loading.gif" />
+    <Content Include="Content\images\slider\slider-1.jpg" />
+    <Content Include="Content\images\slider\slider-2.jpg" />
+    <Content Include="Content\images\slider\slider-3.jpg" />
     <Content Include="Content\images\verticalMenu\blank.png" />
     <Content Include="Content\images\verticalMenu\calculator.png" />
     <Content Include="Content\images\verticalMenu\cancel.png" />
@@ -1013,7 +1028,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39839/</IISUrl>
+          <IISUrl>http://localhost:39822/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
