@@ -2488,7 +2488,7 @@ warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a pri
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="WAREHOUSE_ID" Type="int" />
           <Property Name="STOK_ID" Type="int" />
-          <Property Name="STOK_CODE" Type="int" />
+          <Property Name="STOK_CODE" Type="nvarchar" MaxLength="50" />
           <Property Name="TOTAL_QUANTITIY" Type="int" />
           <Property Name="QUANTITY" Type="int" />
           <Property Name="STATUS" Type="bit" />
@@ -5590,7 +5590,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="WAREHOUSE_ID" Type="Int32" />
           <Property Name="STOK_ID" Type="Int32" />
-          <Property Name="STOK_CODE" Type="Int32" />
+          <Property Name="STOK_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TOTAL_QUANTITIY" Type="Int32" />
           <Property Name="QUANTITY" Type="Int32" />
           <Property Name="STATUS" Type="Boolean" />

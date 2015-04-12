@@ -9,7 +9,6 @@
 
 namespace siparis.Models
 {
-
     using System;
     using System.Configuration;
     using System.Data.Entity;

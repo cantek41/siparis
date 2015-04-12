@@ -17,7 +17,7 @@ namespace siparis.Models
         public int ID { get; set; }
         public Nullable<int> WAREHOUSE_ID { get; set; }
         public Nullable<int> STOK_ID { get; set; }
-        public Nullable<int> STOK_CODE { get; set; }
+        public string STOK_CODE { get; set; }
         public Nullable<int> TOTAL_QUANTITIY { get; set; }
         public Nullable<int> QUANTITY { get; set; }
         public Nullable<bool> STATUS { get; set; }

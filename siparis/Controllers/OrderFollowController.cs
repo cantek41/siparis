@@ -461,13 +461,12 @@ namespace siparis.Controllers
             OPPORTUNITYDETAIL model = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == oppCode).Where(x => x.ROW_ORDER_NO == rowCode).FirstOrDefault();
 
             List<STOKWAREHOUSEPRODUCT> depolarUrun = new List<STOKWAREHOUSEPRODUCT>();
-            List<STOKACTUAL> depolar = (from product in db.STOKACTUALs
+            List<STOKWAREHOUSEPRODUCT> depolar = (from product in db.STOKACTUALs
                                         join actuelorder in db.STOKACTUALORDERs on product.STOK_CODE equals actuelorder.STOK_CODE
                                         where product.STOK_CODE == model.STOK_CODE && (product.QUANTITY - actuelorder.QUANTITY) > 0
-                                        select new STOKACTUAL
+                                                  select new STOKWAREHOUSEPRODUCT
                                         {
-                                            DEPOT_ID=product.DEPOT_ID,
-                                            STOK_CODE=product.STOK_CODE
+                                            
 
                                         }).ToList();
 
