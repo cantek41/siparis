@@ -1,7 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <items>
-  <item Text="Home" NavigateUrl="#" />
-  <item Text="Products" NavigateUrl="#"  />
-  <item Text="Downloads" NavigateUrl="#"  />
-  <item Text="Support" NavigateUrl="#"  />
+  <item Text="Home" NavigateUrl="../Home/Index" /> 
 </items>
