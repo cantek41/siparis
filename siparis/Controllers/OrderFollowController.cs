@@ -448,6 +448,7 @@ namespace siparis.Controllers
             return PartialView("_OrderDetailGrid", model.ToArray());
         }
 
+
         public ActionResult orderPartial(string clickedButton)
         {
             int oppCode = 1, rowCode = 1;
@@ -487,6 +488,19 @@ namespace siparis.Controllers
 
 
             return PartialView("_orderPartial", new Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL>(depolar, model));
+        }
+
+        public ActionResult updateWareHouse(MVCxGridViewBatchUpdateValues<StokWareHouseViewModel, int> updateValues)
+        {
+            foreach (var product in updateValues.Update)
+            {
+                if (updateValues.IsValid(product))
+                {
+                    int i;
+                    // UpdateProduct(product, updateValues);
+                }
+            }
+            return OrderMasterGrid(3);
         }
     }
 }
