@@ -1,0 +1,30 @@
+﻿@model siparis.Models.OPPORTUNITYDETAIL
+@Html.DevExpress().TextBoxFor(model => model.STOK_CODE, textBoxSettings =>
+{
+    textBoxSettings.Properties.Caption = "Company Name";
+    PrepareTextBoxSettings(textBoxSettings);
+}).GetHtml()
+
+@Html.DevExpress().TextBoxFor(model => model.PRODUCT_NAME, textBoxSettings =>
+{
+    textBoxSettings.Properties.Caption = "Contact Name";
+    PrepareTextBoxSettings(textBoxSettings);
+}).GetHtml()
+
+@Html.DevExpress().TextBoxFor(model => model.QUANTITY, textBoxSettings =>
+{
+    textBoxSettings.Properties.Caption = "Contact Title";
+    PrepareTextBoxSettings(textBoxSettings);
+}).GetHtml()
+
+
+@functions{
+    Action<TextBoxSettings> PrepareTextBoxSettings = (TextBoxSettings settings) =>
+    {
+        settings.ControlStyle.CssClass = "editor";
+        settings.Properties.RootStyle.CssClass = "editorContainer";
+        settings.Properties.CaptionCellStyle.CssClass = "editorCaption";
+        settings.ReadOnly = true;
+       
+    };
+}

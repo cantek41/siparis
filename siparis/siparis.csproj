@@ -936,7 +936,7 @@
     <Content Include="Views\OrderFollow\InReview.cshtml" />
     <Content Include="Views\OrderFollow\Order.cshtml" />
     <Content Include="Views\OrderFollow\Draft.cshtml" />
-    <Content Include="Views\OrderFollow\_GridViewPartialOrder.cshtml" />
+    <Content Include="Views\OrderFollow\_OrderMasterGrid.cshtml" />
     <Content Include="Views\OrderFollow\Opportunity.cshtml" />
     <Content Include="Views\OrderFollow\Processed.cshtml" />
     <Content Include="Views\OrderFollow\Shipped.cshtml" />
@@ -978,6 +978,8 @@
     <Content Include="Views\Shared\ContentLeftPartialView.cshtml" />
     <Content Include="Views\Shared\_mainLayout.cshtml" />
     <Content Include="Views\Shared\_rootLayout.cshtml" />
+    <Content Include="Views\OrderFollow\_orderPartial.cshtml" />
+    <Content Include="Views\OrderFollow\_OrderDetailGrid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
@@ -1007,7 +1009,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39816/</IISUrl>
+          <IISUrl>http://localhost:39839/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
