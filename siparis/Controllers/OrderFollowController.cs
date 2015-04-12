@@ -16,8 +16,7 @@ namespace siparis.Controllers
         // GET: /Admin/
         public ActionResult Index()
         {
-
-            return View();
+            return RedirectToAction("Opportunity");
         }
 
         public ActionResult Opportunity()
