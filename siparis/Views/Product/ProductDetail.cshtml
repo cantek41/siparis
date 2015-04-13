@@ -67,17 +67,14 @@
                                 <!--/product-information-->
                                 @*<img src="../content/images/product-details/new.jpg" class="newarrival" alt="" />*@
                                 @*<h2>Anne Klein Sleeveless Colorblock Scuba</h2>*@
-                                <h2>@Model.NAME_TR</h2>
+                                <span><span class="buyukharf">@Model.NAME_TR</span></span>
 
                                 <p>Web ID: 1089772</p>
                                 <center>
-                                    <img src="../content/images/product-details/rating.png" alt="" />
+                                    <img src="../content/images/product-details/rating.png" alt=""/>
                                 </center>
                                 <span>
                                     <span> @Model.UNIT_PRICE @Model.CUR_TYPE </span>
-
-
-
                                 </span>
                                 <p><b>@Res.resGetir(91)</b> @Model.UNIT</p>
                                 <p><b>@Res.resGetir(92)</b> @Res.resGetir(93)</p>
@@ -88,36 +85,44 @@
                     </center>
                 </div><!--/product-details-->
             </div>
-            <div class="col-sm-3 product-information" style="padding:0;">
-                <div class="alt">
-                    <div class="col-md-6">
-                        <span class="detayEtiket">Start Date</span>
-                    </div>
-                    <div class="col-md-6">
+            <div class="col-sm-3">
+                <div class="product-information" style="padding:0; margin-top:9px;">
+                    <div class="alt">
+                        <div class="col-sm-6">
+                            <p><b>Start Date</b></p>
+                        </div>
+                        <div class="col-sm-6">
 
-                        @Html.DevExpress().DateEdit(
+                            @Html.DevExpress().DateEdit(
                 settings =>
                 {
-                    
+
                     settings.Name = "dateEdit1";
                     settings.Properties.NullText = "dd/MM/yyyy";
                     settings.Properties.EditFormat = EditFormat.Custom;
                     settings.Properties.EditFormatString = "dd/MM/yyyy";
+                    settings.RightToLeft = DefaultBoolean.True;
+                    settings.Properties.CalendarProperties.ShowClearButton = false;
+                    settings.Properties.CalendarProperties.ShowTodayButton = false;
+                    settings.Properties.CalendarProperties.ShowDayHeaders = false;
+                    settings.Properties.CalendarProperties.ShowHeader = false;
+                    settings.Properties.CalendarProperties.ShowWeekNumbers = false;
+                    
                     settings.Date = new DateTime();
                     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
 
                 }
             ).GetHtml()
+                        </div>
+
                     </div>
 
-                </div>
-
-                <div class="alt">
-                    <div class="col-md-6">
-                        <span class="detayEtiket">End Date</span>
-                    </div>
-                    <div class="col-md-6">
-                        @Html.DevExpress().DateEdit(
+                    <div class="alt">
+                        <div class="col-sm-6">
+                            <p><b>End Date</b></p>
+                        </div>
+                        <div class="col-sm-6">
+                            @Html.DevExpress().DateEdit(
                 settings =>
                 {
                     settings.Name = "dateEdit2";
@@ -126,39 +131,48 @@
                     settings.Properties.EditFormatString = "dd/MM/yyyy";
                     settings.Date = new DateTime();
                     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                    settings.RightToLeft = DefaultBoolean.True;
+                    settings.Properties.CalendarProperties.ShowClearButton = false;
+                    settings.Properties.CalendarProperties.ShowTodayButton = false;
+                    settings.Properties.CalendarProperties.ShowDayHeaders = false;
+                    settings.Properties.CalendarProperties.ShowHeader = false;
+                    settings.Properties.CalendarProperties.ShowWeekNumbers = false;
                 }
             ).GetHtml()
+                        </div>
                     </div>
-                </div>
-                <div class="alt">
-                    <div class="col-md-6">
-                        <span class="detayEtiket">@Res.resGetir(72)</span>
+                    <div class="alt">
+                        <div class="col-sm-6">
+                            <p><b>@Res.resGetir(72)</b></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="text" id="miktar" type="text" value="1" />
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input class="text" id="miktar" type="text" value="1" />
-                    </div>
-                </div>
 
-                <div class="alt">
-                    <div class="col-md-6">
-                        <span class="detayEtiket">Stok</span>
+                    <div class="alt">
+                        <div class="col-sm-6">
+                            <p><b>Stok</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="basic-addon1" value="@Model.UNIT" class="text" disabled />
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input id="basic-addon1" value="@Model.UNIT" class="text" />
-                    </div>
-                </div>
-                <div class="alt">
-                    <div class="col-md-6">
-                        <a class="btn btn-default"><i class="fa fa-backward"></i> @Res.resGetir(103)</a>
-                    </div>
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-fefault cart" onclick="sepeteEkleMiktarli(@Model.ID,$('#miktar').val())" style="text-align:left">
-                            <i class="fa fa-shopping-cart"></i>
-                            @Res.resGetir(2)
-                        </button>
+                    <div class="alt">
+                        <div class="col-sm-6">
+                            <a class="btn btn-default blank-arrow"><i class="fa fa-backward"></i> @Res.resGetir(103)</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-default cart" onclick="sepeteEkleMiktarli(@Model.ID,$('#miktar').val())" style="margin-left:-30px;">
+                                <i class="fa fa-shopping-cart"></i>
+                                @Res.resGetir(2)
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
 
             @*<label>@Res.resGetir(72)</label>*@
 
