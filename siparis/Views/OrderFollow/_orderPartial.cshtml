@@ -1,6 +1,6 @@
 ﻿@model Tuple<List<siparis.Models.StokWareHouseViewModel>, siparis.Models.OPPORTUNITYDETAIL>
 <style type="text/css">
-    body {
+    /*body {
         padding: 0;
         margin: 0;
         overflow: hidden;
@@ -25,7 +25,7 @@
         border-left: 0 !important;
         border-right: 0 !important;
         border-bottom: 0 !important;
-    }
+    }*/
 
     .detailPanel {
         height: 148px;
@@ -42,10 +42,10 @@
             }
 
     .editorContainer {
-        width: 32%;
+        width: 80%;
         margin-right: 1%;
         margin-bottom: 8px;
-        float: left;
+        /*float: left;*/
         min-width: 30px;
     }
 
@@ -60,22 +60,22 @@
 <div class="row">
     <div class="col-md-4">
         @Html.DevExpress().TextBoxFor(model => model.Item2.STOK_CODE, textBoxSettings =>
-{
-    textBoxSettings.Properties.Caption = "Company Name";
-    PrepareTextBoxSettings(textBoxSettings);
-}).GetHtml()
+            {
+                textBoxSettings.Properties.Caption = "STOK CODE";
+                PrepareTextBoxSettings(textBoxSettings);
+            }).GetHtml()
 
         @Html.DevExpress().TextBoxFor(model => model.Item2.PRODUCT_NAME, textBoxSettings =>
-{
-    textBoxSettings.Properties.Caption = "Contact Name";
-    PrepareTextBoxSettings(textBoxSettings);
-}).GetHtml()
+            {
+                textBoxSettings.Properties.Caption = "PRODUCT NAME";
+                PrepareTextBoxSettings(textBoxSettings);
+            }).GetHtml()
 
         @Html.DevExpress().TextBoxFor(model => model.Item2.QUANTITY, textBoxSettings =>
-{
-    textBoxSettings.Properties.Caption = "Contact Title";
-    PrepareTextBoxSettings(textBoxSettings);
-}).GetHtml()
+            {
+                textBoxSettings.Properties.Caption = "QUANTITY";
+                PrepareTextBoxSettings(textBoxSettings);
+            }).GetHtml()
 
 
         @functions{
@@ -92,6 +92,7 @@
     </div>
 
     <div class="col-md-8">
+        <h5><B>DISTRIBUTE</B></h5>
         @Html.DevExpress().GridView(settings =>
     {
         settings.Name = "gvOverview";
@@ -100,9 +101,9 @@
             Controller = "OrderFollow",
             Action = "orderPartial"
         };
-        settings.SettingsEditing.BatchUpdateRouteValues = new { Controller = "OrderFollow", Action = "updateWareHouse" };
+        settings.SettingsEditing.BatchUpdateRouteValues = new { Controller = "WareHouse", Action = "updateWareHouse" };
         settings.SettingsEditing.Mode = GridViewEditingMode.Batch;
-     //   settings.SettingsEditing.BatchEditSettings.EditMode = GridViewEditingMode.Batch;
+        //   settings.SettingsEditing.BatchEditSettings.EditMode = GridViewEditingMode.Batch;
         //  settings.SettingsEditing.BatchEditSettings.StartEditAction = GridViewEditingMode.BatchStartEditAction;
 
         settings.KeyFieldName = "WAREHOUSE_NAME";
@@ -124,7 +125,7 @@
             column.FieldName = "QUANTITY";
             column.ReadOnly = true;
 
-        });      
+        });
         settings.Columns.Add(column =>
         {
             column.FieldName = "CHOSE";
@@ -133,9 +134,9 @@
             var spinEditProperties = column.PropertiesEdit as SpinEditProperties;
             spinEditProperties.NumberType = SpinEditNumberType.Integer;
             spinEditProperties.MinValue = 0;
-            spinEditProperties.MaxValue = 10000;           
-            
-        });       
+            spinEditProperties.MaxValue = 10000;
+
+        });
     }).Bind(Model.Item1).GetHtml()
     </div>
 </div>

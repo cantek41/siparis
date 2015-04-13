@@ -373,13 +373,16 @@ namespace siparis.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
+            Session.Clear(); //fix me
+            Session.Abandon();
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+
 
         //
         // GET: /Account/ExternalLoginFailure

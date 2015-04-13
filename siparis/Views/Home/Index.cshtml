@@ -49,6 +49,7 @@
                         @Html.Hidden("PageSize", info.PageSize)
                         @Html.Hidden("CurrentPageIndex",
    info.CurrentPageIndex)
+                        
                         foreach (var stok in Model.stokcard)
                         {
                             <div class="col-sm-4">
@@ -65,7 +66,7 @@
                                                     <span class="etiket">@Res.resGetir(102)</span>
                                                 </div>
                                                 <div class="col-md-6 etiket">
-                                                    <input class="text renk" id="miktar" type="text" size="2" value=@stok.UNIT disabled />
+                                                    <input class="text renk" type="text" size="2" value=@stok.UNIT disabled />
                                                 </div>
                                             </div>
 
@@ -75,11 +76,11 @@
 
                                                 </div>
                                                 <div class="col-md-6 etiket">
-                                                    <input class="text renk" id="miktar" type="text" size="2" value="1" />
+                                                    <input class="text renk" id="@stok.ID" type="text" size="2" value="1" />
                                                 </div>
                                             </div>
 
-                                            <a class="btn btn-default add-to-cart" onclick="sepeteEkleMiktarli(@stok.ID,$('#miktar').val())"><i class="fa fa-shopping-cart"></i>@Res.resGetir(2)</a>
+                                            <a class="btn btn-default add-to-cart" onclick="sepeteEkleMiktarli(@stok.ID,$('#@stok.ID').val())"><i class="fa fa-shopping-cart"></i>@Res.resGetir(2)</a>
                                             <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@Res.resGetir(3)</a>
                                         </div>
                                     </div>

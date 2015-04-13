@@ -476,7 +476,7 @@ namespace siparis.Controllers
                 int miktar = db.STOKACTUALORDERs.Where(x => x.STOK_CODE == item.STOK_CODE).Select(x => x.QUANTITY).FirstOrDefault() ?? 0;
                 item.QUANTITY = item.TOTAL_QUANTITIY - miktar;
                 if (!stokTamam)
-                    if (item.QUANTITY > model.QUANTITY)
+                    if (item.QUANTITY >= model.QUANTITY)
                     {
                         depolar.ElementAt(i).CHOSE = (int)model.QUANTITY;
                         stokTamam = true;
@@ -489,17 +489,6 @@ namespace siparis.Controllers
             return PartialView("_orderPartial", new Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL>(depolar, model));
         }
 
-        public ActionResult updateWareHouse(MVCxGridViewBatchUpdateValues<StokWareHouseViewModel, int> updateValues)
-        {
-            foreach (var product in updateValues.Update)
-            {
-                if (updateValues.IsValid(product))
-                {
-                    int i;
-                    // UpdateProduct(product, updateValues);
-                }
-            }
-            return OrderMasterGrid(3);
-        }
+        
     }
 }

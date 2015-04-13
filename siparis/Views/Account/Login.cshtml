@@ -11,27 +11,27 @@
     <meta name="viewport" content="width=device-width" />
     <title>FirstLogin</title>
     <link href="~/Content/css/style.css" rel="stylesheet" />
-    
+
 </head>
 <body>
     <section>
         <span></span>
-        
+
 
         @using (Html.BeginForm())
         {
-            
-                        <h1>@Res.resGetir(52)</h1>
-                        @Html.TextBoxFor(model => model.TCode, null, new { placeholder = "Ticari Kod" })
-                        @Html.TextBoxFor(model => model.UserName, null, new { placeholder = @Res.resGetir(9) })
-                        @Html.PasswordFor(model => model.Password)
 
-                       
-                          <div style="float:left;">  @Html.CheckBoxFor(model => model.RememberMe)</div>
-                           <div style="float:left;margin-left:5px;margin-top:8px;"> @Res.resGetir(75)</div>
-                        
-                        <button type="submit" class="btn btn-default">@Res.resGetir(23)</button>
-                  
+            <h1>@Res.resGetir(52)</h1>
+            @Html.TextBoxFor(model => model.TCode, null, new { placeholder = "Ticari Kod" })
+            @Html.TextBoxFor(model => model.UserName, null, new { placeholder = @Res.resGetir(9) })
+            @Html.PasswordFor(model => model.Password)
+
+
+            <div style="float:left;">  @Html.CheckBoxFor(model => model.RememberMe)</div>
+            <div style="float:left;margin-left:5px;margin-top:8px;"> @Res.resGetir(75)</div>
+
+            <button type="submit" class="btn btn-default">@Res.resGetir(23)</button>
+
         }
         <h2>
             <a href='#'>Forgot Password?</a>

@@ -38,7 +38,8 @@ namespace siparis
             bundles.Add(new StyleBundle("~/bundles/orangeMenuStyle").Include(
                     "~/Content/css/verticalMenu.css"));
 
-
+            bundles.Add(new StyleBundle("~/bundels/bootstrapCss").Include(
+                     "~/Content/css/bootstrap.css"));
 
             BundleTable.EnableOptimizations = true;
 

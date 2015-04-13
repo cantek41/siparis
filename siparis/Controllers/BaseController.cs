@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 namespace siparis.Controllers
 {
-    //[Authorize (Roles="Admin,Bayi")]
+    [Authorize]
     public class BaseController : Controller
     {
         public static string dbName = "VdbSoft";

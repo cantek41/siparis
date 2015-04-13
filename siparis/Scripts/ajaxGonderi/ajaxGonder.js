@@ -22,7 +22,7 @@
     });
 }
 
-function sepeteEkleMiktarli(id,miktar) {    
+function sepeteEkleMiktarli(id, miktar) {    
     $.ajax({
         url: "/Order/AddCart",
         type: 'POST',

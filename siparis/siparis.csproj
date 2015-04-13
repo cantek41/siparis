@@ -259,6 +259,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\StokController.cs" />
+    <Compile Include="Controllers\WareHouseController.cs" />
     <Compile Include="Models\ACTIVITY.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -794,6 +795,7 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\jquery.toastmessage.css" />
     <Content Include="Content\css\js-image-slider.css" />
+    <Content Include="Content\css\style.css" />
     <Content Include="Content\css\verticalMenu.css" />
     <Content Include="Content\images\404\404.png" />
     <Content Include="Content\images\alert\error.png" />
@@ -1066,6 +1068,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\WareHouse\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
