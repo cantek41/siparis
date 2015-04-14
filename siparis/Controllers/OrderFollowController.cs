@@ -465,6 +465,7 @@ namespace siparis.Controllers
                                                     where product.STOK_CODE == model.STOK_CODE
                                                     select new StokWareHouseViewModel
                                                       {
+                                                          WAREHOUSE_ID=warehouse.ID,
                                                           WAREHOUSE_NAME = warehouse.NAME,
                                                           STOK_CODE = product.STOK_CODE,
                                                           TOTAL_QUANTITIY = product.QUANTITY
@@ -481,6 +482,8 @@ namespace siparis.Controllers
                         depolar.ElementAt(i).CHOSE = (int)model.QUANTITY;
                         stokTamam = true;
                     }
+                item.OPPORTUNITY_CODE = model.OPPORTUNITY_CODE;
+                item.ROW_ORDER_NO = model.ROW_ORDER_NO;
                 depolar.ElementAt(i).QUANTITY = item.QUANTITY;
                 i++;
             }

@@ -7,6 +7,9 @@ namespace siparis.Models
 {
     public class StokWareHouseViewModel
     {
+        public int  OPPORTUNITY_CODE { get; set; }
+        public int ROW_ORDER_NO { get; set; }
+        public int WAREHOUSE_ID { get; set; }
         public string WAREHOUSE_NAME { get; set; }
         public Nullable<int> STOK_ID { get; set; }
         public string STOK_CODE { get; set; }

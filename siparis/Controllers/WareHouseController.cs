@@ -12,15 +12,24 @@ namespace siparis.Controllers
     {
         public ActionResult updateWareHouse(MVCxGridViewBatchUpdateValues<StokWareHouseViewModel, int> updateValues)
         {
-            foreach (var product in updateValues.Update)
+            using (VdbSoftEntities db = new VdbSoftEntities())
             {
-                if (updateValues.IsValid(product))
+                foreach (var product in updateValues.Update)
                 {
-                    int i;
-                    // UpdateProduct(product, updateValues);
+                    if (updateValues.IsValid(product))
+                    {
+                        STOKACTUALORDER stk = new STOKACTUALORDER();
+                        stk.OPPORTUNITY_CODE = product.OPPORTUNITY_CODE;
+                        stk.ROW_ORDER_NO = product.ROW_ORDER_NO;
+
+
+
+                        db.STOKACTUALORDERs.Add(stk);
+                        db.SaveChanges();
+                    }
                 }
             }
             return null;
         }
-	}
+    }
 }
