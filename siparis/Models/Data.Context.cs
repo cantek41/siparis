@@ -51,6 +51,7 @@ namespace siparis.Models
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     
+    
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<ACTIVITY> ACTIVITies { get; set; }
         public virtual DbSet<ACTIVITYCC> ACTIVITYCCs { get; set; }

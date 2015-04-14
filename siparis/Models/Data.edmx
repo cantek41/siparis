@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VdbSoftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="VdbSoftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -558,28 +558,6 @@ warning 6002: The table/view 'VdbSoft.dbo.BACKGROUNDPICTURE' does not have a pri
           <Property Name="USER_CODE" Type="int" />
           <Property Name="FILE_SIZE" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.BUDGET' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="BUDGET">
-          <Property Name="BUDGET_CODE" Type="int" />
-          <Property Name="COMPANY_CODE" Type="int" />
-          <Property Name="COMPANY_COMMERCIAL_CODE" Type="nvarchar" MaxLength="30" />
-          <Property Name="COMPANY_NAME" Type="nvarchar" MaxLength="200" />
-          <Property Name="COMPANY_TYPE" Type="nvarchar" MaxLength="10" />
-          <Property Name="CODE" Type="nvarchar" MaxLength="150" />
-          <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
-          <Property Name="USER_CODE" Type="int" />
-          <Property Name="DATE" Type="date" />
-          <Property Name="QUANTITY" Type="real" />
-          <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
-          <Property Name="UNIT_PRICE" Type="real" />
-          <Property Name="CUR_TYPE" Type="nvarchar" MaxLength="5" />
-          <Property Name="CUR_VALUE" Type="real" />
-          <Property Name="TOTAL" Type="real" />
-          <Property Name="CREATE_DATE" Type="datetime" />
-          <Property Name="CREATE_USER" Type="int" />
-          <Property Name="CONFIRMATION_STATUS" Type="int" />
-        </EntityType>-->
         <EntityType Name="CAR">
           <Key>
             <PropertyRef Name="CONTACT_CODE" />
@@ -910,13 +888,6 @@ warning 6002: The table/view 'VdbSoft.dbo.CUR' does not have a primary key defin
           <Property Name="ROW_ORDER_NO" Type="int" />
           <Property Name="CUR_EXT" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.DOCUMENTGROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="DOCUMENTGROUP">
-          <Property Name="FILE_CODE" Type="int" />
-          <Property Name="GROUP_CODE" Type="int" />
-          <Property Name="TYPE" Type="int" />
-        </EntityType>-->
         <EntityType Name="ENTEGRATION">
           <Key>
             <PropertyRef Name="ROW_ORDER_NO" />
@@ -1110,14 +1081,6 @@ warning 6002: The table/view 'VdbSoft.dbo.EXCELD' does not have a primary key de
           <Property Name="EN" Type="nvarchar(max)" />
           <Property Name="GR" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.FOOTTEXTRELATION' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="FOOTTEXTRELATION">
-          <Property Name="CODE" Type="int" />
-          <Property Name="OPPORTUNITY_CODE" Type="int" />
-          <Property Name="TEXT_CODE" Type="int" />
-          <Property Name="ORDER_NO" Type="int" />
-        </EntityType>-->
         <EntityType Name="FORMADDITIONALAREA">
           <Key>
             <PropertyRef Name="FORM_NAME" />
@@ -1230,13 +1193,6 @@ warning 6013: The table/view 'VdbSoft.dbo.FOOTTEXTRELATION' does not have a prim
           <Property Name="FORM_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MTYPE" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.FORMMENU' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="FORMMENU">
-          <Property Name="FORM_ID" Type="int" />
-          <Property Name="CONTROL_NAME" Type="nvarchar" MaxLength="100" />
-          <Property Name="R_ID" Type="int" />
-        </EntityType>-->
         <EntityType Name="FORMREPLACMENT">
           <Key>
             <PropertyRef Name="FORM_NAME" />
@@ -1569,15 +1525,6 @@ warning 6002: The table/view 'VdbSoft.dbo.MENULOAD' does not have a primary key 
           <Property Name="TYPE" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.MENUPARAMETRE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="MENUPARAMETRE">
-          <Property Name="PARAMETRE" Type="nvarchar" MaxLength="50" />
-          <Property Name="RES" Type="int" />
-          <Property Name="GROUP_CODE" Type="int" />
-          <Property Name="LANGUAGE" Type="nchar" MaxLength="10" />
-          <Property Name="TYPE" Type="nchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'VdbSoft.dbo.MENUREPORTLOAD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="MENUREPORTLOAD">
           <Key>
@@ -1768,16 +1715,6 @@ warning 6002: The table/view 'VdbSoft.dbo.MENUREPORTLOAD' does not have a primar
           <Property Name="EMPTY_ACTION" Type="nvarchar" MaxLength="1" />
           <Property Name="CONTROL_INFO" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.PGROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="PGROUP">
-          <Property Name="ID" Type="int" />
-          <Property Name="ROW_ORDER_NO" Type="int" />
-          <Property Name="EXP_TR" Type="nvarchar" MaxLength="150" />
-          <Property Name="EXP_EN" Type="nvarchar" MaxLength="150" />
-          <Property Name="EXP_OT" Type="nvarchar" MaxLength="150" />
-          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="150" />
-        </EntityType>-->
         <EntityType Name="PHONE">
           <Key>
             <PropertyRef Name="PHONE_CODE" />
@@ -1845,20 +1782,6 @@ warning 6013: The table/view 'VdbSoft.dbo.PGROUP' does not have a primary key de
           <Property Name="ROW" Type="nvarchar(max)" />
           <Property Name="LAN_CODE" Type="nvarchar" MaxLength="4" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.PREFORMABANKRELATION' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="PREFORMABANKRELATION">
-          <Property Name="OPPORTUNITY_CODE" Type="int" />
-          <Property Name="BANK_CODE" Type="int" />
-          <Property Name="VERSION" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.PREFORMAORIGENRELATION' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="PREFORMAORIGENRELATION">
-          <Property Name="OPPORTUNITY_CODE" Type="int" />
-          <Property Name="TRANSPORT_CODE" Type="int" />
-          <Property Name="VERSION" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
         <EntityType Name="PROGRAMPREFIX">
           <Key>
             <PropertyRef Name="PROGRAM_CODE" />
@@ -2001,16 +1924,6 @@ warning 6002: The table/view 'VdbSoft.dbo.PSQL' does not have a primary key defi
           <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="NOTE" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.RIVALCOMPANYGROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="RIVALCOMPANYGROUP">
-          <Property Name="RIVAL_COMPANY_CODE" Type="int" />
-          <Property Name="RIVAL_GROUP_CODE" Type="int" />
-          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
-          <Property Name="LAST_UPDATE" Type="datetime" />
-          <Property Name="CREATE_DATE" Type="datetime" />
-          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
-        </EntityType>-->
         <EntityType Name="RIVALPRODUCT">
           <Key>
             <PropertyRef Name="RIVAL_PRODUCT_CODE" />
@@ -2048,34 +1961,6 @@ warning 6013: The table/view 'VdbSoft.dbo.RIVALCOMPANYGROUP' does not have a pri
           <Property Name="EQUIVALENT_PRODUCT_NAME" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.RP_KARLILIK' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="RP_KARLILIK">
-          <Property Name="COMPANY_CODE" Type="nvarchar" MaxLength="150" />
-          <Property Name="COMPANY_NAME" Type="nvarchar" MaxLength="250" />
-          <Property Name="TOPLAM_BUTCE_SAAT" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="SAAT_BASI_UCRET" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="SOZLESME_TUTARI" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="GERCEKLESEN_SAAT" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="GERCEKLESEN_SAAT_BASI_UCRET" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="FARK" Type="decimal" Precision="18" Scale="2" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.RP_PROJE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="RP_PROJE">
-          <Property Name="PERSONEL_NO" Type="nvarchar" MaxLength="30" />
-          <Property Name="PERSONEL" Type="nvarchar" MaxLength="250" />
-          <Property Name="PERSONEL_LEVEL" Type="nvarchar" MaxLength="50" />
-          <Property Name="MESAI_NORMAL" Type="int" />
-          <Property Name="MESAI_FAZLA" Type="int" />
-          <Property Name="TOPLAM_BUTCE_SAAT" Type="int" />
-          <Property Name="ORAN1" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="YANSITILMAYAN" Type="int" />
-          <Property Name="ORAN2" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="KULLANIM" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="COMPANY_NAME" Type="nvarchar" MaxLength="250" />
-          <Property Name="PROJE_ADI" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'VdbSoft.dbo.RU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="RU">
           <Key>
@@ -2098,32 +1983,6 @@ warning 6002: The table/view 'VdbSoft.dbo.RU' does not have a primary key define
           <Property Name="IGNE_SAYISI" Type="decimal" Precision="18" Scale="2" />
           <Property Name="ADET" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.SALES_ORI' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="SALES_ORI">
-          <Property Name="EVRAKTARIHI" Type="datetime" />
-          <Property Name="EVRAKNO1" Type="nvarchar" MaxLength="50" />
-          <Property Name="EVRAKNO2" Type="nvarchar" MaxLength="50" />
-          <Property Name="CARIKODU" Type="nvarchar" MaxLength="50" />
-          <Property Name="STOKKODU" Type="nvarchar" MaxLength="50" />
-          <Property Name="STOKHEDEFGRUP" Type="nvarchar" MaxLength="40" />
-          <Property Name="KOLIICIADET" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="MIKTAR" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="STOKBIRIM" Type="nvarchar" MaxLength="40" />
-          <Property Name="KOLIMIKTAR" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="KOLIBIRIMFIYAT" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="TOPLAMKOLIFIYAT" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="TOPLAMADET" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="ADETBIRIMFIYAT" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="ISKONTOORAN" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="ISKONTOTOPLAM" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="ISKONTOLUTOPLAM" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="PARACINSI" Type="nvarchar" MaxLength="10" />
-          <Property Name="VERGIYUZDE" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="VERGITUTAR" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="GENELTOPLAM" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="GRUP02" Type="nvarchar" MaxLength="30" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'VdbSoft.dbo.SELLER_BALANCE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SELLER_BALANCE">
@@ -2312,6 +2171,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OPPORTUNITY_CODE" Type="int" />
+          <Property Name="ROW_ORDER_NO" Type="int" />
           <Property Name="STOK_CODE" Type="nvarchar" MaxLength="50" />
           <Property Name="QUANTITY" Type="int" />
           <Property Name="WAREHOUSE" Type="int" />
@@ -2618,14 +2478,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERCASH' does not have a primary key 
           <Property Name="USER_CODE" Type="int" Nullable="false" />
           <Property Name="COMPANY_CODE" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.USERDONEM' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="USERDONEM">
-          <Property Name="USER_CODE" Type="int" />
-          <Property Name="DATE" Type="datetime" />
-          <Property Name="OPEN_CLOSE" Type="int" />
-          <Property Name="DONEM" Type="int" />
-        </EntityType>-->
         <EntityType Name="USERINFO">
           <Key>
             <PropertyRef Name="CONTACT_CODE" />
@@ -2688,20 +2540,6 @@ warning 6013: The table/view 'VdbSoft.dbo.USERDONEM' does not have a primary key
           <Property Name="USER_CODE" Type="int" Nullable="false" />
           <Property Name="REGION_CODE" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'VdbSoft.dbo.USERRIGHT' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="USERRIGHT">
-          <Property Name="MENU_NAME" Type="nvarchar" MaxLength="100" />
-          <Property Name="USER_CODE" Type="int" />
-          <Property Name="MAIN" Type="nvarchar" MaxLength="10" />
-          <Property Name="NODE_NO" Type="nvarchar" MaxLength="10" />
-          <Property Name="OBJECT_NAME" Type="nvarchar" MaxLength="100" />
-          <Property Name="P_NECESSARY" Type="int" />
-          <Property Name="ORDER_NO" Type="int" />
-          <Property Name="R_ID" Type="int" />
-          <Property Name="OPER_NO" Type="int" />
-          <Property Name="WINDOWSTATE" Type="int" />
-        </EntityType>-->
         <EntityType Name="USERRIGHTBASE">
           <Key>
             <PropertyRef Name="MAIN" />
@@ -3584,8 +3422,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="STOKCARDPICTURE" EntitySet="STOKCARDPICTURE" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VdbSoftModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -5416,6 +5253,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="QUANTITY" Type="Int32" />
           <Property Name="WAREHOUSE" Type="Int32" />
           <NavigationProperty Name="OPPORTUNITYMASTER" Relationship="Self.FK_STOKACTUALORDER_OPPORTUNITYMASTER" FromRole="STOKACTUALORDER" ToRole="OPPORTUNITYMASTER" />
+          <Property Name="ROW_ORDER_NO" Type="Int32" />
         </EntityType>
         <EntityType Name="STOKBODY">
           <Key>
@@ -8526,6 +8364,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySetMapping Name="STOKACTUALORDERs">
             <EntityTypeMapping TypeName="VdbSoftModel.STOKACTUALORDER">
               <MappingFragment StoreEntitySet="STOKACTUALORDER">
+                <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
                 <ScalarProperty Name="STOK_CODE" ColumnName="STOK_CODE" />
