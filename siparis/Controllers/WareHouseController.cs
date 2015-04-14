@@ -31,5 +31,12 @@ namespace siparis.Controllers
             }
             return null;
         }
+
+        [HttpPost]
+        public ActionResult saveWareHouse(StokWareHouseViewModel item)
+        {
+
+            return null;
+        }
     }
 }

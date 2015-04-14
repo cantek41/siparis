@@ -255,6 +255,9 @@ namespace siparis.Controllers
                         case "Admin":
                             switch (eskiSayfa)
                             {
+                                case 15:
+                                    opp.DOCUMENT_TYPE = 3;
+                                    break;
                                 case 3:
                                     opp.DOCUMENT_TYPE = 18;
                                     break;
@@ -416,9 +419,19 @@ namespace siparis.Controllers
             ViewData["COURSE_CODE"] = customerID;
             int cID = Convert.ToInt32(customerID);
             VdbSoftEntities db = new VdbSoftEntities(dbName);
-            var model = from d in db.OPPORTUNITYDETAILs
-                        where d.OPPORTUNITY_CODE == cID
-                        select d;
+            List<OppDetail> model = (from d in db.OPPORTUNITYDETAILs
+                                    join picture in db.STOKCARDPICTUREs on d.STOK_ID equals picture.STOK_ID
+                                    where d.OPPORTUNITY_CODE == cID && picture.TYPE==2
+                                    select new OppDetail { 
+                                    OPPORTUNITY_CODE=d.OPPORTUNITY_CODE,
+                                    ROW_ORDER_NO=d.ROW_ORDER_NO,
+                                    PRODUCT_NAME=d.PRODUCT_NAME,
+                                    QUANTITY=d.QUANTITY,
+                                    TOTAL=d.TOTAL,
+                                    CUR_TYPE=d.CUR_TYPE,
+                                    UNIT_PRICE=d.UNIT_PRICE,
+                                    Picture=picture.PATH
+                                    }).ToList();
             return PartialView("MasterDetailDetailPartial", model.ToArray());
         }
 
@@ -465,7 +478,7 @@ namespace siparis.Controllers
                                                     where product.STOK_CODE == model.STOK_CODE
                                                     select new StokWareHouseViewModel
                                                       {
-                                                          WAREHOUSE_ID=warehouse.ID,
+                                                          WAREHOUSE_ID = warehouse.ID,
                                                           WAREHOUSE_NAME = warehouse.NAME,
                                                           STOK_CODE = product.STOK_CODE,
                                                           TOTAL_QUANTITIY = product.QUANTITY
@@ -492,6 +505,6 @@ namespace siparis.Controllers
             return PartialView("_orderPartial", new Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL>(depolar, model));
         }
 
-        
+
     }
 }

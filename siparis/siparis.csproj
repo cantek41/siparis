@@ -574,6 +574,7 @@
     <Compile Include="Models\NOTE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OppDetail.cs" />
     <Compile Include="Models\OPPORTUNITYDETAIL.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -1065,6 +1066,7 @@
     <Content Include="Views\Shared\_rootLayout.cshtml" />
     <Content Include="Views\OrderFollow\_orderPartial.cshtml" />
     <Content Include="Views\OrderFollow\_OrderDetailGrid.cshtml" />
+    <Content Include="Views\OrderFollow\_wareHousePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
@@ -1095,7 +1097,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39839/</IISUrl>
+          <IISUrl>http://localhost:39829/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

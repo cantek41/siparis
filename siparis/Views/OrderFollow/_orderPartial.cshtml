@@ -1,31 +1,5 @@
 ﻿@model Tuple<List<siparis.Models.StokWareHouseViewModel>, siparis.Models.OPPORTUNITYDETAIL>
-<style type="text/css">
-    /*body {
-        padding: 0;
-        margin: 0;
-        overflow: hidden;
-        min-height: 440px;
-        min-width: 300px;
-    }
-
-    .title {
-        float: left;
-        padding: 1px 4px 1px;
-        font-size: 2.2em;
-    }
-
-    .main-menu {
-        float: right !important;
-        margin: 8px 0 4px;
-    }
-
-    .grid,
-    .grid .dxgvHSDC,
-    .grid .dxgvCSD {
-        border-left: 0 !important;
-        border-right: 0 !important;
-        border-bottom: 0 !important;
-    }*/
+<style type="text/css">  
 
     .detailPanel {
         height: 148px;
@@ -93,50 +67,6 @@
 
     <div class="col-md-8">
         <h5><B>DISTRIBUTE</B></h5>
-        @Html.DevExpress().GridView(settings =>
-    {
-        settings.Name = "gvOverview";
-        settings.CallbackRouteValues = new
-        {
-            Controller = "OrderFollow",
-            Action = "orderPartial"
-        };
-        settings.SettingsEditing.BatchUpdateRouteValues = new { Controller = "WareHouse", Action = "updateWareHouse" };
-        settings.SettingsEditing.Mode = GridViewEditingMode.Batch;
-        //   settings.SettingsEditing.BatchEditSettings.EditMode = GridViewEditingMode.Batch;
-        //  settings.SettingsEditing.BatchEditSettings.StartEditAction = GridViewEditingMode.BatchStartEditAction;
-
-        settings.KeyFieldName = "WAREHOUSE_NAME";
-        settings.Columns.Add(column =>
-        {
-            column.FieldName = "WAREHOUSE_NAME";
-            column.ReadOnly = true;
-
-        });
-
-        settings.Columns.Add(column =>
-        {
-            column.FieldName = "TOTAL_QUANTITIY";
-            column.ReadOnly = true;
-
-        });
-        settings.Columns.Add(column =>
-        {
-            column.FieldName = "QUANTITY";
-            column.ReadOnly = true;
-
-        });
-        settings.Columns.Add(column =>
-        {
-            column.FieldName = "CHOSE";
-            column.Caption = "CHOSE";
-            column.ColumnType = MVCxGridViewColumnType.SpinEdit;
-            var spinEditProperties = column.PropertiesEdit as SpinEditProperties;
-            spinEditProperties.NumberType = SpinEditNumberType.Integer;
-            spinEditProperties.MinValue = 0;
-            spinEditProperties.MaxValue = 10000;
-
-        });
-    }).Bind(Model.Item1).GetHtml()
+        @Html.Partial("_wareHousePartial", Model.Item1)
     </div>
 </div>
