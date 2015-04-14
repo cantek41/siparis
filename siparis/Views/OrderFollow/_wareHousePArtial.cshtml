@@ -9,13 +9,13 @@
             settings.Name = "gvOverview";
             settings.CallbackRouteValues = new
             {
-                Controller = "OrderFollow",
-                Action = "orderPartial"
+                Controller = "WareHouse",
+                Action = "saveWareHouse"
             };
-            settings.SettingsEditing.BatchUpdateRouteValues = new { Controller = "WareHouse", Action = "updateWareHouse" };
-            settings.SettingsEditing.Mode = GridViewEditingMode.Batch;
-            settings.SettingsEditing.BatchEditSettings.EditMode = GridViewBatchEditMode.Cell;
-            settings.SettingsEditing.BatchEditSettings.StartEditAction = GridViewBatchStartEditAction.Click;
+            settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "WareHouse", Action = "updateWareHouse" };
+            settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+            settings.CommandColumn.Visible = true; 
+            settings.CommandColumn.ShowEditButton = true;
             settings.KeyFieldName = "WAREHOUSE_NAME";
             settings.Columns.Add(column =>
             {
