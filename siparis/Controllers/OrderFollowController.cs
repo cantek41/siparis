@@ -20,16 +20,22 @@ namespace siparis.Controllers
         {
              RolePrincipal r = (RolePrincipal)User;
             string[] rol = r.GetRoles();
-            if (!rol.Contains("Admin"))
+            if (rol.Contains("Admin"))
             {
                 //return View(getOpp(15));
+                return RedirectToAction("Opportunity");
+            }
+            if (rol.Contains("Bayi"))
+            {
+                return RedirectToAction("Draft");
+            }
+            else
+            {
                 return RedirectToAction("Offer");
             }
-            else {
-                return RedirectToAction("Invoice");
             }
            
-            }
+           
 
 
         public ActionResult Opportunity()
