@@ -53,7 +53,8 @@
             column.Caption = "Picture";
             column.Width = 120;
             column.SetDataItemTemplateContent(c =>            {
-                ViewContext.Writer.Write("<img src=\"" + DataBinder.Eval(c.DataItem,"Picture") + "\"/>");
+                ViewContext.Writer.Write("<img src=\"" + DataBinder.Eval(c.DataItem, "Picture") + "\"/>");
+                
 
             });
         });
