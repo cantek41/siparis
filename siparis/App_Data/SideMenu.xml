@@ -18,6 +18,7 @@
     <item Text="DispatchNote" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
     <item Text="Invoice" NavigateUrl="Invoice" ImageUrl="~/Content/images/icons/calculator.png"/>
     <item Text="Linesheets" NavigateUrl="Linesheets" ImageUrl="~/Content/images/icons/solution.png"/>
+    <item Text="" NavigateUrl="http://www.veribis.com.tr/" ImageUrl="~/Content/images/logo/veribislogo.png"/>
   </group>
   <group Text="Bayi">    
     <item Text="Sample" NavigateUrl="Sample" ImageUrl="~/Content/images/icons/inbox.png"/>
@@ -34,7 +35,8 @@
     <item Text="Shipped" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
     <item Text="Cancelled" NavigateUrl="Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>
     <item Text="DispatchNote" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
-    <item Text="Invoice" NavigateUrl="Invoice" ImageUrl="~/Content/images/icons/calculator.png"/>    
+    <item Text="Invoice" NavigateUrl="Invoice" ImageUrl="~/Content/images/icons/calculator.png"/>
+    <item Text="" NavigateUrl="http://www.veribis.com.tr/" ImageUrl="~/Content/images/logo/veribislogo.png"/>
   </group>
   <group Text="Depo">   
     <item Text="InReview" NavigateUrl="InReview" ImageUrl="~/Content/images/icons/zoom.png"/>   
@@ -45,6 +47,7 @@
     <item Text="Shipping" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
     <item Text="Shipped" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
     <item Text="DispatchNote" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
+    <item Text="" NavigateUrl="http://www.veribis.com.tr/" ImageUrl="~/Content/images/logo/veribislogo.png"/>
   </group>
   
 </menu>
