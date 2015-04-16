@@ -19,7 +19,10 @@
         subpane.SetContent(() =>
         {
             Html.RenderPartial("ContentLeftPartialView");
+            ViewContext.Writer.Write("<img  style = \" position: fixed;bottom: 0px;margin-right: auto;margin-left: 5px;\" src=\"../Content/images/logo/logoyazisi.png\"/>");
         });
+        
+       
     });
 
     settings.Panes.Add(subpane =>

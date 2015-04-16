@@ -28,6 +28,12 @@ body {
 .paddingayar {
     padding-left: 0px;
 }
+.imghizala{
+
+    position:absolute;
+    width:70%;
+    
+}
 
 .edithizala {
     width: 208px;

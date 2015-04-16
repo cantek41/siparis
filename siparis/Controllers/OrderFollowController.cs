@@ -13,11 +13,24 @@ namespace siparis.Controllers
     public class OrderFollowController : BaseController
     {
         //
+        
         // GET: /Admin/
+      
         public ActionResult Index()
         {
-            return RedirectToAction("Opportunity");
-        }
+             RolePrincipal r = (RolePrincipal)User;
+            string[] rol = r.GetRoles();
+            if (!rol.Contains("Admin"))
+            {
+                //return View(getOpp(15));
+                return RedirectToAction("Offer");
+            }
+            else {
+                return RedirectToAction("Invoice");
+            }
+           
+            }
+
 
         public ActionResult Opportunity()
         {
@@ -432,6 +445,7 @@ namespace siparis.Controllers
                                     UNIT_PRICE=d.UNIT_PRICE,
                                     Picture=picture.PATH
                                     }).ToList();
+            TempData["DOCUMENT_TYPE"] = db.OPPORTUNITYMASTERs.Find(cID).DOCUMENT_TYPE;
             return PartialView("MasterDetailDetailPartial", model.ToArray());
         }
 
