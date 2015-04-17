@@ -1045,7 +1045,6 @@
     <Content Include="Views\Shared\_lightLayout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_oContentLeftPartialView.cshtml" />
-    <Content Include="Views\Shared\_oHeaderPartial.cshtml" />
     <Content Include="Views\Shared\_oMainLayout.cshtml" />
     <Content Include="Views\Shared\_oRootLayout.cshtml" />
     <Content Include="Views\OrderFollow\Offer.cshtml" />
@@ -1066,6 +1065,7 @@
     <Content Include="Views\OrderFollow\_orderPartial.cshtml" />
     <Content Include="Views\OrderFollow\_OrderDetailGrid.cshtml" />
     <Content Include="Views\OrderFollow\_wareHousePartial.cshtml" />
+    <Content Include="Views\Home\UrunGetirPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
