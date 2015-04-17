@@ -81,19 +81,19 @@
                                 <p><b>@Res.resGetir(13)</b> @Res.resGetir(94)</p>
 
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.BODY_CODE, "BEDEN", new { @class = "control-label col-md-3" })
-                                    <div class="col-md-9 border-ayar generalhizala">
-                                        @*@Html.DropDownList("BODY_CODE", ViewData["Body"] as SelectList)*@
+                                    @Html.LabelFor(model => model.BODY_CODE, @Res.resGetir(104), new { @class = "control-label col-md-3 labelrenk labelmargin " })
+                                    <div class="col-md-9 border-ayar comboboxhizala ">
+                                        
                                         @Html.DropDownList("BODY_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Body"], "Key", "Text"))
                                         @Html.ValidationMessageFor(model => model.BODY_CODE)
                                     </div>
 
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.COLOR_CODE, "RENK", new { @class = "control-label col-md-3" })
-                                    <div class="col-md-9 border-ayar generalhizala">
-                                        @*@Html.DropDownList("COLOR_CODE", TempData["Color"] as SelectList)*@
-                                       
+                                    @Html.LabelFor(model => model.COLOR_CODE, @Res.resGetir(105), new { @class = "control-label col-md-3 labelrenk labelmargin " })
+                                    <div class="col-md-9 border-ayar comboboxhizala">
+
+
                                         @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"))
                                         @Html.ValidationMessageFor(model => model.COLOR_CODE)
                                     </div>

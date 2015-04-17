@@ -1034,7 +1034,6 @@
     <Content Include="Views\Order\Chart.cshtml" />
     <Content Include="Views\Home\NotFound.cshtml" />
     <Content Include="Views\Home\LeftMenuPartial.cshtml" />
-    <Content Include="Views\Product\ProductDetailPartial.cshtml" />
     <Content Include="Views\Category\getCategoryProduct.cshtml" />
     <Content Include="Views\Category\LeftMenuPartial.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -1097,7 +1096,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39818/</IISUrl>
+          <IISUrl>http://localhost:39816/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

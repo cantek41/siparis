@@ -109,6 +109,16 @@ body {
     .generalhizala input {
         width: 100%;
     }
+.comboboxhizala{
+width:40%;
+
+}
+.labelmargin{
+    margin-left:40px;
+}
+.labelrenk{
+    color:#FE980F;
+}
 
 ul li {
     list-style: none;
