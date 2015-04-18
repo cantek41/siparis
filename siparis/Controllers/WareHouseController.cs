@@ -31,7 +31,6 @@ namespace siparis.Controllers
                     checkOrder.QUANTITY = updateValues.CHOSE;
                     db.STOKACTUALORDERs.Attach(checkOrder);
                     db.Entry(checkOrder).State = EntityState.Modified;
-
                 }
                 else
                 {

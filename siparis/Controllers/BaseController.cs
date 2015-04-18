@@ -141,6 +141,7 @@ namespace siparis.Controllers
             }
         }
 
+<<<<<<< HEAD
         public Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> orderWareHouseCal(int oppCode, int rowCode)
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
@@ -189,5 +190,45 @@ namespace siparis.Controllers
 
             return new Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL>(depolar, model);
         }
+=======
+
+        public void ProfilCreate()
+        {
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                int userContactCode = 0;// (int)db.USERS.Where(x => x.USER_CODE == getUserCode()).Select(x => x.CONTACT_CODE).FirstOrDefault();
+                COMPANY company = db.COMPANies.Find(db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).Select(x => x.COMPANY_CODE).FirstOrDefault());
+
+                var model = (from c in db.COMPANies
+                                  join d in db.ADDRESSes on c.COMPANY_CODE equals d.COMPANY_CODE
+                                  join p in db.PHONEs on c.COMPANY_CODE equals p.COMPANY_CODE
+                                  join m in db.COMPANies on c.MAIL equals m.MAIL
+                                  
+                                  where d.COMPANY_CODE == company.COMPANY_CODE
+                                  select new
+                                  {   Enlem = d.GPS_LATITUDE,
+                                      Boylam = d.GPS_LONGITUDE,
+                                      GoogleMaps=d.ADDRESS3,
+                                      Adres = d.ADDRESS1,
+                                      Mail = company.MAIL,
+                                      Telefon = p.PHONE_NUMBER,
+                                      Adres2 = d.ADDRESS2
+                                  }).FirstOrDefault();
+                ProfileInfo.Telefon = model.Telefon;
+                ProfileInfo.Adres = model.Adres;
+                ProfileInfo.Mail = model.Mail;
+                ProfileInfo.Adres2 = model.Adres2;
+                ProfileInfo.Enlem = model.Enlem;
+                ProfileInfo.Boylam = model.Boylam;
+                               
+
+
+            }
+ 
+        }
+    
+    
+    
+>>>>>>> 06489f092b4d6c8223dd00026f1ee2b4ec9d494b
     }
 }

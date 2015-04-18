@@ -1,4 +1,10 @@
 ﻿@using siparis.Models
+
+
+
+
+
+
 @{
     string firmaAdi = null;
     if (HttpContext.Current.Session["FirmaAdi"]!=null)
@@ -16,9 +22,11 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="contactinfo">
+                        
                         <ul class="nav nav-pills">
-                            <li><a href="../Home/Contact"><i class="fa fa-phone"></i> +90 216 651 21 20</a></li>
-                            <li><a href="../Home/Contact"><i class="fa fa-envelope"></i> info@modam.com</a></li>
+                          
+                            <li><a href="../Home/Contact"><i class="fa fa-phone"></i> @ProfileInfo.Telefon </a></li>
+                            <li><a href="../Home/Contact"><i class="fa fa-envelope"></i>@ProfileInfo.Mail</a></li>
                         </ul>
                     </div>
                 </div>

@@ -23,7 +23,7 @@ namespace siparis.Controllers
             info.PageCount = Convert.ToInt32(Math.Ceiling((double)(db.STOKCARDs.Count()
                            / info.PageSize)));
             info.CurrentPageIndex = 0;
-            var query = db.STOKCARDs.OrderBy(c => c.ID).Take(info.PageSize);
+            var query = db.STOKCARDs.Where(x=>x.ID!=0).OrderBy(c => c.ID).Take(info.PageSize);
             ViewBag.SortingPagingInfo = info;
            /// List<STOKCARD> model = query.ToList();
            
