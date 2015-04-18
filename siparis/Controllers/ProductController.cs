@@ -23,17 +23,18 @@ namespace siparis.Controllers
         //public void ViewDataDoldur(STOKCARD model)
         //{
         //    VdbSoftEntities db = new VdbSoftEntities();
-           
-                                
+
+
         //    ViewData["Color"] = (from d in db.STOKCOLORs
         //                         select new { Key = d.COLOR_CODE, Text = d.NAME_TR });
-            
+
         //    ViewData["Body"] = (from d in db.STOKBODies
         //                        select new { Key = d.BODY_CODE, Text = d.NAME_TR });
 
-          
+
         //}
 
+        [HttpPost]
         public void GetColor(STOKCARD model) 
         {
             VdbSoftEntities db = new VdbSoftEntities();
@@ -44,13 +45,16 @@ namespace siparis.Controllers
         }
 
 
-        public void GetBody(int color,STOKCARD model)
+        public ActionResult GetBody(int color,string upper)
         {
             VdbSoftEntities db = new VdbSoftEntities();
-            ViewData["Body"] = (from s in db.STOKCARDs
-                                 where s.UPPER_CODE == model.UPPER_CODE && s.COLOR_CODE==color
+            var model= (from s in db.STOKCARDs
+                                 where s.UPPER_CODE == upper && s.COLOR_CODE==color
                                  join b in db.STOKBODies on s.BODY_CODE equals b.BODY_CODE
                                  select new { Key = b.BODY_CODE, Text = b.NAME_TR });
+            return Json(model);
+
+
         }
 
 

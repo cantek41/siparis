@@ -911,6 +911,7 @@
     <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\ajaxGonderi\ajaxGonder.js" />
+    <Content Include="Scripts\ajaxGonderi\DropDownChangeEvent.js" />
     <Content Include="Scripts\contact.js" />
     <Content Include="Scripts\customScript.js" />
     <Content Include="Scripts\gmaps.js" />
