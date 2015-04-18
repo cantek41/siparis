@@ -44,6 +44,15 @@ namespace siparis.Controllers
         }
 
 
+        public void GetBody(int color,STOKCARD model)
+        {
+            VdbSoftEntities db = new VdbSoftEntities();
+            ViewData["Body"] = (from s in db.STOKCARDs
+                                 where s.UPPER_CODE == model.UPPER_CODE && s.COLOR_CODE==color
+                                 join b in db.STOKBODies on s.BODY_CODE equals b.BODY_CODE
+                                 select new { Key = b.BODY_CODE, Text = b.NAME_TR });
+        }
+
 
     }
 }
