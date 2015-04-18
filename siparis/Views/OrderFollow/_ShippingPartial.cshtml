@@ -1,0 +1,90 @@
+﻿@{
+    bool masterOnayla = false;
+    bool masterEdit = false;
+    bool masterDelete = false;
+    string[] rol = Roles.GetRolesForUser();
+    switch (rol[0])
+    {
+        case "Admin":
+            masterOnayla = true;
+            masterEdit = true;
+            masterDelete = true;
+            break;     
+        case "Depo":
+            if ((int)TempData["DOCUMENT_TYPE"] == 18 || (int)TempData["DOCUMENT_TYPE"] == 20 || (int)TempData["DOCUMENT_TYPE"] == 24)
+            {
+                masterOnayla = true;
+            }
+            if ((int)TempData["DOCUMENT_TYPE"] == 20)
+            {
+                masterDelete = true;
+            }
+            break;
+        default:
+            break;
+    }
+}
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Name = "grid";
+        settings.CallbackRouteValues = new { Controller = "WareHouse", Action = "ShippingPartial", DOCUMENT_TYPE = TempData["DOCUMENT_TYPE"] };
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.CommandColumn.Visible = true;
+
+        settings.Settings.VerticalScrollBarMode = ScrollBarMode.Visible;
+        settings.Settings.VerticalScrollableHeight = 400;
+        settings.SettingsPager.PageSize = 50;
+        settings.SettingsPager.NumericButtonCount = 6;
+        settings.SettingsPager.EnableAdaptivity = true;
+
+        settings.KeyFieldName = "ID";
+
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Picture";
+            column.Name = "Picture";
+            column.Caption = "Picture";
+            column.Width = 120;
+            column.SetDataItemTemplateContent(c =>
+            {
+                ViewContext.Writer.Write("<img src=\"" + DataBinder.Eval(c.DataItem, "Picture") + "\"/>");
+
+            });
+        });
+        settings.Columns.Add(column =>
+            {
+                column.FieldName = "OPPORTUNITY_CODE";
+                column.Name = "OPPORTUNITY_CODE";
+                column.Caption = "CODE";
+            });
+
+        
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ROW_ORDER_NO";
+            column.Name = "ROW_ORDER_NO";
+            column.Caption = "ROW_ORDER_NO";
+            column.Width = 100;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "PRODUCT_NAME";
+            column.Name = "PRODUCT_NAME";
+            column.Caption = "PRODUCT_NAME";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "WAREHOUSE_NAME";
+            column.Name = "WAREHOUSE_NAME";
+            column.Caption = "WAREHOUSE_NAME";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "QUANTITY";
+            column.Name = "QUANTITY";
+            column.Caption = "QUANTITY";
+        });       
+       
+    }).Bind(Model).GetHtml()

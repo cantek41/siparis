@@ -659,6 +659,7 @@
     <Compile Include="Models\SELLER_DETAIL.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShippingViewModel.cs" />
     <Compile Include="Models\SMARTMASTER.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -1068,6 +1069,7 @@
     <Content Include="Views\OrderFollow\_OrderDetailGrid.cshtml" />
     <Content Include="Views\OrderFollow\_wareHousePartial.cshtml" />
     <Content Include="Views\Home\UrunGetirPartial.cshtml" />
+    <Content Include="Views\OrderFollow\_ShippingPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

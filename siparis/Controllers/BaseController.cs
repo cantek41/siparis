@@ -141,7 +141,7 @@ namespace siparis.Controllers
             }
         }
 
-<<<<<<< HEAD
+
         public Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> orderWareHouseCal(int oppCode, int rowCode)
         {
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
@@ -190,7 +190,6 @@ namespace siparis.Controllers
 
             return new Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL>(depolar, model);
         }
-=======
 
         public void ProfilCreate()
         {
@@ -226,9 +225,6 @@ namespace siparis.Controllers
             }
  
         }
-    
-    
-    
->>>>>>> 06489f092b4d6c8223dd00026f1ee2b4ec9d494b
+
     }
 }

@@ -2175,6 +2175,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="STOK_CODE" Type="nvarchar" MaxLength="50" />
           <Property Name="QUANTITY" Type="int" />
           <Property Name="WAREHOUSE" Type="int" />
+          <Property Name="SHIPPING_TYPE" Type="int" />
         </EntityType>
         <EntityType Name="STOKBODY">
           <Key>
@@ -5254,6 +5255,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="WAREHOUSE" Type="Int32" />
           <NavigationProperty Name="OPPORTUNITYMASTER" Relationship="Self.FK_STOKACTUALORDER_OPPORTUNITYMASTER" FromRole="STOKACTUALORDER" ToRole="OPPORTUNITYMASTER" />
           <Property Name="ROW_ORDER_NO" Type="Int32" />
+          <Property Name="SHIPPING_TYPE" Type="Int32" />
         </EntityType>
         <EntityType Name="STOKBODY">
           <Key>
@@ -8364,6 +8366,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySetMapping Name="STOKACTUALORDERs">
             <EntityTypeMapping TypeName="VdbSoftModel.STOKACTUALORDER">
               <MappingFragment StoreEntitySet="STOKACTUALORDER">
+                <ScalarProperty Name="SHIPPING_TYPE" ColumnName="SHIPPING_TYPE" />
                 <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />

@@ -36,7 +36,7 @@ namespace siparis.Controllers
                 {
                     db.STOKACTUALORDERs.Add(orderForDepo);
                 }
-                    
+
                 db.SaveChanges();
             }
             return saveWareHouse(String.Format("{0}|{1}", keys[1], keys[2]));
@@ -54,6 +54,10 @@ namespace siparis.Controllers
 
             return PartialView("../OrderFollow/_wareHousePartial", depolar);
         }
+
+
+
+
 
     }
 }

@@ -13,12 +13,12 @@ namespace siparis.Controllers
     public class OrderFollowController : BaseController
     {
         //
-        
+
         // GET: /Admin/
-      
+
         public ActionResult Index()
         {
-             RolePrincipal r = (RolePrincipal)User;
+            RolePrincipal r = (RolePrincipal)User;
             string[] rol = r.GetRoles();
             if (rol.Contains("Admin"))
             {
@@ -33,9 +33,9 @@ namespace siparis.Controllers
             {
                 return RedirectToAction("Offer");
             }
-            }
-           
-           
+        }
+
+
 
 
         public ActionResult Opportunity()
@@ -87,7 +87,7 @@ namespace siparis.Controllers
         }
         public ActionResult Shipped()
         {
-            return View(getOpp(21));
+            return View(getShipping(3));
         }
         public ActionResult Cancelled()
         {
@@ -108,11 +108,11 @@ namespace siparis.Controllers
 
         public ActionResult Shipping()
         {
-            return View(getOpp(24));
+            return View(getShipping(1));
         }
         public ActionResult ShippingConfirm()
         {
-            return View(getOpp(25));
+            return View(getShipping(2));
         }
 
 
@@ -439,18 +439,19 @@ namespace siparis.Controllers
             int cID = Convert.ToInt32(customerID);
             VdbSoftEntities db = new VdbSoftEntities(dbName);
             List<OppDetail> model = (from d in db.OPPORTUNITYDETAILs
-                                    join picture in db.STOKCARDPICTUREs on d.STOK_ID equals picture.STOK_ID
-                                    where d.OPPORTUNITY_CODE == cID && picture.TYPE==2
-                                    select new OppDetail { 
-                                    OPPORTUNITY_CODE=d.OPPORTUNITY_CODE,
-                                    ROW_ORDER_NO=d.ROW_ORDER_NO,
-                                    PRODUCT_NAME=d.PRODUCT_NAME,
-                                    QUANTITY=d.QUANTITY,
-                                    TOTAL=d.TOTAL,
-                                    CUR_TYPE=d.CUR_TYPE,
-                                    UNIT_PRICE=d.UNIT_PRICE,
-                                    Picture=picture.PATH
-                                    }).ToList();
+                                     join picture in db.STOKCARDPICTUREs on d.STOK_ID equals picture.STOK_ID
+                                     where d.OPPORTUNITY_CODE == cID && picture.TYPE == 2
+                                     select new OppDetail
+                                     {
+                                         OPPORTUNITY_CODE = d.OPPORTUNITY_CODE,
+                                         ROW_ORDER_NO = d.ROW_ORDER_NO,
+                                         PRODUCT_NAME = d.PRODUCT_NAME,
+                                         QUANTITY = d.QUANTITY,
+                                         TOTAL = d.TOTAL,
+                                         CUR_TYPE = d.CUR_TYPE,
+                                         UNIT_PRICE = d.UNIT_PRICE,
+                                         Picture = picture.PATH
+                                     }).ToList();
             TempData["DOCUMENT_TYPE"] = db.OPPORTUNITYMASTERs.Find(cID).DOCUMENT_TYPE;
             return PartialView("MasterDetailDetailPartial", model.ToArray());
         }
@@ -474,14 +475,30 @@ namespace siparis.Controllers
             ViewData["COURSE_CODE"] = customerID;
             int cID = Convert.ToInt32(customerID);
             VdbSoftEntities db = new VdbSoftEntities(dbName);
-            var model = from d in db.OPPORTUNITYDETAILs
-                        where d.OPPORTUNITY_CODE == cID
-                        select d;
-            return PartialView("_OrderDetailGrid", model.ToArray());
+            //var model = from d in db.OPPORTUNITYDETAILs
+            //            where d.OPPORTUNITY_CODE == cID
+            //            select d;
+
+
+            List<OppDetail> model = (from d in db.OPPORTUNITYDETAILs
+                                     join picture in db.STOKCARDPICTUREs on d.STOK_ID equals picture.STOK_ID
+                                     where d.OPPORTUNITY_CODE == cID && picture.TYPE == 2
+                                     select new OppDetail
+                                     {
+                                         OPPORTUNITY_CODE = d.OPPORTUNITY_CODE,
+                                         ROW_ORDER_NO = d.ROW_ORDER_NO,
+                                         PRODUCT_NAME = d.PRODUCT_NAME,
+                                         QUANTITY = d.QUANTITY,
+                                         TOTAL = d.TOTAL,
+                                         CUR_TYPE = d.CUR_TYPE,
+                                         UNIT_PRICE = d.UNIT_PRICE,
+                                         Picture = picture.PATH
+                                     }).ToList();
+            return PartialView("_OrderDetailGrid", model);
         }
 
 
-        public ActionResult orderPartial(string clickedButton=null)
+        public ActionResult orderPartial(string clickedButton = null)
         {
             int oppCode = 1, rowCode = 1;
             if (clickedButton != null)
@@ -491,11 +508,46 @@ namespace siparis.Controllers
                 oppCode = Convert.ToInt32(keys[1]);
             }
             TempData["parametre"] = String.Format("{0}|{1}", oppCode, rowCode);
-            Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param=orderWareHouseCal(oppCode,rowCode);
+            Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param = orderWareHouseCal(oppCode, rowCode);
             List<StokWareHouseViewModel> depolar = param.Item1;
             return PartialView("_orderPartial", param);
         }
 
 
+        [ValidateInput(false)]
+        public ActionResult ShippingPartial(int shipping_type)
+        {
+            return PartialView("_ShippingPartial", getShipping
+                (shipping_type));
+        }
+
+        public IEnumerable<ShippingViewModel> getShipping(int oppMasterType)
+        {
+            TempData["DOCUMENT_TYPE"] = oppMasterType;
+            VdbSoftEntities db = db = new VdbSoftEntities(dbName);
+            List<ShippingViewModel> model = (from d in db.STOKACTUALORDERs
+                                             join stk in db.STOKCARDs on d.STOK_CODE equals stk.CODE
+                                             join ware in db.STOKWAREHOUSEs on d.WAREHOUSE equals ware.ID
+                                             where d.SHIPPING_TYPE == oppMasterType 
+                                             select new ShippingViewModel
+                                             {
+                                                 ID = d.ID,
+                                                 OPPORTUNITY_CODE = (int)d.OPPORTUNITY_CODE,
+                                                 ROW_ORDER_NO = (int)d.ROW_ORDER_NO,
+                                                 QUANTITY=d.QUANTITY,
+                                                 PRODUCT_NAME=stk.NAME_TR,
+                                                 WAREHOUSE_NAME=ware.NAME,
+                                                 WAREHOUSE_ID=ware.ID,
+                                                 STOK_ID=stk.ID
+                                             }).Distinct().ToList();
+
+            List<ShippingViewModel> modelPicture = new List<ShippingViewModel>();
+            foreach (var item in model)
+            {
+                item.Picture = db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).Where(x=>x.TYPE==2).Select(x => x.PATH).FirstOrDefault();
+                modelPicture.Add(item);
+            }
+            return modelPicture;
+        }
     }
 }
