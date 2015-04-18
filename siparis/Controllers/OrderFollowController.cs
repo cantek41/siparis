@@ -481,7 +481,7 @@ namespace siparis.Controllers
         }
 
 
-        public ActionResult orderPartial(string clickedButton)
+        public ActionResult orderPartial(string clickedButton=null)
         {
             int oppCode = 1, rowCode = 1;
             if (clickedButton != null)
@@ -490,39 +490,10 @@ namespace siparis.Controllers
                 rowCode = Convert.ToInt32(keys[0]);
                 oppCode = Convert.ToInt32(keys[1]);
             }
-            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
-            OPPORTUNITYDETAIL model = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == oppCode).Where(x => x.ROW_ORDER_NO == rowCode).FirstOrDefault();
-
-            List<StokWareHouseViewModel> depolar = (from product in db.STOKACTUALs
-                                                    join warehouse in db.STOKWAREHOUSEs on product.DEPOT_ID equals warehouse.ID
-                                                    where product.STOK_CODE == model.STOK_CODE
-                                                    select new StokWareHouseViewModel
-                                                      {
-                                                          WAREHOUSE_ID = warehouse.ID,
-                                                          WAREHOUSE_NAME = warehouse.NAME,
-                                                          STOK_CODE = product.STOK_CODE,
-                                                          TOTAL_QUANTITIY = product.QUANTITY
-                                                      }).ToList();
-            int i = 0;
-            bool stokTamam = false;
-            foreach (StokWareHouseViewModel item in depolar)
-            {
-                int miktar = db.STOKACTUALORDERs.Where(x => x.STOK_CODE == item.STOK_CODE).Select(x => x.QUANTITY).FirstOrDefault() ?? 0;
-                item.QUANTITY = item.TOTAL_QUANTITIY - miktar;
-                if (!stokTamam)
-                    if (item.QUANTITY >= model.QUANTITY)
-                    {
-                        depolar.ElementAt(i).CHOSE = (int)model.QUANTITY;
-                        stokTamam = true;
-                    }
-                item.OPPORTUNITY_CODE = model.OPPORTUNITY_CODE;
-                item.ROW_ORDER_NO = model.ROW_ORDER_NO;
-                depolar.ElementAt(i).QUANTITY = item.QUANTITY;
-                i++;
-            }
-
-
-            return PartialView("_orderPartial", new Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL>(depolar, model));
+            TempData["parametre"] = String.Format("{0}|{1}", oppCode, rowCode);
+            Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param=orderWareHouseCal(oppCode,rowCode);
+            List<StokWareHouseViewModel> depolar = param.Item1;
+            return PartialView("_orderPartial", param);
         }
 
 

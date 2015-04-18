@@ -44,13 +44,9 @@ namespace siparis.Controllers
             {
                 int userContactCode = (int)db.USERS.Where(x => x.USER_NAME == User.Identity.Name).Select(x => x.CONTACT_CODE).FirstOrDefault();
                 COMPANY company = db.COMPANies.Find(db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).Select(x => x.COMPANY_CODE).FirstOrDefault());
-                return company.COMPANY_NAME;                
+                return company.COMPANY_NAME;
             }
         }
-
-
-        
-
         public ActionResult changeLanguage(string lang)
         {
             Res.languege = lang;
@@ -129,7 +125,6 @@ namespace siparis.Controllers
             return model;
         }
 
-
         public void TotalHesapla(int oppMasterID)
         {
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
@@ -144,6 +139,55 @@ namespace siparis.Controllers
                 db.SaveChanges();
 
             }
+        }
+
+        public Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> orderWareHouseCal(int oppCode, int rowCode)
+        {
+            siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
+            OPPORTUNITYDETAIL model = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == oppCode).Where(x => x.ROW_ORDER_NO == rowCode).FirstOrDefault();
+
+            List<StokWareHouseViewModel> depolar = (from product in db.STOKACTUALs
+                                                    join warehouse in db.STOKWAREHOUSEs on product.DEPOT_ID equals warehouse.ID
+                                                    where product.STOK_CODE == model.STOK_CODE
+                                                    select new StokWareHouseViewModel
+                                                    {
+                                                        WAREHOUSE_ID = warehouse.ID,
+                                                        WAREHOUSE_NAME = warehouse.NAME,
+                                                        STOK_CODE = product.STOK_CODE,
+                                                        TOTAL_QUANTITIY = product.QUANTITY
+                                                    }).ToList();
+            int i = 0;
+            bool stokTamam = false;
+            foreach (StokWareHouseViewModel item in depolar)
+            {
+                int miktar=0;
+                try
+                {
+                    miktar = (int)(from d in db.STOKACTUALORDERs
+                                   where d.OPPORTUNITY_CODE == model.OPPORTUNITY_CODE && d.ROW_ORDER_NO == model.ROW_ORDER_NO && d.STOK_CODE == model.STOK_CODE && d.WAREHOUSE == item.WAREHOUSE_ID
+                                   select d.QUANTITY).FirstOrDefault();
+                }
+                catch (Exception)
+                {
+                    
+                }
+               
+
+                depolar.ElementAt(i).CHOSE = miktar;
+
+
+                int depoMiktar = db.STOKACTUALORDERs.Where(x => x.STOK_CODE == item.STOK_CODE).Where(x=>item.WAREHOUSE_ID==x.WAREHOUSE).Select(x => x.QUANTITY).FirstOrDefault() ?? 0;
+
+                item.QUANTITY = item.TOTAL_QUANTITIY - depoMiktar;
+              
+                item.OPPORTUNITY_CODE = model.OPPORTUNITY_CODE;
+                item.ROW_ORDER_NO = model.ROW_ORDER_NO;
+                depolar.ElementAt(i).QUANTITY = item.QUANTITY;
+                i++;
+            }
+
+
+            return new Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL>(depolar, model);
         }
     }
 }
