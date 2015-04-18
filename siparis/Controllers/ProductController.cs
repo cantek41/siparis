@@ -9,30 +9,13 @@ namespace siparis.Controllers
 {
     public class ProductController : BaseController
     {
-        //
         // GET: /Product/
         public ActionResult ProductDetail(int urunID)
         {
             STOKCARD model = getProduct(urunID);
-            //ViewDataDoldur(model);
-            //return View(model);
             GetColor(model);
             return View(model);
         }
-
-        //public void ViewDataDoldur(STOKCARD model)
-        //{
-        //    VdbSoftEntities db = new VdbSoftEntities();
-
-
-        //    ViewData["Color"] = (from d in db.STOKCOLORs
-        //                         select new { Key = d.COLOR_CODE, Text = d.NAME_TR });
-
-        //    ViewData["Body"] = (from d in db.STOKBODies
-        //                        select new { Key = d.BODY_CODE, Text = d.NAME_TR });
-
-
-        //}
 
         [HttpPost]
         public void GetColor(STOKCARD model) 
@@ -54,6 +37,16 @@ namespace siparis.Controllers
                                  select new { Key = b.BODY_CODE, Text = b.NAME_TR });
             return Json(model);
 
+
+        }
+
+        public ActionResult GetProduct(string upper, int color, int body)
+        {
+            VdbSoftEntities db = new VdbSoftEntities();
+            var model = (from s in db.STOKCARDs
+                         where s.UPPER_CODE == upper && s.COLOR_CODE == color && s.BODY_CODE==body
+                         select s.ID).FirstOrDefault();
+            return Json(model);
 
         }
 

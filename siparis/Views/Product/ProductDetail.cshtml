@@ -80,7 +80,8 @@
                                 <p><b>@Res.resGetir(91)</b> @Model.UNIT</p>
                                 <p><b>@Res.resGetir(92)</b> @Res.resGetir(93)</p>
                                 <p><b>@Res.resGetir(13)</b> @Res.resGetir(94)</p>
-                                @Html.HiddenFor(model => model.UPPER_CODE)
+                                @Html.TextBoxFor(model => model.UPPER_CODE)
+                                @Html.TextBoxFor(model => model.ID)
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.COLOR_CODE, @Res.resGetir(105), new { @class = "control-label col-md-3 labelrenk labelmargin " })
                                     <div class="col-md-9 border-ayar comboboxhizala">
@@ -185,7 +186,7 @@
                             <a href="../Home/index" class="btn btn-default blank-arrow"><i class="fa fa-backward"></i> @Res.resGetir(103)</a>
                         </div>
                         <div class="col-sm-6">
-                            <button type="button" class="btn btn-default cart" onclick="sepeteEkleMiktarli(@Model.ID,$('#miktar').val())" style="margin-left:-30px;">
+                            <button type="button" class="btn btn-default cart" onclick="sepeteEkleMiktarli($('#ID').val(),$('#miktar').val())" style="margin-left:-30px;">
                                 <i class="fa fa-shopping-cart"></i>
                                 @Res.resGetir(2)
                             </button>
