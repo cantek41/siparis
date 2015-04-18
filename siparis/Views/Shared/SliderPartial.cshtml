@@ -1,12 +1,23 @@
-﻿<link href="~/Content/css/js-image-slider.css" rel="stylesheet" />
+﻿@{
+    siparis.Models.VdbSoftEntities db = new siparis.Models.VdbSoftEntities(siparis.Controllers.BaseController.dbName);
+    var model = from d in db.STOKCARDPICTUREs
+                where d.STOK_ID == 0
+                select d.PATH;
+   
+}
+<link href="~/Content/css/js-image-slider.css" rel="stylesheet" />
 <script src="~/Scripts/js-image-slider.js"></script>
 <section id="advertisement">
     <div class="col-md-12">
         <div id="sliderFrame">
             <div id="slider">
-                <img src="~/Content/images/slider/slider-1.jpg" alt="" />
-                <img src="~/Content/images/slider/slider-2.jpg" alt="" />
-                <img src="~/Content/images/slider/slider-3.jpg" alt="" />
+                @{
+                    foreach (string item in model)
+                    {
+                         <img src="@item" alt="" />
+                    }
+                }
+               
             </div>
         </div>
     </div>

@@ -129,7 +129,6 @@ namespace siparis.Controllers
             return model;
         }
 
-
         public void TotalHesapla(int oppMasterID)
         {
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
