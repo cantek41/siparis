@@ -98,6 +98,13 @@ body {
 
 .deshizla {
 }
+.dil-hover{
+
+}
+.dil-hover:hover{
+    color:#ff0000;
+    
+}
 
 .deshizala input {
     width: 100%;
