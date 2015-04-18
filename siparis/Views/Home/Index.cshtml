@@ -47,53 +47,12 @@
                         @Html.Hidden("SortDirection", info.SortDirection)
                         @Html.Hidden("PageCount", info.PageCount)
                         @Html.Hidden("PageSize", info.PageSize)
-                        @Html.Hidden("CurrentPageIndex",
-   info.CurrentPageIndex)
+                        @Html.Hidden("CurrentPageIndex",info.CurrentPageIndex)
                         
-                        foreach (var stok in Model.stokcard)
-                        {
-                            <div class="col-sm-4">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
-                                            <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" />
-                                            <h2 class="buyukharf">@stok.NAME_TR</h2>
-                                            <h4>@stok.UNIT_PRICE @stok.CUR_TYPE</h4>
-
-                                            <div class="col-md-12">
-                                                <div class="col-md-6 etiket">
-                                                    <span class="etiket">@Res.resGetir(102)</span>
-                                                </div>
-                                                <div class="col-md-6 etiket">
-                                                    <input class="text renk" type="text" size="2" value=@stok.UNIT disabled />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <div class="col-md-6 etiket">
-                                                    <span class="etiket renk">@Res.resGetir(84)</span>
-
-                                                </div>
-                                                <div class="col-md-6 etiket">
-                                                    <input class="text renk" id="@stok.ID" type="text" size="2" value="1" />
-                                                </div>
-                                            </div>
-
-                                            <a class="btn btn-default add-to-cart" onclick="sepeteEkleMiktarli(@stok.ID,$('#@stok.ID').val())"><i class="fa fa-shopping-cart"></i>@Res.resGetir(2)</a>
-                                            <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@Res.resGetir(3)</a>
-                                        </div>
-                                    </div>
-                                    @*<div class="choose">
-                                            <ul class="nav nav-pills nav-justified">
-                                                <li><a href=""><i class="fa fa-plus-square"></i>@Res.resGetir(15)</a></li>
-                                                <li><a href=""><i class="fa fa-plus-square"></i>@Res.resGetir(16)</a></li>
-                                            </ul>
-                                        </div>*@
-                                </div>
-                            </div>
-                        }
-                        <input type="submit" value="txt" hidden="hidden" />
+                     
+                       
+                         <input type="submit" value="txt" hidden="hidden" />
+                          Html.RenderPartial("UrunGetirPartial");
                     }
 
                     <ul class="pagination">

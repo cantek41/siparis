@@ -1034,7 +1034,6 @@
     <Content Include="Views\Order\Chart.cshtml" />
     <Content Include="Views\Home\NotFound.cshtml" />
     <Content Include="Views\Home\LeftMenuPartial.cshtml" />
-    <Content Include="Views\Product\ProductDetailPartial.cshtml" />
     <Content Include="Views\Category\getCategoryProduct.cshtml" />
     <Content Include="Views\Category\LeftMenuPartial.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -1046,7 +1045,6 @@
     <Content Include="Views\Shared\_lightLayout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_oContentLeftPartialView.cshtml" />
-    <Content Include="Views\Shared\_oHeaderPartial.cshtml" />
     <Content Include="Views\Shared\_oMainLayout.cshtml" />
     <Content Include="Views\Shared\_oRootLayout.cshtml" />
     <Content Include="Views\OrderFollow\Offer.cshtml" />
@@ -1067,6 +1065,7 @@
     <Content Include="Views\OrderFollow\_orderPartial.cshtml" />
     <Content Include="Views\OrderFollow\_OrderDetailGrid.cshtml" />
     <Content Include="Views\OrderFollow\_wareHousePartial.cshtml" />
+    <Content Include="Views\Home\UrunGetirPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
@@ -1097,7 +1096,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39818/</IISUrl>
+          <IISUrl>http://localhost:39841/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

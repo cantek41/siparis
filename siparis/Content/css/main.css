@@ -98,6 +98,13 @@ body {
 
 .deshizla {
 }
+.dil-hover{
+
+}
+.dil-hover:hover{
+    color:#ff0000;
+    
+}
 
 .deshizala input {
     width: 100%;
@@ -109,6 +116,16 @@ body {
     .generalhizala input {
         width: 100%;
     }
+.comboboxhizala{
+width:40%;
+
+}
+.labelmargin{
+    margin-left:40px;
+}
+.labelrenk{
+    color:#FE980F;
+}
 
 ul li {
     list-style: none;
