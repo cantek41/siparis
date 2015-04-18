@@ -80,8 +80,8 @@
                                 <p><b>@Res.resGetir(91)</b> @Model.UNIT</p>
                                 <p><b>@Res.resGetir(92)</b> @Res.resGetir(93)</p>
                                 <p><b>@Res.resGetir(13)</b> @Res.resGetir(94)</p>
-                                @Html.TextBoxFor(model => model.UPPER_CODE)
-                                @Html.TextBoxFor(model => model.ID)
+                                @Html.HiddenFor(model => model.UPPER_CODE)
+                                @Html.HiddenFor(model => model.ID)
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.COLOR_CODE, @Res.resGetir(105), new { @class = "control-label col-md-3 labelrenk labelmargin " })
                                     <div class="col-md-9 border-ayar comboboxhizala">
