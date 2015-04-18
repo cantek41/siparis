@@ -12,8 +12,23 @@ body {
     position: relative;
     font-weight: 400;
 }
+.gizle{
+    visibility:hidden;
 
+}
 .editforayarla {
+}
+.onaylabutonu{
+    color:white;
+    margin-left:10px;
+}
+.onaylabutonu:hover{
+    
+    background-color:#FE980F;
+    color:white;
+}
+.onaylarenk{
+    color:white;
 }
 
     .editforayarla input {

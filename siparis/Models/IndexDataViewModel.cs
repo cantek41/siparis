@@ -13,5 +13,8 @@ namespace siparis.Models
         public List<STOKSEASON> stokseason { get; set; }
         public List<STOKCOLOR> stokcolor { get; set; }
         public List<STOKBODY> stokBody { get; set; }
+        
     }
+
+
 }

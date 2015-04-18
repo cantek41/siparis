@@ -446,6 +446,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProfileInfo.cs" />
     <Compile Include="Models\ENTEGRATION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -1096,7 +1097,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39841/</IISUrl>
+          <IISUrl>http://localhost:39816/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
