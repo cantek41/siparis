@@ -87,7 +87,7 @@
                                     <div class="col-md-9 border-ayar comboboxhizala">
 
 
-                                        @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"))
+                                        @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"),new { @class="dropdpwn-menu"})
                                         @Html.ValidationMessageFor(model => model.COLOR_CODE)
                                     </div>
                                 </div>
