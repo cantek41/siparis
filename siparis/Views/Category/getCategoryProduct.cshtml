@@ -37,46 +37,8 @@
                     </div><!--/category-products-->                  
                 </div>
             </div>
+                        @{Html.RenderPartial("CategoryProductPartial");}
 
-
-           
-
-
-
-
-            <div class="col-sm-9 padding-right">
-
-                <div class="features_items">
-                    <!--features_items-->
-                    <h2 class="title text-center">@Res.resGetir(14)</h2>
-
-                    @Html.Hidden("CategoryId", TempData.Equals("Category"))
-                    @foreach (var stok in Model.stokcard)
-                    {
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
-                                        <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" />
-                                        <h2>@stok.UNIT_PRICE @stok.CUR_TYPE</h2>
-                                        <p>@stok.NAME_TR</p>
-                                        <a class="btn btn-default add-to-cart" onclick="sepeteEkle(@stok.ID)"><i class="fa fa-shopping-cart"></i>@Res.resGetir(2)</a>
-                                        <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@Res.resGetir(3)</a>
-                                    </div>
-                                </div>
-                                <div class="choose">
-                                    <ul class="nav nav-pills nav-justified">
-                                        <li><a href=""><i class="fa fa-plus-square"></i>@Res.resGetir(15)></li>
-                                        <li><a href=""><i class="fa fa-plus-square"></i>@Res.resGetir(16)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    }
-
-                </div><!--features_items-->
-            </div>
 
         </div>
     </div>
