@@ -35,48 +35,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-9 padding-right">
-
-                <div class="features_items">
-                    <!--features_items-->
-                    <h2 class="title text-center">@Res.resGetir(14)</h2>
-
-                    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-                    {
-                        @Html.Hidden("SortField", info.SortField)
-                        @Html.Hidden("SortDirection", info.SortDirection)
-                        @Html.Hidden("PageCount", info.PageCount)
-                        @Html.Hidden("PageSize", info.PageSize)
-                        @Html.Hidden("CurrentPageIndex",info.CurrentPageIndex)
-                        
-                     
-                       
-                         <input type="submit" value="txt" hidden="hidden" />
-                          Html.RenderPartial("UrunGetirPartial");
-                    }
-
-                    <ul class="pagination">
-                        @for (var i = 0; i < info.PageCount; i++)
-                        {
-                            if (i == info.CurrentPageIndex)
-                            {
-                                <li class="active"><span href="" class="pager">@(i + 1)</span></li>
-
-                            }
-                            else
-                            {
-                                <li><span href="" data-pageindex="@i" class="pager">@(i + 1)</span></li>
-
-                            }
-                            if (i > 5)
-                            {
-                                <li><span href="" data-pageindex="@i" class="pager">&raquo;</span></li>
-                            }
-                        }
-
-                    </ul>
-                </div><!--features_items-->
-            </div>
+            @{Html.RenderPartial("ContentPartial");}
 
         </div>
     </div>

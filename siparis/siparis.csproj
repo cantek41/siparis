@@ -1073,6 +1073,7 @@
     <Content Include="Views\Home\UrunGetirPartial.cshtml" />
     <Content Include="Views\OrderFollow\_ShippingPartial.cshtml" />
     <Content Include="Views\Category\CategoryProductPartial.cshtml" />
+    <Content Include="Views\Home\ContentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
