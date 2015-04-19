@@ -1,22 +1,24 @@
 ﻿@model IEnumerable<siparis.Models.StokWareHouseViewModel>
 
-@{
+@*@{
     Html.EnableClientValidation();
     Html.EnableUnobtrusiveJavaScript();
-}
+}*@
 @Html.DevExpress().GridView(settings =>
         {
             settings.Name = "gvOverview";
+            settings.KeyFieldName = "WAREHOUSE_ID;OPPORTUNITY_CODE;ROW_ORDER_NO;STOK_CODE";  
             settings.CallbackRouteValues = new
             {
                 Controller = "WareHouse",
-                Action = "saveWareHouse"
+                Action = "saveWareHouse",
+                ID = TempData["parametre"]
             };
             settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "WareHouse", Action = "updateWareHouse" };
             settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
             settings.CommandColumn.Visible = true; 
-            settings.CommandColumn.ShowEditButton = true;
-            settings.KeyFieldName = "WAREHOUSE_NAME";
+            settings.CommandColumn.ShowEditButton = true;  
+                               
             settings.Columns.Add(column =>
             {
                 column.FieldName = "WAREHOUSE_NAME";
@@ -27,12 +29,19 @@
             settings.Columns.Add(column =>
             {
                 column.FieldName = "TOTAL_QUANTITIY";
+                column.ColumnType = MVCxGridViewColumnType.SpinEdit;
+                var spinEditProperties = column.PropertiesEdit as SpinEditProperties;
+                spinEditProperties.NumberType = SpinEditNumberType.Integer;             
                 column.ReadOnly = true;
 
             });
             settings.Columns.Add(column =>
             {
                 column.FieldName = "QUANTITY";
+                column.Caption = "AVAILABLITY";
+                column.ColumnType = MVCxGridViewColumnType.SpinEdit;
+                var spinEditProperties = column.PropertiesEdit as SpinEditProperties;
+                spinEditProperties.NumberType = SpinEditNumberType.Integer;
                 column.ReadOnly = true;
 
             });

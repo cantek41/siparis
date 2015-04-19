@@ -1,10 +1,10 @@
-﻿@model IEnumerable<siparis.Models.OrderMasterViewModel>
+﻿@model IEnumerable<siparis.Models.ShippingViewModel>
 ﻿@using siparis.Models
 @{
     ViewBag.Title = @Res.resGetir(101);
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 <h2>@Res.resGetir(101)</h2>
-@Html.Partial("MasterDetailMasterPartial", Model)
+@Html.Partial("_ShippingPartial", Model)
 
 

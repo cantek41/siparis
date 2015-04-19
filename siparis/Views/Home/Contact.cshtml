@@ -1,18 +1,73 @@
 ﻿@using siparis.Models
+@using System.Web.Mvc;
 
 @{
+    
     ViewBag.Title = @Res.resGetir(62);
    
 }
+@Html.Hidden("RoomID")
+@Html.TextBox("lat", ProfileInfo.Enlem, new { @class= "gizle"})
+@Html.TextBox("long", ProfileInfo.Boylam, new { @class = "gizle" })
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
+<script>
+    function initialize() {
+
+
+        var fillArray = ['red', 'blue', 'yellow', 'green'];
+
+        var mapOptions = {
+            zoom: 17,
+            center: new google.maps.LatLng($('#lat').val(), $('#long').val())
+           
+        };
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+
+        var layer = new google.maps.visualization.DynamicMapsEngineLayer({
+            layerId: '06673056454046135537-08896501997766553811',
+            map: map,
+            suppressInfoWindows: true,
+            clickable: true
+        });
+
+        google.maps.event.addListener(layer, 'mouseover', function (event) {
+            var style = layer.getFeatureStyle(event.featureId);
+            style.fillColor = fillArray[event.featureId - 1];
+            style.fillOpacity = '1.0';
+        });
+
+        google.maps.event.addListener(layer, 'mouseout', function (event) {
+            var style = layer.getFeatureStyle(event.featureId).resetAll();
+
+           
+        });
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(40.192870, 29.048506),
+            title: "İşaretçi 1",
+            map: map
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+
 
 <div id="contact-page" class="container">
     <div class="bg">
         <div class="row">
             <div class="col-sm-12">
                 <h2 class="title text-center">@Res.resGetir(4)</h2>
-                <div id="gmap" class="contact-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3010.5892819511796!2d29.033055!3d41.01236199999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab81c94367b63%3A0xdc4ab7646047c0e0!2zQmHFn2thbiBTaywgQmFyYmFyb3MgTWguLCAzNDcxMCDDnHNrw7xkYXIvxLBzdGFuYnVsLCBUw7xya2l5ZQ!5e0!3m2!1str!2s!4v1427971038269" width="1140" height="385" frameborder="0" style="border:0"></iframe>
+               
+                <div id="map-canvas" class="contact-map">
+                    @*<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3010.5892819511796!2d29.033055!3d41.01236199999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab81c94367b63%3A0xdc4ab7646047c0e0!2zQmHFn2thbiBTaywgQmFyYmFyb3MgTWguLCAzNDcxMCDDnHNrw7xkYXIvxLBzdGFuYnVsLCBUw7xya2l5ZQ!5e0!3m2!1str!2s!4v1427971038269 " width="1140" height="385" frameborder="0" style="border:0"></iframe>*@
                 </div>
+         
+                
+                
             </div>
         </div>
         <div class="row">
@@ -44,18 +99,13 @@
                 <div class="contact-info">
                     <h2 class="title text-center">@Res.resGetir(5)</h2>
                     <address>
-                        <p>Modam Tekstil-Factory</p>
-                        <p>Murat Dede Mh. Merkez Efendi Cd. No: 33</p>
-                        <p>Merkez Denizli</p>
-                        <p>TURKEY</p>
+                        
+                        <p>@ProfileInfo.Adres2</p>
                     </address>
 
                     <address>
-                        <p>Modam Tekstil-Istanbul Office</p>
-                        <p>Başkan Sk. No:20 G Blok D 53</p>
-                        <p>Üsküdar İstanbul</p>
-                        <p>TURKEY</p>
-                        <p>+90 216 6512120</p>
+                       
+                        <p>@ProfileInfo.Adres</p>
                     </address>
                 </div>
                 <div class="social-networks">

@@ -69,6 +69,7 @@ namespace siparis.Controllers
                         Session.Add("User_Code", userContactCode);
                     }
 
+                    ProfilCreate();
 
                     //ProfileBase profile = ProfileBase.Create(model.UserName,true);
                     //if (profile!=null)

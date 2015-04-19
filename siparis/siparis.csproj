@@ -446,6 +446,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProfileInfo.cs" />
     <Compile Include="Models\ENTEGRATION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -658,6 +659,7 @@
     <Compile Include="Models\SELLER_DETAIL.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShippingViewModel.cs" />
     <Compile Include="Models\SMARTMASTER.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -1067,6 +1069,7 @@
     <Content Include="Views\OrderFollow\_OrderDetailGrid.cshtml" />
     <Content Include="Views\OrderFollow\_wareHousePartial.cshtml" />
     <Content Include="Views\Home\UrunGetirPartial.cshtml" />
+    <Content Include="Views\OrderFollow\_ShippingPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
@@ -1097,7 +1100,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39822/</IISUrl>
+          <IISUrl>http://localhost:39839/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

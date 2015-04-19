@@ -45,14 +45,27 @@
 
         settings.CommandColumn.Visible = true;
 
-      
+
 
         settings.KeyFieldName = "ROW_ORDER_NO;OPPORTUNITY_CODE";
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Picture";
+            column.Name = "Picture";
+            column.Caption = "Picture";
+            column.Width = 120;
+            column.SetDataItemTemplateContent(c =>
+            {
+                ViewContext.Writer.Write("<img src=\"" + DataBinder.Eval(c.DataItem, "Picture") + "\"/>");
+
+            });
+        });
         settings.Columns.Add(column =>
         {
             column.FieldName = "ROW_ORDER_NO";
             column.Name = "ROW_ORDER_NO";
             column.Caption = "ROW_ORDER_NO";
+            column.Width = 100;
         });
         settings.Columns.Add(column =>
         {

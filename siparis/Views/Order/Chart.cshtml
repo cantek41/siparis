@@ -88,7 +88,10 @@ font-size: 24px;">
                                     @Html.TextBoxFor(model => item.QUANTITY, new { @class = "cart_quantity_input", @size = "2" })
                                     @Html.HiddenFor(model => item.OPPORTUNITY_CODE)
                                     @Html.HiddenFor(model => item.ROW_ORDER_NO)
-                                    <input type="submit" value="" class="fa fa-check-square-o" />
+                                    @*<input type="submit" value="" class="fa fa-check" />*@
+                                     <a class="onaylabutonu" href=""><i class="fa fa-check onaylarenk "></i></a>
+               
+                                   
                                 }
                             </div>
                         </td>

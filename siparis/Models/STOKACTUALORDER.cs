@@ -20,6 +20,7 @@ namespace siparis.Models
         public Nullable<int> QUANTITY { get; set; }
         public Nullable<int> WAREHOUSE { get; set; }
         public Nullable<int> ROW_ORDER_NO { get; set; }
+        public Nullable<int> SHIPPING_TYPE { get; set; }
     
         public virtual OPPORTUNITYMASTER OPPORTUNITYMASTER { get; set; }
     }
