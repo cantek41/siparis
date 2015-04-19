@@ -2,10 +2,6 @@
 @using siparis.Models
 @{
 
-    ViewBag.Title = @Res.resGetir(59);
-
-
-
 }
 <div class="col-sm-9 padding-right">
 
@@ -22,8 +18,8 @@
                         <div class="productinfo text-center">
                             @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
                             <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" />
-                            <h2>@stok.UNIT_PRICE @stok.CUR_TYPE</h2>
-                            <p>@stok.NAME_TR</p>
+                            <h2 class="buyukharf">@stok.NAME_TR</h2>
+                            <h4>@stok.UNIT_PRICE @stok.CUR_TYPE</h4>
                             <a class="btn btn-default add-to-cart" onclick="sepeteEkle(@stok.ID)"><i class="fa fa-shopping-cart"></i>@Res.resGetir(2)</a>
                             <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@Res.resGetir(3)</a>
                         </div>

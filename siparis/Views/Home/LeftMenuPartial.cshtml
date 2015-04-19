@@ -6,7 +6,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a href="/Category/getCategoryProduct?Id=@stok.STOK_GROUP_CODE">
+                    <a href="/Category/CategorizedProducts?Id=@stok.STOK_GROUP_CODE">
                         @*<span class="badge pull-right">(@Model.stokcard.Where(x => x.CATEGORY_CODE == stok.STOK_GROUP_CODE).Count())</span>*@
                         @stok.NAME_TR
                     </a>
