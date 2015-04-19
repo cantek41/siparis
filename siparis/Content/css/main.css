@@ -91,22 +91,35 @@ body {
     }
 
 .border-ayar {
-}
+    
+       
+    }
+
 
     .border-ayar input {
         border-radius: 3px;
         margin-bottom: 10px;
-        border-width: 1px;
-        border-style: inset;
-        border-color: #363432;
+        border: 1px solid #F7F7F0;
+        color: black;
+        background-color: white;
+        height: 27px;
+        font-size: 12px;
     }
 
     .border-ayar select {
         border-radius: 3px;
         margin-bottom: 5px;
-        border-width: 1px;
-        border-style: inset;
-        border-color: #363432;
+        border: 1px solid #F7F7F0;
+        color: black;
+        background-color: white;
+        height: 27px;
+        font-size: 12px;
+    }
+
+    .border-ayar tr {
+        border-radius: 3px;
+        margin-bottom: 5px;
+        border: 1px solid #F7F7F0;
         color: black;
         background-color: white;
         height: 27px;
