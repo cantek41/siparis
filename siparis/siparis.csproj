@@ -846,6 +846,7 @@
     <Content Include="Content\images\home\sale.png" />
     <Content Include="Content\images\home\searchicon.png" />
     <Content Include="Content\images\home\shipping.jpg" />
+    <Content Include="Content\images\icons\add-user.png" />
     <Content Include="Content\images\icons\blank.png" />
     <Content Include="Content\images\icons\calculator.png" />
     <Content Include="Content\images\icons\cancel.png" />

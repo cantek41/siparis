@@ -18,6 +18,8 @@
     <item Text="DispatchNote" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
     <item Text="Invoice" NavigateUrl="Invoice" ImageUrl="~/Content/images/icons/calculator.png"/>
     <item Text="Linesheets" NavigateUrl="Linesheets" ImageUrl="~/Content/images/icons/solution.png"/>
+    <item Text=" "></item>
+    <item Text="New User" NavigateUrl="/Account/Register" ImageUrl="~/Content/images/icons/add-user.png"/>
     <!--<item Text="" NavigateUrl="http://www.veribis.com.tr/" ImageUrl="~/Content/images/logo/logoyazisi.png"/>-->
   </group>
   <group Text="Bayi">    
