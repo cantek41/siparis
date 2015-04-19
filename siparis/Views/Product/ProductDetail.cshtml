@@ -82,7 +82,7 @@
                                 <p><b>@Res.resGetir(13)</b> @Res.resGetir(94)</p>
                                 @Html.HiddenFor(model => model.UPPER_CODE)
                                 @Html.HiddenFor(model => model.ID)
-                                <div class="form-group">
+                                @*<div class="form-group">
                                     @Html.LabelFor(model => model.COLOR_CODE, @Res.resGetir(105), new { @class = "control-label col-md-3 labelrenk labelmargin " })
                                     <div class="col-md-9 border-ayar comboboxhizala">
 
@@ -100,7 +100,7 @@
                                         @Html.ValidationMessageFor(model => model.BODY_CODE)
                                     </div>
 
-                                </div>
+                                </div>*@
 
 
                             </div><!--/product-information-->
@@ -175,11 +175,34 @@
 
                     <div class="alt">
                         <div class="col-sm-6">
-                            <p><b>Stok</b></p>
+                            <p><b>@Res.resGetir(102)</b></p>
                         </div>
                         <div class="col-md-6">
                             <input id="basic-addon1" value="@Model.UNIT" class="text" disabled />
                         </div>
+                    </div>
+
+                    <div class="alt">
+                        <div class="col-sm-6">
+                            <p><b>@Html.LabelFor(model => model.COLOR_CODE, @Res.resGetir(105))</b></p>
+                        </div>
+                        
+                        <div class="col-md-9 border-ayar comboboxhizala">
+                            @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"), new { @class = "dropdpwn-menu" })
+                            @Html.ValidationMessageFor(model => model.COLOR_CODE)
+                        </div>
+                    </div>
+
+                    <div class="alt">
+                        <div class="col-sm-6">
+                            <p><b>@Html.LabelFor(model => model.BODY_CODE, @Res.resGetir(104))</b></p>
+                        </div>
+                            <div class="col-md-9 border-ayar comboboxhizala ">
+
+                            @Html.DropDownList("BODY_CODE", new[] { new SelectListItem { Text = "", Value = "0" } })
+                            @Html.ValidationMessageFor(model => model.BODY_CODE)
+                        </div>
+
                     </div>
                     <div class="alt">
                         <div class="col-sm-6">
