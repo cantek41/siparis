@@ -1,4 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <items>
-  <item Text="Home" NavigateUrl="../Home/Index" /> 
+  <item Text="Home" NavigateUrl="../Home/Index" ImageUrl="~/Content/images/icons/home.png" />
+  <item Text="New User" NavigateUrl="/Account/Register" ImageUrl="~/Content/images/icons/add-user.png"/>
 </items>
+
+
+<!--<menu>
+  <group Text="Admin">
+    <items>
+      <item Text="Home" NavigateUrl="../Home/Index" ImageUrl="~/Content/images/icons/home.png" />
+      <item Text="New User" NavigateUrl="/Account/Register" ImageUrl="~/Content/images/icons/add-user.png"/>
+    </items>
+  </group>
+
+  <group Text="Bayi">
+    <items>
+      <item Text="Home" NavigateUrl="../Home/Index" ImageUrl="~/Content/images/icons/home.png" />
+    </items>
+  </group>
+
+  <group Text="Depo">
+    <items>
+      <item Text="Home" NavigateUrl="../Home/Index" ImageUrl="~/Content/images/icons/home.png" />
+    </items>
+  </group>
+</menu>-->

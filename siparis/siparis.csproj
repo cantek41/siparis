@@ -853,6 +853,7 @@
     <Content Include="Content\images\icons\cart.png" />
     <Content Include="Content\images\icons\check.png" />
     <Content Include="Content\images\icons\edit.png" />
+    <Content Include="Content\images\icons\home.png" />
     <Content Include="Content\images\icons\inbox.png" />
     <Content Include="Content\images\icons\dispatch.png" />
     <Content Include="Content\images\icons\like.png" />
