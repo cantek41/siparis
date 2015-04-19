@@ -12,42 +12,44 @@ body {
     position: relative;
     font-weight: 400;
 }
-.gizle{
-    visibility:hidden;
 
+.gizle {
+    visibility: hidden;
 }
+
 .editforayarla {
 }
-.onaylabutonu{
-    color:white;
-    margin-left:10px;
-}
-.onaylabutonu:hover{
-    
-    background-color:#FE980F;
-    color:white;
-}
-.onaylarenk{
-    color:white;
+
+.onaylabutonu {
+    color: white;
+    margin-left: 10px;
 }
 
-    .editforayarla input {
-        width: 90%;
-        border-radius: 3px;
-        margin-bottom: 10px;
-        border-width: 1px;
-        border-style: inset;
-        border-color: #363432;
+    .onaylabutonu:hover {
+        background-color: #FE980F;
+        color: white;
     }
+
+.onaylarenk {
+    color: white;
+}
+
+.editforayarla input {
+    width: 90%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    border-width: 1px;
+    border-style: inset;
+    border-color: #363432;
+}
 
 .paddingayar {
     padding-left: 0px;
 }
-.imghizala{
 
-    position:absolute;
-    width:70%;
-    
+.imghizala {
+    position: absolute;
+    width: 70%;
 }
 
 .edithizala {
@@ -113,13 +115,13 @@ body {
 
 .deshizla {
 }
-.dil-hover{
 
+.dil-hover {
 }
-.dil-hover:hover{
-    color:#ff0000;
-    
-}
+
+    .dil-hover:hover {
+        color: #ff0000;
+    }
 
 .deshizala input {
     width: 100%;
@@ -131,15 +133,17 @@ body {
     .generalhizala input {
         width: 100%;
     }
-.comboboxhizala{
-width:40%;
 
+.comboboxhizala {
+    width: 40%;
 }
-.labelmargin{
-    margin-left:40px;
+
+.labelmargin {
+    margin-left: 40px;
 }
-.labelrenk{
-    color:#FE980F;
+
+.labelrenk {
+    color: #FE980F;
 }
 
 ul li {
@@ -2641,36 +2645,42 @@ h2.title {
     text-align: left;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
-    font-weight:600;
+    font-weight: 600;
     color: #696763;
-   
 }
+
 .etiket {
-padding-left: 20px;
-margin-bottom: 10px;
+    padding-left: 20px;
+    margin-bottom: 10px;
 }
 
 .buyukharf {
-    text-transform:uppercase;
+    text-transform: uppercase;
 }
 
 .text {
-
-    border-width: 1px; 
-    border-style: solid; 
+    border-width: 1px;
+    border-style: solid;
     border-color: #fe980f;
-    text-align:right;
-    padding-right:5px;
-    border-radius:2px;
-    width:50px;
+    text-align: right;
+    padding-right: 5px;
+    border-radius: 2px;
+    width: 50px;
 }
 
 
 
 
 .alt {
-    clear:both;
-    margin-top:20px;
-    padding:10px;
+    clear: both;
+    margin-top: 20px;
+    padding: 10px;
 }
 
+.register-btn {
+    margin-left: -5px;
+}
+
+    .register-btn input {
+        width:100%;
+    }

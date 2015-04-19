@@ -4,7 +4,7 @@
     ViewBag.Title = Res.resGetir(45);
 }
 
-<h2>@ViewBag.Title.</h2>
+
 @if (ViewBag.Mesaj != null)
 {
     <div>@ViewBag.Mesaj</div>
@@ -13,38 +13,42 @@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>@Res.resGetir(58)</h4>
-    <hr />
-    @Html.ValidationSummary()
-    <div class="form-group">
-        @Html.LabelFor(m => m.RolName, null, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.RolName, new SelectList((System.Collections.IEnumerable)ViewData["Roles"], "Text", "Text"), new { @class = "form-control" })
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+        <h2>@ViewBag.Title.</h2>
+        <h4>@Res.resGetir(58)</h4>
+        <hr />
+
+
+        @Html.ValidationSummary()
+        
+        <div class="form-group">
+            <div class="col-md-3 control-label">@Html.LabelFor(m => m.RolName)</div>
+            <div class="col-md-9">@Html.DropDownListFor(m => m.RolName, new SelectList((System.Collections.IEnumerable)ViewData["Roles"], "Text", "Text"), new { @class = "form-control" })</div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+
+        <div class="form-group">
+            <div class="col-md-3 control-label">@Html.LabelFor(m => m.UserName)</div>
+            <div class="col-md-9">@Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })</div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+
+        <div class="form-group">
+            <div class="col-md-3 control-label">@Html.LabelFor(m => m.Password)</div>
+            <div class="col-md-9">@Html.PasswordFor(m => m.Password, new { @class = "form-control" })</div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+
+        <div class="form-group">
+            <div class="col-md-3 control-label">@Html.LabelFor(m => m.ConfirmPassword)</div>
+            <div class="col-md-9">@Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })</div>
         </div>
+
     </div>
+
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value=@Res.resGetir(45) />
-        </div>
+        <div class="col-md-6"></div>
+        <div class="col-md-2 control-label register-btn"><input type="submit" class="btn btn-group-justified" value=@Res.resGetir(45) /></div>
     </div>
+
 }
 
 @section Scripts {
