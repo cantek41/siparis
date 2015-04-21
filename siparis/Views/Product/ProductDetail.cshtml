@@ -65,7 +65,7 @@
                    
                         
                         
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 border-ayar">
                         <div class="product-information" style="padding:0;">
                             <!--/product-information-->
                             @*<img src="../content/images/product-details/new.jpg" class="newarrival" alt="" />*@
@@ -99,9 +99,9 @@
                 {
 
                     settings.Name = "dateEdit1";
-                    settings.Properties.NullText = "dd/MM/yyyy";
+                    settings.Properties.NullText = "DD/MM/YYYY";
                     settings.Properties.EditFormat = EditFormat.Custom;
-                    settings.Properties.EditFormatString = "DD/MM/YYYY";
+                    settings.Properties.EditFormatString = "dd/MM/yyyy";
                     settings.RightToLeft = DefaultBoolean.True;
                     settings.Properties.CalendarProperties.ShowClearButton = false;
                     settings.Properties.CalendarProperties.ShowTodayButton = false;
@@ -127,9 +127,9 @@
                 settings =>
                 {
                     settings.Name = "dateEdit2";
-                    settings.Properties.NullText = "dd/MM/yyyy";
+                    //settings.Properties.NullText = "DD/MM/YYYY";
                     settings.Properties.EditFormat = EditFormat.Custom;
-                    settings.Properties.EditFormatString = "DD/MM/YYYY";
+                    settings.Properties.EditFormatString = "dd/MM/yyyy";
                     settings.Date = new DateTime();
                     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
                     settings.RightToLeft = DefaultBoolean.True;
@@ -138,6 +138,7 @@
                     settings.Properties.CalendarProperties.ShowDayHeaders = false;
                     settings.Properties.CalendarProperties.ShowHeader = false;
                     settings.Properties.CalendarProperties.ShowWeekNumbers = false;
+                   
                 }
             ).GetHtml()
                                         </div>
@@ -146,17 +147,17 @@
                                         <div class="col-sm-6">
                                             <p><b>@Res.resGetir(72)</b></p>
                                         </div>
-                                        <div class="col-sm-6 border-ayar">
-                                            <input class="text-primary" id="miktar" type="text" value="1" />
+                                        <div class="col-sm-6">
+                                            <input id="miktar" type="text" value="1" />
                                         </div>
                                     </div>
 
                                     <div class="alt">
                                         <div class="col-sm-6">
-                                            <p><b>@Res.resGetir(72)</b></p>
+                                            <p><b>@Res.resGetir(102)</b></p>
                                         </div>
-                                        <div class="col-md-6 border-ayar">
-                                            <input id="basic-addon1" value="@Model.UNIT" class="text-info" disabled />
+                                        <div class="col-md-6 border-ayar shopper-info">
+                                            <input id="basic-addon1" value="@Model.UNIT" disabled />
                                         </div>
                                     </div>
 
@@ -175,7 +176,7 @@
                                         <div class="col-sm-6">
                                             <p><b>@Html.LabelFor(model => model.BODY_CODE, @Res.resGetir(104))</b></p>
                                         </div>
-                                        <div class="col-md-6 border-ayar">
+                                        <div class="col-md-6">
 
                                             @Html.DropDownList("BODY_CODE", new[] { new SelectListItem { Text = "", Value = "0" } })
                                             @Html.ValidationMessageFor(model => model.BODY_CODE)
