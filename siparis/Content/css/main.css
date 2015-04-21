@@ -91,9 +91,7 @@ body {
     }
 
 .border-ayar {
-    
-       
-    }
+}
 
 
     .border-ayar input {
@@ -104,7 +102,6 @@ body {
         background-color: white;
         height: 27px;
         font-size: 12px;
-        
     }
 
     .border-ayar select {
@@ -2696,5 +2693,10 @@ h2.title {
 }
 
     .register-btn input {
-        width:100%;
+        width: 100%;
     }
+
+.image-size {
+    width:60px;
+    height:60px;
+}
