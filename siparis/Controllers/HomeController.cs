@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
+using System.Web.Security;
+using DevExpress.Xpo;
 using siparis.Models;
 
 namespace siparis.Controllers
@@ -107,11 +111,35 @@ namespace siparis.Controllers
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if ((HttpContext.Current.User.Identity.IsAuthenticated==true) && (HttpContext.Current.Session["FirmaAdi"]==null))
+            //if ((HttpContext.Current.User.Identity.IsAuthenticated==true) && (HttpContext.Current.Session["FirmaAdi"]==null))
+            //{
+               
+            //    AccountController ac = new AccountController();
+            //    ac.LogOff();
+            //}
+            //base.OnActionExecuting(filterContext);
+
+            string controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName.ToLower().Trim();
+            string actionName = filterContext.ActionDescriptor.ActionName.ToLower().Trim();
+
+            if (!actionName.StartsWith("login") && !actionName.StartsWith("logoff"))
             {
-                HttpContext.Current.Session["FirmaAdi"] = "veribisCan";
+                var session = HttpContext.Current.Session["FirmaAdi"];
+                HttpContext ctx = HttpContext.Current;
+                //Redirects user to login screen if session has timed out
+                if (session == null)
+                {
+                    base.OnActionExecuting(filterContext);
+
+
+                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
+                    {
+                        controller = "Account",
+                        action = "LogOff"
+                    }));
+
+                }
             }
-            base.OnActionExecuting(filterContext);
         }
  
     }

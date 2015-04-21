@@ -183,6 +183,7 @@ namespace siparis.Controllers
                             switch (eskiSayfa)
                             {
                                 case 15:
+                                    Session.Remove("Sepet");
                                     opp.DOCUMENT_TYPE = 22;
                                     break;
                                 case 19:
@@ -275,6 +276,7 @@ namespace siparis.Controllers
                             switch (eskiSayfa)
                             {
                                 case 15:
+                                    Session.Remove("Sepet");
                                     opp.DOCUMENT_TYPE = 3;
                                     break;
                                 case 3:
@@ -294,6 +296,7 @@ namespace siparis.Controllers
                             switch (eskiSayfa)
                             {
                                 case 15:
+                                    Session.Remove("Sepet");
                                     opp.DOCUMENT_TYPE = 3;
                                     break;
                                 case 19:
