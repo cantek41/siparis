@@ -24,7 +24,7 @@ namespace siparis.Controllers
             ViewData["Color"] = (from s in db.STOKCARDs
                                  where s.UPPER_CODE == model.UPPER_CODE
                                  join c in db.STOKCOLORs on s.COLOR_CODE equals c.COLOR_CODE
-                                 select new { Key = c.COLOR_CODE, Text = c.NAME_TR });
+                                 select new { Key = c.COLOR_CODE, Text = c.NAME_TR }).Distinct();
         }
 
 
@@ -34,7 +34,7 @@ namespace siparis.Controllers
             var model= (from s in db.STOKCARDs
                                  where s.UPPER_CODE == upper && s.COLOR_CODE==color
                                  join b in db.STOKBODies on s.BODY_CODE equals b.BODY_CODE
-                                 select new { Key = b.BODY_CODE, Text = b.NAME_TR });
+                                 select new { Key = b.BODY_CODE, Text = b.NAME_TR }).Distinct();
             return Json(model);
 
 

@@ -34,6 +34,8 @@
         settings.SettingsBehavior.AllowFocusedRow = true;
         settings.SettingsPager.EnableAdaptivity = true;
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.SettingsCommandButton.DeleteButton.Text = "dfdf";
+       // settings.SettingsCommandButton.DeleteButton.Styles
       //  settings.CustomActionRouteValues = new { Controller = "OrderFollow", Action = "orderPartial" };
         settings.CommandColumn.CustomButtons.Add(new GridViewCommandColumnCustomButton()
         {
@@ -45,7 +47,7 @@
 
         settings.CommandColumn.Visible = true;
 
-
+       
 
         settings.KeyFieldName = "ROW_ORDER_NO;OPPORTUNITY_CODE";
         settings.Columns.Add(column =>

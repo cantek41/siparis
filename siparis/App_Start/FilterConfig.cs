@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using siparis.Controllers;
 
 namespace siparis
 {
@@ -8,6 +9,7 @@ namespace siparis
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new sessiDataFilter());
         }
     }
 }

@@ -101,4 +101,18 @@ namespace siparis.Controllers
 
 
     }
+
+
+    public class sessiDataFilter : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            if ((HttpContext.Current.User.Identity.IsAuthenticated==true) && (HttpContext.Current.Session["FirmaAdi"]==null))
+            {
+                HttpContext.Current.Session["FirmaAdi"] = "veribisCan";
+            }
+            base.OnActionExecuting(filterContext);
+        }
+ 
+    }
 }
