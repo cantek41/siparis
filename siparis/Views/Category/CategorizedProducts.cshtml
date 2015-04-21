@@ -1,8 +1,10 @@
 ﻿@model siparis.Models.IndexDataViewModel
 @using siparis.Models
 @{
-    ViewBag.Title = @Res.resGetir(63);
-    siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
+
+    ViewBag.Title = @Res.resGetir(59);
+
+
 
 }
 <script src="~/Scripts/jquery.toastmessage.js"></script>
@@ -13,13 +15,16 @@
             var pageindex = $(evt.target).data("pageindex");
             $("#CurrentPageIndex").val(pageindex);
             // evt.preventDefault();
-            $("form").submit();
+            $("form").submit(); //fix me
         });
     });
 </script>
 
 
-@{Html.RenderPartial("SliderPartial");}
+<section id="advertisement">
+    @{Html.RenderPartial("SliderPartial");}
+</section>
+
 <section>
     <div class="container">
         <div class="row">
@@ -29,15 +34,15 @@
                     <div class="panel-group category-products" id="accordian">
                         <!--category-productsr-->
                         @{Html.RenderPartial("LeftMenuPartial");}
-
-                    </div><!--/category-products-->
-
+                    </div><!--/category-products-->                  
                 </div>
             </div>
+             
+             @{Html.RenderPartial("CategoryProductPartial");}
 
-            @{Html.RenderPartial("ContentPartial");}
 
         </div>
     </div>
 
 </section>
+

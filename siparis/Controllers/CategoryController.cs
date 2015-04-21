@@ -12,7 +12,7 @@ namespace siparis.Controllers
     {
         //
         // GET: /Category/
-        public ActionResult getCategoryProduct(int Id)
+        public ActionResult CategorizedProducts(int Id)
         {
             TempData["Category"] = Id;
             return View(getDetailCategory(Id));
@@ -27,7 +27,7 @@ namespace siparis.Controllers
         /// <returns></returns>
         [HttpPost]
 
-        public ActionResult getCategoryProduct([ModelBinder(typeof(DevExpressEditorsBinder))] IndexDataViewModel model, int Id)
+        public ActionResult CategorizedProducts([ModelBinder(typeof(DevExpressEditorsBinder))] IndexDataViewModel model, int Id)
         {
             int CategoryID = Id;
             int[] season = CheckBoxListExtension.GetSelectedValues<int>("SEASON");

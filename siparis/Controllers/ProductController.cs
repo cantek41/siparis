@@ -22,8 +22,8 @@ namespace siparis.Controllers
         {
             VdbSoftEntities db = new VdbSoftEntities();
             ViewData["Color"] = (from s in db.STOKCARDs
-                                 where s.UPPER_CODE == model.UPPER_CODE
                                  join c in db.STOKCOLORs on s.COLOR_CODE equals c.COLOR_CODE
+                                 where s.UPPER_CODE == model.UPPER_CODE 
                                  select new { Key = c.COLOR_CODE, Text = c.NAME_TR }).Distinct();
         }
 

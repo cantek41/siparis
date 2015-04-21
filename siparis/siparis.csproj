@@ -846,12 +846,14 @@
     <Content Include="Content\images\home\sale.png" />
     <Content Include="Content\images\home\searchicon.png" />
     <Content Include="Content\images\home\shipping.jpg" />
+    <Content Include="Content\images\icons\add-user.png" />
     <Content Include="Content\images\icons\blank.png" />
     <Content Include="Content\images\icons\calculator.png" />
     <Content Include="Content\images\icons\cancel.png" />
     <Content Include="Content\images\icons\cart.png" />
     <Content Include="Content\images\icons\check.png" />
     <Content Include="Content\images\icons\edit.png" />
+    <Content Include="Content\images\icons\home.png" />
     <Content Include="Content\images\icons\inbox.png" />
     <Content Include="Content\images\icons\dispatch.png" />
     <Content Include="Content\images\icons\like.png" />
@@ -1037,7 +1039,7 @@
     <Content Include="Views\Order\Chart.cshtml" />
     <Content Include="Views\Home\NotFound.cshtml" />
     <Content Include="Views\Home\LeftMenuPartial.cshtml" />
-    <Content Include="Views\Category\getCategoryProduct.cshtml" />
+    <Content Include="Views\Category\CategorizedProducts.cshtml" />
     <Content Include="Views\Category\LeftMenuPartial.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\HeaderPartialView.cshtml" />
@@ -1070,6 +1072,8 @@
     <Content Include="Views\OrderFollow\_wareHousePartial.cshtml" />
     <Content Include="Views\Home\UrunGetirPartial.cshtml" />
     <Content Include="Views\OrderFollow\_ShippingPartial.cshtml" />
+    <Content Include="Views\Category\CategoryProductPartial.cshtml" />
+    <Content Include="Views\Home\ContentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
