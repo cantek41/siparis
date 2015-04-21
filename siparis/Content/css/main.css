@@ -97,31 +97,47 @@ body {
     .border-ayar input {
         border-radius: 3px;
         margin-bottom: 10px;
-        border: 1px solid #F7F7F0;
+        border: 1px solid #d4d4d4;
         color: black;
         background-color: white;
-        height: 27px;
+        height: 30px;
         font-size: 12px;
+        width:100%;
+
     }
 
     .border-ayar select {
         border-radius: 3px;
         margin-bottom: 5px;
-        border: 1px solid #F7F7F0;
+        border: 1px solid #d4d4d4;
         color: black;
         background-color: white;
-        height: 27px;
+        height: 30px;
         font-size: 12px;
+        width:100%;
     }
 
     .border-ayar tr {
         border-radius: 3px;
         margin-bottom: 5px;
-        border: 1px solid #F7F7F0;
+        border: 1px solid #d4d4d4;
         color: black;
         background-color: white;
-        height: 27px;
+        height: 30px;
         font-size: 12px;
+        width:100%;
+    }
+
+    .border-ayar table {
+        border-radius: 3px;
+        height:30px;
+        /*margin-bottom: 5px;
+        border: 1px solid #d4d4d4;
+        color: black;
+        background-color: white;
+        height: 32px;
+        font-size: 12px;
+        width:100%;*/
     }
 
 .deshizla {
@@ -1375,11 +1391,14 @@ h2.title {
 .product-information {
     border: 1px solid #F7F7F0;
     overflow: hidden;
-    padding-bottom: 60px;
+    padding:5px;
+    /*padding-bottom: 60px;
     padding-left: 60px;
-    padding-top: 60px;
+    padding-top: 60px;*/
     position: relative;
 }
+
+
 
 .newarrival {
     position: absolute;
@@ -2699,4 +2718,8 @@ h2.title {
 .image-size {
     width:60px;
     height:60px;
+}
+
+.padding-zero {
+padding:0;
 }

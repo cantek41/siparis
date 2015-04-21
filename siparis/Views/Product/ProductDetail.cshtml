@@ -14,94 +14,64 @@
 
             <div class="col-sm-10">
                 <div class="product-details">
-                    
-                    <div class="col-sm-6">
+
+                    <div class="col-sm-6 border-ayar product-information">
                         <div class="view-product">
                             <img src="@Model.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" />
                             <h3>ZOOM</h3>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
 
-                            <!-- Wrapper for slides -->
-                            <center>
-                                <div class="carousel-inner">
-
-                                    <div class="item active">
-
-                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>
-                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>
-                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>
-                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>
-                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>
-                                        @*<a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>*@
 
 
-
-                                    </div>
-
-
-                                    <div class="item">
-
-                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
-                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
-                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
-                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
-                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
-                                        @*<a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>*@
-
-                                    </div>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>
+                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>
+                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>
+                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>
+                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>
                                 </div>
-                            </center>
-                            <!-- Controls -->
-                            <a class="left item-control" href="#similar-product" data-slide="prev">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a class="right item-control" href="#similar-product" data-slide="next">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
+                                <div class="item">
+                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
+                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
+                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
+                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
+                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
+                                </div>
+                            </div>
+
+
+                            <a class="left item-control" href="#similar-product" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                            <a class="right item-control" href="#similar-product" data-slide="next"><i class="fa fa-angle-right"></i></a>
                         </div>
-
                     </div>
-                   
-                        
-                        
-                    <div class="col-sm-6">
-                        <div class="product-information" style="padding:0;">
-                            <!--/product-information-->
-                            @*<img src="../content/images/product-details/new.jpg" class="newarrival" alt="" />*@
-                            @*<h2>Anne Klein Sleeveless Colorblock Scuba</h2>*@
-                            <span><span class="buyukharf etiket"> @Model.NAME_TR</span></span>
-                            <p></p>
 
-                            @*<p>Web ID: 1089772</p>
-                <center>
-                    <img src="../content/images/product-details/rating.png" alt="" />
-                </center>*@
-                            <span class="etiket">
-                                <h2><p><b> @Model.UNIT_PRICE @Model.CUR_TYPE </b></p></h2>
-                            </span>
-                            @*<p><b>@Res.resGetir(91)</b> @Model.UNIT</p>
-                <p><b>@Res.resGetir(92)</b> @Res.resGetir(93)</p>
-                <p><b>@Res.resGetir(13)</b> @Res.resGetir(94)</p>*@
-                            @Html.HiddenFor(model => model.UPPER_CODE)
-                            @Html.HiddenFor(model => model.ID)
+                    <div class="col-sm-6 border-ayar">
+                        <div class="product-information padding-zero">
+                            <span><span class="buyukharf etiket"> @Model.NAME_TR</span><h2 class="etiket"><b>@Model.CODE</b></h2></span>
+                            
+                            <h2 class="etiket"><p><b>@Model.UNIT_PRICE @Model.CUR_TYPE </b></p></h2>
 
-                            <div>
+                                @Html.HiddenFor(model => model.UPPER_CODE)
+                                @Html.HiddenFor(model => model.ID)
+
                                 <div>
-                                    <div class="alt">
-                                        <div class="col-sm-6">
-                                            <p><b>Start Date</b></p>
-                                        </div>
-                                        <div class="col-sm-6 border-ayar">
+                                    <div>
+                                        <div class="alt">
+                                            <div class="col-sm-6">
+                                                <p><b>Start Date</b></p>
+                                            </div>
+                                            <div class="col-sm-6 border-ayar">
 
-                                            @Html.DevExpress().DateEdit(
+                                                @Html.DevExpress().DateEdit(
                 settings =>
                 {
 
                     settings.Name = "dateEdit1";
-                    settings.Properties.NullText = "dd/MM/yyyy";
+                    settings.Properties.NullText = "DD/MM/YYYY";
                     settings.Properties.EditFormat = EditFormat.Custom;
-                    settings.Properties.EditFormatString = "DD/MM/YYYY";
+                    settings.Properties.EditFormatString = "dd/MM/yyyy";
                     settings.RightToLeft = DefaultBoolean.True;
                     settings.Properties.CalendarProperties.ShowClearButton = false;
                     settings.Properties.CalendarProperties.ShowTodayButton = false;
@@ -114,22 +84,22 @@
 
                 }
             ).GetHtml()
+                                            </div>
+
                                         </div>
 
-                                    </div>
-
-                                    <div class="alt">
-                                        <div class="col-sm-6">
-                                            <p><b>End Date</b></p>
-                                        </div>
-                                        <div class="col-sm-6 border-ayar">
-                                            @Html.DevExpress().DateEdit(
+                                        <div class="alt">
+                                            <div class="col-sm-6">
+                                                <p><b>End Date</b></p>
+                                            </div>
+                                            <div class="col-sm-6 border-ayar">
+                                                @Html.DevExpress().DateEdit(
                 settings =>
                 {
                     settings.Name = "dateEdit2";
-                    settings.Properties.NullText = "dd/MM/yyyy";
+                    //settings.Properties.NullText = "DD/MM/YYYY";
                     settings.Properties.EditFormat = EditFormat.Custom;
-                    settings.Properties.EditFormatString = "DD/MM/YYYY";
+                    settings.Properties.EditFormatString = "dd/MM/yyyy";
                     settings.Date = new DateTime();
                     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
                     settings.RightToLeft = DefaultBoolean.True;
@@ -138,94 +108,61 @@
                     settings.Properties.CalendarProperties.ShowDayHeaders = false;
                     settings.Properties.CalendarProperties.ShowHeader = false;
                     settings.Properties.CalendarProperties.ShowWeekNumbers = false;
+
                 }
             ).GetHtml()
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="alt">
-                                        <div class="col-sm-6">
-                                            <p><b>@Res.resGetir(72)</b></p>
-                                        </div>
-                                        <div class="col-sm-6 border-ayar">
-                                            <input class="text-primary" id="miktar" type="text" value="1" />
-                                        </div>
-                                    </div>
-
-                                    <div class="alt">
-                                        <div class="col-sm-6">
-                                            <p><b>@Res.resGetir(72)</b></p>
-                                        </div>
-                                        <div class="col-md-6 border-ayar">
-                                            <input id="basic-addon1" value="@Model.UNIT" class="text-info" disabled />
-                                        </div>
-                                    </div>
-
-                                    <div class="alt">
-                                        <div class="col-sm-6">
-                                            <p><b>@Html.LabelFor(model => model.COLOR_CODE, @Res.resGetir(105))</b></p>
+                                        <div class="alt">
+                                            <div class="col-sm-6"><p><b>@Res.resGetir(72)</b></p></div>
+                                            <div class="col-sm-6"><input id="miktar" type="text" value="1" /></div>
                                         </div>
 
-                                        <div class="col-md-6 border-ayar">
-                                            @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"))
-                                            @Html.ValidationMessageFor(model => model.COLOR_CODE)
-                                        </div>
-                                    </div>
-                                    @*new { @class = "dropdpwn-menu" }*@
-                                    <div class="alt">
-                                        <div class="col-sm-6">
-                                            <p><b>@Html.LabelFor(model => model.BODY_CODE, @Res.resGetir(104))</b></p>
-                                        </div>
-                                        <div class="col-md-6 border-ayar">
-
-                                            @Html.DropDownList("BODY_CODE", new[] { new SelectListItem { Text = "", Value = "0" } })
-                                            @Html.ValidationMessageFor(model => model.BODY_CODE)
+                                        <div class="alt">
+                                            <div class="col-sm-6"><p><b>@Res.resGetir(102)</b></p></div>
+                                            <div class="col-md-6 border-ayar shopper-info"><input id="basic-addon1" value="@Model.UNIT" disabled /></div>
                                         </div>
 
-                                    </div>
-                                    <div class="alt">
-                                        <div class="col-sm-6">
-                                            <a href="../Home/index" class="btn btn-default blank-arrow"><i class="fa fa-backward"></i> @Res.resGetir(103)</a>
+                                        <div class="alt">
+                                            <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.COLOR_CODE, @Res.resGetir(105))</b></p></div>
+                                            <div class="col-md-6 border-ayar">
+                                                @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"))
+                                                @Html.ValidationMessageFor(model => model.COLOR_CODE)
+                                            </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <button type="button" class="btn btn-default cart" onclick="sepeteEkleMiktarli($('#ID').val(),$('#miktar').val())" style="margin-left:-30px;">
-                                                <i class="fa fa-shopping-cart"></i>
-                                                @Res.resGetir(2)
-                                            </button>
+
+                                        <div class="alt">
+                                            <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.BODY_CODE, @Res.resGetir(104))</b></p></div>
+                                            <div class="col-md-6">
+                                                @Html.DropDownList("BODY_CODE", new[] { new SelectListItem { Text = "", Value = "0" } })
+                                                @Html.ValidationMessageFor(model => model.BODY_CODE)
+                                            </div>
+
+                                        </div>
+                                        <div class="alt">
+                                            <div class="col-sm-6"><a href="../Home/index" class="btn btn-default blank-arrow"><i class="fa fa-backward"></i> @Res.resGetir(103)</a></div>
+                                            <div class="col-sm-6">
+                                                <button type="button" class="btn btn-default cart" onclick="sepeteEkleMiktarli($('#ID').val(),$('#miktar').val())" style="margin-left:-30px;">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                    @Res.resGetir(2)
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            @*<div class="form-group">
-                    @Html.LabelFor(model => model.COLOR_CODE, @Res.resGetir(105), new { @class = "control-label col-md-3 labelrenk labelmargin " })
-                    <div class="col-md-9 border-ayar comboboxhizala">
 
 
-                        @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"),new { @class="dropdpwn-menu"})
-                        @Html.ValidationMessageFor(model => model.COLOR_CODE)
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.BODY_CODE, @Res.resGetir(104), new { @class = "control-label col-md-3 labelrenk labelmargin " })
-                    <div class="col-md-9 border-ayar comboboxhizala ">
-
-                        @Html.DropDownList("BODY_CODE", new[] { new SelectListItem { Text = "", Value = "0" } })
-                        @Html.ValidationMessageFor(model => model.BODY_CODE)
+</div>
                     </div>
 
-                </div>*@
-
-
-                        </div><!--/product-information-->
-                    </div>
-                   
                 </div>
             </div>
-            
 
 
 
-            @*<label>@Res.resGetir(72)</label>*@
+
+
 
         </div>
     </div>
