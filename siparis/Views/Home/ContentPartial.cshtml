@@ -28,6 +28,12 @@
         <ul class="pagination">
             @for (var i = 0; i < info.PageCount; i++)
             {
+                 if (i > 3)
+                {
+                    <li><span href="" data-pageindex="@i" class="pager">&raquo;</span></li>
+                    i = info.PageCount;
+                    break;
+                }
                 if (i == info.CurrentPageIndex)
                 {
                     <li class="active"><span href="" class="pager">@(i + 1)</span></li>
@@ -38,10 +44,7 @@
                     <li><span href="" data-pageindex="@i" class="pager">@(i + 1)</span></li>
 
                 }
-                if (i > 5)
-                {
-                    <li><span href="" data-pageindex="@i" class="pager">&raquo;</span></li>
-                }
+               
             }
 
         </ul>
