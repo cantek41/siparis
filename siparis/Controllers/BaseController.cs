@@ -16,9 +16,10 @@ namespace siparis.Controllers
 
         public void checkCart()
         {
+            int userCode = getUserCode();
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
             int sepetID = (from d in db.OPPORTUNITYMASTERs
-                           where d.OPEN_CLOSE == 0 && d.DOCUMENT_TYPE == 15 && d.APPOINTED_USER_CODE == 1// user ID gelmeli Fix Me
+                           where d.OPEN_CLOSE == 0 && d.DOCUMENT_TYPE == 15 && (int)d.APPOINTED_USER_CODE == userCode// user ID gelmeli Fix Me
                            select d.OPPORTUNITY_CODE).FirstOrDefault();
             if (sepetID != 0)
             {
@@ -54,10 +55,11 @@ namespace siparis.Controllers
         }
         public IEnumerable<OPPORTUNITYDETAIL> getCartProduct()
         {
+            int userCode = getUserCode();
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
             IEnumerable<OPPORTUNITYDETAIL> model = from d in db.OPPORTUNITYDETAILs
                                                    join master in db.OPPORTUNITYMASTERs on d.OPPORTUNITY_CODE equals master.OPPORTUNITY_CODE
-                                                   where master.OPEN_CLOSE == 0 && master.APPOINTED_USER_CODE == 1 && master.DOCUMENT_TYPE == 15//fix me 
+                                                   where master.OPEN_CLOSE == 0 && (int)master.APPOINTED_USER_CODE == userCode && master.DOCUMENT_TYPE == 15//fix me 
                                                    select d;
             List<OPPORTUNITYDETAIL> sepet = new List<OPPORTUNITYDETAIL>();
             foreach (var item in model)
