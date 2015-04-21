@@ -439,8 +439,8 @@ namespace siparis.Controllers
             int cID = Convert.ToInt32(customerID);
             VdbSoftEntities db = new VdbSoftEntities(dbName);
             List<OppDetail> model = (from d in db.OPPORTUNITYDETAILs
-                                     join picture in db.STOKCARDPICTUREs on d.STOK_ID equals picture.STOK_ID
-                                     where d.OPPORTUNITY_CODE == cID && picture.TYPE == 2
+                                     //join picture in db.STOKCARDPICTUREs on d.STOK_ID equals picture.STOK_ID
+                                     where d.OPPORTUNITY_CODE == cID // && picture.TYPE == 2
                                      select new OppDetail
                                      {
                                          OPPORTUNITY_CODE = d.OPPORTUNITY_CODE,
@@ -450,10 +450,22 @@ namespace siparis.Controllers
                                          TOTAL = d.TOTAL,
                                          CUR_TYPE = d.CUR_TYPE,
                                          UNIT_PRICE = d.UNIT_PRICE,
-                                         Picture = picture.PATH
+                                         STOK_ID=d.STOK_ID
+                                       //  Picture = picture.PATH
                                      }).ToList();
+
+            List<OppDetail> modelPicture = new List<OppDetail>();
+            foreach (var item in model)
+            {
+                item.Picture = db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).Where(x => x.TYPE == 2).Select(x => x.PATH).FirstOrDefault();
+                modelPicture.Add(item);
+            }
+
+
+            
             TempData["DOCUMENT_TYPE"] = db.OPPORTUNITYMASTERs.Find(cID).DOCUMENT_TYPE;
-            return PartialView("MasterDetailDetailPartial", model.ToArray());
+
+            return PartialView("MasterDetailDetailPartial", modelPicture.ToArray());
         }
 
 
@@ -492,9 +504,19 @@ namespace siparis.Controllers
                                          TOTAL = d.TOTAL,
                                          CUR_TYPE = d.CUR_TYPE,
                                          UNIT_PRICE = d.UNIT_PRICE,
-                                         Picture = picture.PATH
+                                         STOK_ID = d.STOK_ID
                                      }).ToList();
-            return PartialView("_OrderDetailGrid", model);
+
+
+
+            List<OppDetail> modelPicture = new List<OppDetail>();
+            foreach (var item in model)
+            {
+                item.Picture = db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).Where(x => x.TYPE == 2).Select(x => x.PATH).FirstOrDefault();
+                modelPicture.Add(item);
+            }
+
+            return PartialView("_OrderDetailGrid", modelPicture.ToList());
         }
 
 
