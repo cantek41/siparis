@@ -21,9 +21,6 @@
                             <h3>ZOOM</h3>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
-
-
-
                             <div class="carousel-inner">
                                 <div class="item active">
                                     <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>
@@ -40,8 +37,6 @@
                                     <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
                                 </div>
                             </div>
-
-
                             <a class="left item-control" href="#similar-product" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                             <a class="right item-control" href="#similar-product" data-slide="next"><i class="fa fa-angle-right"></i></a>
                         </div>
@@ -69,7 +64,7 @@
                 {
 
                     settings.Name = "dateEdit1";
-                    settings.Properties.NullText = "DD/MM/YYYY";
+                    //settings.Properties.NullText = "DD/MM/YYYY";
                     settings.Properties.EditFormat = EditFormat.Custom;
                     settings.Properties.EditFormatString = "dd/MM/yyyy";
                     settings.RightToLeft = DefaultBoolean.True;
@@ -80,7 +75,7 @@
                     settings.Properties.CalendarProperties.ShowWeekNumbers = false;
 
                     settings.Date = new DateTime();
-                   // settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
 
                 }
             ).GetHtml()
