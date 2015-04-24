@@ -824,6 +824,9 @@ ul.sub-menu {
 .right {
     right: 0;
 }
+.left {
+    left: 0px;
+}
 
 .category-products {
     border: 1px solid #F7F7F0;
@@ -2715,9 +2718,19 @@ h2.title {
         width: 100%;
     }
 
-.image-size {
-    width:60px;
-    height:60px;
+.slider-image-mini {
+    width:85px;
+    height:84px;
+}
+
+.slider-image-main {
+width:266px;
+height:381px;
+}
+
+.image-main {
+width:268px;
+height:249px;
 }
 
 .padding-zero {
