@@ -124,7 +124,7 @@ namespace siparis.Controllers
 
             if (!actionName.StartsWith("login") && !actionName.StartsWith("logoff"))
             {
-                var session = HttpContext.Current.Session["FirmaAdi"];
+                var session = HttpContext.Current.Session["profilim"];
                 HttpContext ctx = HttpContext.Current;
                 //Redirects user to login screen if session has timed out
                 if (session == null)

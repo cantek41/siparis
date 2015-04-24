@@ -2,18 +2,13 @@
 
 
 
-
-
-
 @{
-    string firmaAdi = null;
-    if (HttpContext.Current.Session["FirmaAdi"]!=null)
-    {
-        firmaAdi = HttpContext.Current.Session["FirmaAdi"].ToString();
-    }
-     
-
+    ProfileInfo profilim = (ProfileInfo)Session["profilim"];
 }
+
+    
+
+
 <header id="header">
     <!--header-->
     <div class="header_top">
@@ -25,14 +20,15 @@
                         
                         <ul class="nav nav-pills">
                           
-                            <li><a href="../Home/Contact"><i class="fa fa-phone"></i> @ProfileInfo.Telefon </a></li>
-                            <li><a href="../Home/Contact"><i class="fa fa-envelope"></i>@ProfileInfo.Mail</a></li>
+                            <li><a href="../Home/Contact"><i class="fa fa-phone"></i> @profilim.Telefon </a></li>
+                            <li><a href="../Home/Contact"><i class="fa fa-envelope"></i>@profilim.Mail</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="social-icons pull-right">
                         <ul class="nav navbar-nav">
+                            <li><a href="https://www.facebook.com/pages/modamcom/180760585455778" target="_blank">@profilim.FirmaAdi</a></li>
                             <li><a class="dil-hover" style="margin-top:8px;margin-right:8px;" href="@Url.Action("changeLanguage", "Base", new { lang ="TR"})"><b>TR</b>   </a></li>
                             <li><a class="dil-hover" style="margin-top:8px;" href="@Url.Action("changeLanguage", "Base", new { lang ="EN"})"><b>EN</b></a></li>
                             <li><a href="https://www.facebook.com/pages/modamcom/180760585455778" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -54,7 +50,7 @@
                     <div class="logo pull-left">
                         <a href="@Url.Action("index","Home")">
                             @*<img src="~/Content/images/home/logo.png" />*@
-                            <span style="font-family:Bahamas;color:#000000;font-size:40px;">@firmaAdi</span>
+                            <span style="font-family:Bahamas;color:#000000;font-size:40px;">@profilim.FirmaAdi </span>
                         </a>
                     </div>
 

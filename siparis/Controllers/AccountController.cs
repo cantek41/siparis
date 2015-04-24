@@ -57,33 +57,13 @@ namespace siparis.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
                     using (VeribisEntitiesBase veribisDB = new VeribisEntitiesBase())
-                    {    
-                      
+                    {                      
                         dbName = veribisDB.LOGINs.Where(x => x.CUSTOMER_CODE == model.TCode).Select(x => x.DB_NAME).FirstOrDefault();
                     }
-                    using (VdbSoftEntities db = new VdbSoftEntities(dbName))
-                    {
-                        int userContactCode = (int)db.USERS.Where(x => x.USER_NAME == model.UserName).Select(x => x.CONTACT_CODE).FirstOrDefault();
-                        COMPANY company =db.COMPANies.Find(db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).Select(x=>x.COMPANY_CODE).FirstOrDefault());
-                        Session.Add("FirmaAdi", company.COMPANY_NAME);
-                        Session.Add("User_Code", userContactCode);
-                    }
+                    
 
                     ProfilCreate();
-
-                    //ProfileBase profile = ProfileBase.Create(model.UserName,true);
-                    //if (profile!=null)
-                    //{
-                    //    profile.SetPropertyValue("Adi", model.UserName);
-                    //    using (VdbSoftEntities db = new VdbSoftEntities(dbName))
-                    //    {
-                    //        COMPANY company = db.COMPANies.Find(model.TCode);
-                    //        profile.SetPropertyValue("FirmaAdi", company.COMPANY_NAME);
-                    //    }
-                    //    profile.Save();
-
-                    //}
-
+                                        
                     return RedirectToLocal(returnUrl);
                 }
                 else
