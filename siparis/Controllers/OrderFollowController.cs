@@ -495,9 +495,8 @@ namespace siparis.Controllers
             //            select d;
 
 
-            List<OppDetail> model = (from d in db.OPPORTUNITYDETAILs
-                                     join picture in db.STOKCARDPICTUREs on d.STOK_ID equals picture.STOK_ID
-                                     where d.OPPORTUNITY_CODE == cID && picture.TYPE == 2
+            List<OppDetail> model = (from d in db.OPPORTUNITYDETAILs                                 
+                                     where d.OPPORTUNITY_CODE == cID 
                                      select new OppDetail
                                      {
                                          OPPORTUNITY_CODE = d.OPPORTUNITY_CODE,

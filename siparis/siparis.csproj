@@ -1074,6 +1074,8 @@
     <Content Include="Views\OrderFollow\_ShippingPartial.cshtml" />
     <Content Include="Views\Category\CategoryProductPartial.cshtml" />
     <Content Include="Views\Home\ContentPartial.cshtml" />
+    <Content Include="Views\OrderFollow\_ShippingConfirmMasterPartial.cshtml" />
+    <Content Include="Views\OrderFollow\_ShippingConfirmDetailPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
@@ -1104,7 +1106,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39831/</IISUrl>
+          <IISUrl>http://localhost:39833/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -215,12 +215,17 @@ namespace siparis.Controllers
                                       Telefon = p.PHONE_NUMBER,
                                       Adres2 = d.ADDRESS2
                                   }).FirstOrDefault();
-                ProfileInfo.Telefon = model.Telefon;
-                ProfileInfo.Adres = model.Adres;
-                ProfileInfo.Mail = model.Mail;
-                ProfileInfo.Adres2 = model.Adres2;
-                ProfileInfo.Enlem = model.Enlem;
-                ProfileInfo.Boylam = model.Boylam;
+
+                ProfileInfo profilim = new ProfileInfo();
+
+
+                
+                //ProfileInfo.Telefon = model.Telefon;
+                //ProfileInfo.Adres = model.Adres;
+                //ProfileInfo.Mail = model.Mail;
+                //ProfileInfo.Adres2 = model.Adres2;
+                //ProfileInfo.Enlem = model.Enlem;
+                //ProfileInfo.Boylam = model.Boylam;
                                
 
 
