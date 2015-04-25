@@ -1,4 +1,13 @@
-
+@{
+    string file_name = "~/App_Data/SideMenu.xml";
+    if (Culture.Contains("tr-TR"))
+    {
+        file_name = "~/App_Data/SideMenutr-TR.xml";
+    }
+    else
+    { file_name = "~/App_Data/SideMenu.xml"; }
+    
+}
 <div class="leftPanel">
         @* DXCOMMENT: Configure the left panel's menu *@
     @Html.DevExpress().NavBar(settings => {
@@ -18,5 +27,5 @@
                 e.Group.ClientVisible = false;
             }
         };
-    }).BindToXML(HttpContext.Current.Server.MapPath("~/App_Data/SideMenu.xml"), "/menu/*").GetHtml()
+}).BindToXML(HttpContext.Current.Server.MapPath(file_name), "/menu/*").GetHtml()
 </div>
