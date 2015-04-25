@@ -2,7 +2,7 @@
 @model siparis.Models.STOKCARD
 
 @{
-    ViewBag.Title = @Res.resGetir(26);
+    ViewBag.Title = @siparis.Resorces.Language.ProductDetails;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script src="~/Scripts/jquery.toastmessage.js"></script>
@@ -109,17 +109,17 @@
                                             </div>
                                         </div>
                                         <div class="alt">
-                                            <div class="col-sm-6"><p><b>@Res.resGetir(72)</b></p></div>
+                                            <div class="col-sm-6"><p><b>@siparis.Resorces.Language.Price</b></p></div>
                                             <div class="col-sm-6"><input id="miktar" type="text" value="1" /></div>
                                         </div>
 
                                         <div class="alt">
-                                            <div class="col-sm-6"><p><b>@Res.resGetir(102)</b></p></div>
+                                            <div class="col-sm-6"><p><b>@siparis.Resorces.Language.Stock</b></p></div>
                                             <div class="col-md-6 border-ayar shopper-info"><input id="basic-addon1" value="@Model.UNIT" disabled /></div>
                                         </div>
 
                                         <div class="alt">
-                                            <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.COLOR_CODE, @Res.resGetir(105))</b></p></div>
+                                            <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.COLOR_CODE, @siparis.Resorces.Language.Color)</b></p></div>
                                             <div class="col-md-6 border-ayar">
                                                 @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"))
                                                 @Html.ValidationMessageFor(model => model.COLOR_CODE)
@@ -127,7 +127,7 @@
                                         </div>
 
                                         <div class="alt">
-                                            <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.BODY_CODE, @Res.resGetir(104))</b></p></div>
+                                            <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.BODY_CODE, @siparis.Resorces.Language.Size)</b></p></div>
                                             <div class="col-md-6">
                                                 @Html.DropDownList("BODY_CODE", new[] { new SelectListItem { Text = "", Value = "0" } })
                                                 @Html.ValidationMessageFor(model => model.BODY_CODE)
@@ -135,11 +135,11 @@
 
                                         </div>
                                         <div class="alt">
-                                            <div class="col-sm-6"><a href="../Home/index" class="btn btn-default blank-arrow"><i class="fa fa-backward"></i> @Res.resGetir(103)</a></div>
+                                            <div class="col-sm-6"><a href="../Home/index" class="btn btn-default blank-arrow"><i class="fa fa-backward"></i> @siparis.Resorces.Language.Back</a></div>
                                             <div class="col-sm-6">
                                                 <button type="button" class="btn btn-default cart" onclick="sepeteEkleMiktarli($('#ID').val(),$('#miktar').val())" style="margin-left:-30px;">
                                                     <i class="fa fa-shopping-cart"></i>
-                                                    @Res.resGetir(2)
+                                                    @siparis.Resorces.Language.AddtoCart
                                                 </button>
                                             </div>
                                         </div>
