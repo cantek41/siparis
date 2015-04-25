@@ -4,7 +4,7 @@
     @Html.ActionLink("Login", "Login", "Account")
 }
 else {
-    @: Welcome <b>@User.Identity.Name</b>!
+    @: @siparis.Resorces.Language.wellcome<b>@User.Identity.Name</b>!
     
     @: |
     @Html.ActionLink("Logout", "LogOff", "Account")

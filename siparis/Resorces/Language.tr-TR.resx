@@ -414,4 +414,7 @@
   <data name="ErrorRequest" xml:space="preserve">
     <value>İsteğiniz İşlenirken Bir Hata Oluştu</value>
   </data>
+  <data name="wellcome" xml:space="preserve">
+    <value>Hoşgeldiniz</value>
+  </data>
 </root>

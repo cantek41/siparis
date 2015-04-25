@@ -943,6 +943,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to wellcome.
+        /// </summary>
+        public static string wellcome {
+            get {
+                return ResourceManager.GetString("wellcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to YourMessageHere.
         /// </summary>
         public static string YourMessageHere {
