@@ -880,6 +880,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thispagecouldnotbefound.
+        /// </summary>
+        public static string Thispagecouldnotbefound {
+            get {
+                return ResourceManager.GetString("Thispagecouldnotbefound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total.
         /// </summary>
         public static string Total {

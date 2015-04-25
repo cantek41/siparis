@@ -405,4 +405,7 @@
   <data name="YourMessageHere" xml:space="preserve">
     <value>Mesajınızı-Yazın</value>
   </data>
+  <data name="Thispagecouldnotbefound" xml:space="preserve">
+    <value>Bu Sayfa Bulunamadı</value>
+  </data>
 </root>
