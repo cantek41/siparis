@@ -17,9 +17,7 @@ namespace siparis.Controllers
         
         
         public ActionResult Index()
-        {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.CreateSpecificCulture("tr");
-
+        {            
             checkCart();           
             VdbSoftEntities db = new VdbSoftEntities(dbName);
             SortingPagingInfo info = new SortingPagingInfo();
