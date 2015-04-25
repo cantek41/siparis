@@ -107,6 +107,11 @@ body {
 
     }
 
+      .border-ayar input:disabled {
+        background-color:#CCCCC6;
+
+    }
+
     .border-ayar select {
         border-radius: 3px;
         margin-bottom: 5px;
