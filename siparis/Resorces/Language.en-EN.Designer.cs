@@ -349,6 +349,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ErrorRequest.
+        /// </summary>
+        public static string ErrorRequest {
+            get {
+                return ResourceManager.GetString("ErrorRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ESHOPPER.
         /// </summary>
         public static string ESHOPPER {
