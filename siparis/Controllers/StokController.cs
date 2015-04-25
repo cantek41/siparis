@@ -43,7 +43,7 @@ namespace siparis.Controllers
         public void ViewDataDoldur()
         {
             VdbSoftEntities db = new VdbSoftEntities();
-            ViewData["Category"] = (from d in db.STOKGROUPs
+            ViewData["Category"] = (from d in db.STOKCATEGORies
                                                   select new { Key = d.STOK_GROUP_CODE, Text = d.NAME_TR });
             ViewData["Brand"] = (from d in db.STOKBRANDs
                                                select new { Key = d.BRAND_CODE, Text = d.NAME_TR });

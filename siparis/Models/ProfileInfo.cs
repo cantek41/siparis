@@ -22,6 +22,5 @@ namespace siparis.Models
         public  string Adres2 { get; set; }
         public  string Enlem { get; set; }
         public  string Boylam { get; set; }
-
     }
 }

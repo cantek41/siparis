@@ -446,7 +446,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProfileInfo.cs" />
     <Compile Include="Models\ENTEGRATION.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -507,20 +506,6 @@
     <Compile Include="Models\GROUPMULTI.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\IndexDataViewModel.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\OrderFollowController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\DATABASEUPDATE.cs">
-      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LANGUAGE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -535,9 +520,6 @@
     </Compile>
     <Compile Include="Models\LICENSE_PLATE.cs">
       <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LOGIN.cs">
-      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOGREPORT.cs">
       <DependentUpon>Data.tt</DependentUpon>
@@ -575,7 +557,6 @@
     <Compile Include="Models\NOTE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OppDetail.cs" />
     <Compile Include="Models\OPPORTUNITYDETAIL.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -588,7 +569,6 @@
     <Compile Include="Models\OPPORTUNITYMASTER.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderMasterViewModel.cs" />
     <Compile Include="Models\PFORM.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -610,6 +590,26 @@
     <Compile Include="Models\PIVOTROW.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProfileInfo.cs" />
+    <Compile Include="Models\IndexDataViewModel.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderFollowController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DATABASEUPDATE.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LOGIN.cs">
+      <DependentUpon>VeribisBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OppDetail.cs" />
+    <Compile Include="Models\OrderMasterViewModel.cs" />
     <Compile Include="Models\PROGRAMPREFIX.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -700,13 +700,19 @@
     <Compile Include="Models\STOKCARDUSERPRICE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\STOKCATEGORY.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\STOKCOLOR.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\STOKGROUP.cs">
+    <Compile Include="Models\STOKMAINGROUP.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\STOKSEASON.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STOKSUBGROUP.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\STOKWAREHOUSE.cs">
@@ -1106,7 +1112,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:39822/</IISUrl>
+          <IISUrl>http://localhost:39831/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

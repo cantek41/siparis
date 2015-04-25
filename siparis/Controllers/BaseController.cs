@@ -33,8 +33,9 @@ namespace siparis.Controllers
             int userCode = 0;
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
-                userCode = (int)db.aspnet_Users.Where(x => x.UserName == User.Identity.Name).Select(x => x.UserCode).FirstOrDefault();
+                userCode = (int)db.aspnet_Users.Where(x => x.UserName == "fatih").Select(x => x.UserCode).FirstOrDefault();
                 return userCode;
+                // fix me
             }
 
         }
@@ -80,18 +81,18 @@ namespace siparis.Controllers
             return st;
         }
 
-        public void addProductGroup(STOKGROUP stokgrup)
+        public void addProductGroup(STOKCATEGORY stokgrup)
         {
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
 
             stokgrup.CREATE_DATE = DateTime.Now;
             stokgrup.LAST_UPDATE = DateTime.Now;
-            db.STOKGROUPs.Add(stokgrup);
+            db.STOKCATEGORies.Add(stokgrup);
             db.SaveChanges();
 
 
         }
-        public void EditProductGroup(STOKGROUP stokgrup)//ID almalı mı
+        public void EditProductGroup(STOKCATEGORY stokgrup)//ID almalı mı
         {
 
 
@@ -99,7 +100,7 @@ namespace siparis.Controllers
 
             stokgrup.CREATE_DATE = DateTime.Now;
             stokgrup.LAST_UPDATE = DateTime.Now;
-            //  db.STOKGROUPs.(stokgrup);
+            //  db.STOKCATEGORies.(stokgrup);
             db.Entry(stokgrup).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
@@ -195,9 +196,11 @@ namespace siparis.Controllers
 
         public void ProfilCreate()
         {
+                      
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
-                int userContactCode = 0;// (int)db.USERS.Where(x => x.USER_CODE == getUserCode()).Select(x => x.CONTACT_CODE).FirstOrDefault();
+                int userCode = getUserCode();
+                int userContactCode =  (int)db.USERS.Where(x => x.USER_CODE == userCode).Select(x => x.CONTACT_CODE).FirstOrDefault();
                 COMPANY company = db.COMPANies.Find(db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).Select(x => x.COMPANY_CODE).FirstOrDefault());
 
                 var model = (from c in db.COMPANies
@@ -217,16 +220,27 @@ namespace siparis.Controllers
                                   }).FirstOrDefault();
 
                 ProfileInfo profilim = new ProfileInfo();
-
-
+                // *** Kullanılmak Üzere Hazır
+                profilim.User_Code = userCode;
+                profilim.FirmaAdi = company.COMPANY_NAME;
+                //profilim.Facebook=
+                //profilim.Twitter=
+                //profilim.Pinterest=
+                //profilim.GoogleMaps=                               
+                profilim.Telefon = model.Telefon;
+                profilim.Adres = model.Adres;
+                profilim.Mail = model.Mail;
+                profilim.Adres2 = model.Adres2;
+                profilim.Enlem = model.Enlem;
+                profilim.Boylam = model.Boylam;
+                Session.Add("profilim", profilim);
                 
                 //ProfileInfo.Telefon = model.Telefon;
                 //ProfileInfo.Adres = model.Adres;
                 //ProfileInfo.Mail = model.Mail;
                 //ProfileInfo.Adres2 = model.Adres2;
                 //ProfileInfo.Enlem = model.Enlem;
-                //ProfileInfo.Boylam = model.Boylam;
-                               
+                //ProfileInfo.Boylam = model.Boylam;                  
 
 
             }

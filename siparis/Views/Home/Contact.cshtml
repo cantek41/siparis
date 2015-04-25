@@ -7,8 +7,11 @@
    
 }
 @Html.Hidden("RoomID")
-@Html.TextBox("lat", ProfileInfo.Enlem, new { @class= "gizle"})
-@Html.TextBox("long", ProfileInfo.Boylam, new { @class = "gizle" })
+@{
+    ProfileInfo profilim = (ProfileInfo)Session["profilim"];
+}
+@Html.TextBox("lat", profilim.Enlem, new { @class= "gizle"})
+@Html.TextBox("long", profilim.Boylam, new { @class = "gizle" })
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
 <script>
@@ -100,12 +103,12 @@
                     <h2 class="title text-center">@Res.resGetir(5)</h2>
                     <address>
                         
-                        <p>@ProfileInfo.Adres2</p>
+                        <p>@profilim.Adres2</p>
                     </address>
 
                     <address>
                        
-                        <p>@ProfileInfo.Adres</p>
+                        <p>@profilim.Adres</p>
                     </address>
                 </div>
                 <div class="social-networks">

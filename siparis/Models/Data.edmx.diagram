@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="874465314a184b46ad6dc7ba91128a0e" Name="Diagram1" ZoomLevel="38">
+      <Diagram DiagramId="95970dc3631b4a9da56b7dcffb6c2663" Name="Diagram1">
         <EntityTypeShape EntityType="VdbSoftModel.C__MigrationHistory" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.ACTIVITY" Width="1.5" PointX="12.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYCC" Width="1.5" PointX="17.75" PointY="15.75" IsExpanded="true" />
@@ -107,58 +107,60 @@
         <EntityTypeShape EntityType="VdbSoftModel.SPEC" Width="1.5" PointX="27.75" PointY="33.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.SPECDESCIRIPTION" Width="1.5" PointX="33.75" PointY="28.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.SPEC1" Width="1.5" PointX="29.75" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.STOKACTUAL" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.STOKACTUALORDER" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.STOKBODY" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.STOKBRAND" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKACTUAL" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKACTUALORDER" Width="1.5" PointX="5.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKBODY" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKBRAND" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.STOKCARD" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.STOKCARDPICTURE" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.STOKCOLOR" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.STOKGROUP" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.STOKSEASON" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.STOKWAREHOUSE" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.STOKWAREHOUSEPRODUCT" Width="1.5" PointX="31.75" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.sysdiagram" Width="1.5" PointX="33.75" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.TFILE" Width="1.5" PointX="35.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.TRANSFER" Width="1.5" PointX="2.75" PointY="35.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.TRANSFERFILE" Width="1.5" PointX="4.75" PointY="35.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.TRANSFERUSER" Width="1.5" PointX="35.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.USERACTIVITYTYPE" Width="1.5" PointX="35.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.USERCOMPANYREGIONRELATION" Width="1.5" PointX="35.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.USERCOMPANYRELATION" Width="1.5" PointX="35.75" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.USERINFO" Width="1.5" PointX="17.75" PointY="35.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.USERREGIONRELATION" Width="1.5" PointX="19.75" PointY="35.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.USERRIGHTBASE" Width="1.5" PointX="35.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.USER" Width="1.5" PointX="35.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.USERSALARY" Width="1.5" PointX="35.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.VMMAILFILEREPORT" Width="1.5" PointX="35.75" PointY="35.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYDOCUMENT" Width="1.5" PointX="9.75" PointY="36.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYJOINER" Width="1.5" PointX="11.75" PointY="36.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYPICTURE" Width="1.5" PointX="21.75" PointY="36.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYPROJECT" Width="1.5" PointX="23.75" PointY="36.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYRESOURCE" Width="1.5" PointX="37.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYSHELF" Width="1.5" PointX="37.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.ARDELETE" Width="1.5" PointX="37.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.ARREMINDER" Width="1.5" PointX="37.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.BACKGROUNDCOLOR" Width="1.5" PointX="13.75" PointY="37.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.BACKGROUNDPICTURE" Width="1.5" PointX="37.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.COMPANYSECTION" Width="1.5" PointX="37.75" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.COMPANYSOCIALMEDIA" Width="1.5" PointX="37.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.CUR" Width="1.5" PointX="37.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.EXCELD1" Width="1.5" PointX="37.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.MENUBACKGROUNDPICTURE" Width="1.5" PointX="29.75" PointY="37.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.MENUEXE" Width="1.5" PointX="31.75" PointY="37.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.MENULOAD" Width="1.5" PointX="37.75" PointY="36.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.MENUREPORTLOAD" Width="1.5" PointX="4.75" PointY="38.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.PROJECTMODULE" Width="1.5" PointX="39.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.PSQL" Width="1.5" PointX="0.75" PointY="39.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.RU" Width="1.5" PointX="39.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKCATEGORY" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKCOLOR" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKMAINGROUP" Width="1.5" PointX="31.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKSEASON" Width="1.5" PointX="0.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKSUBGROUP" Width="1.5" PointX="33.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKWAREHOUSE" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKWAREHOUSEPRODUCT" Width="1.5" PointX="35.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.sysdiagram" Width="1.5" PointX="2.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.TFILE" Width="1.5" PointX="4.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.TRANSFER" Width="1.5" PointX="35.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.TRANSFERFILE" Width="1.5" PointX="35.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.TRANSFERUSER" Width="1.5" PointX="35.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.USERACTIVITYTYPE" Width="1.5" PointX="35.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.USERCOMPANYREGIONRELATION" Width="1.5" PointX="17.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.USERCOMPANYRELATION" Width="1.5" PointX="19.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.USERINFO" Width="1.5" PointX="35.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.USERREGIONRELATION" Width="1.5" PointX="35.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.USERRIGHTBASE" Width="1.5" PointX="9.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.USER" Width="1.5" PointX="11.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.USERSALARY" Width="1.5" PointX="21.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.VMMAILFILEREPORT" Width="1.5" PointX="23.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYDOCUMENT" Width="1.5" PointX="35.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYJOINER" Width="1.5" PointX="37.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYPICTURE" Width="1.5" PointX="37.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYPROJECT" Width="1.5" PointX="37.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYRESOURCE" Width="1.5" PointX="37.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.ACTIVITYSHELF" Width="1.5" PointX="37.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.ARDELETE" Width="1.5" PointX="13.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.ARREMINDER" Width="1.5" PointX="37.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.BACKGROUNDCOLOR" Width="1.5" PointX="37.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.BACKGROUNDPICTURE" Width="1.5" PointX="37.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.COMPANYSECTION" Width="1.5" PointX="37.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.COMPANYSOCIALMEDIA" Width="1.5" PointX="29.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.CUR" Width="1.5" PointX="37.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.EXCELD1" Width="1.5" PointX="31.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.MENUBACKGROUNDPICTURE" Width="1.5" PointX="37.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.MENUEXE" Width="1.5" PointX="0.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.MENULOAD" Width="1.5" PointX="15.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.MENUREPORTLOAD" Width="1.5" PointX="17.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.PROJECTMODULE" Width="1.5" PointX="37.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.PSQL" Width="1.5" PointX="39.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.RU" Width="1.5" PointX="39.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VdbSoftModel.SELLER_BALANCE" Width="1.5" PointX="6.75" PointY="39.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.SELLER_DETAIL" Width="1.5" PointX="39.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.STOKCARDUSERPRICE" Width="1.5" PointX="39.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.USERBANK" Width="1.5" PointX="39.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.USERCASH" Width="1.5" PointX="39.75" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VdbSoftModel.USERWHAREHOUSE" Width="1.5" PointX="19.75" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.SELLER_DETAIL" Width="1.5" PointX="39.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKCARDUSERPRICE" Width="1.5" PointX="39.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.USERBANK" Width="1.5" PointX="39.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.USERCASH" Width="1.5" PointX="39.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VdbSoftModel.USERWHAREHOUSE" Width="1.5" PointX="39.75" PointY="21.75" IsExpanded="true" />
         <AssociationConnector Association="VdbSoftModel.FK__aspnet_Me__Appli__34E8D562" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.FK__aspnet_Pa__Appli__668030F6" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.FK__aspnet_Ro__Appli__536D5C82" ManuallyRouted="false" />
@@ -181,6 +183,8 @@
         <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKSEASON" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.FK_STOKCARDPICTURE_STOKCARD" ManuallyRouted="false" />
         <AssociationConnector Association="VdbSoftModel.aspnet_UsersInRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKMAINGROUP" />
+        <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKSUBGROUP" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

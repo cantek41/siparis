@@ -24,6 +24,7 @@ namespace siparis.Models
         public string NAME_EN { get; set; }
         public string NAME_GR { get; set; }
         public Nullable<bool> VISIBLE { get; set; }
+        public string CODE { get; set; }
     
         public virtual ICollection<STOKCARD> STOKCARDs { get; set; }
     }

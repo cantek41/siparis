@@ -22,8 +22,10 @@ namespace siparis.Models
         public int ID { get; set; }
         public string NAME { get; set; }
         public Nullable<System.DateTime> CREATE_DATE { get; set; }
-        public Nullable<int> CREATE_USER { get; set; }
+        public string CREATE_USER { get; set; }
         public Nullable<System.DateTime> LAST_UPDATE { get; set; }
+        public string LAST_UPDATE_USER { get; set; }
+        public string CODE { get; set; }
     
         public virtual ICollection<STOKACTUAL> STOKACTUALs { get; set; }
     }

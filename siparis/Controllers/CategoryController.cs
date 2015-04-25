@@ -65,7 +65,7 @@ namespace siparis.Controllers
             data.stokcolor = ColorFilter(data);
             data.stokseason = SeasonFilter(data);
             data.stokBody = BodyFilter(data);
-            data.stokgroup = db.STOKGROUPs.Where(x => x.STOK_GROUP_CODE == CategoryID).ToList();
+            data.stokgroup = db.STOKCATEGORies.Where(x => x.STOK_GROUP_CODE == CategoryID).ToList();
             return View(data);
 
         }
@@ -111,7 +111,7 @@ namespace siparis.Controllers
             VdbSoftEntities db = new VdbSoftEntities(dbName);
             IndexDataViewModel data = new IndexDataViewModel();
             data.stokcard = db.STOKCARDs.Where(x => x.CATEGORY_CODE == CategoryId).OrderBy(c => c.ID).ToList();
-            data.stokgroup = db.STOKGROUPs.Where(x => x.STOK_GROUP_CODE == CategoryId).ToList();
+            data.stokgroup = db.STOKCATEGORies.Where(x => x.STOK_GROUP_CODE == CategoryId).ToList();
             data.stokbrand = (from brand in db.STOKBRANDs
                               join x in db.STOKCARDs on brand.BRAND_CODE equals x.BRAND_CODE
                               where x.CATEGORY_CODE == CategoryId

@@ -33,7 +33,7 @@ namespace siparis.Controllers
            
             IndexDataViewModel data = new IndexDataViewModel();
             data.stokcard = query.ToList();
-            data.stokgroup=db.STOKGROUPs.ToList();
+            data.stokgroup=db.STOKCATEGORies.ToList();
             data.stokbrand=db.STOKBRANDs.ToList();
             return View(data);
             //   return View(model);
@@ -79,11 +79,13 @@ namespace siparis.Controllers
             ViewBag.SortingPagingInfo = info;
             IndexDataViewModel data = new IndexDataViewModel();
             data.stokcard = query.ToList();
-            data.stokgroup = db.STOKGROUPs.ToList();
+            data.stokgroup = db.STOKCATEGORies.ToList();
             data.stokbrand = db.STOKBRANDs.ToList();
             return View(data);
 
         }
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -124,7 +126,7 @@ namespace siparis.Controllers
 
             if (!actionName.StartsWith("login") && !actionName.StartsWith("logoff"))
             {
-                var session = HttpContext.Current.Session["FirmaAdi"];
+                var session = HttpContext.Current.Session["profilim"];
                 HttpContext ctx = HttpContext.Current;
                 //Redirects user to login screen if session has timed out
                 if (session == null)
