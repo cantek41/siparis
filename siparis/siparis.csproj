@@ -628,7 +628,6 @@
     <Compile Include="Models\RELATION.cs">
       <DependentUpon>VeribisBaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Res.cs" />
     <Compile Include="Models\RESDE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
