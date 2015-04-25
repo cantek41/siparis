@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<siparis.Models.OrderMasterViewModel>
     @using siparis.Models
 @{
-    ViewBag.Title = @Res.resGetir(89);
+    ViewBag.Title = @siparis.Resorces.Language.InReview;
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 
 }
 
-<h2>@Res.resGetir(89)</h2>
+<h2>@siparis.Resorces.Language.InReview</h2>
 
 @Html.Partial("MasterDetailMasterPartial", Model)
