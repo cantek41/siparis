@@ -41,16 +41,12 @@ namespace siparis.Controllers
             }
             return returnValue;
         }
-
-
-
-
+        
         public ActionResult Opportunity()
         {
-
             RolePrincipal r = (RolePrincipal)User;
             string[] rol = r.GetRoles();
-            if (!rol.Contains("Admin"))
+            if (!rol.Contains("Admin") || !rol.Contains("Temsilci"))
             {
                 return View();
             }
@@ -186,6 +182,20 @@ namespace siparis.Controllers
                                     break;
                             }
                             break;
+                        case "Temsilci":
+                            switch (eskiSayfa)
+                            {
+                                case 3:
+                                    opp.DOCUMENT_TYPE = 22;
+                                    break;
+                                case 19:
+                                    opp.DOCUMENT_TYPE = 22;
+                                    break;
+
+                                default:
+                                    break;
+                            }
+                            break;
                         case "Bayi":
                             switch (eskiSayfa)
                             {
@@ -280,6 +290,27 @@ namespace siparis.Controllers
                     switch (rol[0])
                     {
                         case "Admin":
+                            switch (eskiSayfa)
+                            {
+                                case 15:
+                                    Session.Remove("Sepet");
+                                    opp.DOCUMENT_TYPE = 3;
+                                    break;
+                                case 3:
+                                    opp.DOCUMENT_TYPE = 18;
+                                    break;
+                                case 17:
+                                    opp.DOCUMENT_TYPE = 18;
+                                    break;
+                                case 19:
+                                    opp.DOCUMENT_TYPE = 3;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+
+                        case "Temsilci":
                             switch (eskiSayfa)
                             {
                                 case 15:
