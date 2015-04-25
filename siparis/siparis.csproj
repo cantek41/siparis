@@ -813,6 +813,7 @@
     <Content Include="App_Data\SideMenu.xml" />
     <Content Include="App_Data\SideMenutr-TR.xml" />
     <Content Include="App_Data\TopMenu.xml" />
+    <Content Include="App_Data\TopMenutr-TR.xml" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.css" />

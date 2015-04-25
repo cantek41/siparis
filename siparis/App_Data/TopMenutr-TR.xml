@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item Text="Ana Sayfa" NavigateUrl="../Home/Index" ImageUrl="~/Content/images/icons/home.png" />
+  <item Text="Yeni Kullanıcı Ekle" NavigateUrl="/Account/Register" ImageUrl="~/Content/images/icons/add-user.png"/>
+</items>

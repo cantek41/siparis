@@ -1,3 +1,15 @@
+@{
+    string file_name = "~/App_Data/SideMenu.xml";
+    if (Culture.Contains("tr-TR"))
+    {
+        file_name = "~/App_Data/TopMenutr-TR.xml";
+    }
+    else
+    {
+        file_name = "~/App_Data/TopMenu.xml";
+    }
+}
+
 <style>
     .baslik
     {
@@ -22,5 +34,5 @@
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
         settings.Styles.Style.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(0);
         settings.Styles.Style.BorderTop.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
-    }).BindToXML(HttpContext.Current.Server.MapPath("~/App_Data/TopMenu.xml"), "/items/*").GetHtml()
+    }).BindToXML(HttpContext.Current.Server.MapPath(file_name), "/items/*").GetHtml()
 </div>
