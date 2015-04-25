@@ -13,7 +13,7 @@
         <div class="row">
 
             <div class="col-sm-10">
-                <div class="product-details">
+                <div class="product-details" style="overflow:visible">
 
                     <div class="col-sm-5 border-ayar product-information">
                         <div class="view-product">
@@ -26,15 +26,11 @@
                                     <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="slider-image-mini"></a>
                                     <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="slider-image-mini"></a>
                                     <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="slider-image-mini"></a>
-                                    @*<a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>*@
-                                    @*<a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="image-size"></a>*@
                                 </div>
                                 <div class="item">
                                     <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="slider-image-mini"></a>
                                     <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="slider-image-mini"></a>
                                     <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="slider-image-mini"></a>
-                                    @*<a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>
-                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="image-size"></a>*@
                                 </div>
                             </div>
                             <a class="left item-control" href="#similar-product" data-slide="prev"><i class="fa fa-angle-left"></i></a>
@@ -44,22 +40,23 @@
 
                     <div class="col-sm-6 border-ayar">
                         <div class="product-information padding-zero">
-                            <span><span class="buyukharf etiket"> @Model.NAME_TR</span><h2 class="etiket"><b>@Model.CODE</b></h2></span>
-                            
-                            <h2 class="etiket"><p><b>@Model.UNIT_PRICE @Model.CUR_TYPE </b></p></h2>
+                            @*<span><span class="buyukharf etiket"> @Model.NAME_TR</span><h2 class="etiket"><b>@Model.CODE</b></h2></span>*@
+                           @Html.Label(@Model.NAME_TR, new {id="NAME_TR", @class = "product-info-title" })<br />
+                           @Html.TextBoxFor(model => model.CODE,new {@class = "product-info-sub-title" })
+                           <h2 class="etiket"><p><b>@Model.UNIT_PRICE @Model.CUR_TYPE </b></p></h2>
 
-                                @Html.HiddenFor(model => model.UPPER_CODE)
-                                @Html.HiddenFor(model => model.ID)
+                            @Html.HiddenFor(model => model.UPPER_CODE)
+                            @Html.HiddenFor(model => model.ID)
 
+                            <div>
                                 <div>
-                                    <div>
-                                        <div class="alt">
-                                            <div class="col-sm-6">
-                                                <p><b>Start Date</b></p>
-                                            </div>
-                                            <div class="col-sm-6 border-ayar">
+                                    <div class="alt">
+                                        <div class="col-sm-6">
+                                            <p><b>Start Date</b></p>
+                                        </div>
+                                        <div class="col-sm-6 border-ayar">
 
-                                                @Html.DevExpress().DateEdit(
+                                            @Html.DevExpress().DateEdit(
                 settings =>
                 {
 
@@ -67,52 +64,60 @@
                     //settings.Properties.NullText = "DD/MM/YYYY";
                     settings.Properties.EditFormat = EditFormat.Custom;
                     settings.Properties.EditFormatString = "dd/MM/yyyy";
-                    settings.RightToLeft = DefaultBoolean.True;
+                    //settings.RightToLeft = DefaultBoolean.True;                    
+                    settings.Date = new DateTime();
                     settings.Properties.CalendarProperties.ShowClearButton = false;
                     settings.Properties.CalendarProperties.ShowTodayButton = false;
-                    settings.Properties.CalendarProperties.ShowDayHeaders = false;
-                    settings.Properties.CalendarProperties.ShowHeader = false;
-                    settings.Properties.CalendarProperties.ShowWeekNumbers = false;
-
-                    settings.Date = new DateTime();
+                    settings.Properties.CalendarProperties.ShowDayHeaders = true;
+                    settings.Properties.CalendarProperties.ShowHeader = true;
+                    settings.Properties.CalendarProperties.ShowWeekNumbers = true;
                     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
 
                 }
             ).GetHtml()
-                                            </div>
-
                                         </div>
 
-                                        <div class="alt">
-                                            <div class="col-sm-6">
-                                                <p><b>End Date</b></p>
-                                            </div>
-                                            <div class="col-sm-6 border-ayar">
-                                                @Html.DevExpress().DateEdit(
+                                    </div>
+
+                                    <div class="alt">
+                                        <div class="col-sm-6">
+                                            <p><b>End Date</b></p>
+                                        </div>
+                                        <div class="col-sm-6 border-ayar">
+                                            @Html.DevExpress().DateEdit(
                 settings =>
                 {
                     settings.Name = "dateEdit2";
                     //settings.Properties.NullText = "DD/MM/YYYY";
                     settings.Properties.EditFormat = EditFormat.Custom;
                     settings.Properties.EditFormatString = "dd/MM/yyyy";
+                    //settings.RightToLeft = DefaultBoolean.True;
                     settings.Date = new DateTime();
                     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
-                    settings.RightToLeft = DefaultBoolean.True;
                     settings.Properties.CalendarProperties.ShowClearButton = false;
                     settings.Properties.CalendarProperties.ShowTodayButton = false;
-                    settings.Properties.CalendarProperties.ShowDayHeaders = false;
-                    settings.Properties.CalendarProperties.ShowHeader = false;
-                    settings.Properties.CalendarProperties.ShowWeekNumbers = false;
+                    settings.Properties.CalendarProperties.ShowDayHeaders = true;
+                    settings.Properties.CalendarProperties.ShowHeader = true;
+                    settings.Properties.CalendarProperties.ShowWeekNumbers = true;
 
                 }
             ).GetHtml()
+<<<<<<< HEAD
                                             </div>
                                         </div>
                                         <div class="alt">
                                             <div class="col-sm-6"><p><b>@siparis.Resorces.Language.Price</b></p></div>
                                             <div class="col-sm-6"><input id="miktar" type="text" value="1" /></div>
+=======
+>>>>>>> 8381e61c7bebbebf314aac37b3a6529c5f33161a
                                         </div>
+                                    </div>
+                                    <div class="alt">
+                                        <div class="col-sm-6"><p><b>@Res.resGetir(72)</b></p></div>
+                                        <div class="col-sm-6 border-ayar shopper-info"><input id="miktar" type="text" value="1" /></div>
+                                    </div>
 
+<<<<<<< HEAD
                                         <div class="alt">
                                             <div class="col-sm-6"><p><b>@siparis.Resorces.Language.Stock</b></p></div>
                                             <div class="col-md-6 border-ayar shopper-info"><input id="basic-addon1" value="@Model.UNIT" disabled /></div>
@@ -124,8 +129,22 @@
                                                 @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"))
                                                 @Html.ValidationMessageFor(model => model.COLOR_CODE)
                                             </div>
-                                        </div>
+=======
+                                    <div class="alt">
+                                        <div class="col-sm-6"><p><b>@Res.resGetir(102)</b></p></div>
+                                        <div class="col-md-6 border-ayar shopper-info-passive"><input id="STOK" value="@Model.UNIT" disabled /></div>
+                                    </div>
 
+                                    <div class="alt">
+                                        <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.COLOR_CODE, @Res.resGetir(105))</b></p></div>
+                                        <div class="col-md-6">
+                                            @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"))
+                                            @Html.ValidationMessageFor(model => model.COLOR_CODE)
+>>>>>>> 8381e61c7bebbebf314aac37b3a6529c5f33161a
+                                        </div>
+                                    </div>
+
+<<<<<<< HEAD
                                         <div class="alt">
                                             <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.BODY_CODE, @siparis.Resorces.Language.Size)</b></p></div>
                                             <div class="col-md-6">
@@ -142,23 +161,31 @@
                                                     @siparis.Resorces.Language.AddtoCart
                                                 </button>
                                             </div>
+=======
+                                    <div class="alt">
+                                        <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.BODY_CODE, @Res.resGetir(104))</b></p></div>
+                                        <div class="col-md-6">
+                                            @Html.DropDownList("BODY_CODE", new[] { new SelectListItem { Text = "", Value = "0" } })
+                                            @Html.ValidationMessageFor(model => model.BODY_CODE)
+                                        </div>
+
+                                    </div>
+                                    <div class="alt">
+                                        <div class="col-sm-6"><a href="../Home/index" class="btn btn-default blank-arrow"><i class="fa fa-backward"></i> @Res.resGetir(103)</a></div>
+                                        <div class="col-sm-6">
+                                            <button type="button" class="btn btn-default cart" onclick="sepeteEkleMiktarli($('#ID').val(),$('#miktar').val())" style="margin-left:-30px;">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                @Res.resGetir(2)
+                                            </button>
+>>>>>>> 8381e61c7bebbebf314aac37b3a6529c5f33161a
                                         </div>
                                     </div>
                                 </div>
-
-
-
-</div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
-
-
-
-
-
-
         </div>
     </div>
 
