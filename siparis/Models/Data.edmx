@@ -2186,6 +2186,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
           <Property Name="VISIBLE" Type="bit" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="STOKBRAND">
           <Key>
@@ -2196,6 +2197,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
           <Property Name="VISIBLE" Type="bit" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="STOKCARD">
           <Key>
@@ -2296,17 +2298,7 @@ warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a pri
           <Property Name="CUR_TYPE" Type="nchar" MaxLength="10" />
           <Property Name="PRICE_TYPE" Type="int" />
         </EntityType>
-        <EntityType Name="STOKCOLOR">
-          <Key>
-            <PropertyRef Name="COLOR_CODE" />
-          </Key>
-          <Property Name="COLOR_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
-          <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
-          <Property Name="VISIBLE" Type="bit" />
-        </EntityType>
-        <EntityType Name="STOKGROUP">
+        <EntityType Name="STOKCATEGORY">
           <Key>
             <PropertyRef Name="STOK_GROUP_CODE" />
           </Key>
@@ -2321,6 +2313,32 @@ warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a pri
           <Property Name="NEW_UPPER_GROUP_CODE" Type="nvarchar" MaxLength="150" />
           <Property Name="MLEVEL" Type="int" />
           <Property Name="FULL_PATH_TEXT" Type="nvarchar(max)" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="STOKCOLOR">
+          <Key>
+            <PropertyRef Name="COLOR_CODE" />
+          </Key>
+          <Property Name="COLOR_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
+          <Property Name="VISIBLE" Type="bit" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="STOKMAINGROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE" Type="nvarchar(max)" />
+          <Property Name="EXP_TR" Type="nvarchar(max)" />
+          <Property Name="EXP_EN" Type="nvarchar" MaxLength="50" />
+          <Property Name="EXP_GR" Type="nvarchar" MaxLength="50" />
+          <Property Name="LAST_UPDATE" Type="datetime" />
+          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="STOKSEASON">
           <Key>
@@ -2331,6 +2349,23 @@ warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a pri
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
           <Property Name="VISIBLE" Type="bit" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="STOKSUBGROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CODE" Type="nvarchar(max)" />
+          <Property Name="MAIN_GROUP_CODE" Type="nvarchar(max)" />
+          <Property Name="ROW_ORDER_NO" Type="int" />
+          <Property Name="EXP_TR" Type="nvarchar" MaxLength="50" />
+          <Property Name="EXP_EN" Type="nvarchar" MaxLength="50" />
+          <Property Name="EXP_GR" Type="nvarchar" MaxLength="50" />
+          <Property Name="LAST_UPDATE" Type="datetime" />
+          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="STOKWAREHOUSE">
           <Key>
@@ -2339,8 +2374,10 @@ warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a pri
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="CREATE_DATE" Type="datetime" />
-          <Property Name="CREATE_USER" Type="int" />
+          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
           <Property Name="LAST_UPDATE" Type="datetime" />
+          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="STOKWAREHOUSEPRODUCT">
           <Key>
@@ -2353,10 +2390,11 @@ warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a pri
           <Property Name="TOTAL_QUANTITIY" Type="int" />
           <Property Name="QUANTITY" Type="int" />
           <Property Name="STATUS" Type="bit" />
-          <Property Name="CREATE_USER" Type="int" />
+          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
           <Property Name="CREATE_DATE" Type="datetime" />
           <Property Name="LAST_UPDATE" Type="datetime" />
-          <Property Name="LAST_UPDATE_USER" Type="int" />
+          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -2852,14 +2890,26 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_STOKCARD_STOKGROUP">
-          <End Role="STOKGROUP" Type="Self.STOKGROUP" Multiplicity="0..1" />
+          <End Role="STOKCATEGORY" Type="Self.STOKCATEGORY" Multiplicity="0..1" />
           <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="STOKGROUP">
+            <Principal Role="STOKCATEGORY">
               <PropertyRef Name="STOK_GROUP_CODE" />
             </Principal>
             <Dependent Role="STOKCARD">
               <PropertyRef Name="CATEGORY_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARD_STOKMAINGROUP">
+          <End Role="STOKMAINGROUP" Type="Self.STOKMAINGROUP" Multiplicity="0..1" />
+          <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKMAINGROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="STOKCARD">
+              <PropertyRef Name="MAIN_GRUP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2872,6 +2922,18 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </Principal>
             <Dependent Role="STOKCARD">
               <PropertyRef Name="SEASON_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARD_STOKSUBGROUP">
+          <End Role="STOKSUBGROUP" Type="Self.STOKSUBGROUP" Multiplicity="0..1" />
+          <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKSUBGROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="STOKCARD">
+              <PropertyRef Name="SUB_GRUP1" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3009,9 +3071,11 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="STOKBRAND" EntityType="Self.STOKBRAND" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCARD" EntityType="Self.STOKCARD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCARDPICTURE" EntityType="Self.STOKCARDPICTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKCATEGORY" EntityType="Self.STOKCATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCOLOR" EntityType="Self.STOKCOLOR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="STOKGROUP" EntityType="Self.STOKGROUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKMAINGROUP" EntityType="Self.STOKMAINGROUP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKSEASON" EntityType="Self.STOKSEASON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKSUBGROUP" EntityType="Self.STOKSUBGROUP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKWAREHOUSE" EntityType="Self.STOKWAREHOUSE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKWAREHOUSEPRODUCT" EntityType="Self.STOKWAREHOUSEPRODUCT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -3407,11 +3471,19 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="STOKCARD" EntitySet="STOKCARD" />
           </AssociationSet>
           <AssociationSet Name="FK_STOKCARD_STOKGROUP" Association="Self.FK_STOKCARD_STOKGROUP">
-            <End Role="STOKGROUP" EntitySet="STOKGROUP" />
+            <End Role="STOKCATEGORY" EntitySet="STOKCATEGORY" />
+            <End Role="STOKCARD" EntitySet="STOKCARD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOKCARD_STOKMAINGROUP" Association="Self.FK_STOKCARD_STOKMAINGROUP">
+            <End Role="STOKMAINGROUP" EntitySet="STOKMAINGROUP" />
             <End Role="STOKCARD" EntitySet="STOKCARD" />
           </AssociationSet>
           <AssociationSet Name="FK_STOKCARD_STOKSEASON" Association="Self.FK_STOKCARD_STOKSEASON">
             <End Role="STOKSEASON" EntitySet="STOKSEASON" />
+            <End Role="STOKCARD" EntitySet="STOKCARD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOKCARD_STOKSUBGROUP" Association="Self.FK_STOKCARD_STOKSUBGROUP">
+            <End Role="STOKSUBGROUP" EntitySet="STOKSUBGROUP" />
             <End Role="STOKCARD" EntitySet="STOKCARD" />
           </AssociationSet>
           <AssociationSet Name="FK_STOKCARDDEPOT_STOKDEPOT" Association="Self.FK_STOKCARDDEPOT_STOKDEPOT">
@@ -5250,12 +5322,12 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OPPORTUNITY_CODE" Type="Int32" />
+          <Property Name="ROW_ORDER_NO" Type="Int32" />
           <Property Name="STOK_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="QUANTITY" Type="Int32" />
           <Property Name="WAREHOUSE" Type="Int32" />
-          <NavigationProperty Name="OPPORTUNITYMASTER" Relationship="Self.FK_STOKACTUALORDER_OPPORTUNITYMASTER" FromRole="STOKACTUALORDER" ToRole="OPPORTUNITYMASTER" />
-          <Property Name="ROW_ORDER_NO" Type="Int32" />
           <Property Name="SHIPPING_TYPE" Type="Int32" />
+          <NavigationProperty Name="OPPORTUNITYMASTER" Relationship="Self.FK_STOKACTUALORDER_OPPORTUNITYMASTER" FromRole="STOKACTUALORDER" ToRole="OPPORTUNITYMASTER" />
         </EntityType>
         <EntityType Name="STOKBODY">
           <Key>
@@ -5266,6 +5338,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="VISIBLE" Type="Boolean" />
+          <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKBODY" FromRole="STOKBODY" ToRole="STOKCARD" />
         </EntityType>
         <EntityType Name="STOKBRAND">
@@ -5277,6 +5350,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="VISIBLE" Type="Boolean" />
+          <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKBRAND" FromRole="STOKBRAND" ToRole="STOKCARD" />
         </EntityType>
         <EntityType Name="STOKCARD">
@@ -5357,9 +5431,11 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <NavigationProperty Name="STOKBODY" Relationship="Self.FK_STOKCARD_STOKBODY" FromRole="STOKCARD" ToRole="STOKBODY" />
           <NavigationProperty Name="STOKBRAND" Relationship="Self.FK_STOKCARD_STOKBRAND" FromRole="STOKCARD" ToRole="STOKBRAND" />
           <NavigationProperty Name="STOKCOLOR" Relationship="Self.FK_STOKCARD_STOKCOLOR" FromRole="STOKCARD" ToRole="STOKCOLOR" />
-          <NavigationProperty Name="STOKGROUP" Relationship="Self.FK_STOKCARD_STOKGROUP" FromRole="STOKCARD" ToRole="STOKGROUP" />
+          <NavigationProperty Name="STOKCATEGORY" Relationship="Self.FK_STOKCARD_STOKGROUP" FromRole="STOKCARD" ToRole="STOKCATEGORY" />
           <NavigationProperty Name="STOKSEASON" Relationship="Self.FK_STOKCARD_STOKSEASON" FromRole="STOKCARD" ToRole="STOKSEASON" />
           <NavigationProperty Name="STOKCARDPICTUREs" Relationship="Self.FK_STOKCARDPICTURE_STOKCARD" FromRole="STOKCARD" ToRole="STOKCARDPICTURE" />
+          <NavigationProperty Name="STOKMAINGROUP" Relationship="VdbSoftModel.FK_STOKCARD_STOKMAINGROUP" FromRole="STOKCARD" ToRole="STOKMAINGROUP" />
+          <NavigationProperty Name="STOKSUBGROUP" Relationship="VdbSoftModel.FK_STOKCARD_STOKSUBGROUP" FromRole="STOKCARD" ToRole="STOKSUBGROUP" />
         </EntityType>
         <EntityType Name="STOKCARDPICTURE">
           <Key>
@@ -5373,18 +5449,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="COLOR_CODE" Type="Int32" />
           <NavigationProperty Name="STOKCARD" Relationship="Self.FK_STOKCARDPICTURE_STOKCARD" FromRole="STOKCARDPICTURE" ToRole="STOKCARD" />
         </EntityType>
-        <EntityType Name="STOKCOLOR">
-          <Key>
-            <PropertyRef Name="COLOR_CODE" />
-          </Key>
-          <Property Name="COLOR_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="VISIBLE" Type="Boolean" />
-          <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKCOLOR" FromRole="STOKCOLOR" ToRole="STOKCARD" />
-        </EntityType>
-        <EntityType Name="STOKGROUP">
+        <EntityType Name="STOKCATEGORY">
           <Key>
             <PropertyRef Name="STOK_GROUP_CODE" />
           </Key>
@@ -5399,7 +5464,35 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="NEW_UPPER_GROUP_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="MLEVEL" Type="Int32" />
           <Property Name="FULL_PATH_TEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKGROUP" FromRole="STOKGROUP" ToRole="STOKCARD" />
+          <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKGROUP" FromRole="STOKCATEGORY" ToRole="STOKCARD" />
+        </EntityType>
+        <EntityType Name="STOKCOLOR">
+          <Key>
+            <PropertyRef Name="COLOR_CODE" />
+          </Key>
+          <Property Name="COLOR_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLE" Type="Boolean" />
+          <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKCOLOR" FromRole="STOKCOLOR" ToRole="STOKCARD" />
+        </EntityType>
+        <EntityType Name="STOKMAINGROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EXP_TR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EXP_EN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EXP_GR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
+          <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="STOKCARDs" Relationship="VdbSoftModel.FK_STOKCARD_STOKMAINGROUP" FromRole="STOKMAINGROUP" ToRole="STOKCARD" />
         </EntityType>
         <EntityType Name="STOKSEASON">
           <Key>
@@ -5410,7 +5503,25 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="VISIBLE" Type="Boolean" />
+          <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="STOKCARDs" Relationship="Self.FK_STOKCARD_STOKSEASON" FromRole="STOKSEASON" ToRole="STOKCARD" />
+        </EntityType>
+        <EntityType Name="STOKSUBGROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MAIN_GROUP_CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ROW_ORDER_NO" Type="Int32" />
+          <Property Name="EXP_TR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EXP_EN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EXP_GR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
+          <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="STOKCARDs" Relationship="VdbSoftModel.FK_STOKCARD_STOKSUBGROUP" FromRole="STOKSUBGROUP" ToRole="STOKCARD" />
         </EntityType>
         <EntityType Name="STOKWAREHOUSE">
           <Key>
@@ -5419,8 +5530,10 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATE_USER" Type="Int32" />
+          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
+          <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="STOKACTUALs" Relationship="Self.FK_STOKCARDDEPOT_STOKDEPOT" FromRole="STOKWAREHOUSE" ToRole="STOKACTUAL" />
         </EntityType>
         <EntityType Name="STOKWAREHOUSEPRODUCT">
@@ -5434,10 +5547,11 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="TOTAL_QUANTITIY" Type="Int32" />
           <Property Name="QUANTITY" Type="Int32" />
           <Property Name="STATUS" Type="Boolean" />
-          <Property Name="CREATE_USER" Type="Int32" />
+          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
           <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
-          <Property Name="LAST_UPDATE_USER" Type="Int32" />
+          <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -6244,10 +6358,10 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_STOKCARD_STOKGROUP">
-          <End Role="STOKGROUP" Type="Self.STOKGROUP" Multiplicity="0..1" />
+          <End Role="STOKCATEGORY" Type="Self.STOKCATEGORY" Multiplicity="0..1" />
           <End Role="STOKCARD" Type="Self.STOKCARD" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="STOKGROUP">
+            <Principal Role="STOKCATEGORY">
               <PropertyRef Name="STOK_GROUP_CODE" />
             </Principal>
             <Dependent Role="STOKCARD">
@@ -6392,9 +6506,11 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="STOKBRANDs" EntityType="Self.STOKBRAND" />
           <EntitySet Name="STOKCARDs" EntityType="Self.STOKCARD" />
           <EntitySet Name="STOKCARDPICTUREs" EntityType="Self.STOKCARDPICTURE" />
+          <EntitySet Name="STOKCATEGORies" EntityType="Self.STOKCATEGORY" />
           <EntitySet Name="STOKCOLORs" EntityType="Self.STOKCOLOR" />
-          <EntitySet Name="STOKGROUPs" EntityType="Self.STOKGROUP" />
+          <EntitySet Name="STOKMAINGROUPs" EntityType="Self.STOKMAINGROUP" />
           <EntitySet Name="STOKSEASONs" EntityType="Self.STOKSEASON" />
+          <EntitySet Name="STOKSUBGROUPs" EntityType="Self.STOKSUBGROUP" />
           <EntitySet Name="STOKWAREHOUSEs" EntityType="Self.STOKWAREHOUSE" />
           <EntitySet Name="STOKWAREHOUSEPRODUCTs" EntityType="Self.STOKWAREHOUSEPRODUCT" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
@@ -6511,7 +6627,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="STOKCARD" EntitySet="STOKCARDs" />
           </AssociationSet>
           <AssociationSet Name="FK_STOKCARD_STOKGROUP" Association="Self.FK_STOKCARD_STOKGROUP">
-            <End Role="STOKGROUP" EntitySet="STOKGROUPs" />
+            <End Role="STOKCATEGORY" EntitySet="STOKCATEGORies" />
             <End Role="STOKCARD" EntitySet="STOKCARDs" />
           </AssociationSet>
           <AssociationSet Name="FK_STOKCARD_STOKSEASON" Association="Self.FK_STOKCARD_STOKSEASON">
@@ -6526,7 +6642,39 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
           </AssociationSet>
+          <AssociationSet Name="FK_STOKCARD_STOKMAINGROUP" Association="VdbSoftModel.FK_STOKCARD_STOKMAINGROUP">
+            <End Role="STOKMAINGROUP" EntitySet="STOKMAINGROUPs" />
+            <End Role="STOKCARD" EntitySet="STOKCARDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOKCARD_STOKSUBGROUP" Association="VdbSoftModel.FK_STOKCARD_STOKSUBGROUP">
+            <End Role="STOKSUBGROUP" EntitySet="STOKSUBGROUPs" />
+            <End Role="STOKCARD" EntitySet="STOKCARDs" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_STOKCARD_STOKMAINGROUP">
+          <End Type="VdbSoftModel.STOKMAINGROUP" Role="STOKMAINGROUP" Multiplicity="0..1" />
+          <End Type="VdbSoftModel.STOKCARD" Role="STOKCARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKMAINGROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="STOKCARD">
+              <PropertyRef Name="MAIN_GRUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOKCARD_STOKSUBGROUP">
+          <End Type="VdbSoftModel.STOKSUBGROUP" Role="STOKSUBGROUP" Multiplicity="0..1" />
+          <End Type="VdbSoftModel.STOKCARD" Role="STOKCARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOKSUBGROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="STOKCARD">
+              <PropertyRef Name="SUB_GRUP1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8366,13 +8514,13 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySetMapping Name="STOKACTUALORDERs">
             <EntityTypeMapping TypeName="VdbSoftModel.STOKACTUALORDER">
               <MappingFragment StoreEntitySet="STOKACTUALORDER">
-                <ScalarProperty Name="SHIPPING_TYPE" ColumnName="SHIPPING_TYPE" />
-                <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OPPORTUNITY_CODE" ColumnName="OPPORTUNITY_CODE" />
+                <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
                 <ScalarProperty Name="STOK_CODE" ColumnName="STOK_CODE" />
                 <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
                 <ScalarProperty Name="WAREHOUSE" ColumnName="WAREHOUSE" />
+                <ScalarProperty Name="SHIPPING_TYPE" ColumnName="SHIPPING_TYPE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8384,6 +8532,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
                 <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
                 <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
                 <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8395,6 +8544,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
                 <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
                 <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
                 <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8486,20 +8636,9 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="STOKCOLORs">
-            <EntityTypeMapping TypeName="VdbSoftModel.STOKCOLOR">
-              <MappingFragment StoreEntitySet="STOKCOLOR">
-                <ScalarProperty Name="COLOR_CODE" ColumnName="COLOR_CODE" />
-                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
-                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
-                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
-                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="STOKGROUPs">
-            <EntityTypeMapping TypeName="VdbSoftModel.STOKGROUP">
-              <MappingFragment StoreEntitySet="STOKGROUP">
+          <EntitySetMapping Name="STOKCATEGORies">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKCATEGORY">
+              <MappingFragment StoreEntitySet="STOKCATEGORY">
                 <ScalarProperty Name="STOK_GROUP_CODE" ColumnName="STOK_GROUP_CODE" />
                 <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
                 <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
@@ -8511,6 +8650,34 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
                 <ScalarProperty Name="NEW_UPPER_GROUP_CODE" ColumnName="NEW_UPPER_GROUP_CODE" />
                 <ScalarProperty Name="MLEVEL" ColumnName="MLEVEL" />
                 <ScalarProperty Name="FULL_PATH_TEXT" ColumnName="FULL_PATH_TEXT" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKCOLORs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKCOLOR">
+              <MappingFragment StoreEntitySet="STOKCOLOR">
+                <ScalarProperty Name="COLOR_CODE" ColumnName="COLOR_CODE" />
+                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
+                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKMAINGROUPs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKMAINGROUP">
+              <MappingFragment StoreEntitySet="STOKMAINGROUP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="EXP_TR" ColumnName="EXP_TR" />
+                <ScalarProperty Name="EXP_EN" ColumnName="EXP_EN" />
+                <ScalarProperty Name="EXP_GR" ColumnName="EXP_GR" />
+                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
+                <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8522,6 +8689,24 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
                 <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
                 <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
                 <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKSUBGROUPs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKSUBGROUP">
+              <MappingFragment StoreEntitySet="STOKSUBGROUP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="MAIN_GROUP_CODE" ColumnName="MAIN_GROUP_CODE" />
+                <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
+                <ScalarProperty Name="EXP_TR" ColumnName="EXP_TR" />
+                <ScalarProperty Name="EXP_EN" ColumnName="EXP_EN" />
+                <ScalarProperty Name="EXP_GR" ColumnName="EXP_GR" />
+                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
+                <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8533,6 +8718,8 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
                 <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
                 <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
                 <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
+                <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8550,6 +8737,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
                 <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
                 <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
                 <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

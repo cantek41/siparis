@@ -81,18 +81,18 @@ namespace siparis.Controllers
             return st;
         }
 
-        public void addProductGroup(STOKGROUP stokgrup)
+        public void addProductGroup(STOKCATEGORY stokgrup)
         {
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
 
             stokgrup.CREATE_DATE = DateTime.Now;
             stokgrup.LAST_UPDATE = DateTime.Now;
-            db.STOKGROUPs.Add(stokgrup);
+            db.STOKCATEGORies.Add(stokgrup);
             db.SaveChanges();
 
 
         }
-        public void EditProductGroup(STOKGROUP stokgrup)//ID almalı mı
+        public void EditProductGroup(STOKCATEGORY stokgrup)//ID almalı mı
         {
 
 
@@ -100,7 +100,7 @@ namespace siparis.Controllers
 
             stokgrup.CREATE_DATE = DateTime.Now;
             stokgrup.LAST_UPDATE = DateTime.Now;
-            //  db.STOKGROUPs.(stokgrup);
+            //  db.STOKCATEGORies.(stokgrup);
             db.Entry(stokgrup).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 

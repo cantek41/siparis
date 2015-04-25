@@ -21,9 +21,10 @@ namespace siparis.Models
         public Nullable<int> TOTAL_QUANTITIY { get; set; }
         public Nullable<int> QUANTITY { get; set; }
         public Nullable<bool> STATUS { get; set; }
-        public Nullable<int> CREATE_USER { get; set; }
+        public string CREATE_USER { get; set; }
         public Nullable<System.DateTime> CREATE_DATE { get; set; }
         public Nullable<System.DateTime> LAST_UPDATE { get; set; }
-        public Nullable<int> LAST_UPDATE_USER { get; set; }
+        public string LAST_UPDATE_USER { get; set; }
+        public string CODE { get; set; }
     }
 }

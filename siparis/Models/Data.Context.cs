@@ -159,9 +159,11 @@ namespace siparis.Models
         public virtual DbSet<STOKBRAND> STOKBRANDs { get; set; }
         public virtual DbSet<STOKCARD> STOKCARDs { get; set; }
         public virtual DbSet<STOKCARDPICTURE> STOKCARDPICTUREs { get; set; }
+        public virtual DbSet<STOKCATEGORY> STOKCATEGORies { get; set; }
         public virtual DbSet<STOKCOLOR> STOKCOLORs { get; set; }
-        public virtual DbSet<STOKGROUP> STOKGROUPs { get; set; }
+        public virtual DbSet<STOKMAINGROUP> STOKMAINGROUPs { get; set; }
         public virtual DbSet<STOKSEASON> STOKSEASONs { get; set; }
+        public virtual DbSet<STOKSUBGROUP> STOKSUBGROUPs { get; set; }
         public virtual DbSet<STOKWAREHOUSE> STOKWAREHOUSEs { get; set; }
         public virtual DbSet<STOKWAREHOUSEPRODUCT> STOKWAREHOUSEPRODUCTs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }

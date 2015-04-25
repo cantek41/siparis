@@ -95,8 +95,10 @@ namespace siparis.Models
         public virtual STOKBODY STOKBODY { get; set; }
         public virtual STOKBRAND STOKBRAND { get; set; }
         public virtual STOKCOLOR STOKCOLOR { get; set; }
-        public virtual STOKGROUP STOKGROUP { get; set; }
+        public virtual STOKCATEGORY STOKCATEGORY { get; set; }
         public virtual STOKSEASON STOKSEASON { get; set; }
         public virtual ICollection<STOKCARDPICTURE> STOKCARDPICTUREs { get; set; }
+        public virtual STOKMAINGROUP STOKMAINGROUP { get; set; }
+        public virtual STOKSUBGROUP STOKSUBGROUP { get; set; }
     }
 }
