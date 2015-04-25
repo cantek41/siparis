@@ -1393,7 +1393,7 @@ h2.title {
 
 .product-information {
     border: 1px solid #F7F7F0;
-    overflow: hidden;
+    overflow: visible;/* Bu özellik daha önce hidden değerine sahipti.*/
     padding:5px;
     /*padding-bottom: 60px;
     padding-left: 60px;

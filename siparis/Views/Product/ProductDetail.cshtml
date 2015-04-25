@@ -13,7 +13,7 @@
         <div class="row">
 
             <div class="col-sm-10">
-                <div class="product-details">
+                <div class="product-details" style="overflow:visible">
 
                     <div class="col-sm-5 border-ayar product-information">
                         <div class="view-product">
@@ -63,12 +63,12 @@
                     //settings.Properties.NullText = "DD/MM/YYYY";
                     settings.Properties.EditFormat = EditFormat.Custom;
                     settings.Properties.EditFormatString = "dd/MM/yyyy";
-                    settings.RightToLeft = DefaultBoolean.True;
+                    //settings.RightToLeft = DefaultBoolean.True;
                     settings.Properties.CalendarProperties.ShowClearButton = false;
                     settings.Properties.CalendarProperties.ShowTodayButton = false;
-                    settings.Properties.CalendarProperties.ShowDayHeaders = false;
+                    settings.Properties.CalendarProperties.ShowDayHeaders = true;
                     settings.Properties.CalendarProperties.ShowHeader = true;
-                    settings.Properties.CalendarProperties.ShowWeekNumbers = false;
+                    settings.Properties.CalendarProperties.ShowWeekNumbers = true;
 
                     settings.Date = new DateTime();
                     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
@@ -93,12 +93,11 @@
                     settings.Properties.EditFormatString = "dd/MM/yyyy";
                     settings.Date = new DateTime();
                     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
-                    settings.RightToLeft = DefaultBoolean.True;
                     settings.Properties.CalendarProperties.ShowClearButton = false;
                     settings.Properties.CalendarProperties.ShowTodayButton = false;
-                    settings.Properties.CalendarProperties.ShowDayHeaders = false;
+                    settings.Properties.CalendarProperties.ShowDayHeaders = true;
                     settings.Properties.CalendarProperties.ShowHeader = true;
-                    settings.Properties.CalendarProperties.ShowWeekNumbers = false;
+                    settings.Properties.CalendarProperties.ShowWeekNumbers = true;
 
                 }
             ).GetHtml()
