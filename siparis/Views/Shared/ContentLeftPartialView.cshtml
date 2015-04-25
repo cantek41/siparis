@@ -1,22 +1,33 @@
-
+@{
+    string file_name = "~/App_Data/SideMenu.xml";
+    if (Culture.Contains("tr-TR"))
+    {
+        file_name = "~/App_Data/SideMenutr-TR.xml";
+    }
+    else
+    {
+        file_name = "~/App_Data/SideMenu.xml";
+    }
+}
 <div class="leftPanel">
-        @* DXCOMMENT: Configure the left panel's menu *@
-    @Html.DevExpress().NavBar(settings => {
-        settings.Name = "LeftNavBar";        
-        settings.EnableAnimation = true;
-        settings.AllowSelectItem = true;
-        settings.ItemLinkMode = ItemLinkMode.ContentBounds;
-        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
-        settings.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(0);
-        settings.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(0);       
-        settings.GroupDataBound = (sender, e) =>
+    @* DXCOMMENT: Configure the left panel's menu *@
+    @Html.DevExpress().NavBar(settings =>
+{
+    settings.Name = "LeftNavBar";
+    settings.EnableAnimation = true;
+    settings.AllowSelectItem = true;
+    settings.ItemLinkMode = ItemLinkMode.ContentBounds;
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(0);
+    settings.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(0);
+    settings.GroupDataBound = (sender, e) =>
+    {
+        if (!User.IsInRole(e.Group.Text))
         {
-            if (!User.IsInRole(e.Group.Text))
-            {
-                e.Group.Enabled = false;
-                e.Group.AllowDragging = false;
-                e.Group.ClientVisible = false;
-            }
-        };
-    }).BindToXML(HttpContext.Current.Server.MapPath("~/App_Data/SideMenu.xml"), "/menu/*").GetHtml()
+            e.Group.Enabled = false;
+            e.Group.AllowDragging = false;
+            e.Group.ClientVisible = false;
+        }
+    };
+}).BindToXML(HttpContext.Current.Server.MapPath(file_name), "/menu/*").GetHtml()
 </div>

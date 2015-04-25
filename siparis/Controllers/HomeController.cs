@@ -17,7 +17,7 @@ namespace siparis.Controllers
         
         
         public ActionResult Index()
-        {
+        {            
             checkCart();           
             VdbSoftEntities db = new VdbSoftEntities(dbName);
             SortingPagingInfo info = new SortingPagingInfo();

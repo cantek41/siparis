@@ -49,10 +49,9 @@ namespace siparis.Controllers
                 return company.COMPANY_NAME;
             }
         }
-        public ActionResult changeLanguage(string lang)
+        public void changeLanguage(string lang)
         {
-            Res.languege = lang;
-            return RedirectToAction("Index", "Home");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.CreateSpecificCulture(lang);
         }
         public IEnumerable<OPPORTUNITYDETAIL> getCartProduct()
         {
