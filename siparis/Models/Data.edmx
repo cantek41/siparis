@@ -2638,6 +2638,16 @@ warning 6002: The table/view 'VdbSoft.dbo.USERCASH' does not have a primary key 
           <Property Name="CUR_VALUE" Type="real" Nullable="false" />
           <Property Name="MONTHLY_HOUR" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="USERSIPLOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_CODE" Type="int" />
+          <Property Name="USER_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="DATE" Type="datetime" />
+          <Property Name="IP" Type="nchar" MaxLength="16" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="USERWHAREHOUSE">
@@ -3091,6 +3101,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="USERRIGHTBASE" EntityType="Self.USERRIGHTBASE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USERSALARY" EntityType="Self.USERSALARY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERSIPLOG" EntityType="Self.USERSIPLOG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VMMAILFILEREPORT" EntityType="Self.VMMAILFILEREPORT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACTIVITYDOCUMENT" EntityType="Self.ACTIVITYDOCUMENT" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -6650,6 +6661,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="STOKSUBGROUP" EntitySet="STOKSUBGROUPs" />
             <End Role="STOKCARD" EntitySet="STOKCARDs" />
           </AssociationSet>
+          <EntitySet Name="USERSIPLOGs" EntityType="VdbSoftModel.USERSIPLOG" />
         </EntityContainer>
         <Association Name="FK_STOKCARD_STOKMAINGROUP">
           <End Type="VdbSoftModel.STOKMAINGROUP" Role="STOKMAINGROUP" Multiplicity="0..1" />
@@ -6675,6 +6687,16 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="USERSIPLOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_CODE" Type="Int32" />
+          <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DATE" Type="DateTime" Precision="3" />
+          <Property Name="IP" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9346,6 +9368,17 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
               <ScalarProperty Name="UserId" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="USERSIPLOGs">
+            <EntityTypeMapping TypeName="VdbSoftModel.USERSIPLOG">
+              <MappingFragment StoreEntitySet="USERSIPLOG">
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

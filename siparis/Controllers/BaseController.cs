@@ -77,7 +77,7 @@ namespace siparis.Controllers
             }
 
             return sepet;
-        }
+        } 
         public static STOKCARD getProduct(int ID = 1)
         {
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);

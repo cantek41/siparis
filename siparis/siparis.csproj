@@ -766,6 +766,9 @@
     <Compile Include="Models\USERSALARY.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\USERSIPLOG.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\USERWHAREHOUSE.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>

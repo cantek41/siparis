@@ -207,5 +207,6 @@ namespace siparis.Models
         public virtual DbSet<USERBANK> USERBANKs { get; set; }
         public virtual DbSet<USERCASH> USERCASHes { get; set; }
         public virtual DbSet<USERWHAREHOUSE> USERWHAREHOUSEs { get; set; }
+        public virtual DbSet<USERSIPLOG> USERSIPLOGs { get; set; }
     }
 }
