@@ -2075,7 +2075,8 @@ h2.title {
 }
 
 
-    .shopper-info > form > input,
+    .shopper-info input,
+    .shopper-info-passive input,
     .form-two > form > select,
     .form-two > form > input,
     .form-one > form > input {
@@ -2086,6 +2087,11 @@ h2.title {
         width: 100%;
         font-weight: 300;
     }
+
+.shopper-info-passive input {
+
+    background: #CCCCC6;
+}
 
     .form-two > form > select {
         padding: 10px 5px;
