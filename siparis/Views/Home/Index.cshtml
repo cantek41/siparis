@@ -1,7 +1,7 @@
 ﻿@model siparis.Models.IndexDataViewModel
 @using siparis.Models
 @{
-    ViewBag.Title = @Res.resGetir(63);
+    ViewBag.Title = siparis.Resorces.Language_en_EN.Index;
     siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
 
 }
@@ -34,6 +34,7 @@
 
                 </div>
             </div>
+            @siparis.Resorces.Language.AddedtoCart;
 
             @{Html.RenderPartial("ContentPartial");}
 
