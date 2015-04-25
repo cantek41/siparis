@@ -7,6 +7,8 @@ using siparis.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using System.Globalization;
+using System.Threading;
 namespace siparis.Controllers
 {
     [Authorize]
@@ -49,9 +51,14 @@ namespace siparis.Controllers
                 return company.COMPANY_NAME;
             }
         }
-        public void changeLanguage(string lang)
+        
+        [AllowAnonymous]
+        public ActionResult changeLanguage(string lang)
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.CreateSpecificCulture(lang);
+            CultureInfo ci = CultureInfo.GetCultureInfo(lang);
+            Thread.CurrentThread.CurrentUICulture = ci;
+            Thread.CurrentThread.CurrentUICulture = ci;   
+            return RedirectToAction("Index","Home");
         }
         public IEnumerable<OPPORTUNITYDETAIL> getCartProduct()
         {

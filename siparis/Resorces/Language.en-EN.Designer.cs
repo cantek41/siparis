@@ -502,7 +502,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logintoyouraccount.
+        ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Logintoyouraccount {
             get {

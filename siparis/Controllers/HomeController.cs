@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -17,7 +19,8 @@ namespace siparis.Controllers
         
         
         public ActionResult Index()
-        {            
+        {
+
             checkCart();           
             VdbSoftEntities db = new VdbSoftEntities(dbName);
             SortingPagingInfo info = new SortingPagingInfo();
@@ -124,7 +127,7 @@ namespace siparis.Controllers
             string controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName.ToLower().Trim();
             string actionName = filterContext.ActionDescriptor.ActionName.ToLower().Trim();
 
-            if (!actionName.StartsWith("login") && !actionName.StartsWith("logoff"))
+            if (!actionName.StartsWith("login") && !actionName.StartsWith("logoff") && !actionName.StartsWith("changelanguage"))
             {
                 var session = HttpContext.Current.Session["profilim"];
                 HttpContext ctx = HttpContext.Current;
