@@ -408,4 +408,7 @@
   <data name="Thispagecouldnotbefound" xml:space="preserve">
     <value>Thispagecouldnotbefound</value>
   </data>
+  <data name="SomethingwentwrongintheopinionWehavenotreachedthispage" xml:space="preserve">
+    <value>Something went wrong in the opinion . We have not reached this page</value>
+  </data>
 </root>

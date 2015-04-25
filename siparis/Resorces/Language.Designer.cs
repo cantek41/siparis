@@ -853,6 +853,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Something went wrong in the opinion . We have not reached this page.
+        /// </summary>
+        public static string SomethingwentwrongintheopinionWehavenotreachedthispage {
+            get {
+                return ResourceManager.GetString("SomethingwentwrongintheopinionWehavenotreachedthispage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stock.
         /// </summary>
         public static string Stock {

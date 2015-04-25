@@ -408,4 +408,7 @@
   <data name="Thispagecouldnotbefound" xml:space="preserve">
     <value>Bu Sayfa Bulunamadı</value>
   </data>
+  <data name="SomethingwentwrongintheopinionWehavenotreachedthispage" xml:space="preserve">
+    <value>Görüşüne göre birşeyler ters gitti. Şuanda bu sayfaya ulaşılamıyor</value>
+  </data>
 </root>
