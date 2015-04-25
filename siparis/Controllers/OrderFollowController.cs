@@ -20,19 +20,26 @@ namespace siparis.Controllers
         {
             RolePrincipal r = (RolePrincipal)User;
             string[] rol = r.GetRoles();
-            if (rol.Contains("Admin"))
+            ActionResult returnValue;
+            switch (rol.ElementAt(0))
             {
-                //return View(getOpp(15));
-                return RedirectToAction("Opportunity");
+                case "Admin":
+                    returnValue = RedirectToAction("Opportunity");
+                    break;
+                case "Temsilci":
+                    returnValue = RedirectToAction("Opportunity");
+                    break;
+                case "Bayi":
+                    returnValue = RedirectToAction("Draft");
+                    break;
+                case "Depo":
+                    returnValue = RedirectToAction("Processed");
+                    break;
+                default:
+                    returnValue = RedirectToAction("Opportunity");
+                    break;
             }
-            if (rol.Contains("Bayi"))
-            {
-                return RedirectToAction("Draft");
-            }
-            else
-            {
-                return RedirectToAction("Offer");
-            }
+            return returnValue;
         }
 
 
@@ -453,8 +460,8 @@ namespace siparis.Controllers
                                          TOTAL = d.TOTAL,
                                          CUR_TYPE = d.CUR_TYPE,
                                          UNIT_PRICE = d.UNIT_PRICE,
-                                         STOK_ID=d.STOK_ID
-                                       //  Picture = picture.PATH
+                                         STOK_ID = d.STOK_ID
+                                         //  Picture = picture.PATH
                                      }).ToList();
 
             List<OppDetail> modelPicture = new List<OppDetail>();
@@ -465,7 +472,7 @@ namespace siparis.Controllers
             }
 
 
-            
+
             TempData["DOCUMENT_TYPE"] = db.OPPORTUNITYMASTERs.Find(cID).DOCUMENT_TYPE;
 
             return PartialView("MasterDetailDetailPartial", modelPicture.ToArray());
@@ -495,8 +502,8 @@ namespace siparis.Controllers
             //            select d;
 
 
-            List<OppDetail> model = (from d in db.OPPORTUNITYDETAILs                                 
-                                     where d.OPPORTUNITY_CODE == cID 
+            List<OppDetail> model = (from d in db.OPPORTUNITYDETAILs
+                                     where d.OPPORTUNITY_CODE == cID
                                      select new OppDetail
                                      {
                                          OPPORTUNITY_CODE = d.OPPORTUNITY_CODE,
@@ -552,23 +559,23 @@ namespace siparis.Controllers
             List<ShippingViewModel> model = (from d in db.STOKACTUALORDERs
                                              join stk in db.STOKCARDs on d.STOK_CODE equals stk.CODE
                                              join ware in db.STOKWAREHOUSEs on d.WAREHOUSE equals ware.ID
-                                             where d.SHIPPING_TYPE == oppMasterType 
+                                             where d.SHIPPING_TYPE == oppMasterType
                                              select new ShippingViewModel
                                              {
                                                  ID = d.ID,
                                                  OPPORTUNITY_CODE = (int)d.OPPORTUNITY_CODE,
                                                  ROW_ORDER_NO = (int)d.ROW_ORDER_NO,
-                                                 QUANTITY=d.QUANTITY,
-                                                 PRODUCT_NAME=stk.NAME_TR,
-                                                 WAREHOUSE_NAME=ware.NAME,
-                                                 WAREHOUSE_ID=ware.ID,
-                                                 STOK_ID=stk.ID
+                                                 QUANTITY = d.QUANTITY,
+                                                 PRODUCT_NAME = stk.NAME_TR,
+                                                 WAREHOUSE_NAME = ware.NAME,
+                                                 WAREHOUSE_ID = ware.ID,
+                                                 STOK_ID = stk.ID
                                              }).Distinct().ToList();
 
             List<ShippingViewModel> modelPicture = new List<ShippingViewModel>();
             foreach (var item in model)
             {
-                item.Picture = db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).Where(x=>x.TYPE==2).Select(x => x.PATH).FirstOrDefault();
+                item.Picture = db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).Where(x => x.TYPE == 2).Select(x => x.PATH).FirstOrDefault();
                 modelPicture.Add(item);
             }
             return modelPicture;
