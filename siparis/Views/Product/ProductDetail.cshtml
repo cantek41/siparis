@@ -40,12 +40,13 @@
 
                     <div class="col-sm-6 border-ayar">
                         <div class="product-information padding-zero">
-                            <span><span class="buyukharf etiket"> @Model.NAME_TR</span><h2 class="etiket"><b>@Model.CODE</b></h2></span>
+                            @*<span><span class="buyukharf etiket"> @Model.NAME_TR</span><h2 class="etiket"><b>@Model.CODE</b></h2></span>*@
+                           @Html.Label(@Model.NAME_TR, new {id="NAME_TR", @class = "product-info-title" })<br />
+                           @Html.TextBoxFor(model => model.CODE,new {@class = "product-info-sub-title" })
+                           <h2 class="etiket"><p><b>@Model.UNIT_PRICE @Model.CUR_TYPE </b></p></h2>
 
-                            <h2 class="etiket"><p><b>@Model.UNIT_PRICE @Model.CUR_TYPE </b></p></h2>
-
-                            @Html.TextBoxFor(model => model.UPPER_CODE)
-                            @Html.TextBoxFor(model => model.ID)
+                            @Html.HiddenFor(model => model.UPPER_CODE)
+                            @Html.HiddenFor(model => model.ID)
 
                             <div>
                                 <div>
@@ -110,12 +111,12 @@
 
                                     <div class="alt">
                                         <div class="col-sm-6"><p><b>@Res.resGetir(102)</b></p></div>
-                                        <div class="col-md-6 border-ayar shopper-info-passive"><input id="stok" value="@Model.UNIT" disabled /></div>
+                                        <div class="col-md-6 border-ayar shopper-info-passive"><input id="STOK" value="@Model.UNIT" disabled /></div>
                                     </div>
 
                                     <div class="alt">
                                         <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.COLOR_CODE, @Res.resGetir(105))</b></p></div>
-                                        <div class="col-md-6 border-ayar">
+                                        <div class="col-md-6">
                                             @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"))
                                             @Html.ValidationMessageFor(model => model.COLOR_CODE)
                                         </div>

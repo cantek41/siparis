@@ -30,7 +30,8 @@
                    
                     //alert(data.ID);
                     $("#ID").val(data.ID);
-                    $("#stok").val(data.UNIT);
+                    $("#STOK").val(data.UNIT);
+                    $("#CODE").val(data.CODE);
                    
                    
                 }
