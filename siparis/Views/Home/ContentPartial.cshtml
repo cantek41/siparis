@@ -1,7 +1,7 @@
 ﻿@model siparis.Models.IndexDataViewModel
 @using siparis.Models
 @{
-    ViewBag.Title = @Res.resGetir(63);
+    ViewBag.Title = @siparis.Resorces.Language.HomePage;
     siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
 
 }
@@ -9,7 +9,7 @@
 
     <div class="features_items">
         <!--features_items-->
-        <h2 class="title text-center">@Res.resGetir(14)</h2>
+        <h2 class="title text-center">@siparis.Resorces.Language.FeaturesItems</h2>
 
         @using (Html.BeginForm("Index", "Home", FormMethod.Post))
         {
