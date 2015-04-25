@@ -28,7 +28,9 @@
                 dataType: "json",
                 success: function (data) {
                    
-                        $("#ID").val(data);
+                    //alert(data.ID);
+                    $("#ID").val(data.ID);
+                    $("#stok").val(data.UNIT);
                    
                    
                 }

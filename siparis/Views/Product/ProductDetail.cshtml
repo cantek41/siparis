@@ -44,8 +44,8 @@
 
                             <h2 class="etiket"><p><b>@Model.UNIT_PRICE @Model.CUR_TYPE </b></p></h2>
 
-                            @Html.HiddenFor(model => model.UPPER_CODE)
-                            @Html.HiddenFor(model => model.ID)
+                            @Html.TextBoxFor(model => model.UPPER_CODE)
+                            @Html.TextBoxFor(model => model.ID)
 
                             <div>
                                 <div>
@@ -63,14 +63,13 @@
                     //settings.Properties.NullText = "DD/MM/YYYY";
                     settings.Properties.EditFormat = EditFormat.Custom;
                     settings.Properties.EditFormatString = "dd/MM/yyyy";
-                    //settings.RightToLeft = DefaultBoolean.True;
+                    //settings.RightToLeft = DefaultBoolean.True;                    
+                    settings.Date = new DateTime();
                     settings.Properties.CalendarProperties.ShowClearButton = false;
                     settings.Properties.CalendarProperties.ShowTodayButton = false;
                     settings.Properties.CalendarProperties.ShowDayHeaders = true;
                     settings.Properties.CalendarProperties.ShowHeader = true;
                     settings.Properties.CalendarProperties.ShowWeekNumbers = true;
-
-                    settings.Date = new DateTime();
                     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
 
                 }
@@ -91,6 +90,7 @@
                     //settings.Properties.NullText = "DD/MM/YYYY";
                     settings.Properties.EditFormat = EditFormat.Custom;
                     settings.Properties.EditFormatString = "dd/MM/yyyy";
+                    //settings.RightToLeft = DefaultBoolean.True;
                     settings.Date = new DateTime();
                     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
                     settings.Properties.CalendarProperties.ShowClearButton = false;
@@ -110,7 +110,7 @@
 
                                     <div class="alt">
                                         <div class="col-sm-6"><p><b>@Res.resGetir(102)</b></p></div>
-                                        <div class="col-md-6 border-ayar shopper-info-passive"><input id="basic-addon1" value="@Model.UNIT" disabled /></div>
+                                        <div class="col-md-6 border-ayar shopper-info-passive"><input id="stok" value="@Model.UNIT" disabled /></div>
                                     </div>
 
                                     <div class="alt">
