@@ -1,7 +1,7 @@
 ﻿@using siparis.Models
 @{
 
-    ViewBag.Title = @Res.resGetir(64);
+    ViewBag.Title = @siparis.Resorces.Language.NotFound;
     Layout = "~/Views/Shared/_Layout Empty.cshtml";
 }
 
@@ -11,9 +11,9 @@
     </div>
     <div class="content-404">
         <img src="../content/images/404/404.png" class="img-responsive" alt="" />
-        <h1>@Res.resGetir(65)</h1>
-        <p>@Res.resGetir(66)</p>
-        <h2>@Html.ActionLink(@Res.resGetir(67),"Index","Home")</h2>
+        <h1>@siparis.Resorces.Language.Thispagecouldnotbefound</h1>
+        <p>@siparis.Resorces.Language.SomethingwentwrongintheopinionWehavenotreachedthispage</p>
+        <h2>@Html.ActionLink(@siparis.Resorces.Language.BringmebackHome,"Index","Home")</h2>
     </div>
 </div>
 

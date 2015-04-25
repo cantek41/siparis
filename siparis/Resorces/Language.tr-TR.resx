@@ -405,4 +405,16 @@
   <data name="YourMessageHere" xml:space="preserve">
     <value>Mesajınızı-Yazın</value>
   </data>
+  <data name="Thispagecouldnotbefound" xml:space="preserve">
+    <value>Bu Sayfa Bulunamadı</value>
+  </data>
+  <data name="SomethingwentwrongintheopinionWehavenotreachedthispage" xml:space="preserve">
+    <value>Görüşüne göre birşeyler ters gitti. Şuanda bu sayfaya ulaşılamıyor</value>
+  </data>
+  <data name="ErrorRequest" xml:space="preserve">
+    <value>İsteğiniz İşlenirken Bir Hata Oluştu</value>
+  </data>
+  <data name="wellcome" xml:space="preserve">
+    <value>Hoşgeldiniz</value>
+  </data>
 </root>

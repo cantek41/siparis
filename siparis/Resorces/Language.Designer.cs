@@ -349,6 +349,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ErrorRequest.
+        /// </summary>
+        public static string ErrorRequest {
+            get {
+                return ResourceManager.GetString("ErrorRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ESHOPPER.
         /// </summary>
         public static string ESHOPPER {
@@ -853,6 +862,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Something went wrong in the opinion . We have not reached this page.
+        /// </summary>
+        public static string SomethingwentwrongintheopinionWehavenotreachedthispage {
+            get {
+                return ResourceManager.GetString("SomethingwentwrongintheopinionWehavenotreachedthispage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stock.
         /// </summary>
         public static string Stock {
@@ -876,6 +894,15 @@ namespace siparis.Resorces {
         public static string Submit {
             get {
                 return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thispagecouldnotbefound.
+        /// </summary>
+        public static string Thispagecouldnotbefound {
+            get {
+                return ResourceManager.GetString("Thispagecouldnotbefound", resourceCulture);
             }
         }
         
@@ -912,6 +939,15 @@ namespace siparis.Resorces {
         public static string WarningLocal {
             get {
                 return ResourceManager.GetString("WarningLocal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to wellcome.
+        /// </summary>
+        public static string wellcome {
+            get {
+                return ResourceManager.GetString("wellcome", resourceCulture);
             }
         }
         

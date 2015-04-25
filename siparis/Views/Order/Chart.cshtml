@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<siparis.Models.OPPORTUNITYDETAIL>
 @using siparis.Models
 @{
-    ViewBag.Title = @Res.resGetir(68);
+    ViewBag.Title = @siparis.Resorces.Language.charts;
     Layout = "~/Views/Shared/_Layout.cshtml";
     int oppCode=0;
     if (Model.Count()>0)   
@@ -13,8 +13,8 @@
     <div class="container">
         <div class="breadcrumbs">
             <ol class="breadcrumb">
-                <li><a href="../Home/index">@Res.resGetir(24)</a></li>
-                <li class="active">@Res.resGetir(69)</li>
+                <li><a href="../Home/index">@siparis.Resorces.Language.HomePage</a></li>
+                <li class="active">@siparis.Resorces.Language.ShoppingCart</li>
             </ol>
         </div>
 
@@ -22,7 +22,7 @@
             <div class="col-md-9"></div>
             <div class="col-md-3">
                 <span class="cart_total_price" style="color: #FE980F;
-font-size: 24px;">@Res.resGetir(97)</span>
+font-size: 24px;">@siparis.Resorces.Language.GrandTotal</span>
 <br />
 <br />
 
@@ -40,7 +40,7 @@ font-size: 24px;">
     <div class="col-md-9"></div>
     <div class="col-md-3">
         <a href="onayla?OppCode=@oppCode">
-            <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@Res.resGetir(98)</span></a>      
+            <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span></a>      
         
 
     </div>
@@ -57,11 +57,11 @@ font-size: 24px;">
     <table class="table table-condensed">
         <thead>
             <tr class="cart_menu">
-                <td class="image">@Res.resGetir(70)</td>
+                <td class="image">@siparis.Resorces.Language.Item</td>
                 <td class="description"></td>
-                <td class="price">@Res.resGetir(71)</td>
-                <td class="quantity">@Res.resGetir(72)</td>
-                <td class="total">@Res.resGetir(73)</td>
+                <td class="price">@siparis.Resorces.Language.Price</td>
+                <td class="quantity">@siparis.Resorces.Language.Quantity</td>
+                <td class="total">@siparis.Resorces.Language.Total</td>
                 <td></td>
             </tr>
         </thead>
@@ -121,7 +121,7 @@ font-size: 24px;">
     <div class="col-md-12">
         <div class="col-md-9"></div>
         <div class="col-md-3">
-            <span class="cart_total_price">@Res.resGetir(97)</span>
+            <span class="cart_total_price">@siparis.Resorces.Language.GrandTotal</span>
             <br />
             <br />
             <span class="cart_total_price">
@@ -137,7 +137,7 @@ font-size: 24px;">
         <div class="col-md-9"></div>
         <div class="col-md-3">
             <a href="onayla?OppCode=@oppCode">
-                <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@Res.resGetir(98)</span>
+                <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span>
             </a>  
         </div>
 

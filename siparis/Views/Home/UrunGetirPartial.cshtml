@@ -23,25 +23,25 @@
 
                         <div class="col-md-12">
                             <div class="col-md-6 etiket">
-                                <span class="etiket">@Res.resGetir(102)</span>
+                                <span class="etiket">@siparis.Resorces.Language.Stock</span>
                             </div>
-                            <div class="col-md-6 etiket">
-                                <input class="text renk" type="text" size="2" value=@stok.UNIT disabled />
+                            <div class="col-md-6 border-ayar">
+                                <input class="passive" type="text" size="2" value=@stok.UNIT disabled />
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="col-md-6 etiket">
-                                <span class="etiket renk">@Res.resGetir(84)</span>
+                                <span class="etiket renk">@siparis.Resorces.Language.Order</span>
 
                             </div>
-                            <div class="col-md-6 etiket">
-                                <input class="text renk" id="@stok.ID" type="text" size="2" value="1" />
+                            <div class="col-md-6 border-ayar">
+                                <input id="@stok.ID" type="text" size="2" value="1" />
                             </div>
                         </div>
 
                      @*   <a class="btn btn-default add-to-cart" onclick="sepeteEkleMiktarli(@stok.ID,$('#@stok.ID').val())"><i class="fa fa-shopping-cart"></i>@Res.resGetir(2)</a>*@
-                        <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@Res.resGetir(3)</a>
+                        <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@siparis.Resorces.Language.Details</a>
                     </div>
                 </div>
                 @*<div class="choose">

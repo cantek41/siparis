@@ -405,4 +405,16 @@
   <data name="YourMessageHere" xml:space="preserve">
     <value>YourMessageHere</value>
   </data>
+  <data name="Thispagecouldnotbefound" xml:space="preserve">
+    <value>This page could not be found</value>
+  </data>
+  <data name="SomethingwentwrongintheopinionWehavenotreachedthispage" xml:space="preserve">
+    <value>Something went wrong in the opinion . We have not reached this page</value>
+  </data>
+  <data name="ErrorRequest" xml:space="preserve">
+    <value>ErrorRequest</value>
+  </data>
+  <data name="wellcome" xml:space="preserve">
+    <value>wellcome</value>
+  </data>
 </root>
