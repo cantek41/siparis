@@ -23,10 +23,8 @@
   </group>
   <group Text="Bayi">    
     <item Text="Sample" NavigateUrl="Sample" ImageUrl="~/Content/images/icons/inbox.png"/>
-    <item Text="Offer" NavigateUrl="Offer" ImageUrl="~/Content/images/icons/offer.png"/>
     <item Text="Draft" NavigateUrl="Draft" ImageUrl="~/Content/images/icons/blank.png"/>
     <item Text="Order" NavigateUrl="Order" ImageUrl="~/Content/images/icons/cart.png"/>
-    <item Text="InReview" NavigateUrl="InReview" ImageUrl="~/Content/images/icons/zoom.png"/>
     <item Text="Pending" NavigateUrl="Pending" ImageUrl="~/Content/images/icons/time.png"/>
     <item Text="Approved" NavigateUrl="Approved" ImageUrl="~/Content/images/icons/check.png"/>
     <item Text="Edited" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
@@ -49,6 +47,25 @@
     <item Text="Shipped" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
     <item Text="DispatchNote" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
     <!--<item Text="" NavigateUrl="http://www.veribis.com.tr/" ImageUrl="~/Content/images/logo/logoyazisi.png"/>-->
+  </group>
+  <group Text="Temsilci">
+    <item Text="Opportunity" NavigateUrl="Opportunity" ImageUrl="~/Content/images/icons/blank.png"/>
+    <item Text="Sample" NavigateUrl="Sample" ImageUrl="~/Content/images/icons/inbox.png"/>
+    <item Text="Offer" NavigateUrl="Offer" ImageUrl="~/Content/images/icons/offer.png"/>
+    <item Text="Draft" NavigateUrl="Draft" ImageUrl="~/Content/images/icons/blank.png"/>
+    <item Text="Order" NavigateUrl="Order" ImageUrl="~/Content/images/icons/cart.png"/>
+    <item Text="InReview" NavigateUrl="InReview" ImageUrl="~/Content/images/icons/zoom.png"/>
+    <item Text="Pending" NavigateUrl="Pending" ImageUrl="~/Content/images/icons/time.png"/>
+    <item Text="Approved" NavigateUrl="Approved" ImageUrl="~/Content/images/icons/check.png"/>
+    <item Text="Edited" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
+    <item Text="Processed" NavigateUrl="Processed" ImageUrl="~/Content/images/icons/services.png"/>
+    <item Text="ShippingConfirm" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+    <item Text="Shipping" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
+    <item Text="Shipped" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
+    <item Text="Cancelled" NavigateUrl="Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>
+    <item Text="DispatchNote" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
+    <item Text="Invoice" NavigateUrl="Invoice" ImageUrl="~/Content/images/icons/calculator.png"/>
+    <item Text="Linesheets" NavigateUrl="Linesheets" ImageUrl="~/Content/images/icons/solution.png"/>
   </group>
   
 </menu>
