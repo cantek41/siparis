@@ -27,8 +27,19 @@
                      <div>
                          @Html.DropDownList("Company", CompaniesViewModel.Company, "Firma Seç", new { id = "Company" })
                      </div>
+                 
                  }
              }
+        </div>
+        <div>           
+            @{
+                if (ViewBag.Hata!=null || ViewBag.Hata==true)
+                {
+                    <div>                        
+                       <b> Dikkat! Sipariş Miktarlarınızı Gözden Geçirin! </b>
+                    </div>
+                }
+            }
         </div>
 
         <div class="col-md-12">
@@ -51,8 +62,8 @@ font-size: 24px;">
 
 <div class="col-md-12">
     <div class="col-md-9"></div>
-    <div class="col-md-3">
-        <a href="onayla?OppCode=@oppCode">
+    <div  class="col-md-3 name">
+        <a href="onayla?OppCode=@oppCode" onclick="kontrol();">
             <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span>
         </a>
 
@@ -90,7 +101,8 @@ font-size: 24px;">
                         </td>
                         <td class="cart_description">
                             <h4><a href="">@item.STOKCARD.NAME_TR</a></h4>
-                            <p>Web ID: @item.STOKCARD.CODE</p>
+                            <p>@item.STOKCARD.CODE</p>
+                            <p>@item.EXPLANATION</p>
                         </td>
                         <td class="cart_price">
                             <p>@item.STOKCARD.UNIT_PRICE @item.STOKCARD.CUR_TYPE</p>
@@ -99,7 +111,7 @@ font-size: 24px;">
                             <div class="cart_quantity_button">
                                 @using (Html.BeginForm("changeCartProduct", "Order", FormMethod.Post))
                                 {      @*<a class="cart_quantity_up" href=""> + </a>*@
-                                    @Html.TextBoxFor(model => item.QUANTITY, new { @class = "cart_quantity_input", @size = "2" })
+                                    @Html.TextBoxFor(model => item.QUANTITY, new { @class = "cart_quantity_input", @size = "2", maxsize = 50 })
                                     @Html.HiddenFor(model => item.OPPORTUNITY_CODE)
                                     @Html.HiddenFor(model => item.ROW_ORDER_NO)
                                     @*<input type="submit" value="" class="fa fa-check" />*@
@@ -149,7 +161,7 @@ font-size: 24px;">
     </div>
     <div class="col-md-12">
         <div class="col-md-9"></div>
-        <div class="col-md-3">
+        <div class="col-md-3 name">
             <a href="onayla?OppCode=@oppCode">
                 <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span>
             </a>

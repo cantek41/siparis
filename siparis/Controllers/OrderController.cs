@@ -21,7 +21,7 @@ namespace siparis.Controllers
                     #region Sepet Var mı
                     if (Session["Sepet"] == null)
                     {
-                        ProfileInfo pf=(ProfileInfo)Session["profilim"];
+                        ProfileInfo pf = (ProfileInfo)Session["profilim"];
                         OPPORTUNITYMASTER sepet = new OPPORTUNITYMASTER();
                         int sepetID = 0;
                         if (db.OPPORTUNITYMASTERs.Count() != 0)
@@ -120,7 +120,7 @@ namespace siparis.Controllers
             {
                 return false;
             }
-            
+
         }
 
 
@@ -156,16 +156,19 @@ namespace siparis.Controllers
         public ActionResult onayla(string OppCode)
         {
             int op = Convert.ToInt32(OppCode);
-            VdbSoftEntities db = new VdbSoftEntities(dbName);
-            OPPORTUNITYMASTER master = db.OPPORTUNITYMASTERs.Find(op);
-            master.DOCUMENT_TYPE = 3;
-            db.OPPORTUNITYMASTERs.Attach(master);
-            db.Entry(master).State = EntityState.Modified;
-            db.SaveChanges();
-            Session.Remove("Sepet");
-            return RedirectToAction("Index", "Home");
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                OPPORTUNITYMASTER master = db.OPPORTUNITYMASTERs.Find(op);
+                master.DOCUMENT_TYPE = 3;
+                db.OPPORTUNITYMASTERs.Attach(master);
+                db.Entry(master).State = EntityState.Modified;
+                db.SaveChanges();
+                Session.Remove("Sepet");
+                return RedirectToAction("Index", "Home");
+            }
         }
 
+       
         public ActionResult Chart()
         {
             return View(getCartProduct());
