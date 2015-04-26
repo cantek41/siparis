@@ -475,6 +475,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Join your registration has been successfully verified. Press the record button to terminate your membership record..
+        /// </summary>
+        public static string Joinyourregistration {
+            get {
+                return ResourceManager.GetString("Joinyourregistration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Keepmesignedin.
         /// </summary>
         public static string Keepmesignedin {

@@ -423,4 +423,7 @@
   <data name="AssociateYourAccount" xml:space="preserve">
     <value>Hesabınızı İlişkilendirin</value>
   </data>
+  <data name="Joinyourregistration" xml:space="preserve">
+    <value>Üyelik kaydınız başarıyla doğrulanmıştır. Üyelik kaydınızı sonlandırmak için kayıt butonuna basınız.</value>
+  </data>
 </root>

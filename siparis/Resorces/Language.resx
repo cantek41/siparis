@@ -423,4 +423,7 @@
   <data name="AssociateYourAccount" xml:space="preserve">
     <value>Associate Your Account</value>
   </data>
+  <data name="Joinyourregistration" xml:space="preserve">
+    <value>Join your registration has been successfully verified. Press the record button to terminate your membership record.</value>
+  </data>
 </root>
