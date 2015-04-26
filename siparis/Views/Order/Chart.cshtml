@@ -12,7 +12,7 @@
 <script src="~/Scripts/ajaxGonderi/temsilciFirmaDegis.js"></script>
 <script>
     function kontrol() {
-        if (confirm('Siparişleri Onaylıyorsunuz Emin misiniz?')) {
+        if (confirm('@siparis.Resorces.Language.OrderConfirm')) {
             var oppCode = $('#oppMasterCode').val();
             window.location = "onayla?OppCode=" + oppCode;
         } else {
@@ -67,7 +67,7 @@
                         if (ViewBag.Hata != null && ViewBag.Hata == true)
                         {
                             <div>
-                                <b> Dikkat! Sipariş Miktarlarınızı Gözden Geçirin! </b>
+                                <b> @siparis.Resorces.Language.OrderCheck</b>
                             </div>
                         }
                     }

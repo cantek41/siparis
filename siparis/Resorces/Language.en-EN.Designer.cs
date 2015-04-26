@@ -682,6 +682,24 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Warning! Check the quantities of your order..
+        /// </summary>
+        public static string OrderCheck {
+            get {
+                return ResourceManager.GetString("OrderCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you confirm your order?.
+        /// </summary>
+        public static string OrderConfirm {
+            get {
+                return ResourceManager.GetString("OrderConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Order Status.
         /// </summary>
         public static string OrderStatus {
@@ -696,15 +714,6 @@ namespace siparis.Resorces {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pencil Box.
-        /// </summary>
-        public static string PencilBox {
-            get {
-                return ResourceManager.GetString("PencilBox", resourceCulture);
             }
         }
         
@@ -997,6 +1006,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Product is avalible..
+        /// </summary>
+        public static string StokMessage {
+            get {
+                return ResourceManager.GetString("StokMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Subject.
         /// </summary>
         public static string Subject {
@@ -1083,6 +1101,15 @@ namespace siparis.Resorces {
         public static string WarningLocal {
             get {
                 return ResourceManager.GetString("WarningLocal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product is not enough..
+        /// </summary>
+        public static string WarningStok {
+            get {
+                return ResourceManager.GetString("WarningStok", resourceCulture);
             }
         }
         

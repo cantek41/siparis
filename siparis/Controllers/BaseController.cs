@@ -106,11 +106,11 @@ namespace siparis.Controllers
                 {                   
                     ViewBag.Hata = true;
                                        
-                    item.EXPLANATION = "Ürün istenilen Miktarda Stokta Yok. Kalan adet =" + totalStok;
+                    item.EXPLANATION = siparis.Resorces.Language.WarningStok + totalStok;
                 }
                 else
                 {
-                    item.EXPLANATION = "Ürün Depoda Mevcut. Kalan Adet=" + totalStok;
+                    item.EXPLANATION = siparis.Resorces.Language.StokMessage + totalStok;
                 }
                 item.TAX_PERCENT = totalStok;            
                 
