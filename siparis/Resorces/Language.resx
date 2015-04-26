@@ -444,4 +444,19 @@
   <data name="Create_User" xml:space="preserve">
     <value>CREATE USER</value>
   </data>
+  <data name="Picture" xml:space="preserve">
+    <value>PICTURE</value>
+  </data>
+  <data name="Cur_Type" xml:space="preserve">
+    <value>CUR TYPE</value>
+  </data>
+  <data name="Product_Name" xml:space="preserve">
+    <value>PRODUCT NAME</value>
+  </data>
+  <data name="Row_Order_No" xml:space="preserve">
+    <value>ROW_ORDER_NO</value>
+  </data>
+  <data name="Unit_Price" xml:space="preserve">
+    <value>UNIT PRICE</value>
+  </data>
 </root>
