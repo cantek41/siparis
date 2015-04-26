@@ -391,7 +391,7 @@
     <value>Gönder</value>
   </data>
   <data name="Total" xml:space="preserve">
-    <value>Toplam</value>
+    <value>TOPLAM</value>
   </data>
   <data name="Useanotherservicetologin" xml:space="preserve">
     <value>Oturum açmak için başka bir hizmeti kullanın</value>
@@ -427,9 +427,21 @@
     <value>Üyelik kaydınız başarıyla doğrulanmıştır. Üyelik kaydınızı sonlandırmak için kayıt butonuna basınız.</value>
   </data>
   <data name="OPPORTUNITY_CODE" xml:space="preserve">
-    <value>Sipariş Kodu</value>
+    <value>SİPARİŞ KODU</value>
   </data>
   <data name="Company" xml:space="preserve">
-    <value>Firma</value>
+    <value>FİRMA</value>
+  </data>
+  <data name="CONTACS" xml:space="preserve">
+    <value>KİŞİ</value>
+  </data>
+  <data name="DATE" xml:space="preserve">
+    <value>TARİH</value>
+  </data>
+  <data name="USER" xml:space="preserve">
+    <value>KULLANICI</value>
+  </data>
+  <data name="Create_User" xml:space="preserve">
+    <value>OLUŞTURAN KULLANICI</value>
   </data>
 </root>

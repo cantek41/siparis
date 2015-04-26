@@ -391,7 +391,7 @@
     <value>Submit</value>
   </data>
   <data name="Total" xml:space="preserve">
-    <value>Total</value>
+    <value>TOPLAM</value>
   </data>
   <data name="Useanotherservicetologin" xml:space="preserve">
     <value>Use Another Service to Login</value>
@@ -427,9 +427,21 @@
     <value>Join your registration has been successfully verified. Press the record button to terminate your membership record.</value>
   </data>
   <data name="OPPORTUNITY_CODE" xml:space="preserve">
-    <value>Order Code</value>
+    <value>ORDER CODE</value>
   </data>
   <data name="Company" xml:space="preserve">
-    <value>Company</value>
+    <value>COMPANY</value>
+  </data>
+  <data name="CONTACS" xml:space="preserve">
+    <value>CONTACT</value>
+  </data>
+  <data name="DATE" xml:space="preserve">
+    <value>DATE</value>
+  </data>
+  <data name="USER" xml:space="preserve">
+    <value>USER</value>
+  </data>
+  <data name="Create_User" xml:space="preserve">
+    <value>CREATE USER</value>
   </data>
 </root>

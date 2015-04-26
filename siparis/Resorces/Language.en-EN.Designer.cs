@@ -259,7 +259,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Company.
+        ///   Looks up a localized string similar to COMPANY.
         /// </summary>
         public static string Company {
             get {
@@ -286,6 +286,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CONTACT.
+        /// </summary>
+        public static string CONTACS {
+            get {
+                return ResourceManager.GetString("CONTACS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
         public static string Contact {
@@ -304,11 +313,29 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CREATE USER.
+        /// </summary>
+        public static string Create_User {
+            get {
+                return ResourceManager.GetString("Create_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create New Account.
         /// </summary>
         public static string Createanewaccount {
             get {
                 return ResourceManager.GetString("Createanewaccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DATE.
+        /// </summary>
+        public static string DATE {
+            get {
+                return ResourceManager.GetString("DATE", resourceCulture);
             }
         }
         
@@ -606,6 +633,15 @@ namespace siparis.Resorces {
         public static string Opportunity {
             get {
                 return ResourceManager.GetString("Opportunity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ORDER CODE.
+        /// </summary>
+        public static string OPPORTUNITY_CODE {
+            get {
+                return ResourceManager.GetString("OPPORTUNITY_CODE", resourceCulture);
             }
         }
         
@@ -934,7 +970,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total.
+        ///   Looks up a localized string similar to TOPLAM.
         /// </summary>
         public static string Total {
             get {
@@ -948,6 +984,15 @@ namespace siparis.Resorces {
         public static string Useanotherservicetologin {
             get {
                 return ResourceManager.GetString("Useanotherservicetologin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to USER.
+        /// </summary>
+        public static string USER {
+            get {
+                return ResourceManager.GetString("USER", resourceCulture);
             }
         }
         
