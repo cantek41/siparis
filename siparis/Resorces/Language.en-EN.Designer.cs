@@ -70,7 +70,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AddedtoCart.
+        ///   Looks up a localized string similar to Added to Cart.
         /// </summary>
         public static string AddedtoCart {
             get {
@@ -79,7 +79,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AddtoCart.
+        ///   Looks up a localized string similar to Add to Cart.
         /// </summary>
         public static string AddtoCart {
             get {
@@ -88,7 +88,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Addtocompare.
+        ///   Looks up a localized string similar to Add to compare.
         /// </summary>
         public static string Addtocompare {
             get {
@@ -97,7 +97,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Addtowishlist.
+        ///   Looks up a localized string similar to Add to wish list.
         /// </summary>
         public static string Addtowishlist {
             get {
@@ -115,7 +115,16 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AssociationForm.
+        ///   Looks up a localized string similar to Associate Your Account.
+        /// </summary>
+        public static string AssociateYourAccount {
+            get {
+                return ResourceManager.GetString("AssociateYourAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Association Form.
         /// </summary>
         public static string AssociationForm {
             get {
@@ -160,7 +169,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to BringmebackHome.
+        ///   Looks up a localized string similar to Bringme back Home.
         /// </summary>
         public static string BringmebackHome {
             get {
@@ -196,7 +205,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ChangeLocation.
+        ///   Looks up a localized string similar to Change Location.
         /// </summary>
         public static string ChangeLocation {
             get {
@@ -205,7 +214,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ChangePasswordForm.
+        ///   Looks up a localized string similar to Change Password Form.
         /// </summary>
         public static string ChangePasswordForm {
             get {
@@ -241,7 +250,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CommercialCode.
+        ///   Looks up a localized string similar to Commercial Code.
         /// </summary>
         public static string CommercialCode {
             get {
@@ -277,7 +286,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ContactUs.
+        ///   Looks up a localized string similar to Contact Us.
         /// </summary>
         public static string ContactUs {
             get {
@@ -286,7 +295,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Createanewaccount.
+        ///   Looks up a localized string similar to Create New Account.
         /// </summary>
         public static string Createanewaccount {
             get {
@@ -304,7 +313,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DispachNote.
+        ///   Looks up a localized string similar to Dispach Note.
         /// </summary>
         public static string DispachNote {
             get {
@@ -331,7 +340,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EMail.
+        ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string EMail {
             get {
@@ -349,7 +358,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ErrorRequest.
+        ///   Looks up a localized string similar to Error Request.
         /// </summary>
         public static string ErrorRequest {
             get {
@@ -367,7 +376,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FeaturesItems.
+        ///   Looks up a localized string similar to Features Items.
         /// </summary>
         public static string FeaturesItems {
             get {
@@ -376,7 +385,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ForgotPassword.
+        ///   Looks up a localized string similar to Forgot Password.
         /// </summary>
         public static string ForgotPassword {
             get {
@@ -385,7 +394,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GetinTouch.
+        ///   Looks up a localized string similar to Get in Touch.
         /// </summary>
         public static string GetinTouch {
             get {
@@ -394,7 +403,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Getproductcategory.
+        ///   Looks up a localized string similar to Get Product Category.
         /// </summary>
         public static string Getproductcategory {
             get {
@@ -403,7 +412,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GrandTotal.
+        ///   Looks up a localized string similar to Grand Total.
         /// </summary>
         public static string GrandTotal {
             get {
@@ -421,7 +430,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to HomePage.
+        ///   Looks up a localized string similar to Home Page.
         /// </summary>
         public static string HomePage {
             get {
@@ -466,7 +475,16 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keepmesignedin.
+        ///   Looks up a localized string similar to Join your registration has been successfully verified. Press the record button to terminate your membership record..
+        /// </summary>
+        public static string Joinyourregistration {
+            get {
+                return ResourceManager.GetString("Joinyourregistration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep Me Signed in.
         /// </summary>
         public static string Keepmesignedin {
             get {
@@ -493,7 +511,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LoginFailure.
+        ///   Looks up a localized string similar to Login Failure.
         /// </summary>
         public static string LoginFailure {
             get {
@@ -502,7 +520,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Login Your Account.
         /// </summary>
         public static string Logintoyouraccount {
             get {
@@ -511,7 +529,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogOut.
+        ///   Looks up a localized string similar to Log Out.
         /// </summary>
         public static string LogOut {
             get {
@@ -520,7 +538,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ManageAccount.
+        ///   Looks up a localized string similar to Manage Account.
         /// </summary>
         public static string ManageAccount {
             get {
@@ -547,7 +565,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NotFound.
+        ///   Looks up a localized string similar to Not Found.
         /// </summary>
         public static string NotFound {
             get {
@@ -565,7 +583,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OnlineHelp.
+        ///   Looks up a localized string similar to Online Help.
         /// </summary>
         public static string OnlineHelp {
             get {
@@ -601,7 +619,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OrderStatus.
+        ///   Looks up a localized string similar to Order Status.
         /// </summary>
         public static string OrderStatus {
             get {
@@ -655,7 +673,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PriceRange.
+        ///   Looks up a localized string similar to Price Range.
         /// </summary>
         public static string PriceRange {
             get {
@@ -673,7 +691,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ProcessFailed.
+        ///   Looks up a localized string similar to Process Failed.
         /// </summary>
         public static string ProcessFailed {
             get {
@@ -682,7 +700,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ProductDetails.
+        ///   Looks up a localized string similar to Product Details.
         /// </summary>
         public static string ProductDetails {
             get {
@@ -709,7 +727,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to QuickShop.
+        ///   Looks up a localized string similar to Quick Shop.
         /// </summary>
         public static string QuickShop {
             get {
@@ -727,7 +745,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RegisteredLogins.
+        ///   Looks up a localized string similar to Registered Logins.
         /// </summary>
         public static string RegisteredLogins {
             get {
@@ -781,7 +799,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to setpassword.
+        ///   Looks up a localized string similar to Set Password.
         /// </summary>
         public static string setpassword {
             get {
@@ -808,7 +826,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ShippingConfirm.
+        ///   Looks up a localized string similar to Shipping Confirm.
         /// </summary>
         public static string ShippingConfirm {
             get {
@@ -826,7 +844,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ShoppingCart.
+        ///   Looks up a localized string similar to Shopping Cart.
         /// </summary>
         public static string ShoppingCart {
             get {
@@ -853,7 +871,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SocialNetworking.
+        ///   Looks up a localized string similar to Social Networking.
         /// </summary>
         public static string SocialNetworking {
             get {
@@ -916,7 +934,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Useanotherservicetologin.
+        ///   Looks up a localized string similar to Use Another Service to Login.
         /// </summary>
         public static string Useanotherservicetologin {
             get {
@@ -925,7 +943,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Usethisareatoprovideadditionalinformation.
+        ///   Looks up a localized string similar to Use This Area to Provide Additional İnformation.
         /// </summary>
         public static string Usethisareatoprovideadditionalinformation {
             get {
@@ -934,7 +952,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WarningLocal.
+        ///   Looks up a localized string similar to Warning Local.
         /// </summary>
         public static string WarningLocal {
             get {
@@ -943,7 +961,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to wellcome.
+        ///   Looks up a localized string similar to Wellcome.
         /// </summary>
         public static string wellcome {
             get {
@@ -952,7 +970,16 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to YourMessageHere.
+        ///   Looks up a localized string similar to You do not have a local username/password for this site. Add a local account so you can log in without an external login..
+        /// </summary>
+        public static string Youdonothavealocalusername {
+            get {
+                return ResourceManager.GetString("Youdonothavealocalusername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Message Here.
         /// </summary>
         public static string YourMessageHere {
             get {

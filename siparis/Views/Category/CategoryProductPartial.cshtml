@@ -7,7 +7,7 @@
 
     <div class="features_items">
         <!--features_items-->
-        <h2 class="title text-center">@Res.resGetir(14)</h2>
+        <h2 class="title text-center">@siparis.Resorces.Language.FeaturesItems</h2>
 
         @Html.Hidden("CategoryId", TempData.Equals("Category"))
         @foreach (var stok in Model.stokcard)
@@ -20,8 +20,8 @@
                             <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" />
                             <h2 class="buyukharf">@stok.NAME_TR</h2>
                             <h4>@stok.UNIT_PRICE @stok.CUR_TYPE</h4>
-                            <a class="btn btn-default add-to-cart" onclick="sepeteEkle(@stok.ID)"><i class="fa fa-shopping-cart"></i>@Res.resGetir(2)</a>
-                            <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@Res.resGetir(3)</a>
+                            <a class="btn btn-default add-to-cart" onclick="sepeteEkle(@stok.ID)"><i class="fa fa-shopping-cart"></i>@siparis.Resorces.Language.AddtoCart</a>
+                            <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@siparis.Resorces.Language.Details</a>
                         </div>
                     </div>
                     
