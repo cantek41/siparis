@@ -215,7 +215,7 @@ namespace siparis.Controllers
                 int userCode = getUserCode();
                 int userContactCode =  (int)db.USERS.Where(x => x.USER_CODE == userCode).Select(x => x.CONTACT_CODE).FirstOrDefault();
                 COMPANY company = db.COMPANies.Find(db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).Select(x => x.COMPANY_CODE).FirstOrDefault());
-                CONTACT kisi = db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).FirstOrDefault();
+                USER kisi = db.USERS.Where(x => x.USER_CODE == userCode).FirstOrDefault();
                 var model = (from c in db.COMPANies
                                   join d in db.ADDRESSes on c.COMPANY_CODE equals d.COMPANY_CODE
                                   join p in db.PHONEs on c.COMPANY_CODE equals p.COMPANY_CODE
@@ -235,7 +235,8 @@ namespace siparis.Controllers
                 ProfileInfo profilim = new ProfileInfo();                
                 profilim.User_Code = userCode;
                 profilim.FirmaAdi = company.COMPANY_NAME;
-                profilim.Adi = kisi.NAME;
+                profilim.FirmaKodu = company.COMPANY_CODE;
+                profilim.Adi = kisi.AUSER_NAME;
                 profilim.Soyadi = kisi.SURNAME;           
                 profilim.Telefon = model.Telefon;
                 profilim.Adres = model.Adres;
