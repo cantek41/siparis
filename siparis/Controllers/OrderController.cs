@@ -159,6 +159,11 @@ namespace siparis.Controllers
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
                 OPPORTUNITYMASTER master = db.OPPORTUNITYMASTERs.Find(op);
+                List<int> rows = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == op).Select(x=>x.ROW_ORDER_NO).ToList();
+                if (!sepetKontrol(op, rows))
+                {
+                    return RedirectToAction("Chart");
+                }
                 master.DOCUMENT_TYPE = 3;
                 db.OPPORTUNITYMASTERs.Attach(master);
                 db.Entry(master).State = EntityState.Modified;
@@ -168,6 +173,30 @@ namespace siparis.Controllers
             }
         }
 
+        private bool sepetKontrol(int oppMaster,List<int> rows)
+        {
+            bool returnValue = false;
+            
+            foreach (int  item in rows)
+            {
+                Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param = orderWareHouseCal(oppMaster, item);
+                List<StokWareHouseViewModel> depolar = param.Item1;
+                int totalStok = 0;
+                foreach (StokWareHouseViewModel depo in depolar)
+                {
+                    totalStok += depo.QUANTITY ?? 0;
+                }
+
+                if (totalStok < param.Item2.QUANTITY)
+                {
+                    returnValue = true;
+                    ViewBag.Hata = true;
+                }
+                
+                
+            }
+            return returnValue;
+        }
        
         public ActionResult Chart()
         {
