@@ -459,4 +459,7 @@
   <data name="Unit_Price" xml:space="preserve">
     <value>UNIT PRICE</value>
   </data>
+  <data name="WareHouseName" xml:space="preserve">
+    <value>WAREHOUSE NAME</value>
+  </data>
 </root>

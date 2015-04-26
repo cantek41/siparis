@@ -462,4 +462,7 @@
   <data name="Unit_Price" xml:space="preserve">
     <value>BİRİM FİYATI</value>
   </data>
+  <data name="WareHouseName" xml:space="preserve">
+    <value>DEPO ADI</value>
+  </data>
 </root>

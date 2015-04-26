@@ -1051,6 +1051,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to WAREHOUSE NAME.
+        /// </summary>
+        public static string WareHouseName {
+            get {
+                return ResourceManager.GetString("WareHouseName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Warning Local.
         /// </summary>
         public static string WarningLocal {
