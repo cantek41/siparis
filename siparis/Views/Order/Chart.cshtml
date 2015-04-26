@@ -23,7 +23,7 @@
 @{
     if (Model.Count() > 0)
     {
-        <input id="oppMasterCode" type="text" value="@Model.ElementAt(0).OPPORTUNITY_CODE" />
+        <input id="oppMasterCode" type="hidden" value="@Model.ElementAt(0).OPPORTUNITY_CODE" />
     }
 }
 
@@ -34,18 +34,19 @@
                 <li><a href="../Home/index">@siparis.Resorces.Language.HomePage</a></li>
                 <li class="active">@siparis.Resorces.Language.ShoppingCart</li>
             </ol>
-        </div>
-        <div>
-            @{
-                if (User.IsInRole("Temsilci"))
-                {
-                    <div>
-                        @Html.DropDownList("Company", CompaniesViewModel.Company, "Firma Seç", new { id = "Company" })
-                    </div>
+            <div class="breadcrumb col-md-2">
+                @{
+                    if (User.IsInRole("Temsilci"))
+                    {
+                        <div>
+                            @Html.DropDownList("Company", CompaniesViewModel.Company, "Firma Seç", new { id = "Company" })
+                        </div>
 
+                    }
                 }
-            }
+            </div>
         </div>
+       
 
         @*<div class="col-md-12">
                 <div class="col-md-9"></div>
@@ -101,7 +102,7 @@
                                     <a href=""><img src="@item.STOKCARD.STOKCARDPICTUREs.ElementAt(0).PATH" style="width:100px;" alt=""></a>
                                 </td>
                                 <td class="cart_description">
-                                    <h4><a href="">@item.STOKCARD.NAME_TR</a></h4>
+                                    <h4><a href="/Product/ProductDetail?urunID=@item.STOK_ID" class="buyukharf">@item.STOKCARD.NAME_TR</a></h4>
                                     <p>@item.STOKCARD.CODE</p>
                                     <p>@item.EXPLANATION</p>
                                 </td>

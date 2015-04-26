@@ -1754,7 +1754,7 @@ h2.title {
     .breadcrumbs .breadcrumb {
         background: transparent;
         margin-bottom: 15px;
-        padding-left: 0;
+        padding-left: 10px;
     }
 
         .breadcrumbs .breadcrumb li a {
@@ -1816,7 +1816,10 @@ h2.title {
     padding-left: 30px;
 }
 
-
+#cart_items .cart_info .cart_description 
+{
+    padding-left:30px;
+}
 #cart_items .cart_info .cart_description h4 {
     margin-bottom: 0;
 }
