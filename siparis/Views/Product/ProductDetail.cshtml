@@ -40,11 +40,12 @@
 
                     <div class="col-sm-6 border-ayar">
                         <div class="product-information padding-zero">
-                            @*<span><span class="buyukharf etiket"> @Model.NAME_TR</span><h2 class="etiket"><b>@Model.CODE</b></h2></span>*@
-                            @Html.Label(@Model.NAME_TR, new { id = "NAME_TR", @class = "product-info-title" })<br />
-                            @Html.TextBoxFor(model => model.CODE, new { @class = "product-info-sub-title" })
-                            <h2 class="etiket"><p><b>@Model.UNIT_PRICE @Model.CUR_TYPE </b></p></h2>
-
+                            @Html.Label(@Model.NAME_TR, new { id = "NAME_TR", @class = "product-info-title buyukharf" })<br />
+                            @Html.TextBoxFor(model => model.CODE, new { @class = "product-info-sub-title buyukharf" })
+                            <div style="float:left;">
+                                @Html.TextBoxFor(model => model.UNIT_PRICE, new { @class = "product-info-price" })
+                                @Html.TextBoxFor(model => model.CUR_TYPE, new { @class = "product-info-price" })
+                            </div>
                             @Html.HiddenFor(model => model.UPPER_CODE)
                             @Html.HiddenFor(model => model.ID)
 
@@ -115,7 +116,7 @@
 
                                 <div class="alt">
                                     <div class="col-sm-6"><p><b>@siparis.Resorces.Language.Stock</b></p></div>
-                                    <div class="col-md-6 border-ayar shopper-info"><input id="basic-addon1" value="@Model.UNIT" disabled /></div>
+                                    <div class="col-md-6 border-ayar shopper-info"><input id="STOK" value="@Model.UNIT" disabled /></div>
                                 </div>
 
                                 <div class="alt">
