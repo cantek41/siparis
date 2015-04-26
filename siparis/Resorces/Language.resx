@@ -121,22 +121,22 @@
     <value>About</value>
   </data>
   <data name="AddedtoCart" xml:space="preserve">
-    <value>AddedtoCart</value>
+    <value>Added to Cart</value>
   </data>
   <data name="AddtoCart" xml:space="preserve">
-    <value>AddtoCart</value>
+    <value>Add to Cart</value>
   </data>
   <data name="Addtocompare" xml:space="preserve">
-    <value>Addtocompare</value>
+    <value>Add to compare</value>
   </data>
   <data name="Addtowishlist" xml:space="preserve">
-    <value>Addtowishlist</value>
+    <value>Add to wish list</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Approved</value>
   </data>
   <data name="AssociationForm" xml:space="preserve">
-    <value>AssociationForm</value>
+    <value>Association Form</value>
   </data>
   <data name="Availability" xml:space="preserve">
     <value>Availability</value>
@@ -151,7 +151,7 @@
     <value>Brands</value>
   </data>
   <data name="BringmebackHome" xml:space="preserve">
-    <value>BringmebackHome</value>
+    <value>Bringme back Home</value>
   </data>
   <data name="Cancelled" xml:space="preserve">
     <value>Cancelled</value>
@@ -163,10 +163,10 @@
     <value>Category</value>
   </data>
   <data name="ChangeLocation" xml:space="preserve">
-    <value>ChangeLocation</value>
+    <value>Change Location</value>
   </data>
   <data name="ChangePasswordForm" xml:space="preserve">
-    <value>ChangePasswordForm</value>
+    <value>Change Password Form</value>
   </data>
   <data name="charts" xml:space="preserve">
     <value>charts</value>
@@ -178,7 +178,7 @@
     <value>Color</value>
   </data>
   <data name="CommercialCode" xml:space="preserve">
-    <value>CommercialCode</value>
+    <value>Commercial Code</value>
   </data>
   <data name="Condition" xml:space="preserve">
     <value>Condition</value>
@@ -190,16 +190,16 @@
     <value>Contact</value>
   </data>
   <data name="ContactUs" xml:space="preserve">
-    <value>ContactUs</value>
+    <value>Contact Us</value>
   </data>
   <data name="Createanewaccount" xml:space="preserve">
-    <value>Createanewaccount</value>
+    <value>Create New Account</value>
   </data>
   <data name="Details" xml:space="preserve">
     <value>Details</value>
   </data>
   <data name="DispachNote" xml:space="preserve">
-    <value>DispachNote</value>
+    <value>Dispach Note</value>
   </data>
   <data name="Draft" xml:space="preserve">
     <value>Draft</value>
@@ -208,7 +208,7 @@
     <value>Edited</value>
   </data>
   <data name="EMail" xml:space="preserve">
-    <value>EMail</value>
+    <value>Email</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
@@ -217,25 +217,25 @@
     <value>ESHOPPER</value>
   </data>
   <data name="FeaturesItems" xml:space="preserve">
-    <value>FeaturesItems</value>
+    <value>Features Items</value>
   </data>
   <data name="ForgotPassword" xml:space="preserve">
-    <value>ForgotPassword</value>
+    <value>Forgot Password</value>
   </data>
   <data name="GetinTouch" xml:space="preserve">
-    <value>GetinTouch</value>
+    <value>Get in Touch</value>
   </data>
   <data name="Getproductcategory" xml:space="preserve">
-    <value>Getproductcategory</value>
+    <value>Get Product Category</value>
   </data>
   <data name="GrandTotal" xml:space="preserve">
-    <value>GrandTotal</value>
+    <value>Grand Total</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
   <data name="HomePage" xml:space="preserve">
-    <value>HomePage</value>
+    <value>Home Page</value>
   </data>
   <data name="Index" xml:space="preserve">
     <value>Index</value>
@@ -250,7 +250,7 @@
     <value>Item</value>
   </data>
   <data name="Keepmesignedin" xml:space="preserve">
-    <value>Keepmesignedin</value>
+    <value>Keep Me Signed in</value>
   </data>
   <data name="Linesheets" xml:space="preserve">
     <value>Linesheets</value>
@@ -259,16 +259,16 @@
     <value>Login</value>
   </data>
   <data name="LoginFailure" xml:space="preserve">
-    <value>LoginFailure</value>
+    <value>Login Failure</value>
   </data>
   <data name="Logintoyouraccount" xml:space="preserve">
-    <value>Logintoyouraccount</value>
+    <value>Login Your Account</value>
   </data>
   <data name="LogOut" xml:space="preserve">
-    <value>LogOut</value>
+    <value>Log Out</value>
   </data>
   <data name="ManageAccount" xml:space="preserve">
-    <value>ManageAccount</value>
+    <value>Manage Account</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -277,13 +277,13 @@
     <value>New</value>
   </data>
   <data name="NotFound" xml:space="preserve">
-    <value>NotFound</value>
+    <value>Not Found</value>
   </data>
   <data name="Offer" xml:space="preserve">
     <value>Offer</value>
   </data>
   <data name="OnlineHelp" xml:space="preserve">
-    <value>OnlineHelp</value>
+    <value>Online Help</value>
   </data>
   <data name="Opportunity" xml:space="preserve">
     <value>Opportunity</value>
@@ -295,7 +295,7 @@
     <value>Order</value>
   </data>
   <data name="OrderStatus" xml:space="preserve">
-    <value>OrderStatus</value>
+    <value>Order Status</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -313,16 +313,16 @@
     <value>Price</value>
   </data>
   <data name="PriceRange" xml:space="preserve">
-    <value>PriceRange</value>
+    <value>Price Range</value>
   </data>
   <data name="Processed" xml:space="preserve">
     <value>Processed</value>
   </data>
   <data name="ProcessFailed" xml:space="preserve">
-    <value>ProcessFailed</value>
+    <value>Process Failed</value>
   </data>
   <data name="ProductDetails" xml:space="preserve">
-    <value>ProductDetails</value>
+    <value>Product Details</value>
   </data>
   <data name="Products" xml:space="preserve">
     <value>Products</value>
@@ -331,13 +331,13 @@
     <value>Quantity</value>
   </data>
   <data name="QuickShop" xml:space="preserve">
-    <value>QuickShop</value>
+    <value>Quick Shop</value>
   </data>
   <data name="register" xml:space="preserve">
     <value>register</value>
   </data>
   <data name="RegisteredLogins" xml:space="preserve">
-    <value>RegisteredLogins</value>
+    <value>Registered Logins</value>
   </data>
   <data name="Sample" xml:space="preserve">
     <value>Sample</value>
@@ -355,7 +355,7 @@
     <value>Service</value>
   </data>
   <data name="setpassword" xml:space="preserve">
-    <value>setpassword</value>
+    <value>Set Password</value>
   </data>
   <data name="Shipped" xml:space="preserve">
     <value>Shipped</value>
@@ -364,13 +364,13 @@
     <value>Shipping</value>
   </data>
   <data name="ShippingConfirm" xml:space="preserve">
-    <value>ShippingConfirm</value>
+    <value>Shipping Confirm</value>
   </data>
   <data name="Shop" xml:space="preserve">
     <value>Shop</value>
   </data>
   <data name="ShoppingCart" xml:space="preserve">
-    <value>ShoppingCart</value>
+    <value>Shopping Cart</value>
   </data>
   <data name="Signup" xml:space="preserve">
     <value>Signup</value>
@@ -379,7 +379,7 @@
     <value>Size</value>
   </data>
   <data name="SocialNetworking" xml:space="preserve">
-    <value>SocialNetworking</value>
+    <value>Social Networking</value>
   </data>
   <data name="Stock" xml:space="preserve">
     <value>Stock</value>
@@ -394,27 +394,36 @@
     <value>Total</value>
   </data>
   <data name="Useanotherservicetologin" xml:space="preserve">
-    <value>Useanotherservicetologin</value>
+    <value>Use Another Service to Login</value>
   </data>
   <data name="Usethisareatoprovideadditionalinformation" xml:space="preserve">
-    <value>Usethisareatoprovideadditionalinformation</value>
+    <value>Use This Area to Provide Additional İnformation</value>
   </data>
   <data name="WarningLocal" xml:space="preserve">
-    <value>WarningLocal</value>
+    <value>Warning Local</value>
   </data>
   <data name="YourMessageHere" xml:space="preserve">
-    <value>YourMessageHere</value>
+    <value>Your Message Here</value>
   </data>
   <data name="Thispagecouldnotbefound" xml:space="preserve">
-    <value>Thispagecouldnotbefound</value>
+    <value>This page could not be found</value>
   </data>
   <data name="SomethingwentwrongintheopinionWehavenotreachedthispage" xml:space="preserve">
     <value>Something went wrong in the opinion . We have not reached this page</value>
   </data>
   <data name="ErrorRequest" xml:space="preserve">
-    <value>ErrorRequest</value>
+    <value>Error Request</value>
   </data>
   <data name="wellcome" xml:space="preserve">
-    <value>wellcome</value>
+    <value>Wellcome</value>
+  </data>
+  <data name="Youdonothavealocalusername" xml:space="preserve">
+    <value>You do not have a local username/password for this site. Add a local account so you can log in without an external login.</value>
+  </data>
+  <data name="AssociateYourAccount" xml:space="preserve">
+    <value>Associate Your Account</value>
+  </data>
+  <data name="Joinyourregistration" xml:space="preserve">
+    <value>Join your registration has been successfully verified. Press the record button to terminate your membership record.</value>
   </data>
 </root>

@@ -102,6 +102,7 @@
 
                 }
             ).GetHtml()
+<<<<<<< HEAD
 
                                         </div>
                                     </div>
@@ -123,6 +124,49 @@
                                     <div class="col-md-6 border-ayar">
                                         @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"))
                                         @Html.ValidationMessageFor(model => model.COLOR_CODE)
+=======
+
+                                            </div>
+                                        </div>
+                                        <div class="alt">
+                                            <div class="col-sm-6"><p><b>@siparis.Resorces.Language.Price</b></p></div>
+                                            <div class="col-sm-6"><input id="miktar" type="text" value="1" /></div>
+
+                                        <div class="alt">
+                                            <div class="col-sm-6"><p><b>@siparis.Resorces.Language.Stock</b></p></div>
+                                            <div class="col-md-6 border-ayar shopper-info"><input id="basic-addon1" value="@Model.UNIT" disabled /></div>
+                                        </div>
+
+                                        <div class="alt">
+                                            <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.COLOR_CODE, @siparis.Resorces.Language.Color)</b></p></div>
+                                            <div class="col-md-6 border-ayar">
+                                                @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"))
+                                                @Html.ValidationMessageFor(model => model.COLOR_CODE)
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                        <div class="alt">
+                                            <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.BODY_CODE, @siparis.Resorces.Language.Size)</b></p></div>
+                                            <div class="col-md-6">
+                                                @Html.DropDownList("BODY_CODE", new[] { new SelectListItem { Text = "", Value = "0" } })
+                                                @Html.ValidationMessageFor(model => model.BODY_CODE)
+                                            </div>
+
+                                        </div>
+                                        <div class="alt">
+                                            <div class="col-sm-6"><a href="../Home/index" class="btn btn-default blank-arrow"><i class="fa fa-backward"></i> @siparis.Resorces.Language.Back</a></div>
+                                            <div class="col-sm-6">
+                                                <button type="button" class="btn btn-default cart" onclick="sepeteEkleMiktarli($('#ID').val(),$('#miktar').val())" style="margin-left:-30px;">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                    @siparis.Resorces.Language.AddtoCart
+                                                </button>
+                                            </div>
+
+                                        </div>
+>>>>>>> 8259e62d076e1244030636ec593e63226669ea2f
                                     </div>
                                 </div>
                             </div>
