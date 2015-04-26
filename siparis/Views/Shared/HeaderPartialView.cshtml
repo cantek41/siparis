@@ -8,6 +8,8 @@
     {
         file_name = "~/App_Data/TopMenu.xml";
     }
+    
+    siparis.Models.ProfileInfo profilim = (siparis.Models.ProfileInfo)Session["profilim"];
 }
 
 <style>
@@ -19,7 +21,8 @@
 </style>
 <div class="headerTop">
     <div class="templateTitle">
-        @*@Html.ActionLink(this.Session["FirmaAdi"].ToString(), "Index", "Home", null, new {@class="baslik"})*@
+        
+        @Html.ActionLink(@profilim.FirmaAdi, "Index", "Home", null, new { @class = "baslik" })
     </div>
     <div class="loginControl">
         @Html.Partial("LogOnPartialView")

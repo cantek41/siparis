@@ -62,7 +62,8 @@ namespace siparis.Controllers
                     }
                     
 
-                    ProfilCreate();
+                    ProfilCreate();// sisteme giren kullanıcı için profil sessionu oluştur
+                    UserIPLog();// sisteme giren kullaqnıcının tarih saat ve ip sini sakla
                                         
                     return RedirectToLocal(returnUrl);
                 }

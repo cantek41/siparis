@@ -226,13 +226,9 @@ namespace siparis.Controllers
                                   }).FirstOrDefault();
 
                 ProfileInfo profilim = new ProfileInfo();
-                // *** Kullanılmak Üzere Hazır
+                
                 profilim.User_Code = userCode;
-                profilim.FirmaAdi = company.COMPANY_NAME;
-                //profilim.Facebook=
-                //profilim.Twitter=
-                //profilim.Pinterest=
-                //profilim.GoogleMaps=                               
+                profilim.FirmaAdi = company.COMPANY_NAME;                                             
                 profilim.Telefon = model.Telefon;
                 profilim.Adres = model.Adres;
                 profilim.Mail = model.Mail;
@@ -241,17 +237,26 @@ namespace siparis.Controllers
                 profilim.Boylam = model.Boylam;
                 Session.Add("profilim", profilim);
                 
-                //ProfileInfo.Telefon = model.Telefon;
-                //ProfileInfo.Adres = model.Adres;
-                //ProfileInfo.Mail = model.Mail;
-                //ProfileInfo.Adres2 = model.Adres2;
-                //ProfileInfo.Enlem = model.Enlem;
-                //ProfileInfo.Boylam = model.Boylam;                  
+                           
 
 
             }
  
         }
 
+
+        public void UserIPLog()
+        {
+            USERSIPLOG log = new USERSIPLOG();
+            log.USER_CODE = getUserCode();
+            log.USER_NAME = User.Identity.Name;
+            log.DATE = DateTime.Now;
+            log.IP = Request.UserHostAddress;
+            using (VdbSoftEntities db=new VdbSoftEntities())
+            {
+                db.USERSIPLOGs.Add(log);
+                db.SaveChanges();
+            }
+        }
     }
 }
