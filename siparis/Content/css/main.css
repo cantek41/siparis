@@ -1738,7 +1738,7 @@ h2.title {
 
     .breadcrumbs .breadcrumb {
         background: transparent;
-        margin-bottom: 75px;
+        margin-bottom: 15px;
         padding-left: 0;
     }
 
@@ -1749,7 +1749,7 @@ h2.title {
         }
 
             .breadcrumbs .breadcrumb li a:after {
-                content: "";
+                /*content: "";
                 height: auto;
                 width: auto;
                 border-width: 8px;
@@ -1757,7 +1757,7 @@ h2.title {
                 border-color: transparent transparent transparent #FE980F;
                 position: absolute;
                 top: 11px;
-                left: 48px;
+                left: 48px;*/
             }
 
         .breadcrumbs .breadcrumb > li + li:before {
