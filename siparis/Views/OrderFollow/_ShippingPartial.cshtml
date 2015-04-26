@@ -45,7 +45,7 @@
         {
             column.FieldName = "Picture";
             column.Name = "Picture";
-            column.Caption = "Picture";
+            column.Caption = @siparis.Resorces.Language.Picture;
             column.Width = 120;
             column.SetDataItemTemplateContent(c =>
             {
@@ -57,7 +57,7 @@
             {
                 column.FieldName = "OPPORTUNITY_CODE";
                 column.Name = "OPPORTUNITY_CODE";
-                column.Caption = "CODE";
+                column.Caption = @siparis.Resorces.Language.OPPORTUNITY_CODE;
             });
 
         
@@ -65,26 +65,26 @@
         {
             column.FieldName = "ROW_ORDER_NO";
             column.Name = "ROW_ORDER_NO";
-            column.Caption = "ROW_ORDER_NO";
+            column.Caption = @siparis.Resorces.Language.Row_Order_No;
             column.Width = 100;
         });
         settings.Columns.Add(column =>
         {
             column.FieldName = "PRODUCT_NAME";
             column.Name = "PRODUCT_NAME";
-            column.Caption = "PRODUCT_NAME";
+            column.Caption = @siparis.Resorces.Language.Product_Name;
         });
         settings.Columns.Add(column =>
         {
             column.FieldName = "WAREHOUSE_NAME";
             column.Name = "WAREHOUSE_NAME";
-            column.Caption = "WAREHOUSE_NAME";
+            column.Caption = @siparis.Resorces.Language.WareHouseName;
         });
         settings.Columns.Add(column =>
         {
             column.FieldName = "QUANTITY";
             column.Name = "QUANTITY";
-            column.Caption = "QUANTITY";
+            column.Caption = @siparis.Resorces.Language.Quantity;
         });       
        
     }).Bind(Model).GetHtml()

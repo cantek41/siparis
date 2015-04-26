@@ -38,7 +38,7 @@
             settings.Columns.Add(column =>
             {
                 column.FieldName = "QUANTITY";
-                column.Caption = "AVAILABLITY";
+                column.Caption = @siparis.Resorces.Language.Availability;
                 column.ColumnType = MVCxGridViewColumnType.SpinEdit;
                 var spinEditProperties = column.PropertiesEdit as SpinEditProperties;
                 spinEditProperties.NumberType = SpinEditNumberType.Integer;
@@ -48,7 +48,7 @@
             settings.Columns.Add(column =>
             {
                 column.FieldName = "CHOSE";
-                column.Caption = "CHOSE";
+                column.Caption = @siparis.Resorces.Language.Choose;
                 column.ColumnType = MVCxGridViewColumnType.SpinEdit;
                 var spinEditProperties = column.PropertiesEdit as SpinEditProperties;
                 spinEditProperties.NumberType = SpinEditNumberType.Integer;

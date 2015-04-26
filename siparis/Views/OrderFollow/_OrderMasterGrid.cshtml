@@ -64,7 +64,7 @@
         {
             column.FieldName = "DOCUMENT_DATE";
             column.Name = "DOCUMENT_DATE";
-            column.Caption = "DATE";
+            column.Caption = @siparis.Resorces.Language.DATE;
             var txtProperties = column.PropertiesEdit as TextBoxProperties;
             txtProperties.MaskSettings.Mask = "dd/mm/yyyy";
         });
@@ -72,39 +72,39 @@
             {
                 column.FieldName = "OPPORTUNITY_CODE";
                 column.Name = "OPPORTUNITY_CODE";
-                column.Caption = "CODE";
+                column.Caption = @siparis.Resorces.Language.OPPORTUNITY_CODE;
             });
         settings.Columns.Add(column =>
         {
             column.FieldName = "COMPANY_CODE";
             column.Name = "COMPANY_CODE";
-            column.Caption = "COMPANY";
+            column.Caption = @siparis.Resorces.Language.Company;
         });
 
         settings.Columns.Add(column =>
         {
             column.FieldName = "CONTACT_CODE";
             column.Name = "CONTACT_CODE";
-            column.Caption = "CONTACT";
+            column.Caption = @siparis.Resorces.Language.CONTACS;
         });
 
         settings.Columns.Add(column =>
         {
             column.FieldName = "APPOINTED_USER_CODE";
             column.Name = "APPOINTED_USER_CODE";
-            column.Caption = "USER";
+            column.Caption = @siparis.Resorces.Language.USER;
         });
         settings.Columns.Add(column =>
         {
             column.FieldName = "TOTAL";
             column.Name = "TOTAL";
-            column.Caption = "TOTAL";
+            column.Caption = @siparis.Resorces.Language.Total;
         });
         settings.Columns.Add(column =>
         {
             column.FieldName = "CREATE_USER";
             column.Name = "CREATE_USER";
-            column.Caption = "CREATE_USER";
+            column.Caption = @siparis.Resorces.Language.Create_User;
         });
 
         settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = false;
