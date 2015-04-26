@@ -1015,7 +1015,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TOPLAM.
+        ///   Looks up a localized string similar to TOTAL.
         /// </summary>
         public static string Total {
             get {
