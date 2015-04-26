@@ -1,11 +1,17 @@
+
 @if(!Request.IsAuthenticated) {
-    @Html.ActionLink("Register", "Register", "Account") 
-    @: | 
+    @Html.ActionLink("Register", "Register", "Account")
+    @: |
     @Html.ActionLink("Login", "Login", "Account")
+  
 }
-else {
-    @: @siparis.Resorces.Language.wellcome<b>@User.Identity.Name</b>!
-    
+else
+{
+    siparis.Models.ProfileInfo profilim = (siparis.Models.ProfileInfo)Session["profilim"];
+    @: @siparis.Resorces.Language.wellcome
+    @:
+    <b>@profilim.Adi </b>
+    <b>@profilim.Soyadi </b>
     @: |
     @Html.ActionLink("Logout", "LogOff", "Account")
 }

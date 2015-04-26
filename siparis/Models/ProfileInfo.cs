@@ -11,6 +11,7 @@ namespace siparis.Models
     public class ProfileInfo
     {
         public string FirmaAdi { get; set; }
+        public int FirmaKodu { get; set; }
         public string Adi { get; set; }
         public string Soyadi { get; set; }
         public int User_Code { get; set; }

@@ -25,6 +25,10 @@
         settings.SettingsBehavior.AllowSelectByRowClick = true;
 
         settings.Columns.Add("OPPORTUNITY_CODE");
+        settings.Columns.Add(c => {
+            c.FieldName = "OPPORTUNITY_CODE";
+            c.Caption = @siparis.Resorces.Language.OPPORTUNITY_CODE;
+        });
         settings.Columns.Add("CONTACT_CODE");
         settings.Columns.Add("COMPANY_CODE");
         settings.Columns.Add("DOCUMENT_DATE");

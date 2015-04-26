@@ -1,6 +1,6 @@
 @{
     string file_name = "~/App_Data/SideMenu.xml";
-    if (Culture.Contains("tr-TR"))
+    if (Session["lang"]=="tr-TR")
     {
         file_name = "~/App_Data/SideMenutr-TR.xml";
     }

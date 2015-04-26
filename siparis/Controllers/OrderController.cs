@@ -21,6 +21,7 @@ namespace siparis.Controllers
                     #region Sepet Var mı
                     if (Session["Sepet"] == null)
                     {
+                        ProfileInfo pf=(ProfileInfo)Session["profilim"];
                         OPPORTUNITYMASTER sepet = new OPPORTUNITYMASTER();
                         int sepetID = 0;
                         if (db.OPPORTUNITYMASTERs.Count() != 0)
@@ -34,7 +35,7 @@ namespace siparis.Controllers
                         sepet.OPPORTUNITY_CODE = sepetID;
                         sepet.DOCUMENT_TYPE = 15;
                         sepet.VERSION = "V1";
-                        sepet.COMPANY_CODE = 0;
+                        sepet.COMPANY_CODE = pf.FirmaKodu;
                         sepet.CONTACT_CODE = 0;
                         sepet.DOCUMENT_DATE = DateTime.Now;
                         sepet.CREATE_DATE = DateTime.Now;
@@ -99,6 +100,28 @@ namespace siparis.Controllers
 
         }
 
+
+        [HttpPost]
+        public bool setChartCompany(int id)
+        {
+            try
+            {
+                using (VdbSoftEntities db = new VdbSoftEntities())
+                {
+                    int oppCode = Convert.ToInt32(Session["Sepet"]);
+                    OPPORTUNITYMASTER sepet = db.OPPORTUNITYMASTERs.Find(oppCode);
+                    sepet.COMPANY_CODE = id;
+                    db.Entry(sepet).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
+        }
 
 
         [HttpGet]
