@@ -208,7 +208,7 @@
     <value>Edited</value>
   </data>
   <data name="EMail" xml:space="preserve">
-    <value>EMail</value>
+    <value>Email</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
@@ -262,7 +262,7 @@
     <value>Login Failure</value>
   </data>
   <data name="Logintoyouraccount" xml:space="preserve">
-    <value>Logintoyouraccount</value>
+    <value>Login Your Account</value>
   </data>
   <data name="LogOut" xml:space="preserve">
     <value>Log Out</value>

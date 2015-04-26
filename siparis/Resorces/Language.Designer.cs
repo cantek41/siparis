@@ -340,7 +340,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EMail.
+        ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string EMail {
             get {
@@ -520,7 +520,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logintoyouraccount.
+        ///   Looks up a localized string similar to Login Your Account.
         /// </summary>
         public static string Logintoyouraccount {
             get {

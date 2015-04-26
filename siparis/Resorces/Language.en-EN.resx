@@ -262,7 +262,7 @@
     <value>Login Failure</value>
   </data>
   <data name="Logintoyouraccount" xml:space="preserve">
-    <value>Login</value>
+    <value>Login Your Account</value>
   </data>
   <data name="LogOut" xml:space="preserve">
     <value>Log Out</value>
