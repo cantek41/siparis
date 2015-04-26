@@ -426,4 +426,7 @@
   <data name="Joinyourregistration" xml:space="preserve">
     <value>Join your registration has been successfully verified. Press the record button to terminate your membership record.</value>
   </data>
+  <data name="OPPORTUNITY_CODE" xml:space="preserve">
+    <value>Order Code</value>
+  </data>
 </root>

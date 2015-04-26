@@ -16,6 +16,7 @@ namespace siparis.Controllers
     {
         public static string dbName = "VdbSoft";
 
+       
         public void checkCart()
         {
             int userCode = getUserCode();
@@ -51,15 +52,21 @@ namespace siparis.Controllers
                 return company.COMPANY_NAME;
             }
         }
-        
+
         [AllowAnonymous]
         public ActionResult changeLanguage(string lang)
         {
-            CultureInfo ci = CultureInfo.GetCultureInfo("tr-TR");
-            Thread.CurrentThread.CurrentUICulture = ci;
-            Thread.CurrentThread.CurrentUICulture = ci;   
+            if (Session["lang"] == null)
+            {
+                Session.Add("lang", lang);
+            }
+            else
+            {
+                Session["lang"] = lang;
+            }
             return RedirectToAction("Index","Home");
         }
+       
         public IEnumerable<OPPORTUNITYDETAIL> getCartProduct()
         {
             int userCode = getUserCode();

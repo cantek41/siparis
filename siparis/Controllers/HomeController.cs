@@ -116,17 +116,19 @@ namespace siparis.Controllers
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            //if ((HttpContext.Current.User.Identity.IsAuthenticated==true) && (HttpContext.Current.Session["FirmaAdi"]==null))
-            //{
-               
-            //    AccountController ac = new AccountController();
-            //    ac.LogOff();
-            //}
-            //base.OnActionExecuting(filterContext);
+            var sessionlang = HttpContext.Current.Session["lang"];
+            if (sessionlang!=null)
+            {
+                CultureInfo ci = CultureInfo.GetCultureInfo(sessionlang.ToString());
+                Thread.CurrentThread.CurrentUICulture = ci;
+                Thread.CurrentThread.CurrentUICulture = ci;                 
+            }
+                      
 
             string controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName.ToLower().Trim();
             string actionName = filterContext.ActionDescriptor.ActionName.ToLower().Trim();
 
+            
             if (!actionName.StartsWith("login") && !actionName.StartsWith("logoff") && !actionName.StartsWith("changelanguage"))
             {
                 var session = HttpContext.Current.Session["profilim"];

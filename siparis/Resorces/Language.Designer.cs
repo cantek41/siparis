@@ -601,6 +601,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Order Code.
+        /// </summary>
+        public static string OPPORTUNITY_CODE {
+            get {
+                return ResourceManager.GetString("OPPORTUNITY_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OR.
         /// </summary>
         public static string OR {

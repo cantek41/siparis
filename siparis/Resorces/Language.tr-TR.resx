@@ -426,4 +426,7 @@
   <data name="Joinyourregistration" xml:space="preserve">
     <value>Üyelik kaydınız başarıyla doğrulanmıştır. Üyelik kaydınızı sonlandırmak için kayıt butonuna basınız.</value>
   </data>
+  <data name="OPPORTUNITY_CODE" xml:space="preserve">
+    <value>Sipariş Kodu</value>
+  </data>
 </root>
