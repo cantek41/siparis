@@ -447,6 +447,9 @@
   <data name="Picture" xml:space="preserve">
     <value>RESİM</value>
   </data>
+  <data name="Company_Code" xml:space="preserve">
+    <value>COMPANY CODE</value>
+  </data>
   <data name="Cur_Type" xml:space="preserve">
     <value>KUR TİPİ</value>
   </data>
