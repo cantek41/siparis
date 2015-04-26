@@ -417,4 +417,7 @@
   <data name="wellcome" xml:space="preserve">
     <value>Hoşgeldiniz</value>
   </data>
+  <data name="Youdonothavealocalusername" xml:space="preserve">
+    <value>Bu site için yerel bir hesabınız yoktur. Lütfen yeni hesap oluşturunuz.</value>
+  </data>
 </root>

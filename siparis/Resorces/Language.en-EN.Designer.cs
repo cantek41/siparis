@@ -952,6 +952,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You do not have a local username/password for this site. Add a local account so you can log in without an external login..
+        /// </summary>
+        public static string Youdonothavealocalusername {
+            get {
+                return ResourceManager.GetString("Youdonothavealocalusername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to YourMessageHere.
         /// </summary>
         public static string YourMessageHere {

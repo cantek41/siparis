@@ -417,4 +417,7 @@
   <data name="wellcome" xml:space="preserve">
     <value>wellcome</value>
   </data>
+  <data name="Youdonothavealocalusername" xml:space="preserve">
+    <value>You do not have a local username/password for this site. Add a local account so you can log in without an external login.</value>
+  </data>
 </root>
