@@ -29,7 +29,7 @@ namespace siparis.Controllers
         }
         public ActionResult FirstLogin(string returnUrl)
         {
-           
+
             return View();
         }
 
@@ -57,14 +57,14 @@ namespace siparis.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
                     using (VeribisEntitiesBase veribisDB = new VeribisEntitiesBase())
-                    {                      
+                    {
                         dbName = veribisDB.LOGINs.Where(x => x.CUSTOMER_CODE == model.TCode).Select(x => x.DB_NAME).FirstOrDefault();
                     }
-                    
+
 
                     ProfilCreate();// sisteme giren kullanıcı için profil sessionu oluştur
                     UserIPLog();// sisteme giren kullaqnıcının tarih saat ve ip sini sakla
-                                        
+
                     return RedirectToLocal(returnUrl);
                 }
                 else
@@ -82,12 +82,17 @@ namespace siparis.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            VdbSoftEntities db = new VdbSoftEntities(dbName);
-            ViewData["Roles"] = from d in db.aspnet_Roles
-                                select new { Key = d.RoleName, Text = d.RoleName };
+            viedDataDoldurRegister();
             return View();
         }
 
+
+        private void viedDataDoldurRegister()
+        {
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            ViewData["Roles"] = from d in db.aspnet_Roles
+                                select new { Key = d.RoleName, Text = d.RoleName };
+        }
         //
         // POST: /Account/Register
         [HttpPost]
@@ -114,6 +119,7 @@ namespace siparis.Controllers
                         }
                         // FormsAuthentication.SetAuthCookie(model.UserName, false);
                         ViewBag.Mesaj = "İşelem Tamam";
+                        viedDataDoldurRegister();
                         return View();
                     }
                 }
@@ -123,9 +129,7 @@ namespace siparis.Controllers
                     ViewBag.Mesaj = ex.ToString();
                 }
             }
-            VdbSoftEntities db = new VdbSoftEntities(dbName);
-            ViewData["Roles"] = from d in db.aspnet_Roles
-                                select new { Key = d.RoleId, Text = d.RoleName };
+            viedDataDoldurRegister();
             return View(model);
         }
 
@@ -355,7 +359,7 @@ namespace siparis.Controllers
 
         //
         // POST: /Account/LogOff
-        
+
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
