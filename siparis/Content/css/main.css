@@ -1437,13 +1437,22 @@ h2.title {
     font-size: 20px !important;
     margin-top: 0 !important;
     padding-left: 20px !important;
-    background-color: transparent !important;;
+    background-color: transparent !important;
     border: 0px solid !important;
     font-weight: 600;
-   
 
 }
 
+.product-info-price {
+    color: #696763 !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 20px !important;
+    margin-top: 0 !important;
+    padding-left: 20px !important;
+    background-color: transparent !important;
+    border: 0px solid !important;
+    font-weight: 600;
+}
 .product-information p {
     color: #696763;
     font-family: 'Roboto', sans-serif;
