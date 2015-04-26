@@ -160,7 +160,7 @@ namespace siparis.Controllers
             {
                 OPPORTUNITYMASTER master = db.OPPORTUNITYMASTERs.Find(op);
                 List<int> rows = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == op).Select(x=>x.ROW_ORDER_NO).ToList();
-                if (!sepetKontrol(op, rows))
+                if (sepetKontrol(op, rows))
                 {
                     return RedirectToAction("Chart");
                 }

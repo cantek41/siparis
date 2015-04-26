@@ -40,6 +40,10 @@ namespace siparis.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (Session["lang"] == null)
+            {
+                Session.Add("lang",Request.UserLanguages.ElementAt(0));
+            }
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

@@ -3,14 +3,29 @@
 @{
     ViewBag.Title = @siparis.Resorces.Language.charts;
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int oppCode = 0;
-    if (Model.Count() > 0)
-        oppCode = Model.ElementAt(0).OPPORTUNITY_CODE;
+    //int oppCode = 0;
+    //if (Model.Count() > 0)
+    //    oppCode = Model.ElementAt(0).OPPORTUNITY_CODE;
 
 }
 <script src="~/Scripts/jquery.toastmessage.js"></script>
 <script src="~/Scripts/ajaxGonderi/temsilciFirmaDegis.js"></script>
-
+<script>
+    function kontrol() {
+        if (confirm('Siparişleri Onaylıyorsunuz Emin misiniz?')) {
+            var oppCode = $('#oppMasterCode').val();
+            window.location = "onayla?OppCode=" + oppCode;
+        } else {
+            // Do nothing!
+        }
+    }
+</script>
+@{
+    if (Model.Count() > 0)
+    {
+        <input id="oppMasterCode" type="text" value="@Model.ElementAt(0).OPPORTUNITY_CODE" />
+    }
+}
 
 <section id="cart_items">
     <div class="container">
@@ -31,50 +46,41 @@
                 }
             }
         </div>
-        <div>
-            @{
-                if (ViewBag.Hata != null || ViewBag.Hata == true)
-                {
-                    <div>
-                        <b> Dikkat! Sipariş Miktarlarınızı Gözden Geçirin! </b>
-                    </div>
-                }
-            }
-        </div>
 
-
-
+        @*<div class="col-md-12">
+                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <span class="cart_total_price" style="color: #FE980F; font-size: 24px;">@siparis.Resorces.Language.GrandTotal</span>
+                    <br />
+                    <br />
+                    <span class="cart_total_price" style="color: #FE980F;font-size: 24px;">
+                        @Model.Sum(x => x.TOTAL)@if (Model.Count() > 0)
+                        { @Model.ElementAt(0).CUR_TYPE}
+                    </span>
+                </div>
+            </div>*@
         <div class="col-md-12">
-            <div class="col-md-9"></div>
-            <div class="col-md-3">
-                <span class="cart_total_price" style="color: #FE980F; font-size: 24px;">@siparis.Resorces.Language.GrandTotal</span>
-                <br />
-                <br />
-                <span class="cart_total_price" style="color: #FE980F;font-size: 24px;">
-                    @Model.Sum(x => x.TOTAL)@if (Model.Count() > 0)
-                    { @Model.ElementAt(0).CUR_TYPE}
-                </span>
+            <div class="col-md-9">
+                <div>
+                    @{
+                        if (ViewBag.Hata != null && ViewBag.Hata == true)
+                        {
+                            <div>
+                                <b> Dikkat! Sipariş Miktarlarınızı Gözden Geçirin! </b>
+                            </div>
+                        }
+                    }
+                </div>
             </div>
-        </div>
-
-
-        <div class="col-md-12">
-            <div class="col-md-9"></div>
             <div class="col-md-3 name">
-                <a href="onayla?OppCode=@oppCode" onclick="kontrol();">
-                    <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span>
-                </a>
-
-
+                @*<a href="onayla?OppCode=@oppCode" onclick="kontrol();">
+                        <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span>
+                    </a>*@
             </div>
         </div>
-
-
-
-
-
 
         <div class="table-responsive cart_info">
+
             <table class="table table-condensed">
                 <thead>
                     <tr class="cart_menu">
@@ -87,7 +93,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     <div class="product-image-wrapper">
                         @foreach (var item in Model)
                         {
@@ -130,44 +135,29 @@
                         }
 
                     </div>
-
                 </tbody>
             </table>
-
             <div class="col-md-12">
                 <div class="col-md-9"></div>
                 <div class="col-md-3">
                     <span class="cart_total_price" style="color: #FE980F;font-size: 24px;">@siparis.Resorces.Language.GrandTotal</span>
                     <br />
                     <br />
-
                     <span class="cart_total_price" style="color: #FE980F;font-size: 24px;">
                         @Model.Sum(x => x.TOTAL)@if (Model.Count() > 0)
                         { @Model.ElementAt(0).CUR_TYPE}
                     </span>
-
                 </div>
             </div>
-
-
             <div class="col-md-12">
                 <div class="col-md-9"></div>
                 <div class="col-md-3 name">
-                    <a href="onayla?OppCode=@oppCode">
+                    <a onclick="kontrol(); return false;">
+                        @*<a href="onayla?OppCode=@oppCode" onclick="kontrol();">*@
                         <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span>
                     </a>
-                </div>
+                </div><!-- -->
             </div>
-
-
-
         </div>
-
-
-
     </div>
-
-
-
-
 </section> <!--/#cart_items-->
