@@ -429,4 +429,7 @@
   <data name="OPPORTUNITY_CODE" xml:space="preserve">
     <value>Sipariş Kodu</value>
   </data>
+  <data name="Company" xml:space="preserve">
+    <value>Firma</value>
+  </data>
 </root>

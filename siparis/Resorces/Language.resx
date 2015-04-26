@@ -429,4 +429,7 @@
   <data name="OPPORTUNITY_CODE" xml:space="preserve">
     <value>Order Code</value>
   </data>
+  <data name="Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
 </root>
