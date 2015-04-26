@@ -42,10 +42,9 @@
                         <div class="product-information padding-zero">
                             @Html.Label(@Model.NAME_TR, new { id = "NAME_TR", @class = "product-info-title buyukharf" })<br />
                             @Html.TextBoxFor(model => model.CODE, new { @class = "product-info-sub-title buyukharf" })
-                            <div style="float:left;">
-                                @Html.TextBoxFor(model => model.UNIT_PRICE, new { @class = "product-info-price" })
-                                @Html.TextBoxFor(model => model.CUR_TYPE, new { @class = "product-info-price" })
-                            </div>
+                            @Html.TextBoxFor(model => model.UNIT_PRICE, new { @class = "product-info-price" })
+                            @Html.Label(@Model.CUR_TYPE, new {id="CUR_TYPE", @class = "product-info-price" })
+                          
                             @Html.HiddenFor(model => model.UPPER_CODE)
                             @Html.HiddenFor(model => model.ID)
 
