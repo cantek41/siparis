@@ -259,10 +259,10 @@
     <value>Giriş</value>
   </data>
   <data name="LoginFailure" xml:space="preserve">
-    <value>Oturum açma hatası</value>
+    <value>Oturum Açma Hatası</value>
   </data>
   <data name="Logintoyouraccount" xml:space="preserve">
-    <value>Hesabınıza giriş yapın</value>
+    <value>Hesabınıza Giriş Yapın</value>
   </data>
   <data name="LogOut" xml:space="preserve">
     <value>Çıkış</value>
@@ -301,7 +301,7 @@
     <value>Şifre</value>
   </data>
   <data name="Pending" xml:space="preserve">
-    <value>Onay bekliyor</value>
+    <value>Onay Bekliyor</value>
   </data>
   <data name="Peskir" xml:space="preserve">
     <value>Peşkir</value>
@@ -316,7 +316,7 @@
     <value>Fiyat Aralığı</value>
   </data>
   <data name="Processed" xml:space="preserve">
-    <value>işlem görüyor</value>
+    <value>İşlem görüyor</value>
   </data>
   <data name="ProcessFailed" xml:space="preserve">
     <value>İşlem Başarısız</value>
@@ -334,10 +334,10 @@
     <value>Hızlı Alışveriş</value>
   </data>
   <data name="register" xml:space="preserve">
-    <value>Kayıt ol</value>
+    <value>Kayıt Ol</value>
   </data>
   <data name="RegisteredLogins" xml:space="preserve">
-    <value>Kayıtlı girişler</value>
+    <value>Kayıtlı Girişler</value>
   </data>
   <data name="Sample" xml:space="preserve">
     <value>Numune</value>
@@ -355,7 +355,7 @@
     <value>Servis</value>
   </data>
   <data name="setpassword" xml:space="preserve">
-    <value>Şifre ayarla</value>
+    <value>Şifre Ayarla</value>
   </data>
   <data name="Shipped" xml:space="preserve">
     <value>Sevk Edildi</value>
