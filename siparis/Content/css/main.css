@@ -23,6 +23,7 @@ body {
 .onaylabutonu {
     color: white;
     margin-left: 10px;
+
 }
 
     .onaylabutonu:hover {
@@ -1839,12 +1840,15 @@ h2.title {
 #cart_items .cart_info .cart_price p {
     color: #696763;
     font-size: 18px;
+    margin-bottom:0;
 }
 
 
 #cart_items .cart_info .cart_total_price {
     color: #FE980F;
     font-size: 24px;
+    margin-bottom:0;
+    float:right;
 }
 
 .cart_product {
@@ -1853,15 +1857,16 @@ h2.title {
 }
 
 .cart_quantity_button a {
-    background: #F0F0E9;
+    background-color:#FE980F;
     color: #696763;
-    display: inline-block;
+    /*display: inline-block;*/
     font-size: 16px;
     height: 28px;
     overflow: hidden;
     text-align: center;
-    width: 35px;
+    width: 25px;
     float: left;
+    line-height:28px;
 }
 
 
@@ -1882,10 +1887,11 @@ h2.title {
 
 
     .cart_delete a {
-        background: #F0F0E9;
+        background-color:#FE980F;
         color: #FFFFFF;
         padding: 5px 7px;
         font-size: 16px;
+        
     }
 
         .cart_delete a:hover {

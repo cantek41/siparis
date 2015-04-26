@@ -141,13 +141,8 @@
             <div class="col-md-12">
                 <div class="col-md-9"></div>
                 <div class="col-md-3">
-                    <span class="cart_total_price" style="color: #FE980F;font-size: 24px;">@siparis.Resorces.Language.GrandTotal</span>
-                    <br />
-                    <br />
-                    <span class="cart_total_price" style="color: #FE980F;font-size: 24px;">
-                        @Model.Sum(x => x.TOTAL)@if (Model.Count() > 0)
-                        { @Model.ElementAt(0).CUR_TYPE}
-                    </span>
+                    <span class="cart_total_price" style="color: #FE980F;font-size: 24px;">@siparis.Resorces.Language.GrandTotal: @Model.Sum(x => x.TOTAL)@if (Model.Count() > 0)
+{ @Model.ElementAt(0).CUR_TYPE}</span>
                 </div>
             </div>
             <div class="col-md-12">
