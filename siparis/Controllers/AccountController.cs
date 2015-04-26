@@ -55,15 +55,16 @@ namespace siparis.Controllers
                 var user = UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false);
                     using (VeribisEntitiesBase veribisDB = new VeribisEntitiesBase())
                     {
                         dbName = veribisDB.LOGINs.Where(x => x.CUSTOMER_CODE == model.TCode).Select(x => x.DB_NAME).FirstOrDefault();
                     }
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);
 
+                   
 
-                    ProfilCreate();// sisteme giren kullanıcı için profil sessionu oluştur
-                    UserIPLog();// sisteme giren kullaqnıcının tarih saat ve ip sini sakla
+                    ProfilCreate(model.UserName);// sisteme giren kullanıcı için profil sessionu oluştur
+                    UserIPLog(model.UserName);// sisteme giren kullaqnıcının tarih saat ve ip sini sakla
 
                     return RedirectToLocal(returnUrl);
                 }

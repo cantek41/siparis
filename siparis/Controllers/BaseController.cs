@@ -36,13 +36,24 @@ namespace siparis.Controllers
             int userCode = 0;
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
-                userCode = (int)db.aspnet_Users.Where(x => x.UserName == "fatih").Select(x => x.UserCode).FirstOrDefault();
+                userCode = (int)db.aspnet_Users.Where(x => x.UserName == User.Identity.Name).Select(x => x.UserCode).FirstOrDefault();
                 return userCode;
                 // fix me
             }
 
         }
 
+        public int getUserCode(string name)
+        {
+            int userCode = 0;
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                userCode = (int)db.aspnet_Users.Where(x => x.UserName == name).Select(x => x.UserCode).FirstOrDefault();
+                return userCode;
+                // fix me
+            }
+
+        }
         public string getCompany()
         {
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
@@ -207,12 +218,12 @@ namespace siparis.Controllers
             return new Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL>(depolar, model);
         }
 
-        public void ProfilCreate()
+        public void ProfilCreate(string name)
         {
                       
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
-                int userCode = getUserCode();
+                int userCode = getUserCode(name);
                 int userContactCode =  (int)db.USERS.Where(x => x.USER_CODE == userCode).Select(x => x.CONTACT_CODE).FirstOrDefault();
                 COMPANY company = db.COMPANies.Find(db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).Select(x => x.COMPANY_CODE).FirstOrDefault());
                 USER kisi = db.USERS.Where(x => x.USER_CODE == userCode).FirstOrDefault();
@@ -254,11 +265,11 @@ namespace siparis.Controllers
         }
 
 
-        public void UserIPLog()
+        public void UserIPLog(string name)
         {
             USERSIPLOG log = new USERSIPLOG();
-            log.USER_CODE = getUserCode();
-            log.USER_NAME = User.Identity.Name;
+            log.USER_CODE = getUserCode(name);
+            log.USER_NAME = name;
             log.DATE = DateTime.Now;
             log.IP = Request.UserHostAddress;
             using (VdbSoftEntities db=new VdbSoftEntities())
