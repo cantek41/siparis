@@ -55,7 +55,7 @@ namespace siparis.Controllers
         [AllowAnonymous]
         public ActionResult changeLanguage(string lang)
         {
-            CultureInfo ci = CultureInfo.GetCultureInfo(lang);
+            CultureInfo ci = CultureInfo.GetCultureInfo("tr-TR");
             Thread.CurrentThread.CurrentUICulture = ci;
             Thread.CurrentThread.CurrentUICulture = ci;   
             return RedirectToAction("Index","Home");
