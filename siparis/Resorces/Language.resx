@@ -420,4 +420,7 @@
   <data name="Youdonothavealocalusername" xml:space="preserve">
     <value>You do not have a local username/password for this site. Add a local account so you can log in without an external login.</value>
   </data>
+  <data name="AssociateYourAccount" xml:space="preserve">
+    <value>Associate Your Account</value>
+  </data>
 </root>

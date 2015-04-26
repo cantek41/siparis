@@ -420,4 +420,7 @@
   <data name="Youdonothavealocalusername" xml:space="preserve">
     <value>Bu site için yerel bir hesabınız yoktur. Lütfen yeni hesap oluşturunuz.</value>
   </data>
+  <data name="AssociateYourAccount" xml:space="preserve">
+    <value>Hesabınızı İlişkilendirin</value>
+  </data>
 </root>

@@ -115,6 +115,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Associate Your Account.
+        /// </summary>
+        public static string AssociateYourAccount {
+            get {
+                return ResourceManager.GetString("AssociateYourAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AssociationForm.
         /// </summary>
         public static string AssociationForm {
