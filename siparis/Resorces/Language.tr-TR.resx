@@ -139,7 +139,7 @@
     <value>Dernek Formu</value>
   </data>
   <data name="Availability" xml:space="preserve">
-    <value>Uygun</value>
+    <value>UYGUN</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>Geri</value>
@@ -328,7 +328,7 @@
     <value>Ürünler</value>
   </data>
   <data name="Quantity" xml:space="preserve">
-    <value>Adet</value>
+    <value>ADET</value>
   </data>
   <data name="QuickShop" xml:space="preserve">
     <value>Hızlı Alışveriş</value>
@@ -461,6 +461,9 @@
   </data>
   <data name="Unit_Price" xml:space="preserve">
     <value>BİRİM FİYATI</value>
+  </data>
+  <data name="Choose" xml:space="preserve">
+    <value>SEÇ</value>
   </data>
   <data name="WareHouseName" xml:space="preserve">
     <value>DEPO ADI</value>

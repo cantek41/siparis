@@ -139,7 +139,7 @@
     <value>Association Form</value>
   </data>
   <data name="Availability" xml:space="preserve">
-    <value>Availability</value>
+    <value>AVAILABILITY</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>Back</value>
@@ -328,7 +328,7 @@
     <value>Products</value>
   </data>
   <data name="Quantity" xml:space="preserve">
-    <value>Quantity</value>
+    <value>QUANTITY</value>
   </data>
   <data name="QuickShop" xml:space="preserve">
     <value>Quick Shop</value>
@@ -458,6 +458,9 @@
   </data>
   <data name="Unit_Price" xml:space="preserve">
     <value>UNIT PRICE</value>
+  </data>
+  <data name="Choose" xml:space="preserve">
+    <value>CHOOSE</value>
   </data>
   <data name="WareHouseName" xml:space="preserve">
     <value>WAREHOUSE NAME</value>

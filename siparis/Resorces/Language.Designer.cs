@@ -133,7 +133,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Availability.
+        ///   Looks up a localized string similar to AVAILABILITY.
         /// </summary>
         public static string Availability {
             get {
@@ -237,6 +237,15 @@ namespace siparis.Resorces {
         public static string Checkout {
             get {
                 return ResourceManager.GetString("Checkout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CHOOSE.
+        /// </summary>
+        public static string Choose {
+            get {
+                return ResourceManager.GetString("Choose", resourceCulture);
             }
         }
         
@@ -790,7 +799,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quantity.
+        ///   Looks up a localized string similar to QUANTITY.
         /// </summary>
         public static string Quantity {
             get {
