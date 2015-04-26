@@ -1277,7 +1277,7 @@ h2.title {
     }
 
 .pagination {
-    display: inline-block;
+    display:block;
     margin-bottom: 25px;
     margin-top: 0;
     padding-left: 15px;
@@ -1300,6 +1300,7 @@ h2.title {
         color: #FFFFFF;
         cursor: default;
         z-index: 2;
+        cursor:pointer;
     }
 
     .pagination li a, .pagination li span {
@@ -1313,6 +1314,7 @@ h2.title {
         text-decoration: none;
         margin-right: 5px;
         color: #000;
+        cursor:pointer;
     }
 
         .pagination li a:hover {
@@ -2764,6 +2766,12 @@ height:381px;
 width:268px;
 height:249px;
 }
+
+.image-midi {
+width:250px;
+height:220px;
+}
+
 
 .padding-zero {
 padding:0;

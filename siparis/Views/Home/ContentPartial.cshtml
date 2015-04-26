@@ -5,10 +5,9 @@
     siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
 
 }
-<div class="col-sm-9 padding-right">
+<div class="col-sm-9">
 
     <div class="features_items">
-        <!--features_items-->
         <h2 class="title text-center">@siparis.Resorces.Language.FeaturesItems</h2>
 
         @using (Html.BeginForm("Index", "Home", FormMethod.Post))
@@ -24,29 +23,30 @@
             <input type="submit" value="txt" hidden="hidden" />
             Html.RenderPartial("UrunGetirPartial");
         }
-
+    </div>
+    <div style="float:right">
         <ul class="pagination">
             @for (var i = 0; i < info.PageCount; i++)
             {
-                 if (i > 3)
+                if (i > 3)
                 {
-                    <li><span href="" data-pageindex="@i" class="pager">&raquo;</span></li>
+                    <li><a data-pageindex="@i" class="pager">&raquo;</a></li>
                     i = info.PageCount;
                     break;
                 }
                 if (i == info.CurrentPageIndex)
                 {
-                    <li class="active"><span href="" class="pager">@(i + 1)</span></li>
+                    <li class="active"><a class="pager">@(i + 1)</a></li>
 
                 }
                 else
                 {
-                    <li><span href="" data-pageindex="@i" class="pager">@(i + 1)</span></li>
+                    <li><a data-pageindex="@i" class="pager">@(i + 1)</a></li>
 
                 }
-               
+
             }
 
         </ul>
-    </div><!--features_items-->
+    </div>
 </div>
