@@ -10,8 +10,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>FirstLogin</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/css/style.css" rel="stylesheet" />
-
 </head>
 <body>
     <section>
@@ -22,26 +22,33 @@
         {
 
             <h1>@siparis.Resorces.Language.Logintoyouraccount</h1>
+
+            <div class="btn-group" data-toggle="buttons">
+                <a href="@Url.Action("changeLanguage", "Base", new { lang ="tr"})" class="btn btn-primary">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked> TR
+                </a>
+
+                <a href="@Url.Action("changeLanguage", "Base", new { lang ="en"})" class="btn btn-primary">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> EN
+                </a>
+
+
+            </div>
+            <p></p>
             @Html.TextBoxFor(model => model.TCode, null, new { placeholder = "Ticari Kod" })
             @Html.TextBoxFor(model => model.UserName, null, new { placeholder = @siparis.Resorces.Language.Name })
             @Html.PasswordFor(model => model.Password)
 
 
-            <div style="float:left;">  @Html.CheckBoxFor(model => model.RememberMe)</div>
-            <div style="float:left;margin-left:5px;margin-top:8px;"> @siparis.Resorces.Language.Keepmesignedin</div>
+            @*<div style="float:left;">  @Html.CheckBoxFor(model => model.RememberMe)</div>
+                <div style="float:left;margin-left:5px;margin-top:8px;"> @siparis.Resorces.Language.Keepmesignedin</div>*@
 
             <button type="submit" class="btn btn-default">@siparis.Resorces.Language.Login</button>
 
         }
-        
-            <ul>
-                <li><a class="dil-hover" style="margin-top:8px;margin-right:8px;" href="@Url.Action("changeLanguage", "Base", new { lang ="tr-TR"})"><b>TR</b>   </a></li>
-                <li><a class="dil-hover" style="margin-top:8px;" href="@Url.Action("changeLanguage", "Base", new { lang ="en"})"><b>EN</b></a></li>
-            </ul>
-            @*<a href='#'>@siparis.Resorces.Language.</a>*@
-            
-        
+
+
+
     </section>
 </body>
 </html>
-

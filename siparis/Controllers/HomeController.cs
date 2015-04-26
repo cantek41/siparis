@@ -58,7 +58,7 @@ namespace siparis.Controllers
             {
                 case "ID":
                     query = (info.SortDirection == "ascending" ?
-                             db.STOKCARDs.OrderBy(c => c.ID) :
+                             db.STOKCARDs.Where(x=>x.ID!=0).OrderBy(c => c.ID) :
                              db.STOKCARDs.OrderByDescending(c => c.ID));
                     break;
                 //case "CompanyName":

@@ -700,6 +700,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pencil Box.
+        /// </summary>
+        public static string PencilBox {
+            get {
+                return ResourceManager.GetString("PencilBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pending.
         /// </summary>
         public static string Pending {

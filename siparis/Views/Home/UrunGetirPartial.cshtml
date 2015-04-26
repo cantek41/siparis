@@ -8,16 +8,17 @@
             <div class="product-image-wrapper">
                 <div class="single-products">
                     <div class="productinfo text-center">
-                        @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
-                        @if (@stok.STOKCARDPICTUREs.Count != 0)
-                        {
-                            <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" />
-                        }
-                        else
-                        {
-                            <img src="../Content/images/404/404.png" alt="" />
-                        }
-
+                        <div>
+                            @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
+                            @if (@stok.STOKCARDPICTUREs.Count != 0)
+                            {
+                                <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" class="image-midi" />
+                            }
+                            else
+                            {
+                                <img src="../Content/images/404/404.png" alt="" class="image-midi" />
+                            }
+                        </div>
                         <h2 class="buyukharf">@stok.NAME_TR</h2>
                         <h4>@stok.UNIT_PRICE @stok.CUR_TYPE</h4>
 
@@ -26,7 +27,7 @@
                                 <span class="etiket">@siparis.Resorces.Language.Stock</span>
                             </div>
                             <div class="col-md-6 border-ayar">
-                                <input class="passive" type="text" size="2" value=@stok.UNIT disabled />
+                                <input type="text" size="2" value=@stok.UNIT class="padding-left" disabled />
                             </div>
                         </div>
 
@@ -36,7 +37,7 @@
 
                             </div>
                             <div class="col-md-6 border-ayar">
-                                <input id="@stok.ID" type="text" size="2" value="1" />
+                                <input id="@stok.ID" type="text" size="2" value="1" class="padding-left"/>
                             </div>
                         </div>
 
