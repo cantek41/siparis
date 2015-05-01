@@ -1749,6 +1749,8 @@ table th[class*="col-"] {
         border: 1px solid #dddddd;
     }
 
+
+
         .table-responsive > .table {
             margin-bottom: 0;
             background-color: #fff;
@@ -7076,5 +7078,12 @@ td.visible-print {
     th.hidden-print,
     td.hidden-print {
         display: none !important;
+    }
+}
+
+/*slider için*/
+@media (max-width: 1170px) {
+    #advertisement {
+        display: none;
     }
 }
