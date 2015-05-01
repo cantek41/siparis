@@ -63,13 +63,18 @@
                                 <!-- Small button group -->
                                 <div class="btn-group">
                                     <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                                        <b>@profilim.Adi  @profilim.Soyadi</b><span class="caret"></span>
+                                        <b style="color: #696763; font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 700;"><i class="fa fa-user"></i> @profilim.Adi  @profilim.Soyadi</b><span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
                                         
                                         <li class="altMenu"><a href="../OrderFollow/Index"><i class="fa fa-crosshairs"></i>@siparis.Resorces.Language.Checkout</a></li>
                                         <li class="altMenu"><a href="@Url.Action("Chart","Order")"><i class="fa fa-shopping-cart"></i> @siparis.Resorces.Language.Cart</a></li>
-                                        <li class="altMenu"><a href="@Url.Action("Register","Account")"><i class="fa fa-user"></i> @siparis.Resorces.Language.AddNewUser</a></li>
+                                        @{
+                                            if (User.IsInRole("Admin"))
+                                            {
+                                                 <li class="altMenu"><a href="@Url.Action("Register","Account")"><i class="fa fa-user"></i> @siparis.Resorces.Language.AddNewUser</a></li>
+                                            }
+                                        }
                                         <li class="altMenu"><a href="@Url.Action("LogOff", "Account")"><i class="fa fa-power-off"></i> @siparis.Resorces.Language.LogOut </a></li>
                                     </ul>
                                 </div>
