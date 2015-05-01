@@ -480,7 +480,10 @@
   <data name="WarningStok" xml:space="preserve">
     <value>Ürün istenilen Miktarda Stokta Yok. Kalan adet =</value>
   </data>
-  <data name="AddNewUser" xml:space="preserve">
-    <value>Yeni Kullanıcı Ekle</value>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtre Uygula</value>
+  </data>
+  <data name="UnFilter" xml:space="preserve">
+    <value>Filitre Kaldır</value>
   </data>
 </root>

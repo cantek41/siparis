@@ -1069,8 +1069,7 @@
     <Content Include="Views\Order\Chart.cshtml" />
     <Content Include="Views\Home\NotFound.cshtml" />
     <Content Include="Views\Home\LeftMenuPartial.cshtml" />
-    <Content Include="Views\Category\CategorizedProducts.cshtml" />
-    <Content Include="Views\Category\LeftMenuPartial.cshtml" />
+    <Content Include="Views\Home\CategorizedProducts.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\HeaderPartialView.cshtml" />
     <Content Include="Views\Shared\LogOnPartialView.cshtml" />

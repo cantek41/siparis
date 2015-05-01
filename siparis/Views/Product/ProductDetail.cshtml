@@ -125,9 +125,9 @@
                                 <div class="alt">
                                     <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.COLOR_CODE, @siparis.Resorces.Language.Color)</b></p></div>
                                     <div class="col-md-6 border-ayar">
+
                                         @Html.DropDownList("COLOR_CODE", new SelectList((System.Collections.IEnumerable)ViewData["Color"], "Key", "Text"))
                                         @Html.ValidationMessageFor(model => model.COLOR_CODE)
-
                                     </div>
                                 </div>
                             </div>

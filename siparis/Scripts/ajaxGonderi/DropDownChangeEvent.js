@@ -1,4 +1,7 @@
-﻿    $(document).ready(function () {
+﻿$(document).ready(function () {
+    alert(($("#BODY_CODE option").length));
+    if (($("#COLOR_CODE option").length) <= 1) $("#COLOR_CODE").prop("disabled", true);
+    if (($("#BODY_CODE option").length) <= 1) $("#BODY_CODE").prop("disabled", true);
         $("#COLOR_CODE").change(function (e) {
             $("#BODY_CODE").empty();
             var obje = { color: $("#COLOR_CODE").val(),upper:$("#UPPER_CODE").val() };
@@ -14,10 +17,12 @@
                         appenddata1 += "<option value = '" + this.Key + " '>" +this.Text + " </option>";
                     })
                     $("#BODY_CODE").append(appenddata1);
+                    
                     $("#BODY_CODE").change();
                 }
             });
         });
+       
         $("#BODY_CODE").change(function (e) {            
             var obje = { color: $("#COLOR_CODE").val(), upper: $("#UPPER_CODE").val(), body: $("#BODY_CODE").val() };
             $.ajax({
@@ -39,5 +44,5 @@
             });
         });
         $("#COLOR_CODE").change();
-        
+       
     });

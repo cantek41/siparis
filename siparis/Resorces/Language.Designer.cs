@@ -79,15 +79,6 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New User.
-        /// </summary>
-        public static string AddNewUser {
-            get {
-                return ResourceManager.GetString("AddNewUser", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Add to Cart.
         /// </summary>
         public static string AddtoCart {
@@ -444,6 +435,15 @@ namespace siparis.Resorces {
         public static string FeaturesItems {
             get {
                 return ResourceManager.GetString("FeaturesItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter.
+        /// </summary>
+        public static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
             }
         }
         
@@ -1056,6 +1056,15 @@ namespace siparis.Resorces {
         public static string Total {
             get {
                 return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UnFilter.
+        /// </summary>
+        public static string UnFilter {
+            get {
+                return ResourceManager.GetString("UnFilter", resourceCulture);
             }
         }
         
