@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
-    alert(($("#BODY_CODE option").length));
+    //alert(($("#BODY_CODE option").length));
     if (($("#COLOR_CODE option").length) <= 1) $("#COLOR_CODE").prop("disabled", true);
-    if (($("#BODY_CODE option").length) <= 1) $("#BODY_CODE").prop("disabled", true);
+
         $("#COLOR_CODE").change(function (e) {
             $("#BODY_CODE").empty();
             var obje = { color: $("#COLOR_CODE").val(),upper:$("#UPPER_CODE").val() };
@@ -19,11 +19,14 @@
                     $("#BODY_CODE").append(appenddata1);
                     
                     $("#BODY_CODE").change();
+                    if (($("#BODY_CODE option").length) <= 1) $("#BODY_CODE").prop("disabled", true);
+                    else $("#BODY_CODE").prop("disabled", false);
                 }
             });
         });
        
-        $("#BODY_CODE").change(function (e) {            
+        $("#BODY_CODE").change(function (e) {
+            alert(($("#BODY_CODE option").length));
             var obje = { color: $("#COLOR_CODE").val(), upper: $("#UPPER_CODE").val(), body: $("#BODY_CODE").val() };
             $.ajax({
                 type: "POST",

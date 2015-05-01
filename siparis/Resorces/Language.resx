@@ -483,4 +483,7 @@
   <data name="UnFilter" xml:space="preserve">
     <value>UnFilter</value>
   </data>
+  <data name="AddNewUser" xml:space="preserve">
+    <value>Add New User</value>
+  </data>
 </root>

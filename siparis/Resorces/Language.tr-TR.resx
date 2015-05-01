@@ -486,4 +486,7 @@
   <data name="UnFilter" xml:space="preserve">
     <value>Filitre Kaldır</value>
   </data>
+  <data name="AddNewUser" xml:space="preserve">
+    <value>Yeni Kullanıcı Ekle</value>
+  </data>
 </root>
