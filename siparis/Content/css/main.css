@@ -23,6 +23,7 @@ body {
 .onaylabutonu {
     color: white;
     margin-left: 10px;
+
 }
 
     .onaylabutonu:hover {
@@ -725,6 +726,10 @@ ul.sub-menu {
 .footer-bottom {
     background: #D6D6D0;
     padding-top: 10px;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    
 }
 
     .footer-bottom p {
@@ -1750,7 +1755,7 @@ h2.title {
     .breadcrumbs .breadcrumb {
         background: transparent;
         margin-bottom: 15px;
-        padding-left: 0;
+        padding-left: 10px;
     }
 
         .breadcrumbs .breadcrumb li a {
@@ -1812,7 +1817,10 @@ h2.title {
     padding-left: 30px;
 }
 
-
+#cart_items .cart_info .cart_description 
+{
+    padding-left:30px;
+}
 #cart_items .cart_info .cart_description h4 {
     margin-bottom: 0;
 }
@@ -1832,12 +1840,15 @@ h2.title {
 #cart_items .cart_info .cart_price p {
     color: #696763;
     font-size: 18px;
+    margin-bottom:0;
 }
 
 
 #cart_items .cart_info .cart_total_price {
     color: #FE980F;
     font-size: 24px;
+    margin-bottom:0;
+    float:right;
 }
 
 .cart_product {
@@ -1846,15 +1857,16 @@ h2.title {
 }
 
 .cart_quantity_button a {
-    background: #F0F0E9;
+    background-color:#FE980F;
     color: #696763;
-    display: inline-block;
+    /*display: inline-block;*/
     font-size: 16px;
     height: 28px;
     overflow: hidden;
     text-align: center;
-    width: 35px;
+    width: 25px;
     float: left;
+    line-height:28px;
 }
 
 
@@ -1875,10 +1887,11 @@ h2.title {
 
 
     .cart_delete a {
-        background: #F0F0E9;
+        background-color:#FE980F;
         color: #FFFFFF;
         padding: 5px 7px;
         font-size: 16px;
+        
     }
 
         .cart_delete a:hover {

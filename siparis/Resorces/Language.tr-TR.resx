@@ -468,4 +468,16 @@
   <data name="WareHouseName" xml:space="preserve">
     <value>DEPO ADI</value>
   </data>
+  <data name="OrderCheck" xml:space="preserve">
+    <value>Dikkat! Sipariş Miktarlarınızı Gözden Geçirin!</value>
+  </data>
+  <data name="OrderConfirm" xml:space="preserve">
+    <value>Siparişinizi Onaylıyor musunuz?</value>
+  </data>
+  <data name="StokMessage" xml:space="preserve">
+    <value>Ürün Depoda Mevcut. Kalan Adet=</value>
+  </data>
+  <data name="WarningStok" xml:space="preserve">
+    <value>Ürün istenilen Miktarda Stokta Yok. Kalan adet =</value>
+  </data>
 </root>

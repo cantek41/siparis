@@ -21,7 +21,7 @@ namespace siparis.Controllers
                     #region Sepet Var mı
                     if (Session["Sepet"] == null)
                     {
-                        ProfileInfo pf=(ProfileInfo)Session["profilim"];
+                        ProfileInfo pf = (ProfileInfo)Session["profilim"];
                         OPPORTUNITYMASTER sepet = new OPPORTUNITYMASTER();
                         int sepetID = 0;
                         if (db.OPPORTUNITYMASTERs.Count() != 0)
@@ -120,7 +120,7 @@ namespace siparis.Controllers
             {
                 return false;
             }
-            
+
         }
 
 
@@ -156,16 +156,48 @@ namespace siparis.Controllers
         public ActionResult onayla(string OppCode)
         {
             int op = Convert.ToInt32(OppCode);
-            VdbSoftEntities db = new VdbSoftEntities(dbName);
-            OPPORTUNITYMASTER master = db.OPPORTUNITYMASTERs.Find(op);
-            master.DOCUMENT_TYPE = 3;
-            db.OPPORTUNITYMASTERs.Attach(master);
-            db.Entry(master).State = EntityState.Modified;
-            db.SaveChanges();
-            Session.Remove("Sepet");
-            return RedirectToAction("Index", "Home");
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                OPPORTUNITYMASTER master = db.OPPORTUNITYMASTERs.Find(op);
+                List<int> rows = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == op).Select(x=>x.ROW_ORDER_NO).ToList();
+                if (sepetKontrol(op, rows))
+                {
+                    return RedirectToAction("Chart");
+                }
+                master.DOCUMENT_TYPE = 3;
+                db.OPPORTUNITYMASTERs.Attach(master);
+                db.Entry(master).State = EntityState.Modified;
+                db.SaveChanges();
+                Session.Remove("Sepet");
+                return RedirectToAction("Index", "Home");
+            }
         }
 
+        private bool sepetKontrol(int oppMaster,List<int> rows)
+        {
+            bool returnValue = false;
+            
+            foreach (int  item in rows)
+            {
+                Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param = orderWareHouseCal(oppMaster, item);
+                List<StokWareHouseViewModel> depolar = param.Item1;
+                int totalStok = 0;
+                foreach (StokWareHouseViewModel depo in depolar)
+                {
+                    totalStok += depo.QUANTITY ?? 0;
+                }
+
+                if (totalStok < param.Item2.QUANTITY)
+                {
+                    returnValue = true;
+                    ViewBag.Hata = true;
+                }
+                
+                
+            }
+            return returnValue;
+        }
+       
         public ActionResult Chart()
         {
             return View(getCartProduct());

@@ -1,6 +1,7 @@
 @{
     string file_name = "~/App_Data/SideMenu.xml";
-    if (Session["lang"]=="tr-TR")
+   
+    if (Session["lang"].ToString()=="tr-TR")
     {
         file_name = "~/App_Data/SideMenutr-TR.xml";
     }

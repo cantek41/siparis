@@ -3,14 +3,29 @@
 @{
     ViewBag.Title = @siparis.Resorces.Language.charts;
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int oppCode = 0;
-    if (Model.Count() > 0)
-        oppCode = Model.ElementAt(0).OPPORTUNITY_CODE;
+    //int oppCode = 0;
+    //if (Model.Count() > 0)
+    //    oppCode = Model.ElementAt(0).OPPORTUNITY_CODE;
 
 }
 <script src="~/Scripts/jquery.toastmessage.js"></script>
 <script src="~/Scripts/ajaxGonderi/temsilciFirmaDegis.js"></script>
-
+<script>
+    function kontrol() {
+        if (confirm('@siparis.Resorces.Language.OrderConfirm')) {
+            var oppCode = $('#oppMasterCode').val();
+            window.location = "onayla?OppCode=" + oppCode;
+        } else {
+            // Do nothing!
+        }
+    }
+</script>
+@{
+    if (Model.Count() > 0)
+    {
+        <input id="oppMasterCode" type="hidden" value="@Model.ElementAt(0).OPPORTUNITY_CODE" />
+    }
+}
 
 <section id="cart_items">
     <div class="container">
@@ -19,179 +34,126 @@
                 <li><a href="../Home/index">@siparis.Resorces.Language.HomePage</a></li>
                 <li class="active">@siparis.Resorces.Language.ShoppingCart</li>
             </ol>
-        </div>
-        <div>
-             @{
-                 if (User.IsInRole("Temsilci"))
-                 {
-                     <div>
-                         @Html.DropDownList("Company", CompaniesViewModel.Company, "Firma Seç", new { id = "Company" })
-                     </div>
-                 }
-             }
-        </div>
-
-
-
-    </div>
-
-
-        <div class="col-md-12">
-            <div class="col-md-9"></div>
-            <div class="col-md-3">
-                <span class="cart_total_price" style="color: #FE980F;
-font-size: 24px;">@siparis.Resorces.Language.GrandTotal</span>
-<br />
-<br />
-
-<span class="cart_total_price" style="color: #FE980F;
-font-size: 24px;">
-    @Model.Sum(x => x.TOTAL)@if (Model.Count() > 0)
-    { @Model.ElementAt(0).CUR_TYPE}
-</span>
-
-</div>
-</div>
-
-
-<div class="col-md-12">
-    <div class="col-md-9"></div>
-    <div class="col-md-3">
-        <a href="onayla?OppCode=@oppCode">
-            <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span>
-        </a>
-
-
-    </div>
-
-
-</div>
-
-
-
-
-
-
-<div class="table-responsive cart_info">
-   
-
-    <div class="col-md-12">
-        <div class="col-md-9"></div>
-        <div class="col-md-3">
-            <span class="cart_total_price" style="color: #FE980F;font-size: 24px;">@siparis.Resorces.Language.GrandTotal</span>
-            <br />
-            <br />
-
-            <span class="cart_total_price" style="color: #FE980F;
-font-size: 24px;">
-                @Model.Sum(x => x.TOTAL)@if (Model.Count() > 0)
-                { @Model.ElementAt(0).CUR_TYPE}
-            </span>
-
-        </div>
-    </div>
-
-
-    <div class="col-md-12">
-        <div class="col-md-9"></div>
-        <div class="col-md-3">
-            <a href="onayla?OppCode=@oppCode">
-                <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span>
-            </a>
-        </div>
-
-
-    </div>
-
-
-
-
-
-
-    <div class="table-responsive cart_info">
-        <table class="table table-condensed">
-            <thead>
-                <tr class="cart_menu">
-                    <td class="image">@siparis.Resorces.Language.Item</td>
-                    <td class="description"></td>
-                    <td class="price">@siparis.Resorces.Language.Price</td>
-                    <td class="quantity">@siparis.Resorces.Language.Quantity</td>
-                    <td class="total">@siparis.Resorces.Language.Total</td>
-                    <td></td>
-                </tr>
-            </thead>
-            <tbody>
-
-                <div class="product-image-wrapper">
-                    @foreach (var item in Model)
+            <div class="breadcrumb col-md-2">
+                @{
+                    if (User.IsInRole("Temsilci"))
                     {
-                        <tr>
-                            <td class="cart_product">
-                                <a href=""><img src="@item.STOKCARD.STOKCARDPICTUREs.ElementAt(0).PATH" style="width:100px;" alt=""></a>
-                            </td>
-                            <td class="cart_description">
-                                <h4><a href="">@item.STOKCARD.NAME_TR</a></h4>
-                                <p>Web ID: @item.STOKCARD.CODE</p>
-                            </td>
-                            <td class="cart_price">
-                                <p>@item.STOKCARD.UNIT_PRICE @item.STOKCARD.CUR_TYPE</p>
-                            </td>
-                            <td class="cart_quantity">
-                                <div class="cart_quantity_button">
-                                    @using (Html.BeginForm("changeCartProduct", "Order", FormMethod.Post))
-                                    {      @*<a class="cart_quantity_up" href=""> + </a>*@
-                                        @Html.TextBoxFor(model => item.QUANTITY, new { @class = "cart_quantity_input", @size = "2" })
-                                        @Html.HiddenFor(model => item.OPPORTUNITY_CODE)
-                                        @Html.HiddenFor(model => item.ROW_ORDER_NO)
-                                        @*<input type="submit" value="" class="fa fa-check" />*@
-                                        <a class="onaylabutonu" href=""><i class="fa fa-check onaylarenk "></i></a>
+                        <div>
+                            @Html.DropDownList("Company", CompaniesViewModel.Company, "Firma Seç", new { id = "Company" })
+                        </div>
 
-
-                                    }
-                                </div>
-                            </td>
-                            @{float miktar = (float)item.QUANTITY;
-                            float fiyat = (float)item.STOKCARD.UNIT_PRICE;
-                            float tutar = miktar * fiyat;}
-                            <td class="cart_total">
-                                <p class="cart_total_price">@tutar @item.CUR_TYPE</p>
-                            </td>
-                            <td class="cart_delete">
-                                <a class="cart_quantity_delete" href="@Url.Action("removeCartProduct", "Order", new { oppCode=@item.OPPORTUNITY_CODE,row=@item.ROW_ORDER_NO }) "><i class="fa fa-times"></i></a>
-                            </td>
-                        </tr>
                     }
-                  
+                }
+            </div>
+        </div>
+       
 
+        @*<div class="col-md-12">
+                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <span class="cart_total_price" style="color: #FE980F; font-size: 24px;">@siparis.Resorces.Language.GrandTotal</span>
+                    <br />
+                    <br />
+                    <span class="cart_total_price" style="color: #FE980F;font-size: 24px;">
+                        @Model.Sum(x => x.TOTAL)@if (Model.Count() > 0)
+                        { @Model.ElementAt(0).CUR_TYPE}
+                    </span>
                 </div>
-
-            </tbody>
-        </table>
+            </div>*@
         <div class="col-md-12">
-            <div class="col-md-9"></div>
-            <div class="col-md-3">
-                <span class="cart_total_price">@siparis.Resorces.Language.GrandTotal</span>
-                <br />
-                <br />
-                <span class="cart_total_price">
-                    @Model.Sum(x => x.TOTAL) @if (Model.Count() > 0)
-                    { @Model.ElementAt(0).CUR_TYPE}
-                </span>
-
-
-
+            <div class="col-md-9">
+                <div>
+                    @{
+                        if (ViewBag.Hata != null && ViewBag.Hata == true)
+                        {
+                            <div>
+                                <b> @siparis.Resorces.Language.OrderCheck</b>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-md-3 name">
+                @*<a href="onayla?OppCode=@oppCode" onclick="kontrol();">
+                        <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span>
+                    </a>*@
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="col-md-9"></div>
-            <div class="col-md-3">
-                <a href="onayla?OppCode=@oppCode">
-                    <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span>
-                </a>
+
+        <div class="table-responsive cart_info">
+
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">@siparis.Resorces.Language.Item</td>
+                        <td class="description"></td>
+                        <td class="price">@siparis.Resorces.Language.Price</td>
+                        <td class="quantity">@siparis.Resorces.Language.Quantity</td>
+                        <td class="total">@siparis.Resorces.Language.Total</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <div class="product-image-wrapper">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="cart_product">
+                                    <a href=""><img src="@item.STOKCARD.STOKCARDPICTUREs.ElementAt(0).PATH" style="width:100px;" alt=""></a>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a href="/Product/ProductDetail?urunID=@item.STOK_ID" class="buyukharf">@item.STOKCARD.NAME_TR</a></h4>
+                                    <p>@item.STOKCARD.CODE</p>
+                                    <p>@item.EXPLANATION</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>@item.STOKCARD.UNIT_PRICE @item.STOKCARD.CUR_TYPE</p>
+                                </td>
+                                <td class="cart_quantity">
+                                    <div class="cart_quantity_button">
+                                        @using (Html.BeginForm("changeCartProduct", "Order", FormMethod.Post))
+                                        {      @*<a class="cart_quantity_up" href=""> + </a>*@
+                                            @Html.TextBoxFor(model => item.QUANTITY, new { @class = "cart_quantity_input", @size = "2", maxsize = 50 })
+                                            @Html.HiddenFor(model => item.OPPORTUNITY_CODE)
+                                            @Html.HiddenFor(model => item.ROW_ORDER_NO)
+                                            @*<input type="submit" value="" class="fa fa-check" />*@
+                                            <a class="onaylabutonu" href=""><i class="fa fa-check onaylarenk "></i></a>
+
+
+                                        }
+                                    </div>
+                                </td>
+                                @{float miktar = (float)item.QUANTITY;
+                                float fiyat = (float)item.STOKCARD.UNIT_PRICE;
+                                float tutar = miktar * fiyat;}
+                                <td class="cart_total">
+                                    <p class="cart_total_price">@tutar @item.CUR_TYPE</p>
+                                </td>
+                                <td class="cart_delete">
+                                    <a class="cart_quantity_delete" href="@Url.Action("removeCartProduct", "Order", new { oppCode=@item.OPPORTUNITY_CODE,row=@item.ROW_ORDER_NO }) "><i class="fa fa-times"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </div>
+                </tbody>
+            </table>
+            <div class="col-md-12">
+                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <span class="cart_total_price" style="color: #FE980F;font-size: 24px;">@siparis.Resorces.Language.GrandTotal: @Model.Sum(x => x.TOTAL)@if (Model.Count() > 0)
+{ @Model.ElementAt(0).CUR_TYPE}</span>
+                </div>
             </div>
-
-
+            <div class="col-md-12">
+                <div class="col-md-9"></div>
+                <div class="col-md-3 name">
+                    <a onclick="kontrol(); return false;">
+                        @*<a href="onayla?OppCode=@oppCode" onclick="kontrol();">*@
+                        <span class="btn btn-primary pull-right" style=" float:left; margin-bottom:10px;">@siparis.Resorces.Language.Confirm</span>
+                    </a>
+                </div><!-- -->
+            </div>
         </div>
-    </div>
     </div>
 </section> <!--/#cart_items-->
