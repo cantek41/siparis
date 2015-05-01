@@ -19,7 +19,7 @@
                     </div>
                     <h2 class="buyukharf">@stok.NAME_TR</h2>
                     <h4>@stok.UNIT_PRICE @stok.CUR_TYPE</h4>
-
+                    <h6>@stok.CODE</h6>
                     <div class="col-md-12">
                         <div class="col-md-6 etiket">
                             <span class="etiket">@siparis.Resorces.Language.Stock</span>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
+                    @*<div class="col-md-12">
                         <div class="col-md-6 etiket">
                             <span class="etiket renk">@siparis.Resorces.Language.Order</span>
 
@@ -37,7 +37,7 @@
                         <div class="col-md-6 border-ayar">
                             <input id="@stok.ID" type="text" size="2" value="1" class="padding-left" />
                         </div>
-                    </div>
+                    </div>*@
                     <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@siparis.Resorces.Language.Details</a>
                 </div>
             </div>

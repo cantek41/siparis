@@ -28,7 +28,7 @@ namespace siparis.Controllers
             info.SortField = "ID";
             info.SortDirection = "ascending";
             info.PageSize = 6;
-            info.PageCount = Convert.ToInt32(Math.Ceiling((double)(db.STOKCARDs.Count()
+            info.PageCount = Convert.ToInt32(Math.Ceiling((double)(db.STOKCARDs.Where(x => x.UPPER_CODE == x.CODE).Count()
                            / info.PageSize)));
             info.CurrentPageIndex = 0;
             ViewBag.SortingPagingInfo = info;
