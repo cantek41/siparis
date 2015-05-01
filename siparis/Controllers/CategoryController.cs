@@ -34,7 +34,7 @@ namespace siparis.Controllers
             int[] color = CheckBoxListExtension.GetSelectedValues<int>("COLOR");
             int[] size = CheckBoxListExtension.GetSelectedValues<int>("SIZE");
             int[] brands = CheckBoxListExtension.GetSelectedValues<int>("BRAND");
-            int price = (TextBoxExtension.GetValue<int>("PRICE") == null) ? 0 : TextBoxExtension.GetValue<int>("PRICE");
+            //int price = (TextBoxExtension.GetValue<int>("PRICE") == null) ? 0 : TextBoxExtension.GetValue<int>("PRICE");
             VdbSoftEntities db = new VdbSoftEntities(dbName);
 
             IndexDataViewModel data = new IndexDataViewModel();
@@ -53,12 +53,12 @@ namespace siparis.Controllers
             data.stokcard = (from s in data.stokcard
                              join c in size on s.BODY_CODE equals c
                              select s).ToList();
-            if (price > 0)
-            {
-                data.stokcard = (from s in data.stokcard
-                                 where s.UNIT_PRICE < price
-                                 select s).ToList();
-            }
+            //if (price > 0)
+            //{
+            //    data.stokcard = (from s in data.stokcard
+            //                     where s.UNIT_PRICE < price
+            //                     select s).ToList();
+            //}
 
             //stok.brand ve stok.group data ya atanmalı
             data.stokbrand = BrandFilter(data);

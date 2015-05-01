@@ -13,16 +13,16 @@ using siparis.Models;
 
 namespace siparis.Controllers
 {
-   
+
     public class HomeController : BaseController
     {
-        
-        
+
+
         public ActionResult Index()
         {
-
-            checkCart();           
+            checkCart();
             VdbSoftEntities db = new VdbSoftEntities(dbName);
+            ///sayfalama bilgisi yukleniyor
             SortingPagingInfo info = new SortingPagingInfo();
             info.SortField = "ID";
             info.SortDirection = "ascending";
@@ -30,16 +30,10 @@ namespace siparis.Controllers
             info.PageCount = Convert.ToInt32(Math.Ceiling((double)(db.STOKCARDs.Count()
                            / info.PageSize)));
             info.CurrentPageIndex = 0;
-            var query = db.STOKCARDs.Where(x => x.ID != 0).Where(x=>x.UPPER_CODE!=x.CODE).OrderBy(c => c.ID).Take(info.PageSize);
             ViewBag.SortingPagingInfo = info;
-           /// List<STOKCARD> model = query.ToList();
-           
-            IndexDataViewModel data = new IndexDataViewModel();
-            data.stokcard = query.ToList();
-            data.stokgroup=db.STOKCATEGORies.ToList();
-            data.stokbrand=db.STOKBRANDs.ToList();
-            return View(data);
-            //   return View(model);
+            /// sayfalama bilgiswi bitti
+            return View(stokViewList(info));
+
 
         }
 
@@ -51,43 +45,52 @@ namespace siparis.Controllers
         [HttpPost]
         public ActionResult Index(SortingPagingInfo info)
         {
-            VdbSoftEntities db = new VdbSoftEntities(dbName);
-
-            IQueryable<STOKCARD> query = null;
-            switch (info.SortField)
-            {
-                case "ID":
-                    query = (info.SortDirection == "ascending" ?
-                             db.STOKCARDs.Where(x=>x.ID!=0).OrderBy(c => c.ID) :
-                             db.STOKCARDs.OrderByDescending(c => c.ID));
-                    break;
-                //case "CompanyName":
-                //    query = (info.SortDirection == "ascending" ?
-                //             db.STOKCARDs.OrderBy(c => c.CompanyName) :
-                //             db.STOKCARDs.OrderByDescending(c => c.CompanyName));
-                //    break;
-                //case "ContactName":
-                //    query = (info.SortDirection == "ascending" ?
-                //             db.STOKCARDs.OrderBy(c => c.ContactName) :
-                //             db.STOKCARDs.OrderByDescending(c => c.ContactName));
-                //    break;
-                //case "Country":
-                //    query = (info.SortDirection == "ascending" ?
-                //             db.STOKCARDs.OrderBy(c => c.Country) :
-                //             db.STOKCARDs.OrderByDescending(c => c.Country));
-                //break;
-            }
-            query = query.Skip(info.CurrentPageIndex
-                  * info.PageSize).Take(info.PageSize);
-            ViewBag.SortingPagingInfo = info;
-            IndexDataViewModel data = new IndexDataViewModel();
-            data.stokcard = query.ToList();
-            data.stokgroup = db.STOKCATEGORies.ToList();
-            data.stokbrand = db.STOKBRANDs.ToList();
-            return View(data);
-
+            return View(stokViewList(info));
         }
 
+
+        public IndexDataViewModel stokViewList(SortingPagingInfo info)
+        {
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            
+                IQueryable<STOKCARD> query = null;
+                switch (info.SortField)
+                {
+                    case "ID":
+                        query = (info.SortDirection == "ascending" ?
+                                 db.STOKCARDs.Where(x => x.ID != 0).Where(x => x.UPPER_CODE != x.CODE).OrderBy(c => c.ID) :
+                                 db.STOKCARDs.OrderByDescending(c => c.ID));
+                        break;
+                    //case "CompanyName":
+                    //    query = (info.SortDirection == "ascending" ?
+                    //             db.STOKCARDs.OrderBy(c => c.CompanyName) :
+                    //             db.STOKCARDs.OrderByDescending(c => c.CompanyName));
+                    //    break;
+                    //case "ContactName":
+                    //    query = (info.SortDirection == "ascending" ?
+                    //             db.STOKCARDs.OrderBy(c => c.ContactName) :
+                    //             db.STOKCARDs.OrderByDescending(c => c.ContactName));
+                    //    break;
+                    //case "Country":
+                    //    query = (info.SortDirection == "ascending" ?
+                    //             db.STOKCARDs.OrderBy(c => c.Country) :
+                    //             db.STOKCARDs.OrderByDescending(c => c.Country));
+                    //break;
+                }
+                query = query.Skip(info.CurrentPageIndex
+                      * info.PageSize).Take(info.PageSize);
+                ViewBag.SortingPagingInfo = info;
+                IndexDataViewModel data = new IndexDataViewModel();
+                data.stokcard = query.ToList();
+                data.stokgroup = db.STOKCATEGORies.ToList();
+                data.stokbrand = db.STOKBRANDs.ToList();
+                return data;
+
+          
+
+
+
+        }
 
         public ActionResult About()
         {
@@ -117,18 +120,18 @@ namespace siparis.Controllers
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var sessionlang = HttpContext.Current.Session["lang"];
-            if (sessionlang!=null)
+            if (sessionlang != null)
             {
                 CultureInfo ci = CultureInfo.GetCultureInfo(sessionlang.ToString());
                 Thread.CurrentThread.CurrentUICulture = ci;
-                Thread.CurrentThread.CurrentUICulture = ci;                 
+                Thread.CurrentThread.CurrentUICulture = ci;
             }
-                      
+
 
             string controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName.ToLower().Trim();
             string actionName = filterContext.ActionDescriptor.ActionName.ToLower().Trim();
 
-            
+
             if (!actionName.StartsWith("login") && !actionName.StartsWith("logoff") && !actionName.StartsWith("changelanguage"))
             {
                 var session = HttpContext.Current.Session["profilim"];
@@ -148,6 +151,6 @@ namespace siparis.Controllers
                 }
             }
         }
- 
+
     }
 }
