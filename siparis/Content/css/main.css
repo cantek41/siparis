@@ -2744,9 +2744,6 @@ h2.title {
     width: 50px;
 }
 
-
-
-
 .alt {
     clear: both;
     margin-top: 20px;
@@ -2762,8 +2759,8 @@ h2.title {
     }
 
 .slider-image-mini {
-    width:85px;
-    height:84px;
+    width:70px;
+    height:70px;
 }
 
 .slider-image-main {
