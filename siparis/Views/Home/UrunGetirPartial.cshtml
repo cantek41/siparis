@@ -1,56 +1,47 @@
-﻿@model siparis.Models.IndexDataViewModel
+﻿@model siparis.Models.STOKCARD
 @using siparis.Models
 @{
-
-    foreach (var stok in Model.stokcard)
-    {
-        <div class="col-sm-4">
-            <div class="product-image-wrapper">
-                <div class="single-products">
-                    <div class="productinfo text-center">
-                        <div>
-                            @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
-                            @if (@stok.STOKCARDPICTUREs.Count != 0)
-                            {
-                                <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" class="image-midi" />
-                            }
-                            else
-                            {
-                                <img src="../Content/images/404/404.png" alt="" class="image-midi" />
-                            }
-                        </div>
-                        <h2 class="buyukharf">@stok.NAME_TR</h2>
-                        <h4>@stok.UNIT_PRICE @stok.CUR_TYPE</h4>
-
-                        <div class="col-md-12">
-                            <div class="col-md-6 etiket">
-                                <span class="etiket">@siparis.Resorces.Language.Stock</span>
-                            </div>
-                            <div class="col-md-6 border-ayar">
-                                <input type="text" size="2" value=@stok.UNIT class="padding-left" disabled />
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="col-md-6 etiket">
-                                <span class="etiket renk">@siparis.Resorces.Language.Order</span>
-
-                            </div>
-                            <div class="col-md-6 border-ayar">
-                                <input id="@stok.ID" type="text" size="2" value="1" class="padding-left"/>
-                            </div>
-                        </div>
-
-                     @*   <a class="btn btn-default add-to-cart" onclick="sepeteEkleMiktarli(@stok.ID,$('#@stok.ID').val())"><i class="fa fa-shopping-cart"></i>@Res.resGetir(2)</a>*@
-                        <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@siparis.Resorces.Language.Details</a>
+    STOKCARD stok = Model;
+    <div class="col-sm-4">
+        <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                    <div>
+                        @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
+                        @if (@stok.STOKCARDPICTUREs.Count != 0)
+                        {
+                            <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" class="image-midi" />
+                        }
+                        else
+                        {
+                            <img src="../Content/images/404/404.png" alt="" class="image-midi" />
+                        }
                     </div>
+                    <h2 class="buyukharf">@stok.NAME_TR</h2>
+                    <h4>@stok.UNIT_PRICE @stok.CUR_TYPE</h4>
+
+                    <div class="col-md-12">
+                        <div class="col-md-6 etiket">
+                            <span class="etiket">@siparis.Resorces.Language.Stock</span>
+                        </div>
+                        <div class="col-md-6 border-ayar">
+                            <input type="text" size="2" value=@stok.UNIT class="padding-left" disabled />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-6 etiket">
+                            <span class="etiket renk">@siparis.Resorces.Language.Order</span>
+
+                        </div>
+                        <div class="col-md-6 border-ayar">
+                            <input id="@stok.ID" type="text" size="2" value="1" class="padding-left" />
+                        </div>
+                    </div>
+                    <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@siparis.Resorces.Language.Details</a>
                 </div>
-                @*<div class="choose">
-                        <ul class="nav nav-pills nav-justified">
-                            <li><a href=""><i class="fa fa-plus-square"></i>@Res.resGetir(15)</a></li>
-                            <li><a href=""><i class="fa fa-plus-square"></i>@Res.resGetir(16)</a></li>
-                        </ul>
-                    </div>*@
             </div>
+
         </div>
-    } }
+    </div>
+}

@@ -31,7 +31,6 @@ namespace siparis.Controllers
         }
         public ActionResult FirstLogin(string returnUrl)
         {
-
             return View();
         }
 
@@ -55,32 +54,22 @@ namespace siparis.Controllers
         [HttpPost]
         [AllowAnonymous]
         public ActionResult Login(LoginViewModel model, string returnUrl)
-        {
-            Stopwatch sw = new Stopwatch();
-            string[] zaman = new string[5];
+        {  
             if (ModelState.IsValid)
-            {
-                sw.Start();
-                var user = UserManager.FindAsync(model.UserName, model.Password);
-                zaman[0] = sw.Elapsed.ToString();
-                if (user != null)
-                {
-                    sw.Start();
+            {               
+                var user = UserManager.FindAsync(model.UserName, model.Password);               
+                if (user != null) 
+                {                  
                     using (VeribisEntitiesBase veribisDB = new VeribisEntitiesBase())
                     {
                         dbName = veribisDB.LOGINs.Where(x => x.CUSTOMER_CODE == model.TCode).Select(x => x.DB_NAME).FirstOrDefault();
                     }
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
-                    zaman[1] = sw.Elapsed.ToString();
-
-                    //sw.Start();
-                    ProfilCreate(model.UserName);// sisteme giren kullanıcı için profil sessionu oluştur
-                    //zaman[2] = sw.Elapsed.ToString();
-                    sw.Start();
+                  
+                    ProfilCreate(model.UserName);// sisteme giren kullanıcı için profil sessionu oluştur 
                     Thread myNewThread = new Thread(() => UserIPLog(model.UserName));
-                    myNewThread.Start(); //
-                    //  UserIPLog(model.UserName);// sisteme giren kullaqnıcının tarih saat ve ip sini sakla
-                    zaman[3] = sw.Elapsed.ToString();
+                    myNewThread.Start(); // sisteme giren kullaqnıcının tarih saat ve ip sini sakla
+                   
                     return RedirectToLocal(returnUrl);
                 }
                 else
