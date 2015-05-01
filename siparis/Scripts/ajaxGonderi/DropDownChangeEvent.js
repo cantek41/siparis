@@ -27,7 +27,7 @@
        
     $("#BODY_CODE").change(function (e) {
             //alert(($("#BODY_CODE option").length));
-            var obje = { color: $("#COLOR_CODE").val(), upper: $("#UPPER_CODE").val(), body: $("#BODY_CODE").val() };
+            var obje = { color: $("#COLOR_CODE").val(), upper: $("#UPPER_CODE").val(), body: $("#BODY_CODE").val(),DES_TR:$("#DES_TR") };
             $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
@@ -41,7 +41,7 @@
                     $("#STOK").val(data.UNIT);
                     $("#CODE").val(data.CODE);
                     $("#UNIT_PRICE").val(data.UNIT_PRICE + " " + data.CUR_TYPE);
-                   
+                    $("#DES_TR").val(data.DES_TR);
                    
                 }
             });

@@ -45,7 +45,7 @@ namespace siparis.Controllers
             VdbSoftEntities db = new VdbSoftEntities();
             var model = (from s in db.STOKCARDs
                          where s.UPPER_CODE == upper && s.COLOR_CODE == color && s.BODY_CODE == body
-                         select new { s.ID ,s.CODE, s.UNIT, s.UNIT_PRICE, s.CUR_TYPE}).FirstOrDefault();//fix me ==> unit stokwarehouseproductan gelecek
+                         select new { s.ID ,s.CODE, s.UNIT, s.UNIT_PRICE, s.CUR_TYPE, s.DES_TR}).FirstOrDefault();//fix me ==> unit stokwarehouseproductan gelecek
             return Json(model);
 
         }
