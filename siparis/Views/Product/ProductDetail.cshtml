@@ -42,15 +42,14 @@
                         <div class="product-information padding-zero">
                             @Html.Label(@Model.NAME_TR, new { id = "NAME_TR", @class = "product-info-title buyukharf" })<br />
                             @Html.TextBoxFor(model => model.CODE, new { @class = "product-info-sub-title buyukharf" })
-
-
-                            @{
-                                
-                               string necati = Model.CUR_TYPE.ToString() + " " + Model.CUR_TYPE.ToString();
-                            }
                             @Html.TextBoxFor(model => model.UNIT_PRICE, new { @class = "product-info-price" })
-                            @*@Html.Label(@Model.CUR_TYPE, new { id = "CUR_TYPE", @class = "product-info-price" })*@
-
+                            @Html.TextAreaFor(model => model.DES_TR, new { @class = "product-info-desc", onclick="textAreaAdjust(this)"})
+                            <script>
+                                function textAreaAdjust(o) {
+                                    o.style.height = "1px";
+                                    o.style.height = (25 + o.scrollHeight) + "px";
+                                }
+                            </script>
                             @Html.HiddenFor(model => model.UPPER_CODE)
                             @Html.HiddenFor(model => model.ID)
                             @Html.HiddenFor(model=>model.CUR_TYPE)

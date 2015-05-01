@@ -2,7 +2,7 @@
     //alert(($("#BODY_CODE option").length));
     if (($("#COLOR_CODE option").length) <= 1) $("#COLOR_CODE").prop("disabled", true);
 
-        $("#COLOR_CODE").change(function (e) {
+    $("#COLOR_CODE").change(function (e) {
             $("#BODY_CODE").empty();
             var obje = { color: $("#COLOR_CODE").val(),upper:$("#UPPER_CODE").val() };
             $.ajax({
@@ -25,8 +25,8 @@
             });
         });
        
-        $("#BODY_CODE").change(function (e) {
-            alert(($("#BODY_CODE option").length));
+    $("#BODY_CODE").change(function (e) {
+            //alert(($("#BODY_CODE option").length));
             var obje = { color: $("#COLOR_CODE").val(), upper: $("#UPPER_CODE").val(), body: $("#BODY_CODE").val() };
             $.ajax({
                 type: "POST",
@@ -48,4 +48,8 @@
         });
         $("#COLOR_CODE").change();
        
+       
+                                   
     });
+
+
