@@ -2130,7 +2130,7 @@ h2.title {
     .form-two > form > select,
     .form-two > form > input,
     .form-one > form > input {
-        background: #F0F0E9;
+        background: #ffffff;
         /*border: 0 none;*/
         margin-bottom: 10px;
         padding-left: 10px;
@@ -2140,7 +2140,7 @@ h2.title {
 
 .shopper-info-passive input {
 
-    background: #CCCCC6;
+    background: #F0F0E9 !important;
 }
 
     .form-two > form > select {

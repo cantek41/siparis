@@ -32,7 +32,7 @@
                     $("#ID").val(data.ID);
                     $("#STOK").val(data.UNIT);
                     $("#CODE").val(data.CODE);
-                    $("#UNIT_PRICE").val(data.UNIT_PRICE);
+                    $("#UNIT_PRICE").val(data.UNIT_PRICE + " " + data.CUR_TYPE);
                    
                    
                 }

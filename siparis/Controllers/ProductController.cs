@@ -40,12 +40,12 @@ namespace siparis.Controllers
 
         }
 
-        public ActionResult GetProduct(string upper, int color, int body)
+        public ActionResult GetProduct(string upper, int color, int body, string curType )
         {
             VdbSoftEntities db = new VdbSoftEntities();
             var model = (from s in db.STOKCARDs
                          where s.UPPER_CODE == upper && s.COLOR_CODE == color && s.BODY_CODE == body
-                         select new { s.ID ,s.CODE, s.UNIT, s.UNIT_PRICE}).FirstOrDefault();//fix me ==> unit stokwarehouseproductan gelecek
+                         select new { s.ID ,s.CODE, s.UNIT, s.UNIT_PRICE, s.CUR_TYPE}).FirstOrDefault();//fix me ==> unit stokwarehouseproductan gelecek
             return Json(model);
 
         }
