@@ -12,6 +12,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using siparis.Models;
 using System.Data.Entity;
+using System.Diagnostics;
+using System.Threading;
 
 namespace siparis.Controllers
 {
@@ -42,7 +44,7 @@ namespace siparis.Controllers
         {
             if (Session["lang"] == null)
             {
-                Session.Add("lang",Request.UserLanguages.ElementAt(0));
+                Session.Add("lang", Request.UserLanguages.ElementAt(0));
             }
             ViewBag.ReturnUrl = returnUrl;
             return View();
@@ -54,22 +56,31 @@ namespace siparis.Controllers
         [AllowAnonymous]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
+            Stopwatch sw = new Stopwatch();
+            string[] zaman = new string[5];
             if (ModelState.IsValid)
             {
+                sw.Start();
                 var user = UserManager.FindAsync(model.UserName, model.Password);
+                zaman[0] = sw.Elapsed.ToString();
                 if (user != null)
                 {
+                    sw.Start();
                     using (VeribisEntitiesBase veribisDB = new VeribisEntitiesBase())
                     {
                         dbName = veribisDB.LOGINs.Where(x => x.CUSTOMER_CODE == model.TCode).Select(x => x.DB_NAME).FirstOrDefault();
                     }
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
+                    zaman[1] = sw.Elapsed.ToString();
 
-                   
-
+                    //sw.Start();
                     ProfilCreate(model.UserName);// sisteme giren kullanıcı için profil sessionu oluştur
-                    UserIPLog(model.UserName);// sisteme giren kullaqnıcının tarih saat ve ip sini sakla
-
+                    //zaman[2] = sw.Elapsed.ToString();
+                    sw.Start();
+                    Thread myNewThread = new Thread(() => UserIPLog(model.UserName));
+                    myNewThread.Start(); //
+                    //  UserIPLog(model.UserName);// sisteme giren kullaqnıcının tarih saat ve ip sini sakla
+                    zaman[3] = sw.Elapsed.ToString();
                     return RedirectToLocal(returnUrl);
                 }
                 else
@@ -82,6 +93,28 @@ namespace siparis.Controllers
             return View(model);
         }
 
+        public void UserIPLog(string name)
+        {
+            try
+            {
+                USERSIPLOG log = new USERSIPLOG();
+                log.USER_CODE = getUserCode(name);
+                log.USER_NAME = name;
+                log.DATE = DateTime.Now;
+                log.IP = Request.UserHostAddress;
+                using (VdbSoftEntities db = new VdbSoftEntities())
+                {
+                    db.USERSIPLOGs.Add(log);
+                    db.SaveChanges();
+                }
+
+            }
+            catch (Exception)
+            {
+                
+            }
+            
+        }
         //
         // GET: /Account/Register
         [AllowAnonymous]

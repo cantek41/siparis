@@ -278,28 +278,13 @@ namespace siparis.Controllers
                 profilim.Adres2 = model.Adres2;
                 profilim.Enlem = model.Enlem;
                 profilim.Boylam = model.Boylam;
-                Session.Add("profilim", profilim);
-                
-                           
-
-
+                Session.Add("profilim", profilim);               
+             
             }
  
         }
 
 
-        public void UserIPLog(string name)
-        {
-            USERSIPLOG log = new USERSIPLOG();
-            log.USER_CODE = getUserCode(name);
-            log.USER_NAME = name;
-            log.DATE = DateTime.Now;
-            log.IP = Request.UserHostAddress;
-            using (VdbSoftEntities db=new VdbSoftEntities())
-            {
-                db.USERSIPLOGs.Add(log);
-                db.SaveChanges();
-            }
-        }
+      
     }
 }
