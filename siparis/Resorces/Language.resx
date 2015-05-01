@@ -477,4 +477,7 @@
   <data name="WarningStok" xml:space="preserve">
     <value>Product is not enough.</value>
   </data>
+  <data name="AddNewUser" xml:space="preserve">
+    <value>Add New User</value>
+  </data>
 </root>

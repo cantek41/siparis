@@ -109,7 +109,7 @@ body {
     }
 
       .border-ayar input:disabled {
-        background-color:#CCCCC6;
+        background-color:#F0F0E9;
 
     }
 
@@ -2140,7 +2140,7 @@ h2.title {
 
 .shopper-info-passive input {
 
-    background: #F0F0E9 !important;
+    background: #F0F0E9;
 }
 
     .form-two > form > select {
@@ -2757,11 +2757,18 @@ h2.title {
     width: 50px;
 }
 
+.altMenu {
+    min-width:150px;
+    
+   
+}
+
 .alt {
-    clear: both;
+    clear:both;
     margin-top: 20px;
     padding: 10px;
 }
+
 
 .register-btn {
     margin-left: -5px;

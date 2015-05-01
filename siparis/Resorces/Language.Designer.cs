@@ -79,6 +79,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add New User.
+        /// </summary>
+        public static string AddNewUser {
+            get {
+                return ResourceManager.GetString("AddNewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add to Cart.
         /// </summary>
         public static string AddtoCart {
