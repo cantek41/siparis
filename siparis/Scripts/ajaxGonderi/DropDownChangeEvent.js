@@ -62,7 +62,7 @@ $(document).ready(function () {
         var quantity= $("#QUANTITY").val();
         var stok = $("#STOK").val();
         if (quantity>stok) {
-            $().toastmessage('showWarningToast', "Miktar hatalı!!");
+            $().toastmessage('showStickyWarningToast', "Miktar hatalı!!");
             $("#QUANTITY").val(stok);
         }
 
