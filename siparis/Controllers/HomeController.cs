@@ -77,13 +77,26 @@ namespace siparis.Controllers
                 //             db.STOKCARDs.OrderByDescending(c => c.Country));
                 //break;
             }
-            query = query.Skip(info.CurrentPageIndex
-                  * info.PageSize).Take(info.PageSize);
-            ViewBag.SortingPagingInfo = info;
+
             IndexDataViewModel data = new IndexDataViewModel();
             data.stokcard = query.ToList();
-            data.stokgroup = db.STOKCATEGORies.ToList();
-            data.stokbrand = db.STOKBRANDs.ToList();
+            data = getDetailFilter(data);
+            //data.stokBody = db.STOKBODies.ToList();
+            //data.stokbrand = db.STOKBRANDs.ToList();
+            //data.stokCategory = db.STOKCATEGORies.ToList();
+            //data.stokcolor = db.STOKCOLORs.ToList();
+            //data.stokMainGroup = db.STOKMAINGROUPs.ToList();
+            //data.stokModel = db.STOKMODELs.ToList();
+            //data.stokPacket = db.STOKPACKETs.ToList();
+            //data.stokRayon = db.STOKRAYONs.ToList();
+            //data.stokseason = db.STOKSEASONs.ToList();
+            //data.stokSector = db.STOKSECTORs.ToList();
+            //data.stokSubGroup = db.STOKSUBGROUPs.ToList();
+            //data.stokSubGroup2 = db.STOKSUBGROUP2.ToList();
+            query = query.Skip(info.CurrentPageIndex
+                * info.PageSize).Take(info.PageSize);
+            ViewBag.SortingPagingInfo = info;
+            data.stokcard = query.ToList();
             return data;
 
 
@@ -103,43 +116,81 @@ namespace siparis.Controllers
         {
             return View();
         }
-        public ActionResult CategorizedProducts(int Id)
-        {
-            TempData["Category"] = Id;
-            return View(getDetailCategory(Id));
-        }
+        //public ActionResult CategorizedProducts(int Id)
+        //{
+        //    TempData["Category"] = Id;
+        //    return View(getDetailCategory(Id));
+        //}
         /// <summary>
         /// sayfa atlatma
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CategorizedProducts([ModelBinder(typeof(DevExpressEditorsBinder))] IndexDataViewModel model, int Id)
+        public ActionResult CategorizedProducts([ModelBinder(typeof(DevExpressEditorsBinder))] IndexDataViewModel model)
         {
-            int CategoryID = Id;
-            int[] season = CheckBoxListExtension.GetSelectedValues<int>("SEASON");
-            int[] color = CheckBoxListExtension.GetSelectedValues<int>("COLOR");
-            int[] size = CheckBoxListExtension.GetSelectedValues<int>("SIZE");
+            //seçilen combobaxları al dizilere at
+            int[] main = CheckBoxListExtension.GetSelectedValues<int>("MAIN_GRUOP");
+            int[] sub1 = CheckBoxListExtension.GetSelectedValues<int>("SUB_GROUP");
+            int[] sub2 = CheckBoxListExtension.GetSelectedValues<int>("SUB_GROUP2");
+            int[] category = CheckBoxListExtension.GetSelectedValues<int>("CATEGORY");
             int[] brands = CheckBoxListExtension.GetSelectedValues<int>("BRAND");
-            //int price = (TextBoxExtension.GetValue<int>("PRICE") == null) ? 0 : TextBoxExtension.GetValue<int>("PRICE");
+            int[] modelP = CheckBoxListExtension.GetSelectedValues<int>("MODEL");
+            int[] size = CheckBoxListExtension.GetSelectedValues<int>("SIZE");
+            int[] color = CheckBoxListExtension.GetSelectedValues<int>("COLOR");
+            int[] season = CheckBoxListExtension.GetSelectedValues<int>("SEASON");
+            int[] packet = CheckBoxListExtension.GetSelectedValues<int>("PACKET");
+            int[] rayon = CheckBoxListExtension.GetSelectedValues<int>("RAYON");
+            int[] sector = CheckBoxListExtension.GetSelectedValues<int>("SECTOR");
             VdbSoftEntities db = new VdbSoftEntities(dbName);
-
             IndexDataViewModel data = new IndexDataViewModel();
-            data.stokcard = (from stk in db.STOKCARDs
-                             where stk.CATEGORY_CODE == CategoryID
-                             select stk).ToList();
-            data.stokcard = (from s in data.stokcard
-                             join c in brands on s.BRAND_CODE equals c
+            data.stokcard = (from s in db.STOKCARDs
+                             join c in main on s.MAIN_GRUP equals c
                              select s).ToList();
-            data.stokcard = (from s in data.stokcard
-                             join c in color on s.COLOR_CODE equals c
-                             select s).ToList();
-            data.stokcard = (from s in data.stokcard
-                             join c in season on s.SEASON_CODE equals c
-                             select s).ToList();
-            data.stokcard = (from s in data.stokcard
-                             join c in size on s.BODY_CODE equals c
-                             select s).ToList();
+            if (sub1 != null)
+                data.stokcard = (from s in data.stokcard
+                                 join c in sub1 on s.SUB_GRUP1 equals c
+                                 select s).ToList();
+            if (sub2 != null)
+                data.stokcard = (from s in data.stokcard
+                                 join c in sub2 on s.SUB_GRUP2 equals c
+                                 select s).ToList();
+            if (category != null)
+                data.stokcard = (from s in data.stokcard
+                                 join c in category on s.CATEGORY_CODE equals c
+                                 select s).ToList();
+            if (brands != null)
+                data.stokcard = (from s in data.stokcard
+                                 join c in brands on s.BRAND_CODE equals c
+                                 select s).ToList();
+            if (modelP != null)
+                data.stokcard = (from s in data.stokcard
+                                 join c in modelP on s.MODEL_CODE equals c
+                                 select s).ToList();
+            if (packet != null)
+                data.stokcard = (from s in data.stokcard
+                                 join c in packet on s.PACK_CODE equals c
+                                 select s).ToList();
+            if (rayon != null)
+                data.stokcard = (from s in data.stokcard
+                                 join c in rayon on s.RAYON_CODE equals c
+                                 select s).ToList();
+            if (color != null)
+                data.stokcard = (from s in data.stokcard
+                                 join c in color on s.COLOR_CODE equals c
+                                 select s).ToList();
+            if (season != null)
+                data.stokcard = (from s in data.stokcard
+                                 join c in season on s.SEASON_CODE equals c
+                                 select s).ToList();
+            if (sector != null)
+                data.stokcard = (from s in data.stokcard
+                                 join c in sector on s.SECTOR_CODE equals c
+                                 select s).ToList();
+            if (size != null)
+                data.stokcard = (from s in data.stokcard
+                                 join c in size on s.BODY_CODE equals c
+                                 select s).ToList();
             //if (price > 0)
             //{
             //    data.stokcard = (from s in data.stokcard
@@ -148,40 +199,102 @@ namespace siparis.Controllers
             //}
 
             //stok.brand ve stok.group data ya atanmalı
-            data.stokbrand = BrandFilter(data);
-            data.stokcolor = ColorFilter(data);
-            data.stokseason = SeasonFilter(data);
-            data.stokBody = BodyFilter(data);
-            data.stokgroup = db.STOKCATEGORies.Where(x => x.STOK_GROUP_CODE == CategoryID).ToList();
+            data = getDetailFilter(data);
+            SortingPagingInfo info = new SortingPagingInfo();
+            info.SortField = "ID";
+            info.SortDirection = "ascending";
+            info.PageSize = 6;
+            info.PageCount = Convert.ToInt32(Math.Ceiling((double)(data.stokcard.Where(x => x.UPPER_CODE == x.CODE).Count()
+                           / info.PageSize)));
+            info.CurrentPageIndex = 0;
+            ViewBag.SortingPagingInfo = info;
+
             return View(data);
 
         }
-        public IndexDataViewModel getDetailCategory(int CategoryId)
+
+
+
+        public IndexDataViewModel getDetailFilter(IndexDataViewModel data)
         {
-            VdbSoftEntities db = new VdbSoftEntities(dbName);
-            IndexDataViewModel data = new IndexDataViewModel();
-            data.stokcard = db.STOKCARDs.Where(x => x.CATEGORY_CODE == CategoryId).OrderBy(c => c.ID).ToList();
-            data.stokgroup = db.STOKCATEGORies.Where(x => x.STOK_GROUP_CODE == CategoryId).ToList();
-            data.stokbrand = (from brand in db.STOKBRANDs
-                              join x in db.STOKCARDs on brand.BRAND_CODE equals x.BRAND_CODE
-                              where x.CATEGORY_CODE == CategoryId
-                              select brand).Distinct().ToList();
-            data.stokBody = (from brand in db.STOKBODies
-                             join x in db.STOKCARDs on brand.BODY_CODE equals x.BODY_CODE
-                             where x.CATEGORY_CODE == CategoryId
-                             select brand).Distinct().ToList();
-
-            data.stokcolor = (from brand in db.STOKCOLORs
-                              join x in db.STOKCARDs on brand.COLOR_CODE equals x.COLOR_CODE
-                              where x.CATEGORY_CODE == CategoryId
-                              select brand).Distinct().ToList();
-            data.stokseason = (from brand in db.STOKSEASONs
-                               join x in db.STOKCARDs on brand.SEASON_CODE equals x.SEASON_CODE
-                               where x.CATEGORY_CODE == CategoryId
-                               select brand).Distinct().ToList();
-
+            data.stokMainGroup = MainFilter(data);
+            data.stokSubGroup = SubGroupFilter(data);
+            data.stokSubGroup2 = SubGroup2Filter(data);
+            data.stokCategory = CategoryFilter(data);
+            data.stokModel = ModelFilter(data);
+            data.stokRayon = RayonFilter(data);
+            data.stokSector = SectorFilter(data);
+            data.stokPacket = PacketFilter(data);
+            data.stokcolor = ColorFilter(data);
+            data.stokseason = SeasonFilter(data);
+            data.stokBody = BodyFilter(data);
+            data.stokbrand = BrandFilter(data);
             return data;
 
+        }
+        public List<STOKMAINGROUP> MainFilter(IndexDataViewModel data)
+        {
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            data.stokMainGroup = (from brand in data.stokcard
+                                  join x in db.STOKMAINGROUPs on brand.MAIN_GRUP equals x.ID
+                                  select x).Distinct().ToList();
+            return data.stokMainGroup;
+        }
+        public List<STOKSUBGROUP> SubGroupFilter(IndexDataViewModel data)
+        {
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            data.stokSubGroup = (from brand in data.stokcard
+                                 join x in db.STOKSUBGROUPs on brand.SUB_GRUP1 equals x.ID
+                                 select x).Distinct().ToList();
+            return data.stokSubGroup;
+        }
+        public List<STOKSUBGROUP2> SubGroup2Filter(IndexDataViewModel data)
+        {
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            data.stokSubGroup2 = (from brand in data.stokcard
+                                  join x in db.STOKSUBGROUP2 on brand.SUB_GRUP2 equals x.ID
+                                  select x).Distinct().ToList();
+            return data.stokSubGroup2;
+        }
+        public List<STOKCATEGORY> CategoryFilter(IndexDataViewModel data)
+        {
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            data.stokCategory = (from brand in data.stokcard
+                                 join x in db.STOKCATEGORies on brand.CATEGORY_CODE equals x.STOK_GROUP_CODE
+                                 select x).Distinct().ToList();
+            return data.stokCategory;
+        }
+        public List<STOKMODEL> ModelFilter(IndexDataViewModel data)
+        {
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            data.stokModel = (from brand in data.stokcard
+                              join x in db.STOKMODELs on brand.MODEL_CODE equals x.MODEL_CODE
+                              select x).Distinct().ToList();
+            return data.stokModel;
+        }
+        public List<STOKRAYON> RayonFilter(IndexDataViewModel data)
+        {
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            data.stokRayon = (from brand in data.stokcard
+                              join x in db.STOKRAYONs on brand.RAYON_CODE equals x.RAYON_CODE
+                              select x).Distinct().ToList();
+            return data.stokRayon;
+        }
+        public List<STOKSECTOR> SectorFilter(IndexDataViewModel data)
+        {
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            data.stokSector = (from brand in data.stokcard
+                               join x in db.STOKSECTORs on brand.SECTOR_CODE equals x.SECTOR_CODE
+                               select x).Distinct().ToList();
+            return data.stokSector;
+        }
+        public List<STOKPACKET> PacketFilter(IndexDataViewModel data)
+        {
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            data.stokPacket = (from brand in data.stokcard
+                               join x in db.STOKPACKETs on brand.PACK_CODE equals x.PACKET_CODE
+                               select x).Distinct().ToList();
+            return data.stokPacket;
         }
 
         public List<STOKBRAND> BrandFilter(IndexDataViewModel data)

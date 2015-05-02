@@ -1,35 +1,124 @@
 ﻿@model siparis.Models.IndexDataViewModel
 @using siparis.Models
 @{
-    
+
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("CategorizedProducts", "Home"))
 {
-     
-    
-    @*foreach (var stok in Model.stokgroup)
-    {
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a href="/Category/CategorizedProducts?Id=@stok.STOK_GROUP_CODE">
-                        <span class="badge pull-right">(@Model.stokcard.Where(x => x.CATEGORY_CODE == stok.STOK_GROUP_CODE).Count())</span>
-                        @stok.NAME_TR
-                    </a>
-                </h4>
-            </div>
-        </div>
+    <div class="brands_products">
+        <!--Main Group-->
+        @(Html.DevExpress().CheckBoxList(settings =>
+        {
+            settings.Name = "MAIN_GRUOP";
+            settings.Properties.ValueField = "ID";
+            settings.Properties.TextField = "EXP_TR";
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+            settings.Properties.RepeatColumns = 1;
+            settings.ControlStyle.Border.BorderWidth = 0;
+            settings.PreRender = (sender, e) =>
+            {
+                ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                foreach (ListEditItem item in cbl.Items)
+                {
+                    int count = @Model.stokcard.Where(x => x.MAIN_GRUP == (int)item.Value).Count();
 
-    }*@
-    
-     <div class="brands_products">
-        <!--Category-->
-        
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;
+                    }
+                }
+            };
+
+        }).BindList(Model.stokMainGroup).GetHtml()
+        )
+    </div><!--/Main Group-->
+    <div>
+        <!--filtre buton-->
+        @Html.DevExpress().Button(settings =>
+        {
+            settings.Name = "Filter";
+            settings.Text = @siparis.Resorces.Language.Filter;
+            settings.UseSubmitBehavior = true;
+        }).GetHtml()
+        @Html.DevExpress().Button(settings =>
+        {
+            settings.Name = "UnFilter";
+            settings.Text = @siparis.Resorces.Language.UnFilter;
+            settings.UseSubmitBehavior = true;
+        }).GetHtml()
+    </div><!--/filtre buton-->
+    <div class="brands_products">
+        <!--sub group 1-->
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Brands</h2>
+        @(Html.DevExpress().CheckBoxList(settings =>
+        {
+            settings.Name = "SUB_GROUP";
+            settings.Properties.ValueField = "ID";
+            settings.Properties.TextField = "EXP_TR";
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+            settings.Properties.RepeatColumns = 1;
+            settings.ControlStyle.Border.BorderWidth = 0;
+            settings.PreRender = (sender, e) =>
+            {
+                ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                foreach (ListEditItem item in cbl.Items)
+                {
+                    int count = @Model.stokcard.Where(x => x.SUB_GRUP1 == (int)item.Value).Count();                   
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;                        
+                    }
+                }
+            };
+
+        }).BindList(Model.stokSubGroup).GetHtml()
+        )
+    </div><!--/sub group 1-->
+    <div class="brands_products">
+        <!--sub group 2-->
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Brands</h2>
+        @(Html.DevExpress().CheckBoxList(settings =>
+        {
+            settings.Name = "SUB_GROUP2";
+            settings.Properties.ValueField = "ID";
+            settings.Properties.TextField = "EXP_TR";
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+            settings.Properties.RepeatColumns = 1;
+            settings.ControlStyle.Border.BorderWidth = 0;
+            settings.PreRender = (sender, e) =>
+            {
+                ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                foreach (ListEditItem item in cbl.Items)
+                {
+                    int count = @Model.stokcard.Where(x => x.SUB_GRUP2 == (int)item.Value).Count();
+
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;
+                    }
+                }
+            };
+
+        }).BindList(Model.stokSubGroup2).GetHtml()
+        )
+    </div><!--/sub group 2-->
+    <div class="brands_products">
+        <!--category-->
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Category</h2>
 
         @(Html.DevExpress().CheckBoxList(settings =>
         {
-            settings.Name = "STOK_GROUP_CODE";
+            settings.Name = "CATEGORY";
             settings.Properties.ValueField = "STOK_GROUP_CODE";
             settings.Properties.TextField = "NAME_TR";
             settings.Properties.ValueType = typeof(int);
@@ -42,32 +131,18 @@
                 ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
                 foreach (ListEditItem item in cbl.Items)
                 {
-                    item.Selected = true;
-                    item.Text += " (" + @Model.stokcard.Where(x => x.CATEGORY_CODE == (int)item.Value).Count() + ")";
+                    int count = @Model.stokcard.Where(x => x.CATEGORY_CODE == (int)item.Value).Count();
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;
+                    }
                 }
             };
 
-        }).BindList(Model.stokgroup).GetHtml()
+        }).BindList(Model.stokCategory).GetHtml()
         )
-
-
-
-    </div><!--/brands_products-->
-    <div>
-        @Html.DevExpress().Button(settings =>
-        {
-            settings.Name = "Filter";
-            settings.Text = @siparis.Resorces.Language.Filter;
-            settings.UseSubmitBehavior = true;
-        }).GetHtml()  
-        @Html.DevExpress().Button(settings =>
-        {
-            settings.Name = "UnFilter";
-            settings.Text = @siparis.Resorces.Language.UnFilter;
-            settings.UseSubmitBehavior = true;
-        }).GetHtml()  
-
-    </div>
+    </div><!--/category-->
     <div class="brands_products">
         <!--brands_products-->
         <h2 style="margin-top:20px;">@siparis.Resorces.Language.Brands</h2>
@@ -87,19 +162,50 @@
                 ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
                 foreach (ListEditItem item in cbl.Items)
                 {
-                    item.Selected = true;
-                    item.Text += " (" + @Model.stokcard.Where(x => x.BRAND_CODE == (int)item.Value).Count() + ")";
+                    int count = @Model.stokcard.Where(x => x.BRAND_CODE == (int)item.Value).Count();
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;
+                    }
                 }
             };
 
         }).BindList(Model.stokbrand).GetHtml()
         )
-
-
-
     </div><!--/brands_products-->
     <div class="brands_products">
-        <!--brands_products-->
+        <!--model-->
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
+        @(Html.DevExpress().CheckBoxList(settings =>
+        {
+            settings.Name = "MODEL";
+            settings.Properties.ValueField = "MODEL_CODE";
+            settings.Properties.TextField = "NAME_TR";
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+            settings.Properties.RepeatColumns = 1;
+            settings.ControlStyle.Border.BorderWidth = 0;
+            settings.PreRender = (sender, e) =>
+            {
+                ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                foreach (ListEditItem item in cbl.Items)
+                {
+                    int count = @Model.stokcard.Where(x => x.MODEL_CODE == (int)item.Value).Count();
+
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;
+                    }
+                }
+            };
+        }).BindList(Model.stokModel).GetHtml()
+        )
+    </div><!--/model-->
+    <div class="brands_products">
+        <!--size_products-->
         <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
         @(Html.DevExpress().CheckBoxList(settings =>
         {
@@ -116,20 +222,20 @@
                 ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
                 foreach (ListEditItem item in cbl.Items)
                 {
-                    item.Selected = true;
-                    item.Text += " (" + @Model.stokcard.Where(x => x.BODY_CODE == (int)item.Value).Count() + ")";
+                    int count = @Model.stokcard.Where(x => x.BODY_CODE == (int)item.Value).Count();
+
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;
+                    }
                 }
             };
-
         }).BindList(Model.stokBody).GetHtml()
         )
-
-
-
-    </div><!--/brands_products-->
-
+    </div><!--/size-->
     <div class="brands_products">
-        <!--brands_products-->
+        <!--color-->
         <h2 style="margin-top:20px;">@siparis.Resorces.Language.Color</h2>
         @(Html.DevExpress().CheckBoxList(settings =>
         {
@@ -146,18 +252,20 @@
                 ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
                 foreach (ListEditItem item in cbl.Items)
                 {
-                    item.Selected = true;
-                    item.Text += " (" + @Model.stokcard.Where(x => x.COLOR_CODE == (int)item.Value).Count() + ")";
+                    int count = @Model.stokcard.Where(x => x.COLOR_CODE == (int)item.Value).Count();
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;
+                    }
                 }
             };
-
         }).BindList(Model.stokcolor).GetHtml()
         )
-    </div><!--/brands_products-->
-
+    </div><!--/color-->
     <div class="brands_products">
+        <!--Season-->
         <h2 style="margin-top:20px;">@siparis.Resorces.Language.Season</h2>
-
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "SEASON";
@@ -173,33 +281,112 @@
                 ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
                 foreach (ListEditItem item in cbl.Items)
                 {
-                    item.Selected = true;
-                    item.Text += " (" + @Model.stokcard.Where(x => x.SEASON_CODE == (int)item.Value).Count() + ")";
+                    int count = @Model.stokcard.Where(x => x.SEASON_CODE == (int)item.Value).Count();                    
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;
+                    }
                 }
             };
         }).BindList(Model.stokseason).GetHtml()
         )
-
-    </div>
-
-    <div class="price-range">
-        <!--price-range-->
-        <h2>@siparis.Resorces.Language.PriceRange</h2>
-        <div class="well text-center">
-            <input name="startPRICE" type="text" class="span2" value=""><br />
-            <input name="endPRICE" type="text" class="span2" value=""><br />
-          @*  <input name="PRICE" type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />*@
-         
-        </div>
-    </div><!--/price-range-->
-
+    </div><!--/season-->
+    <div class="brands_products">
+        <!--PACKET-->
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
+        @(Html.DevExpress().CheckBoxList(settings =>
+        {
+            settings.Name = "PACKET";
+            settings.Properties.ValueField = "PACKET_CODE";
+            settings.Properties.TextField = "NAME_TR";
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+            settings.Properties.RepeatColumns = 1;
+            settings.ControlStyle.Border.BorderWidth = 0;
+            settings.PreRender = (sender, e) =>
+            {
+                ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                foreach (ListEditItem item in cbl.Items)
+                {
+                    int count = @Model.stokcard.Where(x => x.PACK_CODE == (int)item.Value).Count();
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;
+                    }
+                }
+            };
+        }).BindList(Model.stokPacket).GetHtml()
+        )
+    </div><!--/PACKET-->
+    <div class="brands_products">
+        <!--PACKET-->
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
+        @(Html.DevExpress().CheckBoxList(settings =>
+        {
+            settings.Name = "RAYON";
+            settings.Properties.ValueField = "RAYON_CODE";
+            settings.Properties.TextField = "NAME_TR";
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+            settings.Properties.RepeatColumns = 1;
+            settings.ControlStyle.Border.BorderWidth = 0;
+            settings.PreRender = (sender, e) =>
+            {
+                ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                foreach (ListEditItem item in cbl.Items)
+                {
+                    int count = @Model.stokcard.Where(x => x.RAYON_CODE == (int)item.Value).Count();
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;
+                    }
+                }
+            };
+        }).BindList(Model.stokRayon).GetHtml()
+        )
+    </div><!--/RAYON-->
+    <div class="brands_products">
+        <!--SECTOR-->
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
+        @(Html.DevExpress().CheckBoxList(settings =>
+        {
+            settings.Name = "SECTOR";
+            settings.Properties.ValueField = "SECTOR_CODE";
+            settings.Properties.TextField = "NAME_TR";
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+            settings.Properties.RepeatColumns = 1;
+            settings.ControlStyle.Border.BorderWidth = 0;
+            settings.PreRender = (sender, e) =>
+            {
+                ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                foreach (ListEditItem item in cbl.Items)
+                {
+                    int count = @Model.stokcard.Where(x => x.RAYON_CODE == (int)item.Value).Count();
+                    item.Text += " (" + count + ")";
+                    if (count > 0)
+                    {
+                        item.Selected = true;
+                    }
+                }
+            };
+        }).BindList(Model.stokSector).GetHtml()
+        )
+    </div><!--/SECTOR-->
     <div>
+        <!-- filter button-->
         @Html.DevExpress().Button(settings =>
         {
             settings.Name = "Filter_";
             settings.Text = @siparis.Resorces.Language.Filter;
             settings.UseSubmitBehavior = true;
-        }).GetHtml()      
-        
-    </div>
+        }).GetHtml()
+
+    </div><!--/filter button-->
 }

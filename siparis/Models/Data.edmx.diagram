@@ -186,6 +186,11 @@
         <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKMAINGROUP" />
         <AssociationConnector Association="VdbSoftModel.FK_STOKCARD_STOKSUBGROUP" />
         <EntityTypeShape EntityType="VdbSoftModel.USERSIPLOG" Width="1.5" PointX="3.375" PointY="40.75" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKMODEL" Width="1.5" PointX="20.375" PointY="40.75" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKPACKET" Width="1.5" PointX="22.375" PointY="40.75" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKRAYON" Width="1.5" PointX="40.375" PointY="24.75" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKSECTOR" Width="1.5" PointX="24.375" PointY="40.75" />
+        <EntityTypeShape EntityType="VdbSoftModel.STOKSUBGROUP2" Width="1.5" PointX="40.375" PointY="27.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

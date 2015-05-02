@@ -49,7 +49,7 @@ namespace siparis.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        }
+        }      
     
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<ACTIVITY> ACTIVITies { get; set; }
@@ -208,5 +208,10 @@ namespace siparis.Models
         public virtual DbSet<USERCASH> USERCASHes { get; set; }
         public virtual DbSet<USERWHAREHOUSE> USERWHAREHOUSEs { get; set; }
         public virtual DbSet<USERSIPLOG> USERSIPLOGs { get; set; }
+        public virtual DbSet<STOKMODEL> STOKMODELs { get; set; }
+        public virtual DbSet<STOKPACKET> STOKPACKETs { get; set; }
+        public virtual DbSet<STOKRAYON> STOKRAYONs { get; set; }
+        public virtual DbSet<STOKSECTOR> STOKSECTORs { get; set; }
+        public virtual DbSet<STOKSUBGROUP2> STOKSUBGROUP2 { get; set; }
     }
 }

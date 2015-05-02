@@ -2203,7 +2203,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CODE" Type="nvarchar" MaxLength="50" />
           <Property Name="UPPER_CODE" Type="nvarchar" MaxLength="150" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
@@ -2302,7 +2302,7 @@ warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a pri
           <Key>
             <PropertyRef Name="STOK_GROUP_CODE" />
           </Key>
-          <Property Name="STOK_GROUP_CODE" Type="int" Nullable="false" />
+          <Property Name="STOK_GROUP_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="150" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="150" />
@@ -2340,11 +2340,55 @@ warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a pri
           <Property Name="CREATE_DATE" Type="datetime" />
           <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="STOKMODEL">
+          <Key>
+            <PropertyRef Name="MODEL_CODE" />
+          </Key>
+          <Property Name="MODEL_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
+          <Property Name="VISIBLE" Type="bit" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="STOKPACKET">
+          <Key>
+            <PropertyRef Name="PACKET_CODE" />
+          </Key>
+          <Property Name="PACKET_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
+          <Property Name="VISIBLE" Type="bit" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="STOKRAYON">
+          <Key>
+            <PropertyRef Name="RAYON_CODE" />
+          </Key>
+          <Property Name="RAYON_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
+          <Property Name="VISIBLE" Type="bit" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="25" />
+        </EntityType>
         <EntityType Name="STOKSEASON">
           <Key>
             <PropertyRef Name="SEASON_CODE" />
           </Key>
           <Property Name="SEASON_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
+          <Property Name="VISIBLE" Type="bit" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="STOKSECTOR">
+          <Key>
+            <PropertyRef Name="SECTOR_CODE" />
+          </Key>
+          <Property Name="SECTOR_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
@@ -2358,6 +2402,23 @@ warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a pri
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="CODE" Type="nvarchar(max)" />
           <Property Name="MAIN_GROUP_CODE" Type="nvarchar(max)" />
+          <Property Name="ROW_ORDER_NO" Type="int" />
+          <Property Name="EXP_TR" Type="nvarchar" MaxLength="50" />
+          <Property Name="EXP_EN" Type="nvarchar" MaxLength="50" />
+          <Property Name="EXP_GR" Type="nvarchar" MaxLength="50" />
+          <Property Name="LAST_UPDATE" Type="datetime" />
+          <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="STOKSUBGROUP2">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CODE" Type="nvarchar(max)" />
+          <Property Name="MAIN_GROUP_CODE" Type="nvarchar(max)" />
+          <Property Name="SUB_GROUP_CODE" Type="nvarchar(max)" />
           <Property Name="ROW_ORDER_NO" Type="int" />
           <Property Name="EXP_TR" Type="nvarchar" MaxLength="50" />
           <Property Name="EXP_EN" Type="nvarchar" MaxLength="50" />
@@ -3084,8 +3145,13 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="STOKCATEGORY" EntityType="Self.STOKCATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCOLOR" EntityType="Self.STOKCOLOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKMAINGROUP" EntityType="Self.STOKMAINGROUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKMODEL" EntityType="Self.STOKMODEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKPACKET" EntityType="Self.STOKPACKET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKRAYON" EntityType="Self.STOKRAYON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKSEASON" EntityType="Self.STOKSEASON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKSECTOR" EntityType="Self.STOKSECTOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKSUBGROUP" EntityType="Self.STOKSUBGROUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKSUBGROUP2" EntityType="Self.STOKSUBGROUP2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKWAREHOUSE" EntityType="Self.STOKWAREHOUSE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKWAREHOUSEPRODUCT" EntityType="Self.STOKWAREHOUSEPRODUCT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -6662,6 +6728,11 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             <End Role="STOKCARD" EntitySet="STOKCARDs" />
           </AssociationSet>
           <EntitySet Name="USERSIPLOGs" EntityType="VdbSoftModel.USERSIPLOG" />
+          <EntitySet Name="STOKMODELs" EntityType="VdbSoftModel.STOKMODEL" />
+          <EntitySet Name="STOKPACKETs" EntityType="VdbSoftModel.STOKPACKET" />
+          <EntitySet Name="STOKRAYONs" EntityType="VdbSoftModel.STOKRAYON" />
+          <EntitySet Name="STOKSECTORs" EntityType="VdbSoftModel.STOKSECTOR" />
+          <EntitySet Name="STOKSUBGROUP2" EntityType="VdbSoftModel.STOKSUBGROUP2" />
         </EntityContainer>
         <Association Name="FK_STOKCARD_STOKMAINGROUP">
           <End Type="VdbSoftModel.STOKMAINGROUP" Role="STOKMAINGROUP" Multiplicity="0..1" />
@@ -6696,6 +6767,67 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DATE" Type="DateTime" Precision="3" />
           <Property Name="IP" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="STOKMODEL">
+          <Key>
+            <PropertyRef Name="MODEL_CODE" />
+          </Key>
+          <Property Name="MODEL_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLE" Type="Boolean" />
+          <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="STOKPACKET">
+          <Key>
+            <PropertyRef Name="PACKET_CODE" />
+          </Key>
+          <Property Name="PACKET_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLE" Type="Boolean" />
+          <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="STOKRAYON">
+          <Key>
+            <PropertyRef Name="RAYON_CODE" />
+          </Key>
+          <Property Name="RAYON_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLE" Type="Boolean" />
+          <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="STOKSECTOR">
+          <Key>
+            <PropertyRef Name="SECTOR_CODE" />
+          </Key>
+          <Property Name="SECTOR_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_TR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_EN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_GR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBLE" Type="Boolean" />
+          <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="STOKSUBGROUP2">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MAIN_GROUP_CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SUB_GROUP_CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ROW_ORDER_NO" Type="Int32" />
+          <Property Name="EXP_TR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EXP_EN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EXP_GR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
+          <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -9375,6 +9507,72 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
                 <ScalarProperty Name="DATE" ColumnName="DATE" />
                 <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKMODELs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKMODEL">
+              <MappingFragment StoreEntitySet="STOKMODEL">
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
+                <ScalarProperty Name="MODEL_CODE" ColumnName="MODEL_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKPACKETs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKPACKET">
+              <MappingFragment StoreEntitySet="STOKPACKET">
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
+                <ScalarProperty Name="PACKET_CODE" ColumnName="PACKET_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKRAYONs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKRAYON">
+              <MappingFragment StoreEntitySet="STOKRAYON">
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
+                <ScalarProperty Name="RAYON_CODE" ColumnName="RAYON_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKSECTORs">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKSECTOR">
+              <MappingFragment StoreEntitySet="STOKSECTOR">
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+                <ScalarProperty Name="NAME_GR" ColumnName="NAME_GR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="NAME_TR" ColumnName="NAME_TR" />
+                <ScalarProperty Name="SECTOR_CODE" ColumnName="SECTOR_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOKSUBGROUP2">
+            <EntityTypeMapping TypeName="VdbSoftModel.STOKSUBGROUP2">
+              <MappingFragment StoreEntitySet="STOKSUBGROUP2">
+                <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
+                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
+                <ScalarProperty Name="EXP_GR" ColumnName="EXP_GR" />
+                <ScalarProperty Name="EXP_EN" ColumnName="EXP_EN" />
+                <ScalarProperty Name="EXP_TR" ColumnName="EXP_TR" />
+                <ScalarProperty Name="ROW_ORDER_NO" ColumnName="ROW_ORDER_NO" />
+                <ScalarProperty Name="SUB_GROUP_CODE" ColumnName="SUB_GROUP_CODE" />
+                <ScalarProperty Name="MAIN_GROUP_CODE" ColumnName="MAIN_GROUP_CODE" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
