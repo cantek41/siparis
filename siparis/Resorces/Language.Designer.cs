@@ -610,11 +610,29 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Main Group.
+        /// </summary>
+        public static string MainGroup {
+            get {
+                return ResourceManager.GetString("MainGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manage Account.
         /// </summary>
         public static string ManageAccount {
             get {
                 return ResourceManager.GetString("ManageAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model.
+        /// </summary>
+        public static string Model {
+            get {
+                return ResourceManager.GetString("Model", resourceCulture);
             }
         }
         
@@ -772,6 +790,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pocket.
+        /// </summary>
+        public static string Pocket {
+            get {
+                return ResourceManager.GetString("Pocket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Price.
         /// </summary>
         public static string Price {
@@ -853,6 +880,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rayon.
+        /// </summary>
+        public static string Rayon {
+            get {
+                return ResourceManager.GetString("Rayon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to register.
         /// </summary>
         public static string register {
@@ -912,6 +948,15 @@ namespace siparis.Resorces {
         public static string Season {
             get {
                 return ResourceManager.GetString("Season", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sector.
+        /// </summary>
+        public static string Sector {
+            get {
+                return ResourceManager.GetString("Sector", resourceCulture);
             }
         }
         
@@ -1029,6 +1074,24 @@ namespace siparis.Resorces {
         public static string StokMessage {
             get {
                 return ResourceManager.GetString("StokMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sub Group.
+        /// </summary>
+        public static string SubGroup1 {
+            get {
+                return ResourceManager.GetString("SubGroup1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sub Group2.
+        /// </summary>
+        public static string SubGroup2 {
+            get {
+                return ResourceManager.GetString("SubGroup2", resourceCulture);
             }
         }
         

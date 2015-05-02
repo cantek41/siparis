@@ -486,4 +486,25 @@
   <data name="AddNewUser" xml:space="preserve">
     <value>Add New User</value>
   </data>
+  <data name="MainGroup" xml:space="preserve">
+    <value>Main Group</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="Pocket" xml:space="preserve">
+    <value>Pocket</value>
+  </data>
+  <data name="Rayon" xml:space="preserve">
+    <value>Rayon</value>
+  </data>
+  <data name="Sector" xml:space="preserve">
+    <value>Sector</value>
+  </data>
+  <data name="SubGroup1" xml:space="preserve">
+    <value>Sub Group</value>
+  </data>
+  <data name="SubGroup2" xml:space="preserve">
+    <value>Sub Group2</value>
+  </data>
 </root>

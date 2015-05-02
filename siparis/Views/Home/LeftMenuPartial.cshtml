@@ -3,14 +3,35 @@
 @{
 
 }
+<script type="text/javascript">
+    function secim(s,e,f) {
+        var value = s.GetChecked();        
+        if (value) {
+            f.SelectAll();          
+        }
+        else {           
+            f.UnselectAll();
+        }
+    }
+</script>
+
+
 
 @using (Html.BeginForm("CategorizedProducts", "Home"))
 {
     <div class="brands_products">
         <!--Main Group-->
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.MainGroup</h2>
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "all";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,MAIN_GRUOP); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
-            settings.Name = "MAIN_GRUOP";
+            settings.Name = "MAIN_GRUOP";            
             settings.Properties.ValueField = "ID";
             settings.Properties.TextField = "EXP_TR";
             settings.Properties.ValueType = typeof(int);
@@ -18,13 +39,18 @@
             settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
             settings.Properties.RepeatColumns = 1;
             settings.ControlStyle.Border.BorderWidth = 0;
+            //  settings.Properties.ClientSideEvents.Init = "function(s, e) { alert(s.cpCustom); }";
+            ////  settings.CustomJSProperties += (s, e) => { e.Properties["cpCustom"] = "customValue"; };
+            settings.Init = (sender, e) =>
+                {
+                };
             settings.PreRender = (sender, e) =>
             {
                 ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                //cbl.ClientSideEvents.SelectedIndexChanged = "function(s, e) { secim(s,e); }";
                 foreach (ListEditItem item in cbl.Items)
                 {
-                    int count = @Model.stokcard.Where(x => x.MAIN_GRUP == (int)item.Value).Count();
-
+                    int count = @Model.stokcard.Count(x => x.MAIN_GRUP == (int)item.Value);
                     item.Text += " (" + count + ")";
                     if (count > 0)
                     {
@@ -34,7 +60,7 @@
             };
 
         }).BindList(Model.stokMainGroup).GetHtml()
-        )
+)
     </div><!--/Main Group-->
     <div>
         <!--filtre buton-->
@@ -51,15 +77,26 @@
             settings.UseSubmitBehavior = true;
         }).GetHtml()
     </div><!--/filtre buton-->
+    if (HttpContext.Current.Request.Path.Contains("CategorizedProducts"))
+    {
+        
     <div class="brands_products">
         <!--sub group 1-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Brands</h2>
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.SubGroup1</h2>
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "allsub";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SUB_GROUP); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "SUB_GROUP";
             settings.Properties.ValueField = "ID";
             settings.Properties.TextField = "EXP_TR";
             settings.Properties.ValueType = typeof(int);
+            settings.Properties.CheckBoxStyle.Wrap = DefaultBoolean.True;
             settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
             settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
             settings.Properties.RepeatColumns = 1;
@@ -83,7 +120,14 @@
     </div><!--/sub group 1-->
     <div class="brands_products">
         <!--sub group 2-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Brands</h2>
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.SubGroup2</h2>
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "all2";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SUB_GROUP2); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "SUB_GROUP2";
@@ -115,7 +159,13 @@
     <div class="brands_products">
         <!--category-->
         <h2 style="margin-top:20px;">@siparis.Resorces.Language.Category</h2>
-
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "all3";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,CATEGORY); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "CATEGORY";
@@ -146,7 +196,13 @@
     <div class="brands_products">
         <!--brands_products-->
         <h2 style="margin-top:20px;">@siparis.Resorces.Language.Brands</h2>
-
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "all4";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,BRAND); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "BRAND";
@@ -176,7 +232,14 @@
     </div><!--/brands_products-->
     <div class="brands_products">
         <!--model-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Model</h2>
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "all5";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,MODEL); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "MODEL";
@@ -207,6 +270,13 @@
     <div class="brands_products">
         <!--size_products-->
         <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "all6";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SIZE); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "SIZE";
@@ -237,6 +307,13 @@
     <div class="brands_products">
         <!--color-->
         <h2 style="margin-top:20px;">@siparis.Resorces.Language.Color</h2>
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "all7";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,COLOR); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "COLOR";
@@ -266,6 +343,13 @@
     <div class="brands_products">
         <!--Season-->
         <h2 style="margin-top:20px;">@siparis.Resorces.Language.Season</h2>
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "all8";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SEASON); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "SEASON";
@@ -294,7 +378,14 @@
     </div><!--/season-->
     <div class="brands_products">
         <!--PACKET-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Pocket</h2>
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "all9";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,PACKET); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "PACKET";
@@ -323,7 +414,14 @@
     </div><!--/PACKET-->
     <div class="brands_products">
         <!--PACKET-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Rayon</h2>
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "all10";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,RAYON); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "RAYON";
@@ -352,7 +450,14 @@
     </div><!--/RAYON-->
     <div class="brands_products">
         <!--SECTOR-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
+        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Sector</h2>
+        @(Html.DevExpress().CheckBox(s =>
+        {
+            s.Name = "all11";
+            s.Text = "All";
+            s.Checked = true;
+            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SECTOR); }";
+        }).GetHtml())
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "SECTOR";
@@ -379,7 +484,7 @@
         }).BindList(Model.stokSector).GetHtml()
         )
     </div><!--/SECTOR-->
-    <div>
+     <div>
         <!-- filter button-->
         @Html.DevExpress().Button(settings =>
         {
@@ -389,4 +494,7 @@
         }).GetHtml()
 
     </div><!--/filter button-->
+    }
+   
+   
 }

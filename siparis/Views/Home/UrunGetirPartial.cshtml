@@ -1,47 +1,52 @@
 ﻿@model siparis.Models.STOKCARD
 @using siparis.Models
 @{
-    STOKCARD stok = Model;
-    <div class="col-sm-4">
-        <div class="product-image-wrapper">
-            <div class="single-products">
-                <div class="productinfo text-center">
-                    <div>
-                        @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
-                        @if (@stok.STOKCARDPICTUREs.Count != 0)
-                        {
-                            <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" class="image-midi" />
-                        }
-                        else
-                        {
-                            <img src="../Content/images/404/404.png" alt="" class="image-midi" />
-                        }
-                    </div>
-                    <h2 class="buyukharf">@stok.NAME_TR</h2>
-                    <h4>@stok.UNIT_PRICE @stok.CUR_TYPE</h4>
-                    <h6>@stok.CODE</h6>
-                    <div class="col-md-12">
-                        <div class="col-md-6 etiket">
-                            <span class="etiket">@siparis.Resorces.Language.Stock</span>
-                        </div>
-                        <div class="col-md-6 border-ayar">
-                            <input type="text" size="2" value=@stok.UNIT class="padding-left" disabled />
-                        </div>
-                    </div>
 
-                    @*<div class="col-md-12">
-                        <div class="col-md-6 etiket">
-                            <span class="etiket renk">@siparis.Resorces.Language.Order</span>
+    if (Model != null)
+    {
+        STOKCARD stok = Model;
 
+        <div class="col-sm-4">
+            <div class="product-image-wrapper">
+                <div class="single-products">
+                    <div class="productinfo text-center">
+                        <div>
+                            @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
+                            @if (@stok.STOKCARDPICTUREs.Count != 0)
+                            {
+                                <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" class="image-midi" />
+                            }
+                            else
+                            {
+                                <img src="../Content/images/404/404.png" alt="" class="image-midi" />
+                            }
                         </div>
-                        <div class="col-md-6 border-ayar">
-                            <input id="@stok.ID" type="text" size="2" value="1" class="padding-left" />
+                        <h2 class="buyukharf">@stok.NAME_TR</h2>
+                        <h4>@stok.UNIT_PRICE @stok.CUR_TYPE</h4>
+                        <h6>@stok.CODE</h6>
+                        <div class="col-md-12">
+                            <div class="col-md-6 etiket">
+                                <span class="etiket">@siparis.Resorces.Language.Stock</span>
+                            </div>
+                            <div class="col-md-6 border-ayar">
+                                <input type="text" size="2" value=@stok.UNIT class="padding-left" disabled />
+                            </div>
                         </div>
-                    </div>*@
-                    <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@siparis.Resorces.Language.Details</a>
+
+                        @*<div class="col-md-12">
+                                <div class="col-md-6 etiket">
+                                    <span class="etiket renk">@siparis.Resorces.Language.Order</span>
+
+                                </div>
+                                <div class="col-md-6 border-ayar">
+                                    <input id="@stok.ID" type="text" size="2" value="1" class="padding-left" />
+                                </div>
+                            </div>*@
+                        <a href="@Url.Action("ProductDetail", "Product", new { urunID = @stok.ID })" class="btn btn-default add-to-cart"><i class="fa fa-plus-square"></i>@siparis.Resorces.Language.Details</a>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
+    }
 }

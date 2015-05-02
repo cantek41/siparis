@@ -27,7 +27,7 @@ namespace siparis.Controllers
             SortingPagingInfo info = new SortingPagingInfo();
             info.SortField = "ID";
             info.SortDirection = "ascending";
-            info.PageSize = 6;
+            info.PageSize = 12;
             info.PageCount = Convert.ToInt32(Math.Ceiling((double)(db.STOKCARDs.Where(x => x.UPPER_CODE == x.CODE).Count()
                            / info.PageSize)));
             info.CurrentPageIndex = 0;
@@ -93,10 +93,10 @@ namespace siparis.Controllers
             //data.stokSector = db.STOKSECTORs.ToList();
             //data.stokSubGroup = db.STOKSUBGROUPs.ToList();
             //data.stokSubGroup2 = db.STOKSUBGROUP2.ToList();
-            query = query.Skip(info.CurrentPageIndex
-                * info.PageSize).Take(info.PageSize);
+            //query = query.Skip(info.CurrentPageIndex
+            //    * info.PageSize).Take(info.PageSize);
             ViewBag.SortingPagingInfo = info;
-            data.stokcard = query.ToList();
+          //  data.stokcard = query.ToList();
             return data;
 
 
@@ -147,50 +147,51 @@ namespace siparis.Controllers
             data.stokcard = (from s in db.STOKCARDs
                              join c in main on s.MAIN_GRUP equals c
                              select s).ToList();
-            if (sub1 != null)
+
+            if (sub1 != null && sub1.Count()>0)
                 data.stokcard = (from s in data.stokcard
                                  join c in sub1 on s.SUB_GRUP1 equals c
-                                 select s).ToList();
-            if (sub2 != null)
+                                 select s).ToList() ?? data.stokcard;
+            if (sub2 != null && sub2.Count() > 0)
                 data.stokcard = (from s in data.stokcard
                                  join c in sub2 on s.SUB_GRUP2 equals c
-                                 select s).ToList();
-            if (category != null)
+                                 select s).ToList() ?? data.stokcard;
+            if (category != null && category.Count() > 0)
                 data.stokcard = (from s in data.stokcard
                                  join c in category on s.CATEGORY_CODE equals c
-                                 select s).ToList();
-            if (brands != null)
+                                 select s).ToList() ?? data.stokcard;
+            if (brands != null && sub1.Count() > 0)
                 data.stokcard = (from s in data.stokcard
                                  join c in brands on s.BRAND_CODE equals c
-                                 select s).ToList();
-            if (modelP != null)
+                                 select s).ToList() ?? data.stokcard;
+            if (modelP != null && modelP.Count() > 0)
                 data.stokcard = (from s in data.stokcard
                                  join c in modelP on s.MODEL_CODE equals c
-                                 select s).ToList();
-            if (packet != null)
+                                 select s).ToList() ?? data.stokcard;
+            if (packet != null && packet.Count() > 0)
                 data.stokcard = (from s in data.stokcard
                                  join c in packet on s.PACK_CODE equals c
-                                 select s).ToList();
-            if (rayon != null)
+                                 select s).ToList() ?? data.stokcard;
+            if (rayon != null && rayon.Count() > 0)
                 data.stokcard = (from s in data.stokcard
                                  join c in rayon on s.RAYON_CODE equals c
-                                 select s).ToList();
-            if (color != null)
+                                 select s).ToList() ?? data.stokcard;
+            if (color != null && color.Count() > 0)
                 data.stokcard = (from s in data.stokcard
                                  join c in color on s.COLOR_CODE equals c
-                                 select s).ToList();
-            if (season != null)
+                                 select s).ToList() ?? data.stokcard;
+            if (season != null && season.Count() > 0)
                 data.stokcard = (from s in data.stokcard
                                  join c in season on s.SEASON_CODE equals c
-                                 select s).ToList();
-            if (sector != null)
+                                 select s).ToList() ?? data.stokcard;
+            if (sector != null && sector.Count() > 0)
                 data.stokcard = (from s in data.stokcard
                                  join c in sector on s.SECTOR_CODE equals c
-                                 select s).ToList();
-            if (size != null)
+                                 select s).ToList() ?? data.stokcard;
+            if (size != null && size.Count() > 0)
                 data.stokcard = (from s in data.stokcard
                                  join c in size on s.BODY_CODE equals c
-                                 select s).ToList();
+                                 select s).ToList() ?? data.stokcard;
             //if (price > 0)
             //{
             //    data.stokcard = (from s in data.stokcard
@@ -205,10 +206,9 @@ namespace siparis.Controllers
             info.SortDirection = "ascending";
             info.PageSize = 6;
             info.PageCount = Convert.ToInt32(Math.Ceiling((double)(data.stokcard.Where(x => x.UPPER_CODE == x.CODE).Count()
-                           / info.PageSize)));
+                           / info.PageSize)));           
             info.CurrentPageIndex = 0;
             ViewBag.SortingPagingInfo = info;
-
             return View(data);
 
         }

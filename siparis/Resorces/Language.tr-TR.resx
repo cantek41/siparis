@@ -489,4 +489,25 @@
   <data name="AddNewUser" xml:space="preserve">
     <value>Yeni Kullanıcı Ekle</value>
   </data>
+  <data name="MainGroup" xml:space="preserve">
+    <value>Ana Grup</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="Pocket" xml:space="preserve">
+    <value>Paketleme</value>
+  </data>
+  <data name="Rayon" xml:space="preserve">
+    <value>Reyon</value>
+  </data>
+  <data name="Sector" xml:space="preserve">
+    <value>Sektor</value>
+  </data>
+  <data name="SubGroup1" xml:space="preserve">
+    <value>Alt Grup 1</value>
+  </data>
+  <data name="SubGroup2" xml:space="preserve">
+    <value>Alt Grup 2</value>
+  </data>
 </root>
