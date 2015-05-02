@@ -62,8 +62,7 @@ $(document).ready(function () {
         var quantity= $("#QUANTITY").val();
         var stok = $("#STOK").val();
         if (quantity>stok) {
-
-            alert("İstenilen miktar stoktan fazla olamaz!");
+            $().toastmessage('showWarningToast', "Miktar hatalı!!");
             $("#QUANTITY").val(stok);
         }
 

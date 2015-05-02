@@ -826,8 +826,11 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\verticalMenu.css" />
     <Content Include="Content\images\404\404.png" />
+    <Content Include="Content\images\alert\close.gif" />
     <Content Include="Content\images\alert\error.png" />
+    <Content Include="Content\images\alert\notice.png" />
     <Content Include="Content\images\alert\success.png" />
+    <Content Include="Content\images\alert\warning.png" />
     <Content Include="Content\images\blog\blog-one.jpg" />
     <Content Include="Content\images\blog\blog-three.jpg" />
     <Content Include="Content\images\blog\blog-two.jpg" />
