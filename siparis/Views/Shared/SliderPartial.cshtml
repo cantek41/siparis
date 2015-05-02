@@ -3,7 +3,7 @@
     var model = from d in db.STOKCARDPICTUREs
                 where d.STOK_ID == 0
                 select d.PATH;
-   
+
 }
 <link href="~/Content/css/js-image-slider.css" rel="stylesheet" />
 <script src="~/Scripts/js-image-slider.js"></script>
@@ -14,10 +14,11 @@
                 @{
                     foreach (string item in model)
                     {
-                         <img src="@item" alt="" />
+
+                        <img src="@item" alt="" />
                     }
                 }
-               
+
             </div>
         </div>
     </div>

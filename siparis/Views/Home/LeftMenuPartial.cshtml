@@ -4,12 +4,12 @@
 
 }
 <script type="text/javascript">
-    function secim(s,e,f) {
-        var value = s.GetChecked();        
+    function secim(s, e, f) {
+        var value = s.GetChecked();
         if (value) {
-            f.SelectAll();          
+            f.SelectAll();
         }
-        else {           
+        else {
             f.UnselectAll();
         }
     }
@@ -29,9 +29,10 @@
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,MAIN_GRUOP); }";
         }).GetHtml())
+
         @(Html.DevExpress().CheckBoxList(settings =>
         {
-            settings.Name = "MAIN_GRUOP";            
+            settings.Name = "MAIN_GRUOP";
             settings.Properties.ValueField = "ID";
             settings.Properties.TextField = "EXP_TR";
             settings.Properties.ValueType = typeof(int);
@@ -60,7 +61,7 @@
             };
 
         }).BindList(Model.stokMainGroup).GetHtml()
-)
+        )
     </div><!--/Main Group-->
     <div>
         <!--filtre buton-->
@@ -76,21 +77,22 @@
             settings.Text = @siparis.Resorces.Language.UnFilter;
             settings.UseSubmitBehavior = true;
         }).GetHtml()
+
     </div><!--/filtre buton-->
     if (HttpContext.Current.Request.Path.Contains("CategorizedProducts"))
     {
-        
-    <div class="brands_products">
-        <!--sub group 1-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.SubGroup1</h2>
-        @(Html.DevExpress().CheckBox(s =>
+
+        <div class="brands_products">
+            <!--sub group 1-->
+            <h2 style="margin-top:20px;">@siparis.Resorces.Language.SubGroup1</h2>
+            @(Html.DevExpress().CheckBox(s =>
         {
             s.Name = "allsub";
             s.Text = "All";
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SUB_GROUP); }";
         }).GetHtml())
-        @(Html.DevExpress().CheckBoxList(settings =>
+            @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "SUB_GROUP";
             settings.Properties.ValueField = "ID";
@@ -106,29 +108,30 @@
                 ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
                 foreach (ListEditItem item in cbl.Items)
                 {
-                    int count = @Model.stokcard.Where(x => x.SUB_GRUP1 == (int)item.Value).Count();                   
+                    int count = @Model.stokcard.Where(x => x.SUB_GRUP1 == (int)item.Value).Count();
                     item.Text += " (" + count + ")";
                     if (count > 0)
                     {
-                        item.Selected = true;                        
+                        item.Selected = true;
                     }
                 }
             };
 
+
         }).BindList(Model.stokSubGroup).GetHtml()
-        )
-    </div><!--/sub group 1-->
-    <div class="brands_products">
-        <!--sub group 2-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.SubGroup2</h2>
-        @(Html.DevExpress().CheckBox(s =>
+            )
+        </div><!--/sub group 1-->
+        <div class="brands_products">
+            <!--sub group 2-->
+            <h2 style="margin-top:20px;">@siparis.Resorces.Language.SubGroup2</h2>
+            @(Html.DevExpress().CheckBox(s =>
         {
             s.Name = "all2";
             s.Text = "All";
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SUB_GROUP2); }";
         }).GetHtml())
-        @(Html.DevExpress().CheckBoxList(settings =>
+            @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "SUB_GROUP2";
             settings.Properties.ValueField = "ID";
@@ -154,19 +157,19 @@
             };
 
         }).BindList(Model.stokSubGroup2).GetHtml()
-        )
-    </div><!--/sub group 2-->
-    <div class="brands_products">
-        <!--category-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Category</h2>
-        @(Html.DevExpress().CheckBox(s =>
+            )
+        </div><!--/sub group 2-->
+        <div class="brands_products">
+            <!--category-->
+            <h2 style="margin-top:20px;">@siparis.Resorces.Language.Category</h2>
+            @(Html.DevExpress().CheckBox(s =>
         {
             s.Name = "all3";
             s.Text = "All";
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,CATEGORY); }";
         }).GetHtml())
-        @(Html.DevExpress().CheckBoxList(settings =>
+            @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "CATEGORY";
             settings.Properties.ValueField = "STOK_GROUP_CODE";
@@ -191,19 +194,19 @@
             };
 
         }).BindList(Model.stokCategory).GetHtml()
-        )
-    </div><!--/category-->
-    <div class="brands_products">
-        <!--brands_products-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Brands</h2>
-        @(Html.DevExpress().CheckBox(s =>
+            )
+        </div><!--/category-->
+        <div class="brands_products">
+            <!--brands_products-->
+            <h2 style="margin-top:20px;">@siparis.Resorces.Language.Brands</h2>
+            @(Html.DevExpress().CheckBox(s =>
         {
             s.Name = "all4";
             s.Text = "All";
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,BRAND); }";
         }).GetHtml())
-        @(Html.DevExpress().CheckBoxList(settings =>
+            @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "BRAND";
             settings.Properties.ValueField = "BRAND_CODE";
@@ -228,19 +231,19 @@
             };
 
         }).BindList(Model.stokbrand).GetHtml()
-        )
-    </div><!--/brands_products-->
-    <div class="brands_products">
-        <!--model-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Model</h2>
-        @(Html.DevExpress().CheckBox(s =>
+            )
+        </div><!--/brands_products-->
+        <div class="brands_products">
+            <!--model-->
+            <h2 style="margin-top:20px;">@siparis.Resorces.Language.Model</h2>
+            @(Html.DevExpress().CheckBox(s =>
         {
             s.Name = "all5";
             s.Text = "All";
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,MODEL); }";
         }).GetHtml())
-        @(Html.DevExpress().CheckBoxList(settings =>
+            @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "MODEL";
             settings.Properties.ValueField = "MODEL_CODE";
@@ -265,19 +268,19 @@
                 }
             };
         }).BindList(Model.stokModel).GetHtml()
-        )
-    </div><!--/model-->
-    <div class="brands_products">
-        <!--size_products-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
-        @(Html.DevExpress().CheckBox(s =>
+            )
+        </div><!--/model-->
+        <div class="brands_products">
+            <!--size_products-->
+            <h2 style="margin-top:20px;">@siparis.Resorces.Language.Size</h2>
+            @(Html.DevExpress().CheckBox(s =>
         {
             s.Name = "all6";
             s.Text = "All";
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SIZE); }";
         }).GetHtml())
-        @(Html.DevExpress().CheckBoxList(settings =>
+            @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "SIZE";
             settings.Properties.ValueField = "BODY_CODE";
@@ -302,19 +305,19 @@
                 }
             };
         }).BindList(Model.stokBody).GetHtml()
-        )
-    </div><!--/size-->
-    <div class="brands_products">
-        <!--color-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Color</h2>
-        @(Html.DevExpress().CheckBox(s =>
+            )
+        </div><!--/size-->
+        <div class="brands_products">
+            <!--color-->
+            <h2 style="margin-top:20px;">@siparis.Resorces.Language.Color</h2>
+            @(Html.DevExpress().CheckBox(s =>
         {
             s.Name = "all7";
             s.Text = "All";
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,COLOR); }";
         }).GetHtml())
-        @(Html.DevExpress().CheckBoxList(settings =>
+            @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "COLOR";
             settings.Properties.ValueField = "COLOR_CODE";
@@ -338,19 +341,19 @@
                 }
             };
         }).BindList(Model.stokcolor).GetHtml()
-        )
-    </div><!--/color-->
-    <div class="brands_products">
-        <!--Season-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Season</h2>
-        @(Html.DevExpress().CheckBox(s =>
+            )
+        </div><!--/color-->
+        <div class="brands_products">
+            <!--Season-->
+            <h2 style="margin-top:20px;">@siparis.Resorces.Language.Season</h2>
+            @(Html.DevExpress().CheckBox(s =>
         {
             s.Name = "all8";
             s.Text = "All";
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SEASON); }";
         }).GetHtml())
-        @(Html.DevExpress().CheckBoxList(settings =>
+            @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "SEASON";
             settings.Properties.ValueField = "SEASON_CODE";
@@ -365,7 +368,7 @@
                 ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
                 foreach (ListEditItem item in cbl.Items)
                 {
-                    int count = @Model.stokcard.Where(x => x.SEASON_CODE == (int)item.Value).Count();                    
+                    int count = @Model.stokcard.Where(x => x.SEASON_CODE == (int)item.Value).Count();
                     item.Text += " (" + count + ")";
                     if (count > 0)
                     {
@@ -374,19 +377,19 @@
                 }
             };
         }).BindList(Model.stokseason).GetHtml()
-        )
-    </div><!--/season-->
-    <div class="brands_products">
-        <!--PACKET-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Pocket</h2>
-        @(Html.DevExpress().CheckBox(s =>
+            )
+        </div><!--/season-->
+        <div class="brands_products">
+            <!--PACKET-->
+            <h2 style="margin-top:20px;">@siparis.Resorces.Language.Pocket</h2>
+            @(Html.DevExpress().CheckBox(s =>
         {
             s.Name = "all9";
             s.Text = "All";
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,PACKET); }";
         }).GetHtml())
-        @(Html.DevExpress().CheckBoxList(settings =>
+            @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "PACKET";
             settings.Properties.ValueField = "PACKET_CODE";
@@ -410,19 +413,19 @@
                 }
             };
         }).BindList(Model.stokPacket).GetHtml()
-        )
-    </div><!--/PACKET-->
-    <div class="brands_products">
-        <!--PACKET-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Rayon</h2>
-        @(Html.DevExpress().CheckBox(s =>
+            )
+        </div><!--/PACKET-->
+        <div class="brands_products">
+            <!--PACKET-->
+            <h2 style="margin-top:20px;">@siparis.Resorces.Language.Rayon</h2>
+            @(Html.DevExpress().CheckBox(s =>
         {
             s.Name = "all10";
             s.Text = "All";
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,RAYON); }";
         }).GetHtml())
-        @(Html.DevExpress().CheckBoxList(settings =>
+            @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "RAYON";
             settings.Properties.ValueField = "RAYON_CODE";
@@ -446,19 +449,19 @@
                 }
             };
         }).BindList(Model.stokRayon).GetHtml()
-        )
-    </div><!--/RAYON-->
-    <div class="brands_products">
-        <!--SECTOR-->
-        <h2 style="margin-top:20px;">@siparis.Resorces.Language.Sector</h2>
-        @(Html.DevExpress().CheckBox(s =>
+            )
+        </div><!--/RAYON-->
+        <div class="brands_products">
+            <!--SECTOR-->
+            <h2 style="margin-top:20px;">@siparis.Resorces.Language.Sector</h2>
+            @(Html.DevExpress().CheckBox(s =>
         {
             s.Name = "all11";
             s.Text = "All";
             s.Checked = true;
             s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SECTOR); }";
         }).GetHtml())
-        @(Html.DevExpress().CheckBoxList(settings =>
+            @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "SECTOR";
             settings.Properties.ValueField = "SECTOR_CODE";
@@ -482,19 +485,19 @@
                 }
             };
         }).BindList(Model.stokSector).GetHtml()
-        )
-    </div><!--/SECTOR-->
-     <div>
-        <!-- filter button-->
-        @Html.DevExpress().Button(settings =>
+            )
+        </div><!--/SECTOR-->
+        <div>
+            <!-- filter button-->
+            @Html.DevExpress().Button(settings =>
         {
             settings.Name = "Filter_";
             settings.Text = @siparis.Resorces.Language.Filter;
             settings.UseSubmitBehavior = true;
         }).GetHtml()
 
-    </div><!--/filter button-->
+
+        </div><!--/filter button-->
     }
-   
-   
+
 }

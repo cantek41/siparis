@@ -23,7 +23,6 @@ body {
 .onaylabutonu {
     color: white;
     margin-left: 10px;
-
 }
 
     .onaylabutonu:hover {
@@ -92,7 +91,6 @@ body {
     }
 
 .border-ayar {
-
 }
 
 
@@ -104,14 +102,12 @@ body {
         background-color: white;
         height: 30px;
         font-size: 12px;
-        width:100%;
-
+        width: 100%;
     }
 
-      .border-ayar input:disabled {
-        background-color:#F0F0E9;
-
-    }
+        .border-ayar input:disabled {
+            background-color: #F0F0E9;
+        }
 
     .border-ayar select {
         border-radius: 3px;
@@ -121,7 +117,7 @@ body {
         background-color: white;
         height: 30px;
         font-size: 12px;
-        width:100%;
+        width: 100%;
     }
 
     .border-ayar tr {
@@ -132,12 +128,12 @@ body {
         background-color: white;
         height: 30px;
         font-size: 12px;
-        width:100%;
+        width: 100%;
     }
 
     .border-ayar table {
         border-radius: 3px;
-        height:30px;
+        height: 30px;
         /*margin-bottom: 5px;
         border: 1px solid #d4d4d4;
         color: black;
@@ -726,10 +722,10 @@ ul.sub-menu {
 .footer-bottom {
     background: #D6D6D0;
     padding-top: 10px;
-    position:fixed;
-    bottom:0;
-    width:100%;
-    
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index:10;
 }
 
     .footer-bottom p {
@@ -835,6 +831,7 @@ ul.sub-menu {
 .right {
     right: 0;
 }
+
 .left {
     left: 0px;
 }
@@ -1282,7 +1279,7 @@ h2.title {
     }
 
 .pagination {
-    display:block;
+    display: block;
     margin-bottom: 25px;
     margin-top: 0;
     padding-left: 15px;
@@ -1305,7 +1302,7 @@ h2.title {
         color: #FFFFFF;
         cursor: default;
         z-index: 2;
-        cursor:pointer;
+        cursor: pointer;
     }
 
     .pagination li a, .pagination li span {
@@ -1319,7 +1316,7 @@ h2.title {
         text-decoration: none;
         margin-right: 5px;
         color: #000;
-        cursor:pointer;
+        cursor: pointer;
     }
 
         .pagination li a:hover {
@@ -1406,8 +1403,8 @@ h2.title {
 
 .product-information {
     border: 1px solid #F7F7F0;
-    overflow: visible;/* Bu özellik daha önce hidden değerine sahipti.*/
-    padding:5px;
+    overflow: visible; /* Bu özellik daha önce hidden değerine sahipti.*/
+    padding: 5px;
     /*padding-bottom: 60px;
     padding-left: 60px;
     padding-top: 60px;*/
@@ -1436,6 +1433,7 @@ h2.title {
     margin-top: 0;
     padding-left: 20px;
 }
+
 .product-info-sub-title {
     color: #696763 !important;
     font-family: 'Roboto', sans-serif !important;
@@ -1445,7 +1443,6 @@ h2.title {
     background-color: transparent !important;
     border: 0px solid !important;
     font-weight: 600;
-
 }
 
 .product-info-price {
@@ -1463,16 +1460,16 @@ h2.title {
     color: #696763 !important;
     font-family: 'Roboto', sans-serif !important;
     font-size: 12px !important;
-    background-color:#ffffff !important;
+    background-color: #ffffff !important;
     padding-left: 20px !important;
-    overflow:hidden;
+    overflow: hidden;
+    text-align: justify !important;
 }
+
 .product-information p {
     color: #696763;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 5px;
-
-    
 }
 
 
@@ -1830,38 +1827,38 @@ h2.title {
     padding-left: 30px;
 }
 
-#cart_items .cart_info .cart_description 
-{
-    padding-left:30px;
-}
-#cart_items .cart_info .cart_description h4 {
-    margin-bottom: 0;
+#cart_items .cart_info .cart_description {
+    padding-left: 30px;
 }
 
-    #cart_items .cart_info .cart_description h4 a {
-        color: #363432;
-        font-family: 'Roboto',sans-serif;
-        font-size: 20px;
-        font-weight: normal;
+    #cart_items .cart_info .cart_description h4 {
+        margin-bottom: 0;
     }
 
-#cart_items .cart_info .cart_description p {
-    color: #696763;
-}
+        #cart_items .cart_info .cart_description h4 a {
+            color: #363432;
+            font-family: 'Roboto',sans-serif;
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+    #cart_items .cart_info .cart_description p {
+        color: #696763;
+    }
 
 
 #cart_items .cart_info .cart_price p {
     color: #696763;
     font-size: 18px;
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 
 
 #cart_items .cart_info .cart_total_price {
     color: #FE980F;
     font-size: 24px;
-    margin-bottom:0;
-    float:right;
+    margin-bottom: 0;
+    float: right;
 }
 
 .cart_product {
@@ -1870,7 +1867,7 @@ h2.title {
 }
 
 .cart_quantity_button a {
-    background-color:#FE980F;
+    background-color: #FE980F;
     color: #696763;
     /*display: inline-block;*/
     font-size: 16px;
@@ -1879,7 +1876,7 @@ h2.title {
     text-align: center;
     width: 25px;
     float: left;
-    line-height:28px;
+    line-height: 28px;
 }
 
 
@@ -1900,11 +1897,10 @@ h2.title {
 
 
     .cart_delete a {
-        background-color:#FE980F;
+        background-color: #FE980F;
         color: #FFFFFF;
         padding: 5px 7px;
         font-size: 16px;
-        
     }
 
         .cart_delete a:hover {
@@ -2131,6 +2127,22 @@ h2.title {
     margin-top: 20px;
 }
 
+.shopper-info-float {
+    width: 50%;
+    float: left;
+    padding:5px;
+    
+}
+
+  
+
+.shopper-info input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    transition: all 500ms ease 0s;
+}
 
 .form-two, .form-one {
     float: left;
@@ -2146,19 +2158,19 @@ h2.title {
         background: #ffffff;
         /*border: 0 none;*/
         margin-bottom: 10px;
-        padding-left: 10px;
+        padding-right: 10px;
         width: 100%;
         font-weight: 300;
+        text-align: right;
     }
 
 .shopper-info-passive input {
-
     background: #F0F0E9;
 }
 
-    .form-two > form > select {
-        padding: 10px 5px;
-    }
+.form-two > form > select {
+    padding: 10px 5px;
+}
 
 .form-two {
     margin-left: 5%;
@@ -2771,13 +2783,11 @@ h2.title {
 }
 
 .altMenu {
-    min-width:150px;
-    
-   
+    min-width: 150px;
 }
 
 .alt {
-    clear:both;
+    clear: both;
     margin-top: 20px;
     padding: 10px;
 }
@@ -2792,30 +2802,56 @@ h2.title {
     }
 
 .slider-image-mini {
-    width:70px;
-    height:70px;
+    width: 70px;
+    height: 70px;
 }
 
 .slider-image-main {
-width:266px;
-height:381px;
+    width: 266px;
+    height: 381px;
 }
 
 .image-main {
-width:268px;
-height:249px;
+    width: 268px;
+    height: 249px;
 }
 
 .image-midi {
-width:250px !important;
-height:220px !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 
 .padding-zero {
-padding:0;
+    padding: 0;
 }
 
 .padding-left {
-padding-left:10px;
+    padding-left: 10px;
+}
+
+.float,.txtMiktar {
+float:left;
+}
+
+.txtMiktar {
+ width:70%;  
+}
+
+    .txtMiktar input {
+        background: #ffffff;
+        /*border: 0 none;*/
+        margin-bottom: 10px;
+        padding-right: 10px;
+        width: 100%;
+        font-weight: 300;
+        text-align: center;
+    }
+
+#fitin {
+    width:100%;
+    height: 50px;
+    /*border: 1px solid black;*/
+    overflow: hidden;
+    font-size: 1em;
 }

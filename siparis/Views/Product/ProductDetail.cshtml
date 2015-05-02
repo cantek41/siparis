@@ -5,6 +5,7 @@
     ViewBag.Title = @siparis.Resorces.Language.ProductDetails;
      Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/css/jquery.toastmessage.css" rel="stylesheet" />
 <script src="~/Scripts/jquery.toastmessage.js"></script>
 <script src="~/Scripts/ajaxGonderi/ajaxGonder.js"></script>
 <script src="~/Scripts/ajaxGonderi/DropDownChangeEvent.js"></script>
@@ -43,16 +44,11 @@
                             @Html.Label(@Model.NAME_TR, new { id = "NAME_TR", @class = "product-info-title buyukharf" })<br />
                             @Html.TextBoxFor(model => model.CODE, new { @class = "product-info-sub-title buyukharf" })
                             @Html.TextBoxFor(model => model.UNIT_PRICE, new { @class = "product-info-price" })
-                            @Html.TextAreaFor(model => model.DES_TR, new { @class = "product-info-desc", onclick="textAreaAdjust(this)"})
-                            <script>
-                                function textAreaAdjust(o) {
-                                    o.style.height = "1px";
-                                    o.style.height = (25 + o.scrollHeight) + "px";
-                                }
-                            </script>
+                            @Html.TextAreaFor(model => model.DES_TR, new { @class = "product-info-desc", onclick = "textAreaAdjust(this)", disabled = "disabled" })
+
                             @Html.HiddenFor(model => model.UPPER_CODE)
                             @Html.HiddenFor(model => model.ID)
-                            @Html.HiddenFor(model=>model.CUR_TYPE)
+                            @Html.HiddenFor(model => model.CUR_TYPE)
 
                             <div>
                                 <div>
@@ -113,7 +109,7 @@
                                 </div>
                                 <div class="alt">
                                     <div class="col-sm-6"><p><b>@siparis.Resorces.Language.Quantity</b></p></div>
-                                    <div class="col-sm-6 border-ayar shopper-info"><input id="miktar" type="text" value="1" /></div>
+                                    <div class="col-sm-6 border-ayar shopper-info"><input id="QUANTITY" type="text" value="1" /></div>
                                 </div>
 
                                 <div class="alt">
@@ -152,4 +148,7 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
 </section>
