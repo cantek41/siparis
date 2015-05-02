@@ -43,13 +43,13 @@
                             @Html.Label(@Model.NAME_TR, new { id = "NAME_TR", @class = "product-info-title buyukharf" })<br />
                             @Html.TextBoxFor(model => model.CODE, new { @class = "product-info-sub-title buyukharf" })
                             @Html.TextBoxFor(model => model.UNIT_PRICE, new { @class = "product-info-price" })
-                            @Html.TextAreaFor(model => model.DES_TR, new { @class = "product-info-desc", onclick="textAreaAdjust(this)"})
-                            <script>
+                            @Html.TextAreaFor(model => model.DES_TR, new { @class = "product-info-desc", onclick = "textAreaAdjust(this)", disabled = "disabled" })
+                            @*<script>
                                 function textAreaAdjust(o) {
                                     o.style.height = "1px";
                                     o.style.height = (25 + o.scrollHeight) + "px";
                                 }
-                            </script>
+                            </script>*@
                             @Html.HiddenFor(model => model.UPPER_CODE)
                             @Html.HiddenFor(model => model.ID)
                             @Html.HiddenFor(model=>model.CUR_TYPE)

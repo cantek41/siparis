@@ -1,4 +1,10 @@
-﻿$(document).ready(function () {
+﻿/*ürün detay sayfasındaki textarea alanının yüksekliğini ayarlar*/
+function textAreaAdjust(obje) {
+
+    obje.style.height = "1px";
+    obje.style.height = (25 + obje.scrollHeight) + "px";
+}
+$(document).ready(function () {
     //alert(($("#BODY_CODE option").length));
     if (($("#COLOR_CODE option").length) <= 1) $("#COLOR_CODE").prop("disabled", true);
 
@@ -23,6 +29,7 @@
                     else $("#BODY_CODE").prop("disabled", false);
                 }
             });
+           
         });
        
     $("#BODY_CODE").change(function (e) {
@@ -42,6 +49,7 @@
                     $("#CODE").val(data.CODE);
                     $("#UNIT_PRICE").val(data.UNIT_PRICE + " " + data.CUR_TYPE);
                     $("#DES_TR").val(data.DES_TR);
+                    $("#DES_TR").click();
                    
                 }
             });
