@@ -7,17 +7,16 @@
 }
 <script src="~/Scripts/jquery.toastmessage.js"></script>
 <script src="~/Scripts/ajaxGonderi/ajaxGonder.js"></script>
-<script>
-    $(document).ready(function () {
-        $(".pager").click(function (evt) {
-            var pageindex = $(evt.target).data("pageindex");
-            $("#CurrentPageIndex").val(pageindex);
-            // evt.preventDefault();
-            $("form").submit();
-        });
+<script type="text/javascript">
+    $(function () {
+        $('#fitin div').css('font-size', '1em');
+
+        while ($('#fitin div').height() > $('#fitin').height()) {
+            $('#fitin div').css('font-size', (parseInt($('#fitin div').css('font-size')) - 1) + "px");
+        }
+
     });
 </script>
-
 
 @{Html.RenderPartial("SliderPartial");}
 <section>
