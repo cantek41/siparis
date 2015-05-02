@@ -2828,3 +2828,21 @@ h2.title {
 .padding-left {
     padding-left: 10px;
 }
+
+.float,.txtMiktar {
+float:left;
+}
+
+.txtMiktar {
+ width:70%;  
+}
+
+    .txtMiktar input {
+        background: #ffffff;
+        /*border: 0 none;*/
+        margin-bottom: 10px;
+        padding-right: 10px;
+        width: 100%;
+        font-weight: 300;
+        text-align: center;
+    }
