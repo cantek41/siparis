@@ -109,7 +109,7 @@ body {
     }
 
       .border-ayar input:disabled {
-        background-color:#CCCCC6;
+        background-color:#F0F0E9;
 
     }
 
@@ -1458,11 +1458,24 @@ h2.title {
     border: 0px solid !important;
     font-weight: 600;
 }
+
+.product-info-desc {
+    color: #696763 !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 12px !important;
+    background-color:#ffffff !important;
+    padding-left: 20px !important;
+    overflow:hidden;
+}
 .product-information p {
     color: #696763;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 5px;
+
+    
 }
+
+
 
 .product-information span {
     display: inline-block;
@@ -2130,7 +2143,7 @@ h2.title {
     .form-two > form > select,
     .form-two > form > input,
     .form-one > form > input {
-        background: #F0F0E9;
+        background: #ffffff;
         /*border: 0 none;*/
         margin-bottom: 10px;
         padding-left: 10px;
@@ -2140,7 +2153,7 @@ h2.title {
 
 .shopper-info-passive input {
 
-    background: #CCCCC6;
+    background: #F0F0E9;
 }
 
     .form-two > form > select {
@@ -2757,11 +2770,18 @@ h2.title {
     width: 50px;
 }
 
+.altMenu {
+    min-width:150px;
+    
+   
+}
+
 .alt {
-    clear: both;
+    clear:both;
     margin-top: 20px;
     padding: 10px;
 }
+
 
 .register-btn {
     margin-left: -5px;
@@ -2787,8 +2807,8 @@ height:249px;
 }
 
 .image-midi {
-width:250px;
-height:220px;
+width:250px !important;
+height:220px !important;
 }
 
 
