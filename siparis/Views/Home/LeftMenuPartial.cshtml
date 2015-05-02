@@ -1,32 +1,30 @@
 ﻿@model siparis.Models.IndexDataViewModel
 @using siparis.Models
 @{
-    
+
 }
 
 @using (Html.BeginForm())
 {
-     
-    
+
+
     @*foreach (var stok in Model.stokgroup)
-    {
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a href="/Category/CategorizedProducts?Id=@stok.STOK_GROUP_CODE">
-                        <span class="badge pull-right">(@Model.stokcard.Where(x => x.CATEGORY_CODE == stok.STOK_GROUP_CODE).Count())</span>
-                        @stok.NAME_TR
-                    </a>
-                </h4>
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="/Category/CategorizedProducts?Id=@stok.STOK_GROUP_CODE">
+                            <span class="badge pull-right">(@Model.stokcard.Where(x => x.CATEGORY_CODE == stok.STOK_GROUP_CODE).Count())</span>
+                            @stok.NAME_TR
+                        </a>
+                    </h4>
+                </div>
             </div>
-        </div>
 
-    }*@
-    
-     <div class="brands_products">
+        }*@
+
+    <div class="brands_products">
         <!--Category-->
-        
-
         @(Html.DevExpress().CheckBoxList(settings =>
         {
             settings.Name = "STOK_GROUP_CODE";
@@ -53,19 +51,19 @@
 
 
     </div><!--/brands_products-->
-    <div>
+    <div class="text-center">
         @Html.DevExpress().Button(settings =>
         {
             settings.Name = "Filter";
             settings.Text = @siparis.Resorces.Language.Filter;
             settings.UseSubmitBehavior = true;
-        }).GetHtml()  
+        }).GetHtml()
         @Html.DevExpress().Button(settings =>
         {
             settings.Name = "UnFilter";
             settings.Text = @siparis.Resorces.Language.UnFilter;
             settings.UseSubmitBehavior = true;
-        }).GetHtml()  
+        }).GetHtml()
 
     </div>
     <div class="brands_products">
@@ -185,21 +183,27 @@
     <div class="price-range">
         <!--price-range-->
         <h2>@siparis.Resorces.Language.PriceRange</h2>
-        <div class="well text-center">
-            <input name="startPRICE" type="text" class="span2" value=""><br />
-            <input name="endPRICE" type="text" class="span2" value=""><br />
-          @*  <input name="PRICE" type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />*@
-         
+
+        <div class="border-ayar shopper-info">
+            <div class="shopper-info-float">
+                <input name="startPRICE" type="text" value="">
+            </div>
+
+            <div class="shopper-info-float">
+                <input name="endPRICE" type="text" value="">
+            </div>
+            @*  <input name="PRICE" type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />*@
+
         </div>
     </div><!--/price-range-->
 
-    <div>
+    <div class="text-center">
         @Html.DevExpress().Button(settings =>
         {
             settings.Name = "Filter_";
             settings.Text = @siparis.Resorces.Language.Filter;
             settings.UseSubmitBehavior = true;
-        }).GetHtml()      
-        
+        }).GetHtml()
+
     </div>
 }
