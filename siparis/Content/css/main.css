@@ -843,6 +843,11 @@ ul.sub-menu {
     padding-top: 15px;
 }
 
+.brands_products {
+background-color:#fff;
+overflow-y:hidden;
+}
+
 .left-sidebar h2, .brands_products h2 {
     color: #FE980F;
     font-family: 'Roboto', sans-serif;
