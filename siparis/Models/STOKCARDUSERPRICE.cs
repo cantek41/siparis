@@ -20,5 +20,6 @@ namespace siparis.Models
         public Nullable<decimal> PRICE { get; set; }
         public string CUR_TYPE { get; set; }
         public Nullable<int> PRICE_TYPE { get; set; }
+        public Nullable<int> COMPANY_CODE { get; set; }
     }
 }

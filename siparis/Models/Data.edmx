@@ -2292,6 +2292,7 @@ warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a pri
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COMPANY_CODE" Type="int" />
           <Property Name="USER_CODE" Type="int" />
           <Property Name="STOK_ID" Type="int" />
           <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
@@ -2399,7 +2400,7 @@ warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a pri
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CODE" Type="nvarchar(max)" />
           <Property Name="MAIN_GROUP_CODE" Type="nvarchar(max)" />
           <Property Name="ROW_ORDER_NO" Type="int" />
@@ -3440,6 +3441,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="STOKCARDUSERPRICE" EntityType="Self.STOKCARDUSERPRICE" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [STOKCARDUSERPRICE].[ID] AS [ID], 
+    [STOKCARDUSERPRICE].[COMPANY_CODE] AS [COMPANY_CODE], 
     [STOKCARDUSERPRICE].[USER_CODE] AS [USER_CODE], 
     [STOKCARDUSERPRICE].[STOK_ID] AS [STOK_ID], 
     [STOKCARDUSERPRICE].[PRICE] AS [PRICE], 
@@ -6190,6 +6192,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="CUR_TYPE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="PRICE_TYPE" Type="Int32" />
+          <Property Name="COMPANY_CODE" Type="Int32" />
         </EntityType>
         <EntityType Name="USERBANK">
           <Key>
@@ -9453,6 +9456,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySetMapping Name="STOKCARDUSERPRICEs">
             <EntityTypeMapping TypeName="VdbSoftModel.STOKCARDUSERPRICE">
               <MappingFragment StoreEntitySet="STOKCARDUSERPRICE">
+                <ScalarProperty Name="COMPANY_CODE" ColumnName="COMPANY_CODE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
                 <ScalarProperty Name="STOK_ID" ColumnName="STOK_ID" />
