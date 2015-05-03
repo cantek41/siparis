@@ -10,7 +10,8 @@ namespace siparis.Models
         public List<STOKMAINGROUP> stokMainGroup { get; set; }
         public List<STOKSUBGROUP> stokSubGroup { get; set; }
         public List<STOKSUBGROUP2> stokSubGroup2 { get; set; }
-        public List<STOKCARD> stokcard { get; set; }
+        public List<stockVievModel> stokcard { get; set; }
+        public List<stockVievModel> stokcardView { get; set; }
         public List<STOKCATEGORY> stokCategory { get; set; }
         public List<STOKBRAND> stokbrand { get; set; }
         public List<STOKSEASON> stokseason { get; set; }

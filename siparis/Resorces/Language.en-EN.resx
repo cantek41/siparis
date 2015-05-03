@@ -501,4 +501,10 @@
   <data name="SubGroup2" xml:space="preserve">
     <value>Sub Group2</value>
   </data>
+  <data name="Distribute" xml:space="preserve">
+    <value>Distribute</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
 </root>

@@ -8,6 +8,17 @@
 <script src="~/Scripts/jquery.toastmessage.js"></script>
 <script src="~/Scripts/ajaxGonderi/ajaxGonder.js"></script>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".pager").click(function (evt) {
+            var pageindex = $(evt.target).data("pageindex");
+            $("#CurrentPageIndex").val(pageindex);
+            // evt.preventDefault();
+            $("form").submit();
+        });
+    });
+</script>
+
 @{Html.RenderPartial("SliderPartial");}
 <section>
     <div class="container">

@@ -510,4 +510,10 @@
   <data name="SubGroup2" xml:space="preserve">
     <value>Alt Grup 2</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="Distribute" xml:space="preserve">
+    <value>Depo Durumları</value>
+  </data>
 </root>

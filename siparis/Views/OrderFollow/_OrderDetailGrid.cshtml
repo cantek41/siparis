@@ -40,13 +40,12 @@
         settings.CommandColumn.CustomButtons.Add(new GridViewCommandColumnCustomButton()
         {
             ID = "First10",
-            Text = "Sec"
+            Text = siparis.Resorces.Language.Choose
         });
         //        settings.ClientSideEvents.CustomButtonClick = "function(s,e){detailGrid_" + ViewData["OPPORTUNITY_CODE"]+".PerformCallback({clickedButton : s.GetRowKey(e.visibleIndex)});}";
         settings.ClientSideEvents.CustomButtonClick = "function(s,e){{OnGetRowValues(s.GetRowKey(e.visibleIndex))}}";
 
         settings.CommandColumn.Visible = true;
-
        
 
         settings.KeyFieldName = "ROW_ORDER_NO;OPPORTUNITY_CODE";
