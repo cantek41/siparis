@@ -108,8 +108,8 @@ namespace siparis.Controllers
             foreach (var item in model)
             {
                 item.STOKCARD = db.STOKCARDs.Where(x => x.ID == item.STOK_ID).FirstOrDefault();
-                item.STOKCARD.STOKCARDPICTUREs = db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).ToList();
-                
+             //   item.STOKCARD.STOKCARDPICTUREs =  db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).ToList();
+                //fix me
                 ////
                 Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param = orderWareHouseCal(item.OPPORTUNITY_CODE, item.ROW_ORDER_NO);
                 List<StokWareHouseViewModel> depolar = param.Item1;

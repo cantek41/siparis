@@ -64,7 +64,7 @@ namespace siparis.Controllers
                     stokcart.UNIT_PRICE = price.PRICE;
                     stokcart.CUR_TYPE = price.CUR_TYPE;
                     opportunitdetails.ROW_ORDER_NO = row + 1;
-                    opportunitdetails.CUR_TYPE = stokcart.CUR_TYPE;
+                    opportunitdetails.CUR_TYPE = stokcart.CUR_TYPE.Trim();
                     opportunitdetails.UNIT_PRICE = (float)stokcart.UNIT_PRICE;
                     opportunitdetails.UNIT = stokcart.UNIT.ToString();
                     opportunitdetails.STOK_ID = stokID;

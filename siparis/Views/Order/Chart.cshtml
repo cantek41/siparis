@@ -99,8 +99,16 @@
                         {
                             <tr>
                                 <td class="cart_product">
-                                    <a href=""><img src="@item.STOKCARD.STOKCARDPICTUREs.ElementAt(0).PATH" style="width:100px;" alt=""></a>
+                                    @*@if (@item.STOKCARD.STOKCARDPICTUREs.Count != null)
+                                    {
+                                        <a href=""><img src="@item.STOKCARD.STOKCARDPICTUREs.ElementAt(0).PATH" style="width:100px;" alt=""></a>
+                                    }
+                                    else
+                                    {*@
+                                    <img src="../Content/images/404/No_Image_Available.png" alt="" style="width:100px;" />
+                                    @*  }*@
                                 </td>
+                               
                                 <td class="cart_description">
                                     <h4><a href="/Product/ProductDetail?urunID=@item.STOK_ID" class="buyukharf">@item.STOKCARD.NAME_TR</a></h4>
                                     <p>@item.STOKCARD.CODE</p>
