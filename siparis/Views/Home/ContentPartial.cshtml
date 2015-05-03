@@ -23,40 +23,49 @@
             {
                 if (i == 0)
                 {
-                  @Html.Raw("<div class='row'>");
+                    @Html.Raw("<div class='row'>");
                 }
                 i++;
                 Html.RenderPartial("UrunGetirPartial", stok);
                 if (i == 3)
                 {
                     @Html.Raw("</div>");
-                    i = 0;
+                                       i = 0;
                 }
 
             }
-        }        
+        }
     </div>
     <div style="float:right">
         <ul class="pagination">
-            @for (var i = 0; i < info.PageCount; i++)
-            {
-                if (i > 3)
+            @{
+                int current = info.CurrentPageIndex;
+                if (info.CurrentPageIndex > 0)
                 {
-                    <li><a data-pageindex="@i" class="pager">&raquo;</a></li>
-                    i = info.PageCount;
-                    break;
-                }
-                if (i == info.CurrentPageIndex)
-                {
-                    <li class="active"><a class="pager">@(i + 1)</a></li>
-
-                }
-                else
-                {
-                    <li><a data-pageindex="@i" class="pager">@(i + 1)</a></li>
-
+                    <li><a data-pageindex="info.CurrentPageIndex-1" class="pager">&laquo;</a></li>
                 }
 
+                for (var i = 0; i < 4; i++)
+                {
+                    current++;
+                    if (i >= info.PageCount)
+                    {
+                        <li><a data-pageindex="@(current-1)" class="pager">&raquo;</a></li>
+                        i = info.PageCount;
+                        break;
+                    }
+                    if (current - 1 == info.CurrentPageIndex)
+                    {
+                        <li class="active"><a class="pager">@current</a></li>
+
+                    }
+                    else
+                    {
+                        <li><a data-pageindex="@(current-1)" class="pager">@current</a></li>
+
+                    }
+
+                }
             }
 
         </ul>

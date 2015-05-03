@@ -28,8 +28,7 @@ namespace siparis.Controllers
             info.SortField = "ID";
             info.SortDirection = "ascending";
             info.PageSize = 12;
-            info.PageCount = Convert.ToInt32(Math.Ceiling((double)(db.STOKCARDs.Where(x => x.UPPER_CODE == x.CODE).Count()
-                           / info.PageSize)));
+            info.PageCount = -1;
             info.CurrentPageIndex = 0;
             ViewBag.SortingPagingInfo = info;
             /// sayfalama bilgiswi bitti
@@ -82,6 +81,11 @@ namespace siparis.Controllers
             //  data.stokcard = query.ToList();
             data.stokcard = getStokDetail(db);
             data = getDetailFilter(data);
+            if (info.PageCount==-1)
+            {
+                info.PageCount= Convert.ToInt32(Math.Ceiling((double)(data.stokcard.Where(x => x.UPPER_CODE == x.CODE).Count()
+                           / info.PageSize)));
+            }
             ViewBag.SortingPagingInfo = info;
             return data;
         }
