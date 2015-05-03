@@ -75,7 +75,7 @@
         {
             settings.Name = "UnFilter";
             settings.Text = @siparis.Resorces.Language.UnFilter;
-            settings.UseSubmitBehavior = true;
+            settings.RouteValues = new { Controller = "Home", Action = "Index" };
         }).GetHtml()
 
     </div><!--/filtre buton-->
