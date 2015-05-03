@@ -367,6 +367,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Details.
         /// </summary>
         public static string Details {
@@ -381,6 +390,15 @@ namespace siparis.Resorces {
         public static string DispachNote {
             get {
                 return ResourceManager.GetString("DispachNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DISTRIBUTE.
+        /// </summary>
+        public static string Distribute {
+            get {
+                return ResourceManager.GetString("Distribute", resourceCulture);
             }
         }
         

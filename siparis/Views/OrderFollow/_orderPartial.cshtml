@@ -35,19 +35,19 @@
     <div class="col-md-4">
         @Html.DevExpress().TextBoxFor(model => model.Item2.STOK_CODE, textBoxSettings =>
             {
-                textBoxSettings.Properties.Caption = "STOK CODE";
+                textBoxSettings.Properties.Caption = siparis.Resorces.Language.Stock;
                 PrepareTextBoxSettings(textBoxSettings);
             }).GetHtml()
 
         @Html.DevExpress().TextBoxFor(model => model.Item2.PRODUCT_NAME, textBoxSettings =>
             {
-                textBoxSettings.Properties.Caption = "PRODUCT NAME";
+                textBoxSettings.Properties.Caption = siparis.Resorces.Language.Product_Name;// "PRODUCT NAME";
                 PrepareTextBoxSettings(textBoxSettings);
             }).GetHtml()
 
         @Html.DevExpress().TextBoxFor(model => model.Item2.QUANTITY, textBoxSettings =>
             {
-                textBoxSettings.Properties.Caption = "QUANTITY";
+                textBoxSettings.Properties.Caption = siparis.Resorces.Language.Quantity;// "QUANTITY";
                 PrepareTextBoxSettings(textBoxSettings);
             }).GetHtml()
 
@@ -66,7 +66,7 @@
     </div>
 
     <div class="col-md-8">
-        <h5><B>DISTRIBUTE</B></h5>
+        <h5><B>@siparis.Resorces.Language.Distribute</B></h5>
 @using (Html.BeginForm()){
         @Html.Partial("_wareHousePartial", Model.Item1)
 }

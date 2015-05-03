@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = @siparis.Resorces.Language.ProductDetails;
-     Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Content/css/jquery.toastmessage.css" rel="stylesheet" />
 <script src="~/Scripts/jquery.toastmessage.js"></script>
@@ -18,21 +18,32 @@
 
                     <div class="col-sm-5 border-ayar product-information">
                         <div class="view-product">
-                            <img src="@Model.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" class="slider-image-main" />
+                            @if (@Model.STOKCARDPICTUREs.Count != 0)
+                            {
+                                <img src="@Model.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" class="slider-image-main" />
+                            }
+                            else
+                            {
+                                <img src="../Content/images/404/No_Image_Available.png" alt="" class="slider-image-main" />
+                            }
                             <h3>ZOOM</h3>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
-                                <div class="item active">
-                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="slider-image-mini"></a>
-                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="slider-image-mini"></a>
-                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="slider-image-mini"></a>
-                                </div>
-                                <div class="item">
-                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="slider-image-mini"></a>
-                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="slider-image-mini"></a>
-                                    <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="slider-image-mini"></a>
-                                </div>
+                                @if (@Model.STOKCARDPICTUREs.Count > 1)
+                                {
+                                    <div class="item active">
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="slider-image-mini"></a>
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="slider-image-mini"></a>
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(1).PATH" alt="" class="slider-image-mini"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="slider-image-mini"></a>
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="slider-image-mini"></a>
+                                        <a href=""><img src="@Model.STOKCARDPICTUREs.ElementAt(2).PATH" alt="" class="slider-image-mini"></a>
+                                    </div>
+                                }
+
                             </div>
                             <a class="left item-control" href="#similar-product" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                             <a class="right item-control" href="#similar-product" data-slide="next"><i class="fa fa-angle-right"></i></a>
