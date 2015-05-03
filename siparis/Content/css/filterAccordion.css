@@ -1,31 +1,29 @@
-﻿/*html {
-	overflow-y: scroll;
-}
-body {
+﻿
+#filter {
 	font: normal normal 90% sans-serif;
 	max-width: 200px;
 	margin: 100px auto 50px auto;
 	background: #1f1f1f;
 	text-align: center;
-}*/
-html {
-	overflow-y: scroll;
 }
+
 ul {
 	list-style: none;
 	margin: 0; padding: 0;
 	text-align: left;
 }
-body > ul {
-	margin-bottom: 300px;
+#filter ul {
+	/*margin-bottom: 300px;*/
 	border: 1px solid #222;
-    box-shadow:0 0 25px #000;
+    /*box-shadow:0 0 25px #000;*/
 
 }
-body > ul > li {
+#filter  ul li {
 	position: relative;
 }
-body > ul > li > a {
+/*#filter ul > li > a*/
+
+#filter ul li a{
 	display: block;
 	outline: 0;
 	padding: .7em 1em;
@@ -38,22 +36,26 @@ body > ul > li > a {
 	background-image:linear-gradient(#444, #333);
 	/*filter-gradient:#444, #333, horizontal;*/
 	border-bottom: 1px solid #222;
+    background: -webkit-linear-gradient(left, #444 , #333); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #444 , #333); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #444 , #333); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #444 , #333); /* Standard syntax */
 }
-body > ul > li > ul {
+.dxe table {
 	counter-reset: items;
 	height: 0;
 	overflow: hidden;
 	background: #eee;
 	color: #777;
-	font-size: .75em;
+	font-size: 1em;
 	box-shadow:inset 0 0 50px #BBB;
 }
-body > ul > li > ul > li {
+.dxe table tr{
 	counter-increment: items;
-	padding: .5em 1.3em;
+	padding: 1em 1.3em;
 	border-bottom: 1px dotted #DDD;
 }
-body > ul > li > ul:after {
+.dxe table:after {
 	content: counter(items);
 	font-size: 0.857em;
     display:inline-block;
@@ -73,3 +75,5 @@ body > ul > li > ul:after {
 	border-radius:.769em;
 	box-shadow:inset 0px 1px 3px 0px rgba(0, 0, 0, 0.26), 0px 1px 0px 0px rgba(255, 255, 255, 0.15);
 }
+
+
