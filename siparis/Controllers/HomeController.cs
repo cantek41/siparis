@@ -77,9 +77,18 @@ namespace siparis.Controllers
                 //             db.STOKCARDs.OrderByDescending(c => c.Country));
                 //break;
             }
-
+            ProfileInfo profil = (ProfileInfo)Session["profilim"];
             IndexDataViewModel data = new IndexDataViewModel();
             data.stokcard = query.ToList();
+            data.stokcardView = (from stok in db.STOKCARDs
+                                 join price in db.STOKCARDUSERPRICEs on stok.ID equals price.STOK_ID
+                                 where price.COMPANY_CODE==profil.FirmaKodu
+                                 select new stockVievModel { 
+                                     ID = stok.ID, 
+                                     UNIT = db.STOKWAREHOUSEPRODUCTs.Where(x => x.STOK_ID == stok.ID).Sum(x=>x.QUANTITY), 
+                                     UNIT_PRICE=price.PRICE,
+                                     CUR_TYPE=price.CUR_TYPE 
+                                 }).ToList();
             data = getDetailFilter(data);
             //data.stokBody = db.STOKBODies.ToList();
             //data.stokbrand = db.STOKBRANDs.ToList();
