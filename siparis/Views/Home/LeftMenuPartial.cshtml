@@ -89,22 +89,53 @@
 
                 </div><!--/Main Group-->
             </li>
-            <div>
-                <!--filtre buton-->
-                @Html.DevExpress().Button(settings =>
-        {
-            settings.Name = "Filter";
-            settings.Text = @siparis.Resorces.Language.Filter;
-            settings.UseSubmitBehavior = true;
-        }).GetHtml()
-                @Html.DevExpress().Button(settings =>
-        {
-            settings.Name = "UnFilter";
-            settings.Text = @siparis.Resorces.Language.UnFilter;
-            settings.RouteValues = new { Controller = "Home", Action = "Index" };
-        }).GetHtml()
 
-            </div><!--/filtre buton-->
+            <!--filtre buton-->
+            <div style="text-align:right;padding-top:10px;">
+
+                @*@Html.DevExpress().Button(settings =>
+                    {
+                        settings.Name = "Filter";
+                        settings.Text = @siparis.Resorces.Language.Filter;
+                        settings.UseSubmitBehavior = true;
+                    }).GetHtml()
+
+                           @Html.DevExpress().Button(settings =>
+                    {
+                        settings.Name = "UnFilter";
+                        settings.Text = @siparis.Resorces.Language.UnFilter;
+                        settings.RouteValues = new { Controller = "Home", Action = "Index" };
+                    }).GetHtml()*@
+
+                @Html.DevExpress().Button(
+            settings =>
+            {
+                settings.Name = "Filter";
+                settings.Width = 90;
+                settings.Height = 25;
+                settings.RenderMode = ButtonRenderMode.Link;
+                settings.Text = @siparis.Resorces.Language.Filter;
+                settings.ImagePosition = ImagePosition.Left;
+                settings.Images.Image.IconID = IconID.ActionsApply16x16gray;
+                settings.UseSubmitBehavior = true;
+            }).GetHtml()
+
+
+                @Html.DevExpress().Button(
+            settings =>
+            {
+                settings.Name = "UnFilter";
+                settings.Width = 90;
+                settings.Height = 25;
+                settings.RenderMode = ButtonRenderMode.Link;
+                settings.Text = @siparis.Resorces.Language.UnFilter;
+                settings.ImagePosition = ImagePosition.Left;
+                settings.Images.Image.IconID = IconID.ActionsCancel16x16gray;
+                settings.RouteValues = new { Controller = "Home", Action = "Index" };
+            }).GetHtml()
+
+            </div>
+            <!--/filtre buton-->
             @if (HttpContext.Current.Request.Path.Contains("CategorizedProducts"))
             {
             <!--sub group 1-->
@@ -614,18 +645,22 @@
                 </li>
             <!--/SECTOR-->
 
+                <!-- filter button-->
+                <div style="text-align:right">
 
-                <div>
-                    <!-- filter button-->
                     @Html.DevExpress().Button(settings =>
         {
             settings.Name = "Filter_";
+            settings.Width = 90;
+            settings.Height = 25;
+            settings.RenderMode = ButtonRenderMode.Link;
             settings.Text = @siparis.Resorces.Language.Filter;
+            settings.ImagePosition = ImagePosition.Left;
+            settings.Images.Image.IconID = IconID.ActionsApply16x16gray;
             settings.UseSubmitBehavior = true;
         }).GetHtml()
-
-
-                </div><!--/filter button-->
+                </div>
+                <!--/filter button-->
             }
         </ul>
     </div>
