@@ -57,6 +57,12 @@ namespace siparis.Controllers
                         row = 0;
                     }
                     else row = db.OPPORTUNITYDETAILs.Where(x => x.OPPORTUNITY_CODE == opportunitdetails.OPPORTUNITY_CODE).Max(x => x.ROW_ORDER_NO);
+                    
+                    ProfileInfo profil = (ProfileInfo)Session["profilim"];
+                    stokcart.UNIT = db.STOKWAREHOUSEPRODUCTs.Where(x => x.STOK_ID == stokID).Sum(x => x.TOTAL_QUANTITIY);
+                    var price = db.STOKCARDUSERPRICEs.Where(x => x.COMPANY_CODE == profil.FirmaKodu).Where(x => x.STOK_ID == stokID).FirstOrDefault();
+                    stokcart.UNIT_PRICE = price.PRICE;
+                    stokcart.CUR_TYPE = price.CUR_TYPE;
                     opportunitdetails.ROW_ORDER_NO = row + 1;
                     opportunitdetails.CUR_TYPE = stokcart.CUR_TYPE;
                     opportunitdetails.UNIT_PRICE = (float)stokcart.UNIT_PRICE;

@@ -9,13 +9,30 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using System.Globalization;
 using System.Threading;
+using DevExpress.Xpo;
 namespace siparis.Controllers
 {
     [Authorize]
     public class BaseController : Controller
     {
         public static string dbName = "VdbSoft";
-
+        public ActionResult search(string param)
+        {
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                var model=(from d in db.STOKCARDs
+                           where d.CODE.Contains(param) || d.NAME_TR.Contains(param)
+                           select d);
+            }
+            SortingPagingInfo info = new SortingPagingInfo();
+            info.SortField = "ID";
+            info.SortDirection = "ascending";
+            info.PageSize = 12;
+            info.PageCount = -1;
+            info.CurrentPageIndex = 0;
+            ViewBag.SortingPagingInfo = info;
+            return null; 
+        }
        
         public void checkCart()
         {
@@ -119,12 +136,18 @@ namespace siparis.Controllers
             }
             return sepet;
         } 
-        public static STOKCARD getProduct(int ID = 1)
+        public STOKCARD getProduct(int ID = 1)
         {
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
             STOKCARD st = (from d in db.STOKCARDs
                            where d.ID == ID
-                           select d).FirstOrDefault();
+                           select d
+                           ).FirstOrDefault();
+           ProfileInfo profil = (ProfileInfo)Session["profilim"];
+           st.UNIT = db.STOKWAREHOUSEPRODUCTs.Where(x => x.STOK_ID == ID).Sum(x => x.TOTAL_QUANTITIY);
+           var price = db.STOKCARDUSERPRICEs.Where(x => x.COMPANY_CODE == profil.FirmaKodu).Where(x=>x.STOK_ID==ID).FirstOrDefault();
+           st.UNIT_PRICE = price.PRICE;
+           st.CUR_TYPE = price.CUR_TYPE;
             return st;
         }
 
@@ -250,28 +273,29 @@ namespace siparis.Controllers
                 int userContactCode =  (int)db.USERS.Where(x => x.USER_CODE == userCode).Select(x => x.CONTACT_CODE).FirstOrDefault();
                 COMPANY company = db.COMPANies.Find(db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).Select(x => x.COMPANY_CODE).FirstOrDefault());
                 USER kisi = db.USERS.Where(x => x.USER_CODE == userCode).FirstOrDefault();
+
                 var model = (from c in db.COMPANies
-                                  join d in db.ADDRESSes on c.COMPANY_CODE equals d.COMPANY_CODE
-                                  join p in db.PHONEs on c.COMPANY_CODE equals p.COMPANY_CODE
-                                  join m in db.COMPANies on c.MAIL equals m.MAIL
-                                  
-                                  where d.COMPANY_CODE == company.COMPANY_CODE
-                                  select new
-                                  {   Enlem = d.GPS_LATITUDE,
-                                      Boylam = d.GPS_LONGITUDE,
-                                      GoogleMaps=d.ADDRESS3,
-                                      Adres = d.ADDRESS1,
-                                      Mail = company.MAIL,
-                                      Telefon = p.PHONE_NUMBER,
-                                      Adres2 = d.ADDRESS2
-                                  }).FirstOrDefault();
+                             join d in db.ADDRESSes on c.COMPANY_CODE equals d.COMPANY_CODE
+                              join p in db.PHONEs on c.COMPANY_CODE equals p.COMPANY_CODE
+                             join m in db.COMPANies on c.MAIL equals m.MAIL
+                             where d.COMPANY_CODE == company.COMPANY_CODE
+                             select new
+                             {
+                                 Enlem = d.GPS_LATITUDE,
+                                 Boylam = d.GPS_LONGITUDE,
+                                 GoogleMaps = d.ADDRESS3,
+                                 Adres = d.ADDRESS1,
+                                 Mail = company.MAIL,
+                                 Telefon =  p.PHONE_NUMBER,
+                                 Adres2 = d.ADDRESS2
+                             }).FirstOrDefault();
 
                 ProfileInfo profilim = new ProfileInfo();                
                 profilim.User_Code = userCode;
                 profilim.FirmaAdi = company.COMPANY_NAME;
                 profilim.FirmaKodu = company.COMPANY_CODE;
                 profilim.Adi = kisi.AUSER_NAME;
-                profilim.Soyadi = kisi.SURNAME;           
+                profilim.Soyadi = kisi.SURNAME;
                 profilim.Telefon = model.Telefon;
                 profilim.Adres = model.Adres;
                 profilim.Mail = model.Mail;

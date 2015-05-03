@@ -39,16 +39,10 @@
             settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
             settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
             settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth = 0;
-            //  settings.Properties.ClientSideEvents.Init = "function(s, e) { alert(s.cpCustom); }";
-            ////  settings.CustomJSProperties += (s, e) => { e.Properties["cpCustom"] = "customValue"; };
-            settings.Init = (sender, e) =>
-                {
-                };
+            settings.ControlStyle.Border.BorderWidth = 0;          
             settings.PreRender = (sender, e) =>
             {
                 ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
-                //cbl.ClientSideEvents.SelectedIndexChanged = "function(s, e) { secim(s,e); }";
                 foreach (ListEditItem item in cbl.Items)
                 {
                     int count = @Model.stokcard.Count(x => x.MAIN_GRUP == (int)item.Value);
@@ -75,7 +69,7 @@
         {
             settings.Name = "UnFilter";
             settings.Text = @siparis.Resorces.Language.UnFilter;
-            settings.RouteValues = new { Controller = "Home", Action = "Index" };
+            settings.RouteValues = new {Controller="Home",Action="Index"};
         }).GetHtml()
 
     </div><!--/filtre buton-->

@@ -17,6 +17,7 @@
             @Html.Hidden("PageCount", info.PageCount)
             @Html.Hidden("PageSize", info.PageSize)
             @Html.Hidden("CurrentPageIndex", info.CurrentPageIndex)
+           
             <input type="submit" value="txt" hidden="hidden" />
             int i = 0;
             foreach (var stok in Model.stokcard.Skip(info.PageSize * info.CurrentPageIndex).Take(info.PageSize))

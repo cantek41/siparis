@@ -619,7 +619,7 @@ warning 6002: The table/view 'VdbSoft.dbo.BACKGROUNDPICTURE' does not have a pri
           <Key>
             <PropertyRef Name="COMPANY_CODE" />
           </Key>
-          <Property Name="COMPANY_CODE" Type="int" Nullable="false" />
+          <Property Name="COMPANY_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UPPER_COMPANY_CODE" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="COMPANY_COMMERCIAL_CODE" Type="nvarchar" MaxLength="30" />
           <Property Name="COMPANY_REPRESENT_CODE" Type="int" Nullable="false" />
@@ -2285,8 +2285,6 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="TYPE" Type="int" />
           <Property Name="COLOR_CODE" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'VdbSoft.dbo.STOKCARDUSERPRICE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="STOKCARDUSERPRICE">
           <Key>
             <PropertyRef Name="ID" />
@@ -3143,6 +3141,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySet Name="STOKBRAND" EntityType="Self.STOKBRAND" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCARD" EntityType="Self.STOKCARD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCARDPICTURE" EntityType="Self.STOKCARDPICTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOKCARDUSERPRICE" EntityType="Self.STOKCARDUSERPRICE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCATEGORY" EntityType="Self.STOKCATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKCOLOR" EntityType="Self.STOKCOLOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STOKMAINGROUP" EntityType="Self.STOKMAINGROUP" Schema="dbo" store:Type="Tables" />
@@ -3437,17 +3436,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
     [SELLER_DETAIL].[SELLER_BALANCE] AS [SELLER_BALANCE], 
     [SELLER_DETAIL].[APPOINTED_USER_CODE] AS [APPOINTED_USER_CODE]
     FROM [dbo].[SELLER_DETAIL] AS [SELLER_DETAIL]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="STOKCARDUSERPRICE" EntityType="Self.STOKCARDUSERPRICE" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [STOKCARDUSERPRICE].[ID] AS [ID], 
-    [STOKCARDUSERPRICE].[COMPANY_CODE] AS [COMPANY_CODE], 
-    [STOKCARDUSERPRICE].[USER_CODE] AS [USER_CODE], 
-    [STOKCARDUSERPRICE].[STOK_ID] AS [STOK_ID], 
-    [STOKCARDUSERPRICE].[PRICE] AS [PRICE], 
-    [STOKCARDUSERPRICE].[CUR_TYPE] AS [CUR_TYPE], 
-    [STOKCARDUSERPRICE].[PRICE_TYPE] AS [PRICE_TYPE]
-    FROM [dbo].[STOKCARDUSERPRICE] AS [STOKCARDUSERPRICE]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="USERBANK" EntityType="Self.USERBANK" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 

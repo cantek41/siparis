@@ -30,9 +30,10 @@ namespace siparis.Controllers
             info.PageSize = 12;
             info.PageCount = -1;
             info.CurrentPageIndex = 0;
-            ViewBag.SortingPagingInfo = info;
             /// sayfalama bilgiswi bitti
-            return View(stokViewList(info));
+            IndexDataViewModel data = stokViewList(info, new IndexDataViewModel());
+            TempData["data"] = data;
+            return View(data);
 
 
         }
@@ -45,46 +46,20 @@ namespace siparis.Controllers
         [HttpPost]
         public ActionResult Index(SortingPagingInfo info)
         {
-            return View(stokViewList(info));
+           // IndexDataViewModel model =(IndexDataViewModel)TempData["data"];
+            IndexDataViewModel data = stokViewList(info,new IndexDataViewModel());
+           // TempData["data"] = data;
+            return View(data);
         }
 
-        public IndexDataViewModel stokViewList(SortingPagingInfo info)
+        public IndexDataViewModel stokViewList(SortingPagingInfo info, IndexDataViewModel data)
         {
-            VdbSoftEntities db = new VdbSoftEntities(dbName);
-
-            IQueryable<STOKCARD> query = null;
-            switch (info.SortField)
-            {
-                case "ID":
-                    query = (info.SortDirection == "ascending" ?
-                             db.STOKCARDs.Where(x => x.ID != 0).Where(x => x.UPPER_CODE == x.CODE).OrderBy(c => c.ID) :
-                             db.STOKCARDs.OrderByDescending(c => c.ID));
-                    break;
-                //case "CompanyName":
-                //    query = (info.SortDirection == "ascending" ?
-                //             db.STOKCARDs.OrderBy(c => c.CompanyName) :
-                //             db.STOKCARDs.OrderByDescending(c => c.CompanyName));
-                //    break;
-                //case "ContactName":
-                //    query = (info.SortDirection == "ascending" ?
-                //             db.STOKCARDs.OrderBy(c => c.ContactName) :
-                //             db.STOKCARDs.OrderByDescending(c => c.ContactName));
-                //    break;
-                //case "Country":
-                //    query = (info.SortDirection == "ascending" ?
-                //             db.STOKCARDs.OrderBy(c => c.Country) :
-                //             db.STOKCARDs.OrderByDescending(c => c.Country));
-                //break;
-            }
-
-            IndexDataViewModel data = new IndexDataViewModel();
-            //  data.stokcard = query.ToList();
-            data.stokcard = getStokDetail(db);
+            VdbSoftEntities db = new VdbSoftEntities(dbName);            
+            data.stokcard = getStokDetail(db, data.stokcard);
             data = getDetailFilter(data);
-            if (info.PageCount==-1)
+            if (info.PageCount == -1)
             {
-                info.PageCount= Convert.ToInt32(Math.Ceiling((double)(data.stokcard.Where(x => x.UPPER_CODE == x.CODE).Count()
-                           / info.PageSize)));
+                info.PageCount = data.stokcard.Count / info.PageSize;
             }
             ViewBag.SortingPagingInfo = info;
             return data;
@@ -133,7 +108,8 @@ namespace siparis.Controllers
             int[] sector = CheckBoxListExtension.GetSelectedValues<int>("SECTOR");
             VdbSoftEntities db = new VdbSoftEntities(dbName);
             IndexDataViewModel data = new IndexDataViewModel();
-            data.stokcard = getStokDetail(db);
+
+            data.stokcard = getStokDetail(db, new List<STOKCARD>());
             data.stokcard = (from s in data.stokcard
                              join c in main on s.MAIN_GRUP equals c
                              select s).ToList();
@@ -190,27 +166,32 @@ namespace siparis.Controllers
             //}
 
             //stok.brand ve stok.group data ya atanmalı
-            data.stokcardView = getStokDetail(db);
+            //  data.stokcardView = getStokDetail(db,);
             data = getDetailFilter(data);
             SortingPagingInfo info = new SortingPagingInfo();
             info.SortField = "ID";
             info.SortDirection = "ascending";
-            info.PageSize = 6;
-            info.PageCount = Convert.ToInt32(Math.Ceiling((double)(data.stokcard.Where(x => x.UPPER_CODE == x.CODE).Count()
-                           / info.PageSize)));
+            info.PageSize = 12;
+            info.PageCount = data.stokcard.Count / info.PageSize;
             info.CurrentPageIndex = 0;
             ViewBag.SortingPagingInfo = info;
             return View(data);
 
         }
 
-        public List<stockVievModel> getStokDetail(VdbSoftEntities db)
+
+        public List<STOKCARD> getStokDetail(VdbSoftEntities db, List<STOKCARD> stockCard)
         {
+            //if (stockCard == null || stockCard.Count == 0)
+            //{
+                stockCard = db.STOKCARDs.Where(x=>x.CODE==x.UPPER_CODE).ToList();
+         //   }
+
             ProfileInfo profil = (ProfileInfo)Session["profilim"];
-            return (from stok in db.STOKCARDs
+            return (from stok in stockCard
                     join price in db.STOKCARDUSERPRICEs on stok.ID equals price.STOK_ID
-                    where price.COMPANY_CODE == profil.FirmaKodu
-                    select new stockVievModel
+                    where price.COMPANY_CODE == profil.FirmaKodu 
+                    select new STOKCARD
                     {
                         ID = stok.ID,
                         UNIT = db.STOKWAREHOUSEPRODUCTs.Where(x => x.STOK_ID == stok.ID).Sum(x => x.TOTAL_QUANTITIY),
