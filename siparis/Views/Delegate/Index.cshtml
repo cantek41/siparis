@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<div style="margin-left:50px;margin-top:15px;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <h3><b> ABC FİRMASI  120.001.001</b></h3>
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="form-group col-md-12">
+                <input type="text" name="name" class="form-control" required="required" placeholder="Ara" />
+            </div>
+            <div style="clear:both;"></div>
+            <div class="form-group col-md-12">
+                <input type="email" name="email" class="form-control" required="required" placeholder="Sevk Adresi" />
+            </div>
+            <div style="clear:both;"></div>
+            <div class="form-group col-md-12">
+                <input type="text" name="subject" class="form-control" required="required" placeholder=" DEPO ADRESİ" />
+            </div>
+            <div class="form-group col-md-12">
+                <input type="text" name="subject" class="form-control" required="required" placeholder="TESLİM ADRESİ" />
+            </div>
+            <div class="form-group col-md-12">
+                <input type="text" name="subject" class="form-control" required="required" placeholder="TESLİM TARİHİ" />
+            </div>
+        </div>
+
+        <div class="row" style="margin-left:20px;margin-right:50px;">
+            <div class="form-group col-md-8">
+                <input type="text" name="name" class="form-control" required="required" placeholder="Açıklama" />
+            </div>
+            <div class="form-group col-md-2">
+                <input type="text" name="name" class="form-control" required="required" placeholder="Ana Gruop" />
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" name="name" class="form-control" required="required" placeholder="Stok" />
+            </div>
+            <div class="form-group col-md-2">
+                <input type="text" name="name" class="form-control" required="required" placeholder="Ara" />
+            </div>
+            <div class="form-group col-md-2">
+                <input type="text" name="name" class="form-control" required="required" placeholder="Alt Grup" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12" style="margin-right:15px;">
+            @Html.DevExpress().GridView(settings =>
+        {
+            settings.Name = "gvOverview";
+            //  settings.KeyFieldName = "WAREHOUSE_ID;OPPORTUNITY_CODE;ROW_ORDER_NO;STOK_CODE";
+            //settings.CallbackRouteValues = new
+            //{
+            //    Controller = "WareHouse",
+            //    Action = "saveWareHouse",
+            //    ID = TempData["parametre"]
+            //};
+            //settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "WareHouse", Action = "updateWareHouse" };
+            //settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+            settings.CommandColumn.Visible = true;
+            settings.CommandColumn.ShowEditButton = true;
+            settings.CommandColumn.ShowNewButton = true;
+            settings.Width = System.Web.UI.WebControls.Unit.Percentage(80);
+            settings.Columns.Add(column =>
+            {
+                //column.FieldName = "WAREHOUSE_NAME";
+                column.Caption = "STO KODU";
+                column.ReadOnly = true;
+
+            });
+            settings.Columns.Add(column =>
+            {
+                //column.FieldName = "WAREHOUSE_NAME";
+                column.Caption = "STO ADI";
+                column.ReadOnly = true;
+
+            });
+            settings.Columns.Add(column =>
+            {
+                //column.FieldName = "WAREHOUSE_NAME";
+                column.Caption = "STO FİYAT";
+                column.ReadOnly = true;
+
+            });
+            settings.Columns.Add(column =>
+            {
+                //column.FieldName = "WAREHOUSE_NAME";
+                column.Caption = "PARA BİRİMİ";
+                column.ReadOnly = true;
+
+            });
+            settings.Columns.Add(column =>
+            {
+                //column.FieldName = "WAREHOUSE_NAME";
+                column.Caption = "MİKTAR";
+                column.ReadOnly = true;
+
+            });
+            settings.Columns.Add(column =>
+            {
+                //column.FieldName = "WAREHOUSE_NAME";
+                column.Caption = "AÇIKLAMA";
+                column.ReadOnly = true;
+
+            });
+            settings.Columns.Add(column =>
+            {
+                //column.FieldName = "WAREHOUSE_NAME";
+                column.Caption = "TESLİM TARİHİ";
+                column.ReadOnly = true;
+
+            });
+
+        }).GetHtml()
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+

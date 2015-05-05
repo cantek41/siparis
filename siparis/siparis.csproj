@@ -258,6 +258,7 @@
     <Compile Include="App_Start\sessiDataFilter.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DelegateController.cs" />
     <Compile Include="Controllers\StokController.cs" />
     <Compile Include="Controllers\WareHouseController.cs" />
     <Compile Include="Models\ACTIVITY.cs">
@@ -1356,6 +1357,7 @@
     <Content Include="Views\Home\ContentPartial.cshtml" />
     <Content Include="Views\OrderFollow\_ShippingConfirmMasterPartial.cshtml" />
     <Content Include="Views\OrderFollow\_ShippingConfirmDetailPartial.cshtml" />
+    <Content Include="Views\Delegate\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\bin\tr-TR\" />
