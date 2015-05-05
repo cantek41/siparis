@@ -516,4 +516,16 @@
   <data name="Distribute" xml:space="preserve">
     <value>Depo Durumları</value>
   </data>
+  <data name="DeliveryAddress" xml:space="preserve">
+    <value>Sevk Adresi</value>
+  </data>
+  <data name="DeliveryDate" xml:space="preserve">
+    <value>Teslim Tarihi</value>
+  </data>
+  <data name="DeliveryType" xml:space="preserve">
+    <value>Teslim Şekli</value>
+  </data>
+  <data name="SubGroup" xml:space="preserve">
+    <value>Alt Grup</value>
+  </data>
 </root>

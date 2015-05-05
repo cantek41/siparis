@@ -376,6 +376,33 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delivery Address.
+        /// </summary>
+        public static string DeliveryAddress {
+            get {
+                return ResourceManager.GetString("DeliveryAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivery Date.
+        /// </summary>
+        public static string DeliveryDate {
+            get {
+                return ResourceManager.GetString("DeliveryDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivery Type.
+        /// </summary>
+        public static string DeliveryType {
+            get {
+                return ResourceManager.GetString("DeliveryType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Details.
         /// </summary>
         public static string Details {
@@ -1092,6 +1119,15 @@ namespace siparis.Resorces {
         public static string StokMessage {
             get {
                 return ResourceManager.GetString("StokMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sub Group.
+        /// </summary>
+        public static string SubGroup {
+            get {
+                return ResourceManager.GetString("SubGroup", resourceCulture);
             }
         }
         

@@ -2,54 +2,90 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
+<link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/css/bootstrap.css" rel="stylesheet" />
 
-<div style="margin-left:50px;margin-top:15px;">
+<div class="col-md-8" style="margin-left:50px;margin-top:15px;">
+    @* Company ara kutusu *@
     <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-12">
-                <h3><b> ABC FİRMASI  120.001.001</b></h3>
-            </div>
+        <div class="col-md-8">
+            <input type="text" name="companyName" class="form-control" required="required" placeholder="FİRMA ADI" />
         </div>
-        <div class="form-group col-md-3">
-            <div class="form-group col-md-12">
-                <input type="text" name="name" class="form-control" required="required" placeholder="Ara" />
-            </div>
-            <div style="clear:both;"></div>
-            <div class="form-group col-md-12">
-                <input type="email" name="email" class="form-control" required="required" placeholder="Sevk Adresi" />
-            </div>
-            <div style="clear:both;"></div>
-            <div class="form-group col-md-12">
-                <input type="text" name="subject" class="form-control" required="required" placeholder=" DEPO ADRESİ" />
-            </div>
-            <div class="form-group col-md-12">
-                <input type="text" name="subject" class="form-control" required="required" placeholder="TESLİM ADRESİ" />
-            </div>
-            <div class="form-group col-md-12">
-                <input type="text" name="subject" class="form-control" required="required" placeholder="TESLİM TARİHİ" />
-            </div>
-        </div>
-
-        <div class="row" style="margin-left:20px;margin-right:50px;">
-            <div class="form-group col-md-8">
-                <input type="text" name="name" class="form-control" required="required" placeholder="Açıklama" />
-            </div>
-            <div class="form-group col-md-2">
-                <input type="text" name="name" class="form-control" required="required" placeholder="Ana Gruop" />
-            </div>
-            <div class="form-group col-md-4">
-                <input type="text" name="name" class="form-control" required="required" placeholder="Stok" />
-            </div>
-            <div class="form-group col-md-2">
-                <input type="text" name="name" class="form-control" required="required" placeholder="Ara" />
-            </div>
-            <div class="form-group col-md-2">
-                <input type="text" name="name" class="form-control" required="required" placeholder="Alt Grup" />
-            </div>
+        <div class="col-md-4">
+            <a href="#" class="btn btn-default add-to-cart"><i class="icon-search"></i>@siparis.Resorces.Language.Choose</a>
         </div>
     </div>
 
+    @* Arana firma adı yazdırılan label *@
+    <div class="row">
+        <div class="col-md-6">
+            <h3><b> ABC FİRMASI  120.001.001</b></h3>
+        </div>
+    </div>
 
+    @* Sevk Adresi *@
+    <div class="row">
+        <div class="form-group col-md-2">
+            @Html.Label(@siparis.Resorces.Language.DeliveryAddress)
+        </div>
+        <div class="form-group col-md-4">
+            @Html.DropDownList("DeliveryAddressDropDown");
+        </div>
+    </div>
+
+    @* Depo Adresi *@
+    <div class="row">
+        <div class="form-group col-md-2">
+            @Html.Label(@siparis.Resorces.Language.WareHouseName)
+        </div>
+        <div class="form-group col-md-4">
+            @Html.DropDownList("WareHouseNameDropDown");
+        </div>
+    </div>
+
+    @* Teslim Şekli *@
+    <div class="row">
+        <div class="form-group col-md-4">
+            @Html.Label(@siparis.Resorces.Language.DeliveryType)
+        </div>
+        <div class="form-group col-md-2">
+            @Html.DropDownList("DeliveryTypeDropDown");
+        </div>
+    </div>
+
+    @* Teslim Tarihi *@
+    <div class="row">
+        <div class="form-group col-md-4">
+            @Html.Label(@siparis.Resorces.Language.DeliveryDate)
+        </div>
+        <div class="form-group col-md-2">
+            @Html.DropDownList("DeliveryDateDropDown");
+        </div>
+    </div>
+
+    @* Ana grup *@
+    <div class="row">
+        <div class="form-group col-md-4">
+            @Html.Label(@siparis.Resorces.Language.MainGroup)
+        </div>
+        <div class="form-group col-md-2">
+            @Html.DropDownList("MainGroupDropDown");
+        </div>
+    </div>
+
+    @* Alt grup *@
+    <div class="row">
+        <div class="form-group col-md-4">
+            @Html.Label(@siparis.Resorces.Language.SubGroup)
+        </div>
+        <div class="form-group col-md-2">
+            @Html.DropDownList("SubGroupDropDown");
+        </div>
+    </div>
+
+  
+
+    @* grid *@
     <div class="row">
         <div class="col-md-12" style="margin-right:15px;">
             @Html.DevExpress().GridView(settings =>
@@ -124,6 +160,18 @@
 
     </div>
 </div>
+
+
+@*<div class="row" style="margin-left:20px;margin-right:50px;">
+    <div class="form-group col-md-8">
+        <input type="text" name="name" class="form-control" required="required" placeholder="Açıklama" />
+    </div>
+    
+</div>*@
+
+
+
+
 
 
 

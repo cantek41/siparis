@@ -507,4 +507,16 @@
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="DeliveryAddress" xml:space="preserve">
+    <value>Delivery Address</value>
+  </data>
+  <data name="DeliveryDate" xml:space="preserve">
+    <value>Delivery Date</value>
+  </data>
+  <data name="DeliveryType" xml:space="preserve">
+    <value>Delivery Type</value>
+  </data>
+  <data name="SubGroup" xml:space="preserve">
+    <value>Sub Group</value>
+  </data>
 </root>

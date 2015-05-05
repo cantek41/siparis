@@ -34,7 +34,7 @@ namespace siparis.Controllers
             IndexDataViewModel data = stokViewList(info, new IndexDataViewModel());
             TempData["data"] = data;
             return View(data);
-
+            //return RedirectToAction("Index", "Delegate");
 
         }
 
@@ -187,7 +187,7 @@ namespace siparis.Controllers
                 stockCard = db.STOKCARDs.Where(x=>x.CODE==x.UPPER_CODE).ToList();
          //   }
 
-            ProfileInfo profil = (ProfileInfo)Session["profilim"];
+                ProfileInfo profil = (ProfileInfo)Session["profilim"];
             return (from stok in stockCard
                     join price in db.STOKCARDUSERPRICEs on stok.ID equals price.STOK_ID 
                    
