@@ -276,7 +276,7 @@ namespace siparis.Controllers
 
                 var model = (from c in db.COMPANies
                              join d in db.ADDRESSes on c.COMPANY_CODE equals d.COMPANY_CODE
-                              join p in db.PHONEs on c.COMPANY_CODE equals p.COMPANY_CODE
+                             join p in db.PHONEs on c.COMPANY_CODE equals p.COMPANY_CODE
                              join m in db.COMPANies on c.MAIL equals m.MAIL
                              where d.COMPANY_CODE == company.COMPANY_CODE
                              select new

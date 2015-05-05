@@ -189,7 +189,7 @@ namespace siparis.Controllers
 
             ProfileInfo profil = (ProfileInfo)Session["profilim"];
             return (from stok in stockCard
-                    join price in db.STOKCARDUSERPRICEs on stok.ID equals price.STOK_ID
+                    join price in db.STOKCARDUSERPRICEs on stok.ID equals price.STOK_ID                    
                     where price.COMPANY_CODE == profil.FirmaKodu 
                     select new STOKCARD
                     {

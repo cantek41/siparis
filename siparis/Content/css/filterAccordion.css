@@ -1,0 +1,79 @@
+﻿
+#filter {
+	font: normal normal 90% sans-serif;
+	max-width: 200px;
+	margin: 100px auto 50px auto;
+	background: #1f1f1f;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+	margin: 0; padding: 0;
+	text-align: left;
+}
+#filter ul {
+	/*margin-bottom: 300px;*/
+	border: 1px solid #222;
+    /*box-shadow:0 0 25px #000;*/
+
+}
+#filter  ul li {
+	position: relative;
+}
+/*#filter ul > li > a*/
+
+#filter ul li a{
+	display: block;
+	outline: 0;
+	padding: .7em 1em;
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+	text-shadow:#111 0 -1px;
+	background: #333;
+	box-shadow:inset 0 1px 0 0 rgba(250,250,250,0.1);
+	background-image:linear-gradient(#444, #333);
+	/*filter-gradient:#444, #333, horizontal;*/
+	border-bottom: 1px solid #222;
+    background: -webkit-linear-gradient(left, #444 , #333); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #444 , #333); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #444 , #333); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #444 , #333); /* Standard syntax */
+}
+.dxe table {
+	counter-reset: items;
+	height: 0;
+	overflow: hidden;
+	background: #eee;
+	color: #777;
+	font-size: 1em;
+	box-shadow:inset 0 0 50px #BBB;
+}
+.dxe table tr{
+	counter-increment: items;
+	padding: 1em 1.3em;
+	border-bottom: 1px dotted #DDD;
+}
+.dxe table:after {
+	content: counter(items);
+	font-size: 0.857em;
+    display:inline-block;
+	position: absolute;
+	right: 10px;
+	top: 15px;
+	background: #333;
+	line-height: 1em;
+	height: 1em;
+	padding: .7em .8em;
+	margin: -.8em 0 0 0;
+	color: white;
+	text-indent: 0;
+	text-align: center;
+	text-shadow:0px 1px 0px rgba(0, 0, 0, 0.5);
+	font-weight: 500;
+	border-radius:.769em;
+	box-shadow:inset 0px 1px 3px 0px rgba(0, 0, 0, 0.26), 0px 1px 0px 0px rgba(255, 255, 255, 0.15);
+}
+
+
