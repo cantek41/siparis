@@ -403,6 +403,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string DescriptionText {
+            get {
+                return ResourceManager.GetString("DescriptionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Details.
         /// </summary>
         public static string Details {

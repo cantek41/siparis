@@ -403,6 +403,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string DescriptionText {
+            get {
+                return ResourceManager.GetString("DescriptionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Details.
         /// </summary>
         public static string Details {
@@ -1110,15 +1119,6 @@ namespace siparis.Resorces {
         public static string StokMessage {
             get {
                 return ResourceManager.GetString("StokMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
         
