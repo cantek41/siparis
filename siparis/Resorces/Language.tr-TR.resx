@@ -466,7 +466,7 @@
     <value>SEÇ</value>
   </data>
   <data name="WareHouseName" xml:space="preserve">
-    <value>DEPO ADI</value>
+    <value>Depo Adı</value>
   </data>
   <data name="OrderCheck" xml:space="preserve">
     <value>Dikkat! Sipariş Miktarlarınızı Gözden Geçirin!</value>
@@ -527,5 +527,8 @@
   </data>
   <data name="SubGroup" xml:space="preserve">
     <value>Alt Grup</value>
+  </data>
+  <data name="DescriptionText" xml:space="preserve">
+    <value>Açıklama</value>
   </data>
 </root>
