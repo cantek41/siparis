@@ -21,7 +21,7 @@
            
             <input type="submit" value="txt" hidden="hidden" />
             int i = 0;
-            foreach (var stok in Model.stokcard.Skip(info.PageSize * info.CurrentPageIndex).Take(info.PageSize))
+            foreach (var stok in Model.stokcardView.Skip(info.PageSize * info.CurrentPageIndex).Take(info.PageSize))
             {
                 if (i == 0)
                 {

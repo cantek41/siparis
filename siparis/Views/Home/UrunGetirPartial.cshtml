@@ -1,9 +1,9 @@
-﻿@model siparis.Models.STOKCARD
+﻿@model siparis.Models.STOKCARDViewModel
 @using siparis.Models
 @{
     if (Model != null)
     {
-        STOKCARD stok = Model;
+        STOKCARDViewModel stok = Model;
 
         <div class="col-sm-4">
             <div class="product-image-wrapper">
@@ -11,9 +11,9 @@
                     <div class="productinfo text-center">
                         <div>
                             @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
-                            @if (@stok.STOKCARDPICTUREs.Count != 0)
+                            @if (@stok.STOKCARDPICTUREs != "")
                             {
-                                <img src="@stok.STOKCARDPICTUREs.ElementAt(0).PATH" alt="" class="image-midi" />
+                                <img src="@stok.STOKCARDPICTUREs" alt="" class="image-midi" />
                             }
                             else
                             {
