@@ -21,20 +21,20 @@ namespace siparis.Controllers
 
         public ActionResult Index()
         {
-            //checkCart();
-            //VdbSoftEntities db = new VdbSoftEntities(dbName);
-            /////sayfalama bilgisi yukleniyor
-            //SortingPagingInfo info = new SortingPagingInfo();
-            //info.SortField = "ID";
-            //info.SortDirection = "ascending";
-            //info.PageSize = 12;
-            //info.PageCount = -1;
-            //info.CurrentPageIndex = 0;
-            ///// sayfalama bilgiswi bitti
-            //IndexDataViewModel data = stokViewList(info, new IndexDataViewModel());
-            //TempData["data"] = data;
-            //return View(data);
-            return RedirectToAction("Index", "Delegate");
+            checkCart();
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            ///sayfalama bilgisi yukleniyor
+            SortingPagingInfo info = new SortingPagingInfo();
+            info.SortField = "ID";
+            info.SortDirection = "ascending";
+            info.PageSize = 12;
+            info.PageCount = -1;
+            info.CurrentPageIndex = 0;
+            /// sayfalama bilgiswi bitti
+            IndexDataViewModel data = stokViewList(info, new IndexDataViewModel());
+            TempData["data"] = data;
+            return View(data);
+            //return RedirectToAction("Index", "Delegate");
 
         }
 
