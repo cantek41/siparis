@@ -20,9 +20,9 @@ namespace siparis.Controllers
         {
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
-                var model=(from d in db.STOKCARDs
-                           where d.CODE.Contains(param) || d.NAME_TR.Contains(param)
-                           select d);
+                var model = (from d in db.STOKCARDs
+                             where d.CODE.Contains(param) || d.NAME_TR.Contains(param)
+                             select d);
             }
             SortingPagingInfo info = new SortingPagingInfo();
             info.SortField = "ID";
@@ -31,9 +31,9 @@ namespace siparis.Controllers
             info.PageCount = -1;
             info.CurrentPageIndex = 0;
             ViewBag.SortingPagingInfo = info;
-            return null; 
+            return null;
         }
-       
+
         public void checkCart()
         {
             int userCode = getUserCode();
@@ -92,23 +92,23 @@ namespace siparis.Controllers
             {
                 Session["lang"] = lang;
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
-       
+
         public IEnumerable<OPPORTUNITYDETAIL> getCartProduct()
         {
             int userCode = getUserCode();
-            int oppCode=Convert.ToInt32(Session["Sepet"]);
+            int oppCode = Convert.ToInt32(Session["Sepet"]);
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
-            IEnumerable<OPPORTUNITYDETAIL> model = from d in db.OPPORTUNITYDETAILs  
-                                                   where d.OPPORTUNITY_CODE==oppCode//fix me 
+            IEnumerable<OPPORTUNITYDETAIL> model = from d in db.OPPORTUNITYDETAILs
+                                                   where d.OPPORTUNITY_CODE == oppCode//fix me 
                                                    select d;
             List<OPPORTUNITYDETAIL> sepet = new List<OPPORTUNITYDETAIL>();
             ViewBag.Hata = false;
             foreach (var item in model)
             {
                 item.STOKCARD = db.STOKCARDs.Where(x => x.ID == item.STOK_ID).FirstOrDefault();
-             //   item.STOKCARD.STOKCARDPICTUREs =  db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).ToList();
+                //   item.STOKCARD.STOKCARDPICTUREs =  db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).ToList();
                 //fix me
                 ////
                 Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param = orderWareHouseCal(item.OPPORTUNITY_CODE, item.ROW_ORDER_NO);
@@ -120,22 +120,22 @@ namespace siparis.Controllers
                 }
 
                 if (totalStok < item.QUANTITY)
-                {                   
+                {
                     ViewBag.Hata = true;
-                                       
+
                     item.EXPLANATION = siparis.Resorces.Language.WarningStok + totalStok;
                 }
                 else
                 {
                     item.EXPLANATION = siparis.Resorces.Language.StokMessage + totalStok;
                 }
-                item.TAX_PERCENT = totalStok;            
-                
+                item.TAX_PERCENT = totalStok;
+
                 sepet.Add(item);
 
             }
             return sepet;
-        } 
+        }
         public STOKCARD getProduct(int ID = 1)
         {
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
@@ -143,11 +143,11 @@ namespace siparis.Controllers
                            where d.ID == ID
                            select d
                            ).FirstOrDefault();
-           ProfileInfo profil = (ProfileInfo)Session["profilim"];
-           st.UNIT = db.STOKWAREHOUSEPRODUCTs.Where(x => x.STOK_ID == ID).Sum(x => x.TOTAL_QUANTITIY);
-           var price = db.STOKCARDUSERPRICEs.Where(x => x.COMPANY_CODE == profil.FirmaKodu).Where(x=>x.STOK_ID==ID).FirstOrDefault();
-           st.UNIT_PRICE = price.PRICE;
-           st.CUR_TYPE = price.CUR_TYPE;
+            ProfileInfo profil = (ProfileInfo)Session["profilim"];
+            st.UNIT = db.STOKWAREHOUSEPRODUCTs.Where(x => x.STOK_ID == ID).Sum(x => x.TOTAL_QUANTITIY);
+            var price = db.STOKCARDUSERPRICEs.Where(x => x.COMPANY_CODE == profil.FirmaKodu).Where(x => x.STOK_ID == ID).FirstOrDefault();
+            st.UNIT_PRICE = price.PRICE;
+            st.CUR_TYPE = price.CUR_TYPE;
             return st;
         }
 
@@ -234,7 +234,7 @@ namespace siparis.Controllers
             bool stokTamam = false;
             foreach (StokWareHouseViewModel item in depolar)
             {
-                int miktar=0;
+                int miktar = 0;
                 try
                 {
                     miktar = (int)(from d in db.STOKACTUALORDERs
@@ -243,17 +243,17 @@ namespace siparis.Controllers
                 }
                 catch (Exception)
                 {
-                    
+
                 }
-               
+
 
                 depolar.ElementAt(i).CHOSE = miktar;
 
 
-                int depoMiktar = db.STOKACTUALORDERs.Where(x => x.STOK_CODE == item.STOK_CODE).Where(x=>item.WAREHOUSE_ID==x.WAREHOUSE).Select(x => x.QUANTITY).FirstOrDefault() ?? 0;
+                int depoMiktar = db.STOKACTUALORDERs.Where(x => x.STOK_CODE == item.STOK_CODE).Where(x => item.WAREHOUSE_ID == x.WAREHOUSE).Select(x => x.QUANTITY).FirstOrDefault() ?? 0;
 
                 item.QUANTITY = item.TOTAL_QUANTITIY - depoMiktar;
-              
+
                 item.OPPORTUNITY_CODE = model.OPPORTUNITY_CODE;
                 item.ROW_ORDER_NO = model.ROW_ORDER_NO;
                 depolar.ElementAt(i).QUANTITY = item.QUANTITY;
@@ -266,11 +266,11 @@ namespace siparis.Controllers
 
         public void ProfilCreate(string name)
         {
-                      
+
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
                 int userCode = getUserCode(name);
-                int userCompanyCode =  (int)db.USERS.Where(x => x.USER_CODE == userCode).Select(x => x.CONTACT_CODE).FirstOrDefault();
+                int userCompanyCode = (int)db.USERS.Where(x => x.USER_CODE == userCode).Select(x => x.CONTACT_CODE).FirstOrDefault();
                 COMPANY company = db.COMPANies.Find(userCompanyCode);
                 USER kisi = db.USERS.Where(x => x.USER_CODE == userCode).FirstOrDefault();
 
@@ -286,29 +286,34 @@ namespace siparis.Controllers
                                  GoogleMaps = d.ADDRESS3,
                                  Adres = d.ADDRESS1,
                                  Mail = company.MAIL,
-                                 Telefon =  p.PHONE_NUMBER,
+                                 Telefon = p.PHONE_NUMBER,
                                  Adres2 = d.ADDRESS2
                              }).FirstOrDefault();
 
-                ProfileInfo profilim = new ProfileInfo();                
+                ProfileInfo profilim = new ProfileInfo();
                 profilim.User_Code = userCode;
                 profilim.FirmaAdi = company.COMPANY_NAME;
                 profilim.FirmaKodu = company.COMPANY_CODE;
                 profilim.Adi = kisi.AUSER_NAME;
                 profilim.Soyadi = kisi.SURNAME;
-                profilim.Telefon = model.Telefon;
-                profilim.Adres = model.Adres;
-                profilim.Mail = model.Mail;
-                profilim.Adres2 = model.Adres2;
-                profilim.Enlem = model.Enlem;
-                profilim.Boylam = model.Boylam;
-                Session.Add("profilim", profilim);               
-             
+                if (model != null)
+                {
+                    profilim.Telefon = model.Telefon;
+                    profilim.Adres = model.Adres;
+                    profilim.Mail = model.Mail;
+                    profilim.Adres2 = model.Adres2;
+                    profilim.Enlem = model.Enlem;
+                    profilim.Boylam = model.Boylam;
+
+                }
+
+                Session.Add("profilim", profilim);
+
             }
- 
+
         }
 
 
-      
+
     }
 }
