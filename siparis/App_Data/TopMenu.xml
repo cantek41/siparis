@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <items>
-  <item Text="Home" NavigateUrl="../Home/Index" ImageUrl="~/Content/images/icons/home.png" />
+  <item Text="Home" NavigateUrl="/Home/Index" ImageUrl="~/Content/images/icons/home.png" />
   <item Text="New User" NavigateUrl="/Account/Register" ImageUrl="~/Content/images/icons/add-user.png"/>
 </items>
 

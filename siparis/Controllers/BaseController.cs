@@ -270,8 +270,8 @@ namespace siparis.Controllers
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
                 int userCode = getUserCode(name);
-                int userContactCode =  (int)db.USERS.Where(x => x.USER_CODE == userCode).Select(x => x.CONTACT_CODE).FirstOrDefault();
-                COMPANY company = db.COMPANies.Find(db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).Select(x => x.COMPANY_CODE).FirstOrDefault());
+                int userCompanyCode =  (int)db.USERS.Where(x => x.USER_CODE == userCode).Select(x => x.CONTACT_CODE).FirstOrDefault();
+                COMPANY company = db.COMPANies.Find(userCompanyCode);
                 USER kisi = db.USERS.Where(x => x.USER_CODE == userCode).FirstOrDefault();
 
                 var model = (from c in db.COMPANies
