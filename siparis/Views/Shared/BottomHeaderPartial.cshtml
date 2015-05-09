@@ -1,39 +1,72 @@
 ﻿@using siparis.Models
+
+<link href="~/Content/css/MegaDrop.css" rel="stylesheet" />
+<!-- Preview Styles -->
 <div class="header-bottom">
     <!--header-bottom-->
     <div class="container">
         <div class="row">
-            <div class="col-sm-9">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="mainmenu pull-left">
-                    <ul class="nav navbar-nav collapse navbar-collapse">
-                        <li><a href="@Url.Action("Index","Home")" class="active">@siparis.Resorces.Language.Home</a></li>
-                        <li class="dropdown">
-                            <a href="#">@siparis.Resorces.Language.Shop<i class="fa fa-angle-down"></i></a>
-                            <ul role="menu" class="sub-menu">
-                                <li><a href="../Home/index">@siparis.Resorces.Language.Products</a></li>
-                                <li><a href="../OrderFollow/index">@siparis.Resorces.Language.Checkout</a></li>
-                                <li><a href="../Order/Chart">@siparis.Resorces.Language.Cart</a></li>
-                                <li><a href="../Account/Login">@siparis.Resorces.Language.Login</a></li>
-                            </ul>
-                        </li>
+            <div class="col-sm-12">
+                <div id="menu-wrapper">
+                    <ul class="navi">
+                        <li>
+                            <a href="#">@siparis.Resorces.Language.Products</a>
+                            <div>
+                                <div class="navi-column">
+                                    <h3>Home</h3>
+                                    <ul>
+                                        <li><a href="#">Pampers Diapers</a></li>
+                                        <li><a href="#">Huggies Diapers</a></li>
+                                        <li><a href="#">Seventh Generation</a></li>
+                                        <li><a href="#">Diapers</a></li>
+                                        <li><a href="#">Derbies</a></li>
+                                        <li><a href="#">Driving shoes</a></li>
+                                        <li><a href="#">Espadrilles</a></li>
+                                        <li><a href="#">Loafers</a></li>
+                                    </ul>
+                                </div>
 
-                        <li><a href="@Url.Action("Contact","Home")">@siparis.Resorces.Language.Contact</a></li>
+                                <div class="navi-column">
+                                    <h3>Home</h3>
+                                    <ul>
+                                        <li><a href="#">Driving shoes</a></li>
+                                        <li><a href="#">Espadrilles</a></li>
+                                        <li><a href="#">Loafers</a></li>
+                                    </ul>
+
+                                    <h3>Home</h3>
+                                    <ul>
+                                        <li><a href="#">Driving shoes</a></li>
+                                        <li><a href="#">Espadrilles</a></li>
+                                        <li><a href="#">Loafers</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="navi-column">
+                                    <h3>Home</h3>
+                                    <ul>
+                                        <li><a href="#">Pampers Diapers</a></li>
+                                        <li><a href="#">Huggies Diapers</a></li>
+                                        <li><a href="#">Seventh Generation</a></li>
+                                        <li><a href="#">Diapers</a></li>
+                                        <li><a href="#">Derbies</a></li>
+                                        <li><a href="#">Driving shoes</a></li>
+                                        <li><a href="#">Espadrilles</a></li>
+                                        <li><a href="#">Loafers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="#">@siparis.Resorces.Language.Contact</a></li>
+                        <li class="navi-search">
+                            <form action="#">
+                                <input type="text" placeholder="Search..." class="searchText">
+                                <input type="submit" value="">
+                            </form>
+                        </li>
                     </ul>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="search_box pull-right">
-                    <input type="text" placeholder=@siparis.Resorces.Language.Search />
                 </div>
             </div>
         </div>
     </div>
-</div><!--/header-bottom-->
+</div>

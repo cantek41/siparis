@@ -1051,6 +1051,7 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\jquery.toastmessage.css" />
     <Content Include="Content\css\js-image-slider.css" />
+    <Content Include="Content\css\MegaDrop.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\verticalMenu.css" />
     <Content Include="Content\images\404\404.png" />
@@ -1101,6 +1102,7 @@
     <Content Include="Content\images\home\recommend2.jpg" />
     <Content Include="Content\images\home\recommend3.jpg" />
     <Content Include="Content\images\home\sale.png" />
+    <Content Include="Content\images\home\search-icon.png" />
     <Content Include="Content\images\home\searchicon.png" />
     <Content Include="Content\images\home\shipping.jpg" />
     <Content Include="Content\images\icons\add-user.png" />
