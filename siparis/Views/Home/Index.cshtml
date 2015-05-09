@@ -34,9 +34,26 @@
 
                 </div>
             </div>
-            
 
-            @{Html.RenderPartial("ContentPartial");}
+            @{int i = 0;
+            foreach (var stok in Model.stokcardView.Skip(info.PageSize * info.CurrentPageIndex).Take(info.PageSize))
+            {
+                if (i == 0)
+                {
+                    @Html.Raw("<div class='row'>");
+                }
+                i++;
+                Html.RenderPartial("UrunGetirPartial", stok);
+                if (i == 3)
+                {
+                    @Html.Raw("</div>");
+                                       i = 0;
+                }
+
+            }
+            }
+
+            @*@{Html.RenderPartial("ContentPartial");}*@
 
         </div>
     </div>

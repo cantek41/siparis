@@ -1,0 +1,47 @@
+﻿@model siparis.Models.IndexDataViewModel
+@using siparis.Models
+@{
+    ViewBag.Title = siparis.Resorces.Language_en_EN.Index;
+    siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
+
+}
+<script src="~/Scripts/jquery.toastmessage.js"></script>
+<script src="~/Scripts/ajaxGonderi/ajaxGonder.js"></script>
+
+<script src="~/Scripts/angular.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".pager").click(function (evt) {
+            var pageindex = $(evt.target).data("pageindex");
+            $("#CurrentPageIndex").val(pageindex);
+            // evt.preventDefault();
+            $("form").submit();
+        });
+    });
+</script>
+
+@*@{Html.RenderPartial("SliderPartial");}*@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>@siparis.Resorces.Language.Filter</h2>
+                    <div class="panel-group category-products" id="accordian">
+                        <!--category-productsr-->
+                        <input type="text" ng-model="isminiz" placeholder="Adınızı Giriniz"> <br />
+                        Merhaba {{isminiz}}
+                        @*@{Html.RenderPartial("LeftMenuPartial");}*@
+
+                    </div><!--/category-products-->
+
+                </div>
+            </div>
+
+
+            @*@{Html.RenderPartial("ContentPartial");}*@
+
+        </div>
+    </div>
+
+</section>

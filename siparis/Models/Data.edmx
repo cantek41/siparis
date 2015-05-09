@@ -619,7 +619,7 @@ warning 6002: The table/view 'VdbSoft.dbo.BACKGROUNDPICTURE' does not have a pri
           <Key>
             <PropertyRef Name="COMPANY_CODE" />
           </Key>
-          <Property Name="COMPANY_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COMPANY_CODE" Type="int" Nullable="false" />
           <Property Name="UPPER_COMPANY_CODE" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="COMPANY_COMMERCIAL_CODE" Type="nvarchar" MaxLength="30" />
           <Property Name="COMPANY_REPRESENT_CODE" Type="int" Nullable="false" />
@@ -2181,7 +2181,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="BODY_CODE" />
           </Key>
-          <Property Name="BODY_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BODY_CODE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
@@ -2192,7 +2192,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="BRAND_CODE" />
           </Key>
-          <Property Name="BRAND_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BRAND_CODE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
@@ -2203,7 +2203,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="CODE" Type="nvarchar" MaxLength="50" />
           <Property Name="UPPER_CODE" Type="nvarchar" MaxLength="150" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
@@ -2289,7 +2289,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="COMPANY_CODE" Type="int" />
           <Property Name="USER_CODE" Type="int" />
           <Property Name="STOK_ID" Type="int" />
@@ -2301,7 +2301,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="STOK_GROUP_CODE" />
           </Key>
-          <Property Name="STOK_GROUP_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STOK_GROUP_CODE" Type="int" Nullable="false" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="150" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="150" />
@@ -2318,7 +2318,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="COLOR_CODE" />
           </Key>
-          <Property Name="COLOR_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COLOR_CODE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
@@ -2329,7 +2329,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CODE" Type="nvarchar(max)" />
           <Property Name="EXP_TR" Type="nvarchar(max)" />
           <Property Name="EXP_EN" Type="nvarchar" MaxLength="50" />
@@ -2343,7 +2343,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="MODEL_CODE" />
           </Key>
-          <Property Name="MODEL_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MODEL_CODE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
@@ -2354,7 +2354,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="PACKET_CODE" />
           </Key>
-          <Property Name="PACKET_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PACKET_CODE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
@@ -2365,7 +2365,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="RAYON_CODE" />
           </Key>
-          <Property Name="RAYON_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RAYON_CODE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
@@ -2376,7 +2376,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="SEASON_CODE" />
           </Key>
-          <Property Name="SEASON_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SEASON_CODE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
@@ -2387,7 +2387,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="SECTOR_CODE" />
           </Key>
-          <Property Name="SECTOR_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SECTOR_CODE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NAME_TR" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
           <Property Name="NAME_GR" Type="nvarchar" MaxLength="250" />
@@ -2398,7 +2398,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="CODE" Type="nvarchar(max)" />
           <Property Name="MAIN_GROUP_CODE" Type="nvarchar(max)" />
           <Property Name="ROW_ORDER_NO" Type="int" />
@@ -2431,7 +2431,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="CREATE_DATE" Type="datetime" />
           <Property Name="CREATE_USER" Type="nvarchar" MaxLength="30" />
@@ -2443,7 +2443,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="WAREHOUSE_ID" Type="int" />
           <Property Name="STOK_ID" Type="int" />
           <Property Name="STOK_CODE" Type="nvarchar" MaxLength="50" />
@@ -2884,18 +2884,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
             </Principal>
             <Dependent Role="OPPORTUNITYDETAIL">
               <PropertyRef Name="STOK_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PHONE_COMPANY">
-          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="0..1" />
-          <End Role="PHONE" Type="Self.PHONE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="COMPANY">
-              <PropertyRef Name="COMPANY_CODE" />
-            </Principal>
-            <Dependent Role="PHONE">
-              <PropertyRef Name="COMPANY_CODE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3512,10 +3500,6 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <AssociationSet Name="FK_OPPORTUNITYDETAIL_STOKCARD" Association="Self.FK_OPPORTUNITYDETAIL_STOKCARD">
             <End Role="STOKCARD" EntitySet="STOKCARD" />
             <End Role="OPPORTUNITYDETAIL" EntitySet="OPPORTUNITYDETAIL" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PHONE_COMPANY" Association="Self.FK_PHONE_COMPANY">
-            <End Role="COMPANY" EntitySet="COMPANY" />
-            <End Role="PHONE" EntitySet="PHONE" />
           </AssociationSet>
           <AssociationSet Name="FK_PHONE_CONTACT" Association="Self.FK_PHONE_CONTACT">
             <End Role="CONTACT" EntitySet="CONTACT" />

@@ -36,6 +36,11 @@ namespace siparis.Controllers
             return View(data);         
 
         }
+        public ActionResult FilterProduct()
+        {
+            return View();
+        }
+
 
         /// <summary>
         /// sayfa atlatma

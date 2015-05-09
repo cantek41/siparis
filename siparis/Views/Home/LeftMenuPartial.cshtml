@@ -45,38 +45,38 @@
                     <ul>
                         <li>
                             @(Html.DevExpress().CheckBox(s =>
-        {
-            s.Name = "all";
-            s.Text = "All";
-            s.Checked = true;
-            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,MAIN_GRUOP); }";
-        }).GetHtml())
+                                {
+                                    s.Name = "all";
+                                    s.Text = "All";
+                                    s.Checked = true;
+                                    s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,MAIN_GRUOP); }";
+                                }).GetHtml())
 
-                            @(Html.DevExpress().CheckBoxList(settings =>
-        {
-            settings.Name = "MAIN_GRUOP";
-            settings.Properties.ValueField = "ID";
-            settings.Properties.TextField = "EXP_TR";
-            settings.Properties.ValueType = typeof(int);
-            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
-            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-            settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth = 0;
-            settings.PreRender = (sender, e) =>
-            {
-                ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
-                foreach (ListEditItem item in cbl.Items)
-                {
-                    int count = @Model.stokcard.Count(x => x.MAIN_GRUP == (int)item.Value);
-                    item.Text += " (" + count + ")";
-                    if (count > 0)
-                    {
-                        item.Selected = true;
-                    }
-                }
-            };
+                                                    @(Html.DevExpress().CheckBoxList(settings =>
+                                {
+                                    settings.Name = "MAIN_GRUOP";
+                                    settings.Properties.ValueField = "ID";
+                                    settings.Properties.TextField = "EXP_TR";
+                                    settings.Properties.ValueType = typeof(int);
+                                    settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+                                    settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+                                    settings.Properties.RepeatColumns = 1;
+                                    settings.ControlStyle.Border.BorderWidth = 0;
+                                    settings.PreRender = (sender, e) =>
+                                    {
+                                        ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                                        foreach (ListEditItem item in cbl.Items)
+                                        {
+                                            int count = @Model.stokcard.Count(x => x.MAIN_GRUP == (int)item.Value);
+                                            item.Text += " (" + count + ")";
+                                            if (count > 0)
+                                            {
+                                                item.Selected = true;
+                                            }
+                                        }
+                                    };
 
-        }).BindList(Model.stokMainGroup).GetHtml()
+                                }).BindList(Model.stokMainGroup).GetHtml()
 
                             )
                         </li>
