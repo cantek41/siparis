@@ -17,27 +17,31 @@ namespace siparis.Controllers
 
     public class HomeController : BaseController
     {
-
-
         public ActionResult Index()
-        {
-            checkCart();
-            VdbSoftEntities db = new VdbSoftEntities(dbName);
-            ///sayfalama bilgisi yukleniyor
-            SortingPagingInfo info = new SortingPagingInfo();
-            info.SortField = "ID";
-            info.SortDirection = "ascending";
-            info.PageSize = 12;
-            info.PageCount = -1;
-            info.CurrentPageIndex = 0;
-            /// sayfalama bilgiswi bitti
-            IndexDataViewModel data = stokViewList(info, new IndexDataViewModel());
-            TempData["data"] = data;
+        {            
+            Filter filter = new Filter(dbName);
+            IndexDataViewModel data = filter.getMainMenu();
+            data.stokcardView = filter.getStok(12);           
             return View(data);
-            //return RedirectToAction("Index", "Delegate");
 
         }
+        public ActionResult FilterProduct()
+        {
+            Filter filter=new Filter(dbName);
+            IndexDataViewModel data = filter.getCategory();
+            return View(data);
+        }
+        [HttpPost]
+        public JsonResult FilterProduct(filterModel data)
+        {
+            
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            //  var model = db.STOKCARDs.Where(x => x.CODE == x.UPPER_CODE).Take(12).ToList();
+            string sorgu = String.Format("select TOP({1}) STOKCARD.ID, SUM(TOTAL_QUANTITIY) as UNIT,STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARDUSERPRICE.PRICE as UNIT_PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH as STOKCARDPICTUREs,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE from STOKCARD left join STOKCARDPICTURE on STOKCARDPICTURE.STOK_ID = STOKCARD.ID left join STOKWAREHOUSEPRODUCT on STOKWAREHOUSEPRODUCT.STOK_ID=STOKCARD.ID left join STOKCARDUSERPRICE on STOKCARDUSERPRICE.STOK_ID=STOKCARD.ID and STOKCARDUSERPRICE.COMPANY_CODE={0} GROUP BY STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARD.ID,STOKCARDUSERPRICE.PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE;", 1,1);
 
+            List<STOKCARDViewModel> stok = db.Database.SqlQuery<STOKCARDViewModel>(sorgu).ToList<STOKCARDViewModel>();
+            return Json(stok, JsonRequestBehavior.AllowGet);
+        }
         /// <summary>
         /// sayfa atlatma
         /// </summary>
@@ -46,25 +50,17 @@ namespace siparis.Controllers
         [HttpPost]
         public ActionResult Index(SortingPagingInfo info)
         {
-           // IndexDataViewModel model =(IndexDataViewModel)TempData["data"];
-            IndexDataViewModel data = stokViewList(info,new IndexDataViewModel());
-           // TempData["data"] = data;
+            // IndexDataViewModel model =(IndexDataViewModel)TempData["data"];
+            IndexDataViewModel data = stokViewList( new IndexDataViewModel());
+            // TempData["data"] = data;
             return View(data);
         }
-
-        public IndexDataViewModel stokViewList(SortingPagingInfo info, IndexDataViewModel data)
+        public IndexDataViewModel stokViewList(IndexDataViewModel data)
         {
-            VdbSoftEntities db = new VdbSoftEntities(dbName);            
-            data.stokcard = getStokDetail(db, data.stokcard);
-            data = getDetailFilter(data);
-            if (info.PageCount == -1)
-            {
-                info.PageCount = data.stokcard.Count / info.PageSize;
-            }
-            ViewBag.SortingPagingInfo = info;
+            VdbSoftEntities db = new VdbSoftEntities(dbName);
+            data.stokcardView = getStokDetail(db, data.stokcardView);           
             return data;
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -109,7 +105,7 @@ namespace siparis.Controllers
             VdbSoftEntities db = new VdbSoftEntities(dbName);
             IndexDataViewModel data = new IndexDataViewModel();
 
-            data.stokcard = getStokDetail(db, new List<STOKCARD>());
+            data.stokcardView = getStokDetail(db, new List<STOKCARDViewModel>());
             data.stokcard = (from s in data.stokcard
                              join c in main on s.MAIN_GRUP equals c
                              select s).ToList();
@@ -175,45 +171,47 @@ namespace siparis.Controllers
             info.PageCount = data.stokcard.Count / info.PageSize;
             info.CurrentPageIndex = 0;
             ViewBag.SortingPagingInfo = info;
-            return View(data);
+            return View("FilterProduct", data);
 
         }
 
 
-        public List<STOKCARD> getStokDetail(VdbSoftEntities db, List<STOKCARD> stockCard)
+        public List<STOKCARDViewModel> getStokDetail(VdbSoftEntities db, List<STOKCARDViewModel> stockCard, int skip = 0)
         {
             //if (stockCard == null || stockCard.Count == 0)
             //{
-                stockCard = db.STOKCARDs.Where(x=>x.CODE==x.UPPER_CODE).ToList();
-         //   }
+            //   stockCard = db.STOKCARDs.Where(x => x.CODE == x.UPPER_CODE).Take(12).ToList();
+            //   }
 
-                ProfileInfo profil = (ProfileInfo)Session["profilim"];
-            return (from stok in stockCard
-                    join price in db.STOKCARDUSERPRICEs on stok.ID equals price.STOK_ID 
-                   
-                    where price.COMPANY_CODE == profil.FirmaKodu 
-                    select new STOKCARD
-                    {
-                        ID = stok.ID,
-                        UNIT = db.STOKWAREHOUSEPRODUCTs.Where(x => x.STOK_ID == stok.ID).Sum(x => x.TOTAL_QUANTITIY),
-                        UNIT_PRICE = price.PRICE,
-                        CUR_TYPE = price.CUR_TYPE,
-                        STOKCARDPICTUREs = stok.STOKCARDPICTUREs,
-                        NAME_TR = stok.NAME_TR,
-                        CODE = stok.CODE,
-                        MAIN_GRUP = stok.MAIN_GRUP,
-                        SUB_GRUP1 = stok.SUB_GRUP1,
-                        SUB_GRUP2 = stok.SUB_GRUP2,
-                        BRAND_CODE = stok.BRAND_CODE,
-                        BODY_CODE = stok.BODY_CODE,
-                        CATEGORY_CODE = stok.CATEGORY_CODE,
-                        COLOR_CODE = stok.COLOR_CODE,
-                        MODEL_CODE = stok.MODEL_CODE,
-                        PACK_CODE = stok.PACK_CODE,
-                        RAYON_CODE = stok.RAYON_CODE,
-                        SEASON_CODE = stok.SEASON_CODE,
-                        SECTOR_CODE = stok.SECTOR_CODE
-                    }).ToList();
+            ProfileInfo profil = (ProfileInfo)Session["profilim"];
+
+            string sorgu = String.Format("select  STOKCARD.ID, SUM(TOTAL_QUANTITIY) as UNIT,STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARDUSERPRICE.PRICE as UNIT_PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH as STOKCARDPICTUREs,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE from STOKCARD left join STOKCARDPICTURE on STOKCARDPICTURE.STOK_ID = STOKCARD.ID left join STOKWAREHOUSEPRODUCT on STOKWAREHOUSEPRODUCT.STOK_ID=STOKCARD.ID left join STOKCARDUSERPRICE on STOKCARDUSERPRICE.STOK_ID=STOKCARD.ID and STOKCARDUSERPRICE.COMPANY_CODE={0} GROUP BY STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARD.ID,STOKCARDUSERPRICE.PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE;", profil.FirmaKodu);
+
+            List<STOKCARDViewModel> stok = db.Database.SqlQuery<STOKCARDViewModel>(sorgu).ToList<STOKCARDViewModel>();
+            //return (from stok in stockCard
+            //        select new STOKCARD
+            //        {
+            //            ID = stok.ID,
+            //            UNIT = db.STOKWAREHOUSEPRODUCTs.Where(x => x.STOK_ID == stok.ID).Sum(x => x.TOTAL_QUANTITIY),
+            //            UNIT_PRICE = db.STOKCARDUSERPRICEs.Where(x => x.COMPANY_CODE == profil.FirmaKodu).Where(x => x.STOK_ID == stok.ID).Select(x => x.PRICE).FirstOrDefault(),
+            //            CUR_TYPE = "TL",
+            //            STOKCARDPICTUREs = stok.STOKCARDPICTUREs,
+            //            NAME_TR = stok.NAME_TR,
+            //            CODE = stok.CODE,
+            //            MAIN_GRUP = stok.MAIN_GRUP,
+            //            SUB_GRUP1 = stok.SUB_GRUP1,
+            //            SUB_GRUP2 = stok.SUB_GRUP2,
+            //            BRAND_CODE = stok.BRAND_CODE,
+            //            BODY_CODE = stok.BODY_CODE,
+            //            CATEGORY_CODE = stok.CATEGORY_CODE,
+            //            COLOR_CODE = stok.COLOR_CODE,
+            //            MODEL_CODE = stok.MODEL_CODE,
+            //            PACK_CODE = stok.PACK_CODE,
+            //            RAYON_CODE = stok.RAYON_CODE,
+            //            SEASON_CODE = stok.SEASON_CODE,
+            //            SECTOR_CODE = stok.SECTOR_CODE
+            //        }).ToList();
+            return stok;
         }
 
         public IndexDataViewModel getDetailFilter(IndexDataViewModel data)

@@ -6,14 +6,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veribis </title>  
+    <title>Veribis </title>
     @Styles.Render("~/bundels/css")
     @Scripts.Render("~/bundels/scripts")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
- 
     @Html.DevExpress().GetStyleSheets(
     new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
     new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
@@ -40,10 +39,6 @@
     new Script { ExtensionSuite = ExtensionSuite.Spreadsheet },
     new Script { ExtensionSuite = ExtensionSuite.SpellChecker }
 )
-   
-
-
-
 </head>
 <body>
     @*@Html.Partial("_HeaderPartial");*@
@@ -51,82 +46,82 @@
     @Html.Partial("TopHeaderPartial");
     @Html.Partial("BottomHeaderPartial");
 
-    
+
     @RenderBody();
     <hr />
     <!--Footer-->
     <footer id="footer">
 
         @*<div class="footer-widget">
-            <div class="container">
-                <div class="row">
+                <div class="container">
+                    <div class="row">
 
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-2">
-                        <div class="single-widget">
-                            <center>
-                                <h2>@Res.resGetir(32)</h2>
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-2">
+                            <div class="single-widget">
+                                <center>
+                                    <h2>@Res.resGetir(32)</h2>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li><a href="#">@Res.resGetir(29)</a></li>
+                                        <li><a href="../Home/Contact">@Res.resGetir(4)</a></li>
+                                        <li><a href="../Order/Chart">@Res.resGetir(30)</a></li>
+                                        <li><a href="#">@Res.resGetir(31)</a></li>
+                                </center>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="single-widget">
+                                <center>
+                                    <h2>@Res.resGetir(33)</h2>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li><a href="#">@Res.resGetir(34)</a></li>
+                                        <li><a href="#">@Res.resGetir(35)</a></li>
+                                        <li><a href="#">@Res.resGetir(36)</a></li>
+                                        <li><a href="#">@Res.resGetir(37)</a></li>
+                                </center>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="single-widget">
+                                <h2>Policies</h2>
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">@Res.resGetir(29)</a></li>
-                                    <li><a href="../Home/Contact">@Res.resGetir(4)</a></li>
-                                    <li><a href="../Order/Chart">@Res.resGetir(30)</a></li>
-                                    <li><a href="#">@Res.resGetir(31)</a></li>
-                            </center>
-                            </ul>
+                                    <li><a href="#">Terms of Use</a></li>
+                                    <li><a href="#">Privecy Policy</a></li>
+                                    <li><a href="#">Refund Policy</a></li>
+                                    <li><a href="#">Billing System</a></li>
+                                    <li><a href="#">Ticket System</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="single-widget">
-                            <center>
-                                <h2>@Res.resGetir(33)</h2>
+                        <div class="col-sm-2">
+                            <div class="single-widget">
+                                <h2>About Shopper</h2>
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">@Res.resGetir(34)</a></li>
-                                    <li><a href="#">@Res.resGetir(35)</a></li>
-                                    <li><a href="#">@Res.resGetir(36)</a></li>
-                                    <li><a href="#">@Res.resGetir(37)</a></li>
-                            </center>
-                            </ul>
+                                    <li><a href="#">Company Information</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">Store Location</a></li>
+                                    <li><a href="#">Affillate Program</a></li>
+                                    <li><a href="#">Copyright</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="single-widget">
-                            <h2>Policies</h2>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#">Terms of Use</a></li>
-                                <li><a href="#">Privecy Policy</a></li>
-                                <li><a href="#">Refund Policy</a></li>
-                                <li><a href="#">Billing System</a></li>
-                                <li><a href="#">Ticket System</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="single-widget">
-                            <h2>About Shopper</h2>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#">Company Information</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Store Location</a></li>
-                                <li><a href="#">Affillate Program</a></li>
-                                <li><a href="#">Copyright</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-2 ">
-                        <div class="single-widget">
-                            <h2> @Res.resGetir(7)</h2>
-                            <ul>
-                                <li><a href="https://www.facebook.com/pages/modamcom/180760585455778" target="_blank"><i class="fa fa-facebook social-network-icon"style="margin-top:0px;"></i></a></li>
-                                <li><a href="https://twitter.com/modamcom" target="_blank"><i  class=" fa fa-twitter social-network-icon"></i> </a></li>
-                                <li><a href="https://www.pinterest.com/modamcom" target="_blank"><i class="fa fa-pinterest social-network-icon"></i></a></li>
+                        <div class="col-sm-2 ">
+                            <div class="single-widget">
+                                <h2> @Res.resGetir(7)</h2>
+                                <ul>
+                                    <li><a href="https://www.facebook.com/pages/modamcom/180760585455778" target="_blank"><i class="fa fa-facebook social-network-icon"style="margin-top:0px;"></i></a></li>
+                                    <li><a href="https://twitter.com/modamcom" target="_blank"><i  class=" fa fa-twitter social-network-icon"></i> </a></li>
+                                    <li><a href="https://www.pinterest.com/modamcom" target="_blank"><i class="fa fa-pinterest social-network-icon"></i></a></li>
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
-        </div>*@
+            </div>*@
 
         <div class="footer-bottom">
             <div class="container">

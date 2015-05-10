@@ -2,8 +2,7 @@
 @using siparis.Models
 @{
     ViewBag.Title = siparis.Resorces.Language_en_EN.Index;
-    siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
-
+    
 }
 <script src="~/Scripts/jquery.toastmessage.js"></script>
 <script src="~/Scripts/ajaxGonderi/ajaxGonder.js"></script>
@@ -28,15 +27,32 @@
                     <h2>@siparis.Resorces.Language.Filter</h2>
                     <div class="panel-group category-products" id="accordian">
                         <!--category-productsr-->
-                        @{Html.RenderPartial("LeftMenuPartial");}
+                    
 
                     </div><!--/category-products-->
 
                 </div>
             </div>
-            
 
-            @{Html.RenderPartial("ContentPartial");}
+            @{int i = 0;
+            foreach (var stok in Model.stokcardView)
+            {
+                if (i == 0)
+                {
+                    @Html.Raw("<div class='row'>");
+                }
+                i++;
+                Html.RenderPartial("UrunGetirPartial", stok);
+                if (i == 3)
+                {
+                    @Html.Raw("</div>");
+                                       i = 0;
+                }
+
+            }
+            }
+
+            @*@{Html.RenderPartial("ContentPartial");}*@
 
         </div>
     </div>

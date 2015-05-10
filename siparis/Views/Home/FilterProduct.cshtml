@@ -1,0 +1,86 @@
+﻿@model siparis.Models.IndexDataViewModel
+@using siparis.Models
+@{
+    ViewBag.Title = siparis.Resorces.Language_en_EN.Index;
+    siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
+
+}
+<script src="~/Scripts/jquery.toastmessage.js"></script>
+<script src="~/Scripts/ajaxGonderi/ajaxGonder.js"></script>
+
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/AngularFilter/checklist-model.js"></script>
+<script src="~/Scripts/AngularFilter/checkBoxFilter.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".pager").click(function (evt) {
+            var pageindex = $(evt.target).data("pageindex");
+            $("#CurrentPageIndex").val(pageindex);
+            // evt.preventDefault();
+            $("form").submit();
+        });
+    });
+</script>
+
+@*@{Html.RenderPartial("SliderPartial");}*@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>@siparis.Resorces.Language.Filter</h2>
+                    <div class="panel-group category-products" id="accordian">
+                        @{Html.RenderPartial("LeftMenuPartial");}
+                    </div>
+                </div><!--/category-products-->
+
+            </div>
+        </div>
+
+        <!-- ürünler-->
+        <div class="col-sm-9">
+            <div class="features_items" ng-app="urunApp">
+                <h2 class="title text-center">@siparis.Resorces.Language.FeaturesItems</h2>
+                <div id="Dongu" ng-controller="Dongu">
+                    <div class="row">
+                        <input type="text" ng-model="sayi.a" id="say" />
+                        <input type="button" ng-click="getProduct()" value="Submit">
+                        <div class="col-sm-4" ng-repeat="role in urunler">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <div>
+                                            <img src="{{role.STOKCARDPICTUREs}}" alt="" class="image-midi" />
+                                        </div>
+                                        <h2 class="buyukharf">{{role.NAME_TR}}</h2>
+                                        <h4> {{role.UNIT_PRICE}} {{role.CUR_TYPE}}</h4>
+                                        <h6>{{role.CODE}}</h6>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6 etiket">
+                                                <span class="etiket">@siparis.Resorces.Language.Stock</span>
+                                            </div>
+                                            <div class="col-md-6 border-ayar">
+                                                <input type="text" size="2" value={{role.UNIT}} class="padding-left" disabled />
+                                            </div>
+                                        </div>
+                                        <a href="@Url.Action("ProductDetail", "Product", new { urunID = 15 })" class="btn btn-default add-to-cart">
+                                            <i class="fa fa-plus-square"></i>@siparis.Resorces.Language.Details
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /ürünler-->
+        @*@{Html.RenderPartial("ContentPartial");}*@
+
+    </div>
+    </div>
+
+</section>

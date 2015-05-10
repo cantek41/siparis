@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<siparis.Models.STOKCARDViewModel>
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_mainLayout.cshtml";
     var listItems = new List<SelectListItem>
@@ -14,8 +15,10 @@
 
 <div class="col-md-8" style="margin-left:50px;margin-top:15px;">
     @* Company ara kutusu *@
-    <div class="row">
-        <div class="input-group col-md-10">
+    <div class="row" style="text-align:right">
+        <div class="input-group col-md-4">
+        </div>
+        <div class="input-group col-md-6">
             <input type="text" class="form-control" name="companyName" required="required" placeholder="Firma Adı" />
             <span class="input-group-addon">
                 <a href="#"><i class="fa fa-search"></i></a>
@@ -29,7 +32,7 @@
             <h3><b> ABC FİRMASI  120.001.001</b></h3>
         </div>
     </div>
-
+    <br />
     @* Sevk Adresi *@
     <div class="row" style="margin-bottom:20px;">
         <div class="form-group col-md-2">
@@ -76,7 +79,7 @@
         <div class="form-group col-md-2">
             @Html.Label(@siparis.Resorces.Language.DescriptionText)
         </div>
-        <div class="form-group col-md-8">
+        <div class="form-group col-md-4">
             @Html.TextArea("DescriptionTextArea", new { @style = "width: 100%; height: 50px;resize:none" })
         </div>
     </div>
@@ -116,79 +119,80 @@
     </div>
 
 
-
+    <br />
 
 
     @* grid *@
     <div class="row">
-        <div class="col-md-12" style="margin-right:15px;">
+        <div class="col-md-10" >
             @Html.DevExpress().GridView(settings =>
         {
             settings.Name = "gvOverview";
-            //  settings.KeyFieldName = "WAREHOUSE_ID;OPPORTUNITY_CODE;ROW_ORDER_NO;STOK_CODE";
-            //settings.CallbackRouteValues = new
-            //{
-            //    Controller = "WareHouse",
-            //    Action = "saveWareHouse",
-            //    ID = TempData["parametre"]
-            //};
-            //settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "WareHouse", Action = "updateWareHouse" };
+            //settings.KeyFieldName = "WAREHOUSE_ID;OPPORTUNITY_CODE;ROW_ORDER_NO;STOK_CODE";
+            settings.CallbackRouteValues = new
+            {
+                Controller = "Delegate",
+                Action = "saveWareHouse"
+              
+            };
+            settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Delegate", Action = "updateWareHouse" };
             //settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+            settings.KeyFieldName = "ID";
             settings.CommandColumn.Visible = true;
             settings.CommandColumn.ShowEditButton = true;
             settings.CommandColumn.ShowNewButton = true;
-            settings.Width = System.Web.UI.WebControls.Unit.Percentage(80);
+            settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
             settings.Columns.Add(column =>
             {
-                //column.FieldName = "WAREHOUSE_NAME";
+                column.FieldName = "ID";
                 column.Caption = "STOK KODU";
                 column.ReadOnly = true;
 
             });
             settings.Columns.Add(column =>
             {
-                //column.FieldName = "WAREHOUSE_NAME";
+                column.FieldName = "NAME_TR";
                 column.Caption = "STOK ADI";
                 column.ReadOnly = true;
 
             });
             settings.Columns.Add(column =>
             {
-                //column.FieldName = "WAREHOUSE_NAME";
+                column.FieldName = "UNIT_PRICE";
                 column.Caption = "STOK FİYAT";
                 column.ReadOnly = true;
 
             });
             settings.Columns.Add(column =>
             {
-                //column.FieldName = "WAREHOUSE_NAME";
+                column.FieldName = "CUR_TYPE";
                 column.Caption = "PARA BİRİMİ";
                 column.ReadOnly = true;
 
             });
             settings.Columns.Add(column =>
             {
-                //column.FieldName = "WAREHOUSE_NAME";
+                column.FieldName = "UNIT";
                 column.Caption = "MİKTAR";
                 column.ReadOnly = true;
 
             });
             settings.Columns.Add(column =>
             {
-                //column.FieldName = "WAREHOUSE_NAME";
+                column.FieldName = "DES_TR";
                 column.Caption = "AÇIKLAMA";
                 column.ReadOnly = true;
 
             });
             settings.Columns.Add(column =>
             {
-                //column.FieldName = "WAREHOUSE_NAME";
+                column.FieldName = "CODE";
                 column.Caption = "TESLİM TARİHİ";
                 column.ReadOnly = true;
 
             });
 
-        }).GetHtml()
+        }).Bind(Model).GetHtml()
 
         </div>
 
