@@ -162,7 +162,7 @@ width:100%;
 
 /* Menu Content Styles */
 .navi .navi-column {
-	/*float: left;*/
+	float: left;
 	width: 30%;
 	padding: 2.5%;
 }
