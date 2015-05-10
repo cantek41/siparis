@@ -52,7 +52,7 @@ namespace siparis.Controllers
             }
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
-                string sorgu = String.Format("select {1} STOKCARD.ID, SUM(TOTAL_QUANTITIY) as UNIT,STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARDUSERPRICE.PRICE as UNIT_PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH as STOKCARDPICTUREs,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE from STOKCARD left join STOKCARDPICTURE on STOKCARDPICTURE.STOK_ID = STOKCARD.ID left join STOKWAREHOUSEPRODUCT on STOKWAREHOUSEPRODUCT.STOK_ID=STOKCARD.ID left join STOKCARDUSERPRICE on STOKCARDUSERPRICE.STOK_ID=STOKCARD.ID and STOKCARDUSERPRICE.COMPANY_CODE={0} GROUP BY STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARD.ID,STOKCARDUSERPRICE.PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE;", 1, top);
+                string sorgu = String.Format(" select * from(select {1} STOKCARD.ID, SUM(TOTAL_QUANTITIY) as UNIT,STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARDUSERPRICE.PRICE as UNIT_PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH as STOKCARDPICTUREs,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE,  ROW_NUMBER()  OVER(PARTITION BY STOKCARD.ID ORDER BY STOKCARD.ID DESC ) rn from STOKCARD left join STOKCARDPICTURE on STOKCARDPICTURE.STOK_ID = STOKCARD.ID left join STOKWAREHOUSEPRODUCT on STOKWAREHOUSEPRODUCT.STOK_ID=STOKCARD.ID left join STOKCARDUSERPRICE on STOKCARDUSERPRICE.STOK_ID=STOKCARD.ID and STOKCARDUSERPRICE.COMPANY_CODE={0} GROUP BY STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARD.ID,STOKCARDUSERPRICE.PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE) a where rn=1;", 1, top);
 
                 List<STOKCARDViewModel> stok = db.Database.SqlQuery<STOKCARDViewModel>(sorgu).ToList<STOKCARDViewModel>();
                 return stok;
@@ -63,15 +63,15 @@ namespace siparis.Controllers
         public List<STOKCARDViewModel> getFilterStok(filterModel _filter)
         {
             List<STOKCARDViewModel> data = getStok();
-            if (_filter.stokMainGroup != null)
+            if (_filter.stokMainGroup != 0)
                 data = (from s in data
                         where s.MAIN_GRUP == _filter.stokMainGroup
                         select s).ToList() ?? data;
-            if (_filter.stokSubGroup != null && _filter.stokSubGroup != 0)
+            if (_filter.stokSubGroup != 0)
                 data = (from s in data
                         where s.SUB_GRUP1 == _filter.stokSubGroup
                         select s).ToList() ?? data;
-            if (_filter.stokSubGroup2 != null && _filter.stokSubGroup2 != 0)
+            if (_filter.stokSubGroup2 != 0)
                 data = (from s in data
                         where s.SUB_GRUP2 == _filter.stokSubGroup2
                         select s).ToList() ?? data;
@@ -112,6 +112,13 @@ namespace siparis.Controllers
                 data = (from s in data
                         join c in _filter.stokBody on s.BODY_CODE equals c
                         select s).ToList() ?? data;
+            foreach (var item in data)
+            {
+                if (String.IsNullOrEmpty(item.STOKCARDPICTUREs))
+                {
+                    item.STOKCARDPICTUREs = "../Content/images/404/No_Image_Available.png";
+                }
+            }
             return data;
 
         }

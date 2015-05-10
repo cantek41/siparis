@@ -9,9 +9,7 @@
         else {
             f.UnselectAll();
         }
-        updateProductList(s, e, f);
-
-
+        updateProductList(s, e);
     }
 </script>
 <script>
@@ -28,7 +26,7 @@
     });
 </script>
 <!--Main ve sub gruplar-->
-<div >
+<div>
     <input type="text" id="stokMainGroup" value="@Model.stokMainGroup.ElementAt(0).ID" />
     <input type="text" id="stokSubGroup" value="@Model.stokSubGroup.ElementAt(0).ID" />
     <input type="text" id="stokSubGroup2" value="@Model.stokSubGroup2.ElementAt(0).ID" />
@@ -45,38 +43,25 @@
                 <ul>
                     <li>
                         @(Html.DevExpress().CheckBox(s =>
-        {
-            s.Name = "all3";
-            s.Text = "All";
-            s.Checked = true;
-            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,CATEGORY); }";
-        }).GetHtml())
+                            {
+                                s.Name = "all3";
+                                s.Text = "All";
+                                s.Checked = true;
+                                s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,CATEGORY); }";
+                            }).GetHtml())
                         @(Html.DevExpress().CheckBoxList(settings =>
-        {
-            settings.Name = "CATEGORY";
-            settings.Properties.ValueField = "STOK_GROUP_CODE";
-            settings.Properties.TextField = "NAME_TR";
-            settings.Properties.ValueType = typeof(int);
-            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
-            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-            settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth = 0;
-            settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e,CATEGORY);}";
-            //settings.PreRender = (sender, e) =>
-            //{
-            //    ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
-            //    foreach (ListEditItem item in cbl.Items)
-            //    {
-            //        int count = @Model.stokcard.Where(x => x.CATEGORY_CODE == (int)item.Value).Count();
-            //        item.Text += " (" + count + ")";
-            //        if (count > 0)
-            //        {
-            //            item.Selected = true;
-            //        }
-            //    }
-            //};
+                            {
+                                settings.Name = "CATEGORY";
+                                settings.Properties.ValueField = "STOK_GROUP_CODE";
+                                settings.Properties.TextField = "NAME_TR";
+                                settings.Properties.ValueType = typeof(int);
+                                settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+                                settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+                                settings.Properties.RepeatColumns = 1;
+                                settings.ControlStyle.Border.BorderWidth = 0;
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
 
-        }).BindList(Model.stokCategory).GetHtml()
+                            }).BindList(Model.stokCategory).GetHtml()
                         )
                     </li>
                 </ul>
@@ -92,37 +77,24 @@
                 <ul>
                     <li>
                         @(Html.DevExpress().CheckBox(s =>
-        {
-            s.Name = "all4";
-            s.Text = "All";
-          //  s.Checked = true;
-            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,BRAND); }";
-        }).GetHtml())
+                    {
+                        s.Name = "all4";
+                        s.Text = "All";
+                        //  s.Checked = true;
+                        s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,BRAND); }";
+                    }).GetHtml())
                         @(Html.DevExpress().CheckBoxList(settings =>
-        {
-            settings.Name = "BRAND";
-            settings.Properties.ValueField = "BRAND_CODE";
-            settings.Properties.TextField = "NAME_TR";
-            settings.Properties.ValueType = typeof(int);
-            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
-            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-            settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth = 0;
-            //settings.PreRender = (sender, e) =>
-            //{
-            //    ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
-            //    foreach (ListEditItem item in cbl.Items)
-            //    {
-            //        int count = @Model.stokcard.Where(x => x.BRAND_CODE == (int)item.Value).Count();
-            //        item.Text += " (" + count + ")";
-            //        if (count > 0)
-            //        {
-            //            item.Selected = true;
-            //        }
-            //    }
-            //};
-
-        }).BindList(Model.stokbrand).GetHtml()
+                    {
+                        settings.Name = "BRAND";
+                        settings.Properties.ValueField = "BRAND_CODE";
+                        settings.Properties.TextField = "NAME_TR";
+                        settings.Properties.ValueType = typeof(int);
+                        settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+                        settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+                        settings.Properties.RepeatColumns = 1;
+                        settings.ControlStyle.Border.BorderWidth = 0;
+                        settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                    }).BindList(Model.stokbrand).GetHtml()
                         )
                     </li>
                 </ul>
@@ -138,37 +110,24 @@
                 <ul>
                     <li>
                         @(Html.DevExpress().CheckBox(s =>
-        {
-            s.Name = "all5";
-            s.Text = "All";
-         //   s.Checked = true;
-            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,MODEL); }";
-        }).GetHtml())
+                            {
+                                s.Name = "all5";
+                                s.Text = "All";
+                                //   s.Checked = true;
+                                s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,MODEL); }";
+                            }).GetHtml())
                         @(Html.DevExpress().CheckBoxList(settings =>
-        {
-            settings.Name = "MODEL";
-            settings.Properties.ValueField = "MODEL_CODE";
-            settings.Properties.TextField = "NAME_TR";
-            settings.Properties.ValueType = typeof(int);
-            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
-            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-            settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth = 0;
-            //settings.PreRender = (sender, e) =>
-            //{
-            //    ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
-            //    foreach (ListEditItem item in cbl.Items)
-            //    {
-            //        int count = @Model.stokcard.Where(x => x.MODEL_CODE == (int)item.Value).Count();
-
-            //        item.Text += " (" + count + ")";
-            //        if (count > 0)
-            //        {
-            //            item.Selected = true;
-            //        }
-            //    }
-            //};
-        }).BindList(Model.stokModel).GetHtml()
+                            {
+                                settings.Name = "MODEL";
+                                settings.Properties.ValueField = "MODEL_CODE";
+                                settings.Properties.TextField = "NAME_TR";
+                                settings.Properties.ValueType = typeof(int);
+                                settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+                                settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+                                settings.Properties.RepeatColumns = 1;
+                                settings.ControlStyle.Border.BorderWidth = 0;
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                            }).BindList(Model.stokModel).GetHtml()
                         )
                     </li>
                 </ul>
@@ -184,37 +143,24 @@
                 <ul>
                     <li>
                         @(Html.DevExpress().CheckBox(s =>
-        {
-            s.Name = "all6";
-            s.Text = "All";
-       //     s.Checked = true;
-            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SIZE); }";
-        }).GetHtml())
+                        {
+                            s.Name = "all6";
+                            s.Text = "All";
+                            //     s.Checked = true;
+                            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SIZE); }";
+                        }).GetHtml())
                         @(Html.DevExpress().CheckBoxList(settings =>
-        {
-            settings.Name = "SIZE";
-            settings.Properties.ValueField = "BODY_CODE";
-            settings.Properties.TextField = "NAME_TR";
-            settings.Properties.ValueType = typeof(int);
-            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
-            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-            settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth = 0;
-            //settings.PreRender = (sender, e) =>
-            //{
-            //    ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
-            //    foreach (ListEditItem item in cbl.Items)
-            //    {
-            //        int count = @Model.stokcard.Where(x => x.BODY_CODE == (int)item.Value).Count();
-
-            //        item.Text += " (" + count + ")";
-            //        if (count > 0)
-            //        {
-            //            item.Selected = true;
-            //        }
-            //    }
-            //};
-        }).BindList(Model.stokBody).GetHtml()
+                            {
+                                settings.Name = "SIZE";
+                                settings.Properties.ValueField = "BODY_CODE";
+                                settings.Properties.TextField = "NAME_TR";
+                                settings.Properties.ValueType = typeof(int);
+                                settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+                                settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+                                settings.Properties.RepeatColumns = 1;
+                                settings.ControlStyle.Border.BorderWidth = 0;
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                            }).BindList(Model.stokBody).GetHtml()
                         )
                     </li>
                 </ul>
@@ -230,36 +176,24 @@
                 <ul>
                     <li>
                         @(Html.DevExpress().CheckBox(s =>
-        {
-            s.Name = "all7";
-            s.Text = "All";
-       //     s.Checked = true;
-            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,COLOR); }";
-        }).GetHtml())
+                            {
+                                s.Name = "all7";
+                                s.Text = "All";
+                                //     s.Checked = true;
+                                s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,COLOR); }";
+                            }).GetHtml())
                         @(Html.DevExpress().CheckBoxList(settings =>
-        {
-            settings.Name = "COLOR";
-            settings.Properties.ValueField = "COLOR_CODE";
-            settings.Properties.TextField = "NAME_TR";
-            settings.Properties.ValueType = typeof(int);
-            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
-            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-            settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth = 0;
-            //settings.PreRender = (sender, e) =>
-            //{
-            //    ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
-            //    foreach (ListEditItem item in cbl.Items)
-            //    {
-            //        int count = @Model.stokcard.Where(x => x.COLOR_CODE == (int)item.Value).Count();
-            //        item.Text += " (" + count + ")";
-            //        if (count > 0)
-            //        {
-            //            item.Selected = true;
-            //        }
-            //    }
-            //};
-        }).BindList(Model.stokcolor).GetHtml()
+                            {
+                                settings.Name = "COLOR";
+                                settings.Properties.ValueField = "COLOR_CODE";
+                                settings.Properties.TextField = "NAME_TR";
+                                settings.Properties.ValueType = typeof(int);
+                                settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+                                settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+                                settings.Properties.RepeatColumns = 1;
+                                settings.ControlStyle.Border.BorderWidth = 0;
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                            }).BindList(Model.stokcolor).GetHtml()
                         )
                     </li>
                 </ul>
@@ -274,36 +208,24 @@
                 <ul>
                     <li>
                         @(Html.DevExpress().CheckBox(s =>
-        {
-            s.Name = "all8";
-            s.Text = "All";
-    ///        s.Checked = true;
-            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SEASON); }";
-        }).GetHtml())
+                        {
+                            s.Name = "all8";
+                            s.Text = "All";
+                            ///        s.Checked = true;
+                            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SEASON); }";
+                        }).GetHtml())
                         @(Html.DevExpress().CheckBoxList(settings =>
-        {
-            settings.Name = "SEASON";
-            settings.Properties.ValueField = "SEASON_CODE";
-            settings.Properties.TextField = "NAME_TR";
-            settings.Properties.ValueType = typeof(int);
-            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
-            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-            settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth = 0;
-            //settings.PreRender = (sender, e) =>
-            //{
-            //    ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
-            //    foreach (ListEditItem item in cbl.Items)
-            //    {
-            //        int count = @Model.stokcard.Where(x => x.SEASON_CODE == (int)item.Value).Count();
-            //        item.Text += " (" + count + ")";
-            //        if (count > 0)
-            //        {
-            //            item.Selected = true;
-            //        }
-            //    }
-            //};
-        }).BindList(Model.stokseason).GetHtml()
+                        {
+                            settings.Name = "SEASON";
+                            settings.Properties.ValueField = "SEASON_CODE";
+                            settings.Properties.TextField = "NAME_TR";
+                            settings.Properties.ValueType = typeof(int);
+                            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+                            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+                            settings.Properties.RepeatColumns = 1;
+                            settings.ControlStyle.Border.BorderWidth = 0;
+                            settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                        }).BindList(Model.stokseason).GetHtml()
                         )
                     </li>
                 </ul>
@@ -318,36 +240,24 @@
                 <ul>
                     <li>
                         @(Html.DevExpress().CheckBox(s =>
-        {
-            s.Name = "all9";
-            s.Text = "All";
-     //       s.Checked = true;
-            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,PACKET); }";
-        }).GetHtml())
+                        {
+                            s.Name = "all9";
+                            s.Text = "All";
+                            //       s.Checked = true;
+                            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,PACKET); }";
+                        }).GetHtml())
                         @(Html.DevExpress().CheckBoxList(settings =>
-        {
-            settings.Name = "PACKET";
-            settings.Properties.ValueField = "PACKET_CODE";
-            settings.Properties.TextField = "NAME_TR";
-            settings.Properties.ValueType = typeof(int);
-            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
-            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-            settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth = 0;
-            //settings.PreRender = (sender, e) =>
-            //{
-            //    ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
-            //    foreach (ListEditItem item in cbl.Items)
-            //    {
-            //        int count = @Model.stokcard.Where(x => x.PACK_CODE == (int)item.Value).Count();
-            //        item.Text += " (" + count + ")";
-            //        if (count > 0)
-            //        {
-            //            item.Selected = true;
-            //        }
-            //    }
-            //};
-        }).BindList(Model.stokPacket).GetHtml()
+                            {
+                                settings.Name = "PACKET";
+                                settings.Properties.ValueField = "PACKET_CODE";
+                                settings.Properties.TextField = "NAME_TR";
+                                settings.Properties.ValueType = typeof(int);
+                                settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+                                settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+                                settings.Properties.RepeatColumns = 1;
+                                settings.ControlStyle.Border.BorderWidth = 0;
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                            }).BindList(Model.stokPacket).GetHtml()
                         )
                     </li>
                 </ul>
@@ -362,36 +272,24 @@
                 <ul>
                     <li>
                         @(Html.DevExpress().CheckBox(s =>
-        {
-            s.Name = "all10";
-            s.Text = "All";
-     //       s.Checked = true;
-            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,RAYON); }";
-        }).GetHtml())
+                        {
+                            s.Name = "all10";
+                            s.Text = "All";
+                            //       s.Checked = true;
+                            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,RAYON); }";
+                        }).GetHtml())
                         @(Html.DevExpress().CheckBoxList(settings =>
-        {
-            settings.Name = "RAYON";
-            settings.Properties.ValueField = "RAYON_CODE";
-            settings.Properties.TextField = "NAME_TR";
-            settings.Properties.ValueType = typeof(int);
-            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
-            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-            settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth = 0;
-            //settings.PreRender = (sender, e) =>
-            //{
-            //    ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
-            //    foreach (ListEditItem item in cbl.Items)
-            //    {
-            //        int count = @Model.stokcard.Where(x => x.RAYON_CODE == (int)item.Value).Count();
-            //        item.Text += " (" + count + ")";
-            //        if (count > 0)
-            //        {
-            //            item.Selected = true;
-            //        }
-            //    }
-            //};
-        }).BindList(Model.stokRayon).GetHtml()
+                            {
+                                settings.Name = "RAYON";
+                                settings.Properties.ValueField = "RAYON_CODE";
+                                settings.Properties.TextField = "NAME_TR";
+                                settings.Properties.ValueType = typeof(int);
+                                settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+                                settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+                                settings.Properties.RepeatColumns = 1;
+                                settings.ControlStyle.Border.BorderWidth = 0;
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                            }).BindList(Model.stokRayon).GetHtml()
                         )
 
                     </li>
@@ -407,36 +305,24 @@
                 <ul>
                     <li>
                         @(Html.DevExpress().CheckBox(s =>
-        {
-            s.Name = "all11";
-            s.Text = "All";
-     //       s.Checked = true;
-            s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SECTOR); }";
-        }).GetHtml())
+                            {
+                                s.Name = "all11";
+                                s.Text = "All";
+                                //       s.Checked = true;
+                                s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,SECTOR); }";
+                            }).GetHtml())
                         @(Html.DevExpress().CheckBoxList(settings =>
-        {
-            settings.Name = "SECTOR";
-            settings.Properties.ValueField = "SECTOR_CODE";
-            settings.Properties.TextField = "NAME_TR";
-            settings.Properties.ValueType = typeof(int);
-            settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
-            settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-            settings.Properties.RepeatColumns = 1;
-            settings.ControlStyle.Border.BorderWidth = 0;
-            //settings.PreRender = (sender, e) =>
-            //{
-            //    ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
-            //    foreach (ListEditItem item in cbl.Items)
-            //    {
-            //        int count = @Model.stokcard.Where(x => x.RAYON_CODE == (int)item.Value).Count();
-            //        item.Text += " (" + count + ")";
-            //        if (count > 0)
-            //        {
-            //            item.Selected = true;
-            //        }
-            //    }
-            //};
-        }).BindList(Model.stokSector).GetHtml()
+                            {
+                                settings.Name = "SECTOR";
+                                settings.Properties.ValueField = "SECTOR_CODE";
+                                settings.Properties.TextField = "NAME_TR";
+                                settings.Properties.ValueType = typeof(int);
+                                settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+                                settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+                                settings.Properties.RepeatColumns = 1;
+                                settings.ControlStyle.Border.BorderWidth = 0;
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                            }).BindList(Model.stokSector).GetHtml()
                         )
                     </li>
                 </ul>
@@ -445,4 +331,3 @@
         <!--/SECTOR-->
     </ul>
 </div>
-

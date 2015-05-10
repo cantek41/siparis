@@ -50,7 +50,7 @@ urunApp.controller('Dongu', ['$scope', '$http', function ($scope, $http) {
     }
 }]);
 
-function updateProductList(s, e, f) {
-    var group = f.GetSelectedValues();
+function updateProductList(s, e) {
+  
     angular.element(document.getElementById('Dongu')).scope().getProduct();
 }
