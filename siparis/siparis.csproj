@@ -259,6 +259,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DelegateController.cs" />
+    <Compile Include="Controllers\Filter.cs" />
     <Compile Include="Controllers\StokController.cs" />
     <Compile Include="Controllers\WareHouseController.cs" />
     <Compile Include="Models\ACTIVITY.cs">
@@ -1211,6 +1212,8 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\AngularFilter\checkBoxFilter.js" />
+    <Content Include="Scripts\AngularFilter\checklist-model.js" />
     <Content Include="Scripts\contact.js" />
     <Content Include="Scripts\customScript.js" />
     <Content Include="Scripts\gmaps.js" />

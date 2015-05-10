@@ -19,6 +19,7 @@ namespace siparis.Controllers
                 using (VdbSoftEntities db = new VdbSoftEntities(dbName))
                 {
                     #region Sepet Var mı
+                    checkCart(); 
                     if (Session["Sepet"] == null)
                     {
                         ProfileInfo pf = (ProfileInfo)Session["profilim"];

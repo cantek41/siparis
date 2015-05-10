@@ -24,6 +24,22 @@ namespace siparis.Models
         
     }
 
+    public class filterModel
+    {
+        public int stokMainGroup { get; set; }
+        public int stokSubGroup { get; set; }
+        public int stokSubGroup2 { get; set; }
+        public int[] stokCategory { get; set; }
+        public int[] stokbrand { get; set; }
+        public int[] stokseason { get; set; }
+        public int[] stokcolor { get; set; }
+        public int[] stokBody { get; set; }
+        public int[] stokPacket { get; set; }
+        public int[]  stokRayon { get; set; }
+        public int[] stokModel { get; set; }
+        public int[] stokSector { get; set; }
+        
+    }
     public partial class STOKCARDViewModel
     {       
         public int ID { get; set; }
