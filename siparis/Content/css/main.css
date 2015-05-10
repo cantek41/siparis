@@ -844,11 +844,14 @@ ul.sub-menu {
 }
 
 .brands_products {
-
 overflow-y:hidden;
 min-height:50px;
 }
 
+.brands_products ul {
+    overflow-y: scroll;
+    max-height: 150px;
+}
 .left-sidebar h2, .brands_products h2 {
     color: #FE980F;
     font-family: 'Roboto', sans-serif;
