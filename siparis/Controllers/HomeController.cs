@@ -28,20 +28,16 @@ namespace siparis.Controllers
         public ActionResult FilterProduct()
         {
             Filter filter=new Filter(dbName);
-            IndexDataViewModel data = filter.getCategory();
+            IndexDataViewModel data = filter.getFilterItem();
             return View(data);
         }
         [HttpPost]
         public JsonResult FilterProduct(filterModel data)
         {
-            
-            VdbSoftEntities db = new VdbSoftEntities(dbName);
-            //  var model = db.STOKCARDs.Where(x => x.CODE == x.UPPER_CODE).Take(12).ToList();
-            string sorgu = String.Format("select TOP({1}) STOKCARD.ID, SUM(TOTAL_QUANTITIY) as UNIT,STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARDUSERPRICE.PRICE as UNIT_PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH as STOKCARDPICTUREs,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE from STOKCARD left join STOKCARDPICTURE on STOKCARDPICTURE.STOK_ID = STOKCARD.ID left join STOKWAREHOUSEPRODUCT on STOKWAREHOUSEPRODUCT.STOK_ID=STOKCARD.ID left join STOKCARDUSERPRICE on STOKCARDUSERPRICE.STOK_ID=STOKCARD.ID and STOKCARDUSERPRICE.COMPANY_CODE={0} GROUP BY STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARD.ID,STOKCARDUSERPRICE.PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE;", 1,1);
-
-            List<STOKCARDViewModel> stok = db.Database.SqlQuery<STOKCARDViewModel>(sorgu).ToList<STOKCARDViewModel>();
-            return Json(stok, JsonRequestBehavior.AllowGet);
+            Filter filter = new Filter(dbName);
+            return Json(filter.getFilterStok(data), JsonRequestBehavior.AllowGet);
         }
+       
         /// <summary>
         /// sayfa atlatma
         /// </summary>
