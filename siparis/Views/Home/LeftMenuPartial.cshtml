@@ -11,7 +11,7 @@
         }
         updateProductList(s, e);
     }
-    $(document).ready(function () {       
+    $(document).ready(function () {
         angular.element(document.getElementById('Dongu')).scope().getProduct();
     });
 </script>
@@ -29,11 +29,11 @@
     });
 </script>
 <!--Main ve sub gruplar-->
-<div>
+<div hidden="hidden">
     <input type="text" id="stokMainGroup" value="@Model.stokMainGroup.ElementAt(0).ID" />
     <input type="text" id="stokSubGroup" value="@Model.stokSubGroup.ElementAt(0).ID" />
     @*<input type="text" id="stokSubGroup2" value="@Model.stokSubGroup2.ElementAt(0).ID" />*@
-    <input type="text" id="stokSubGroup2"  />
+    <input type="text" id="stokSubGroup2" />
 
 </div>
 <!--/Main ve sub gruplar-->
