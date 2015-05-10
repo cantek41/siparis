@@ -1,5 +1,9 @@
 ﻿@using siparis.Models
-
+@using siparis.Controllers
+@{
+    siparis.Controllers.Filter flt = new siparis.Controllers.Filter(BaseController.dbName);
+    IndexDataViewModel menuItem = flt.getFilterItem();
+}
 <link href="~/Content/css/MegaDrop.css" rel="stylesheet" />
 <!-- Preview Styles -->
 <div class="header-bottom">
@@ -12,49 +16,23 @@
                         <li>
                             <a href="#">@siparis.Resorces.Language.Products</a>
                             <div>
-                                <div class="navi-column">
-                                    <h3>Home</h3>
-                                    <ul>
-                                        <li><a href="#">Pampers Diapers</a></li>
-                                        <li><a href="#">Huggies Diapers</a></li>
-                                        <li><a href="#">Seventh Generation</a></li>
-                                        <li><a href="#">Diapers</a></li>
-                                        <li><a href="#">Derbies</a></li>
-                                        <li><a href="#">Driving shoes</a></li>
-                                        <li><a href="#">Espadrilles</a></li>
-                                        <li><a href="#">Loafers</a></li>
-                                    </ul>
-                                </div>
+                                @{foreach (var item in menuItem.stokMainGroup)
+                                {
+                                    <div class="navi-column">
+                                        <h3>@item.EXP_TR</h3>
+                                        <ul>
+                                            @foreach (var childitem in menuItem.stokSubGroup)
+                                            {
+                                                if (item.CODE == childitem.MAIN_GROUP_CODE)
+                                                {
+                                                    <li><a href="#">@childitem.EXP_TR</a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
 
-                                <div class="navi-column">
-                                    <h3>Home</h3>
-                                    <ul>
-                                        <li><a href="#">Driving shoes</a></li>
-                                        <li><a href="#">Espadrilles</a></li>
-                                        <li><a href="#">Loafers</a></li>
-                                    </ul>
-
-                                    <h3>Home</h3>
-                                    <ul>
-                                        <li><a href="#">Driving shoes</a></li>
-                                        <li><a href="#">Espadrilles</a></li>
-                                        <li><a href="#">Loafers</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="navi-column">
-                                    <h3>Home</h3>
-                                    <ul>
-                                        <li><a href="#">Pampers Diapers</a></li>
-                                        <li><a href="#">Huggies Diapers</a></li>
-                                        <li><a href="#">Seventh Generation</a></li>
-                                        <li><a href="#">Diapers</a></li>
-                                        <li><a href="#">Derbies</a></li>
-                                        <li><a href="#">Driving shoes</a></li>
-                                        <li><a href="#">Espadrilles</a></li>
-                                        <li><a href="#">Loafers</a></li>
-                                    </ul>
-                                </div>
+                                }
+                                }
                             </div>
                         </li>
                         <li><a href="#">@siparis.Resorces.Language.Contact</a></li>
