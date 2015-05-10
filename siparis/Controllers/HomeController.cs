@@ -25,10 +25,12 @@ namespace siparis.Controllers
             return View(data);
 
         }
-        public ActionResult FilterProduct()
+        public ActionResult FilterProduct(int main,int sub)
         {
             Filter filter = new Filter(dbName);
             IndexDataViewModel data = filter.getFilterItem();
+            data.stokMainGroup.ElementAt(0).ID = main;
+            data.stokSubGroup.ElementAt(0).ID = sub;
             return View(data);
         }
         [HttpPost]

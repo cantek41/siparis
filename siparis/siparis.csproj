@@ -2104,7 +2104,6 @@
     <Content Include="Views\Order\Chart.cshtml" />
     <Content Include="Views\Home\NotFound.cshtml" />
     <Content Include="Views\Home\LeftMenuPartial.cshtml" />
-    <Content Include="Views\Home\CategorizedProducts.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\HeaderPartialView.cshtml" />
     <Content Include="Views\Shared\LogOnPartialView.cshtml" />
@@ -2136,7 +2135,6 @@
     <Content Include="Views\OrderFollow\_wareHousePartial.cshtml" />
     <Content Include="Views\Home\UrunGetirPartial.cshtml" />
     <Content Include="Views\OrderFollow\_ShippingPartial.cshtml" />
-    <Content Include="Views\Home\ContentPartial.cshtml" />
     <Content Include="Views\OrderFollow\_ShippingConfirmMasterPartial.cshtml" />
     <Content Include="Views\OrderFollow\_ShippingConfirmDetailPartial.cshtml" />
     <Content Include="Views\Delegate\Index.cshtml" />
