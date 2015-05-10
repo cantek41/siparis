@@ -146,8 +146,12 @@ namespace siparis.Controllers
             ProfileInfo profil = (ProfileInfo)Session["profilim"];
             st.UNIT = db.STOKWAREHOUSEPRODUCTs.Where(x => x.STOK_ID == ID).Sum(x => x.TOTAL_QUANTITIY);
             var price = db.STOKCARDUSERPRICEs.Where(x => x.COMPANY_CODE == profil.FirmaKodu).Where(x => x.STOK_ID == ID).FirstOrDefault();
-            st.UNIT_PRICE = price.PRICE;
-            st.CUR_TYPE = price.CUR_TYPE;
+            if (price != null)
+            {
+                st.UNIT_PRICE = price.PRICE;
+                st.CUR_TYPE = price.CUR_TYPE;
+            }
+
             return st;
         }
 
@@ -276,7 +280,7 @@ namespace siparis.Controllers
 
                 var model = (from c in db.COMPANies
                              join d in db.ADDRESSes on c.COMPANY_CODE equals d.COMPANY_CODE
-                             join p in db.PHONEs on c.COMPANY_CODE equals p.COMPANY_CODE                        
+                             join p in db.PHONEs on c.COMPANY_CODE equals p.COMPANY_CODE
                              where d.COMPANY_CODE == company.COMPANY_CODE
                              select new
                              {

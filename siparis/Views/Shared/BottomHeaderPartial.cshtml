@@ -5,6 +5,10 @@
     IndexDataViewModel menuItem = flt.getMainMenu();
 }
 <link href="~/Content/css/MegaDrop.css" rel="stylesheet" />
+<script type="text/javascript">
+   
+
+</script>
 <!-- Preview Styles -->
 <div>
     <!--header-bottom-->
@@ -13,9 +17,9 @@
             <div >
                 <div id="menu-wrapper">
                     <ul class="navi">
-                        <li>
+                        <li ng-app="firstApp">
                             <a href="#">@siparis.Resorces.Language.Products</a>
-                            <div ng-app ng-init="tab = '@menuItem.stokMainGroup.ElementAt(0).ID'">
+                            <div ng-controller="FirstController" ng-init="tab = '@menuItem.stokMainGroup.ElementAt(0).ID'">
                                 <div>
                                     <div class="navi-column" style="float:left;margin-right:20px;">
                                         @{foreach (var item in menuItem.stokMainGroup)
