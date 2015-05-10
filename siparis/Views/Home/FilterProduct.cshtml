@@ -5,6 +5,7 @@
     siparis.Models.SortingPagingInfo info = ViewBag.SortingPagingInfo;
 
 }
+<link href="~/Content/css/main.css" rel="stylesheet" />
 <script src="~/Scripts/jquery.toastmessage.js"></script>
 <script src="~/Scripts/ajaxGonderi/ajaxGonder.js"></script>
 
@@ -15,7 +16,7 @@
 @{Html.RenderPartial("SliderPartial");}
 <section>
     <div class="container">
-        <div class="row">
+        
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <h2>@siparis.Resorces.Language.Filter</h2>
@@ -23,7 +24,6 @@
                         @{Html.RenderPartial("LeftMenuPartial");}
                     </div>
                 </div><!--/category-products-->
-
             </div>
 
 
@@ -32,15 +32,13 @@
                 <div class="features_items" ng-app="urunApp">
                     <h2 class="title text-center">@siparis.Resorces.Language.FeaturesItems</h2>
                     <div id="Dongu" ng-controller="Dongu">
-                        <div class="row">
+                        <div>
                             <div class="col-sm-4" ng-repeat="role in urunler">
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <div>
-                                                <img src="{{role.STOKCARDPICTUREs}}" alt="" class="image-main" />
-                                            </div>
-                                            <h2 class="buyukharf">{{role.NAME_TR}}</h2>
+                                            <div><img src="{{role.STOKCARDPICTUREs}}" alt="" class="image-main" /></div>
+                                            <div class="product-title">{{role.NAME_TR}}</div>
                                             <h4> {{role.UNIT_PRICE}} {{role.CUR_TYPE}}</h4>
                                             <h6>{{role.CODE}}</h6>
                                             <div class="col-sm-12">
@@ -65,7 +63,7 @@
             <!-- /ürünler-->
             @*@{Html.RenderPartial("ContentPartial");}*@
         </div>
-    </div>
+  
  
 
 </section>

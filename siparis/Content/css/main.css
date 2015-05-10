@@ -2865,3 +2865,17 @@ float:left;
     overflow: hidden;
     font-size: 1em;
 }
+
+.product-title {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 1.8em;
+  line-height: 1.8em;
+
+    
+    color: #FE980F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight:700;
+}
