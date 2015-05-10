@@ -25,12 +25,15 @@ var urunApp = angular.module("urunApp", []);
 urunApp.controller('Dongu', ['$scope', '$http', function ($scope, $http) {
     var onComplete = function (response) {
         $scope.urunler = response.data;
+       
+
     };
 
     var onError = function (response) {
         $scope.error = 'Github kullanıcısı bulunamadı!';
     };
     $scope.getProduct = function () {
+        var cat=$('input[name=CATEGORY]');
         var msj = {
             stokMainGroup: $('#stokMainGroup').val(),
             stokSubGroup: $('#stokSubGroup').val(),
@@ -50,7 +53,8 @@ urunApp.controller('Dongu', ['$scope', '$http', function ($scope, $http) {
     }
 }]);
 
-function updateProductList(s, e) {
-  
+function updateProductList() {
+    
+   // CATEGORY.Enabled = false;
     angular.element(document.getElementById('Dongu')).scope().getProduct();
 }

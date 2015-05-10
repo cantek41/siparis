@@ -20,18 +20,18 @@ namespace siparis.Controllers
         {
             VdbSoftEntities db = new VdbSoftEntities(dbName);
             IndexDataViewModel data = new IndexDataViewModel();
-            data.stokMainGroup = db.STOKMAINGROUPs.ToList();
-            data.stokSubGroup = db.STOKSUBGROUPs.ToList();
-            data.stokSubGroup2 = db.STOKSUBGROUP2.ToList();
-            data.stokCategory = db.STOKCATEGORies.ToList();
-            data.stokModel = db.STOKMODELs.ToList();
-            data.stokRayon = db.STOKRAYONs.ToList();
-            data.stokSector = db.STOKSECTORs.ToList();
-            data.stokPacket = db.STOKPACKETs.ToList();
-            data.stokcolor = db.STOKCOLORs.ToList();
-            data.stokseason = db.STOKSEASONs.ToList();
-            data.stokBody = db.STOKBODies.ToList();
-            data.stokbrand = db.STOKBRANDs.ToList();
+            data.stokMainGroup = db.STOKMAINGROUPs.OrderByDescending(x => x.ID).ToList();
+            data.stokSubGroup = db.STOKSUBGROUPs.OrderByDescending(x => x.ID).ToList();
+            data.stokSubGroup2 = db.STOKSUBGROUP2.OrderByDescending(x=>x.CODE).ToList();
+            data.stokCategory = db.STOKCATEGORies.OrderByDescending(x=>x.CODE).ToList();
+            data.stokModel = db.STOKMODELs.OrderByDescending(x=>x.CODE).ToList();
+            data.stokRayon = db.STOKRAYONs.OrderByDescending(x => x.CODE).ToList();
+            data.stokSector = db.STOKSECTORs.OrderByDescending(x => x.CODE).ToList();
+            data.stokPacket = db.STOKPACKETs.OrderByDescending(x => x.CODE).ToList();
+            data.stokcolor = db.STOKCOLORs.OrderByDescending(x => x.CODE).ToList();
+            data.stokseason = db.STOKSEASONs.OrderByDescending(x => x.CODE).ToList();
+            data.stokBody = db.STOKBODies.OrderByDescending(x => x.CODE).ToList();
+            data.stokbrand = db.STOKBRANDs.OrderByDescending(x => x.CODE).ToList();
             return data;
         }
         [OutputCache(Duration = 3600, Location = OutputCacheLocation.Client, NoStore = true)]
@@ -40,8 +40,8 @@ namespace siparis.Controllers
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
                 IndexDataViewModel data = new IndexDataViewModel();
-                data.stokMainGroup = db.STOKMAINGROUPs.ToList();
-                data.stokSubGroup = db.STOKSUBGROUPs.ToList();
+                data.stokMainGroup = db.STOKMAINGROUPs.OrderByDescending(x=>x.ID).ToList();
+                data.stokSubGroup = db.STOKSUBGROUPs.OrderByDescending(x=>x.ID).ToList();
                 data.stokSubGroup2 = db.STOKSUBGROUP2.ToList();
                 return data;
             };

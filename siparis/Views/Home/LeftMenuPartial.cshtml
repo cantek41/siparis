@@ -9,10 +9,11 @@
         else {
             f.UnselectAll();
         }
-        updateProductList(s, e);
+        updateProductList();
     }
     $(document).ready(function () {
         angular.element(document.getElementById('Dongu')).scope().getProduct();
+
     });
 </script>
 <script>
@@ -54,25 +55,54 @@
                                 s.Checked = true;
                                 s.Properties.ClientSideEvents.CheckedChanged = "function(s, e) { secim(s,e,CATEGORY); }";
                             }).GetHtml())
-                        @(Html.DevExpress().CheckBoxList(settings =>
-                            {
-                                settings.Name = "CATEGORY";
-                                settings.Properties.ValueField = "STOK_GROUP_CODE";
-                                settings.Properties.TextField = "NAME_TR";
-                                settings.Properties.ValueType = typeof(int);
-                                settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
-                                settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
-                                settings.Properties.RepeatColumns = 1;
-                                settings.ControlStyle.Border.BorderWidth = 0;
-                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
 
-                            }).BindList(Model.stokCategory).GetHtml()
+
+                        @*@foreach (var item in Model.stokCategory)
+                            {
+
+                                <li>
+                                    <input type="checkbox"
+                                           name="CATEGORY"
+                                           value="@item.CODE" id="@item.CODE"
+                                           onclick="updateProductList()" />
+                                    <label for="@item.NAME_TR">@item.NAME_TR</label>
+                                </li>
+
+
+                            }*@
+
+                        @(Html.DevExpress().CheckBoxList(settings =>
+                                {
+                                    settings.Name = "CATEGORY";
+                                    settings.Properties.ValueField = "STOK_GROUP_CODE";
+                                    settings.Properties.TextField = "NAME_TR";
+                                    settings.Properties.ValueType = typeof(int);
+                                    settings.Properties.RepeatLayout = System.Web.UI.WebControls.RepeatLayout.Table;
+                                    settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
+                                    settings.Properties.RepeatColumns = 1;
+                                    settings.ControlStyle.Border.BorderWidth = 0;
+                                    settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList();}";
+
+                                    //settings.PreRender = (sender, e) =>
+                                    //{
+                                    //    ASPxCheckBoxList cbl = (ASPxCheckBoxList)sender;
+                                    //    //  cbl.Enabled=false;//.ClientEnabled = false;
+                                    //    // cbl.Items[0].ena
+                                    //    foreach (ASPxCheckBox item in cbl.Items)
+                                    //    {
+                                    //        item.Enabled = false;
+                                    //        // item.
+                                    //    }
+                                    //};
+
+                                }).BindList(Model.stokCategory).GetHtml()
                         )
                     </li>
                 </ul>
             </div>
 
         </li>
+
         <!--/CATEGORY-->
         <!--BRANDS_PRODUCTS-->
         <li>
@@ -98,7 +128,7 @@
                         settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
                         settings.Properties.RepeatColumns = 1;
                         settings.ControlStyle.Border.BorderWidth = 0;
-                        settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                        settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList();}";
                     }).BindList(Model.stokbrand).GetHtml()
                         )
                     </li>
@@ -131,7 +161,7 @@
                                 settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
                                 settings.Properties.RepeatColumns = 1;
                                 settings.ControlStyle.Border.BorderWidth = 0;
-                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList();}";
                             }).BindList(Model.stokModel).GetHtml()
                         )
                     </li>
@@ -160,7 +190,7 @@
                                 settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
                                 settings.Properties.RepeatColumns = 1;
                                 settings.ControlStyle.Border.BorderWidth = 0;
-                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList();}";
                             }).BindList(Model.stokBody).GetHtml()
                         )
                     </li>
@@ -193,7 +223,7 @@
                                 settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
                                 settings.Properties.RepeatColumns = 1;
                                 settings.ControlStyle.Border.BorderWidth = 0;
-                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList();}";
                             }).BindList(Model.stokcolor).GetHtml()
                         )
                     </li>
@@ -225,7 +255,7 @@
                             settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
                             settings.Properties.RepeatColumns = 1;
                             settings.ControlStyle.Border.BorderWidth = 0;
-                            settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                            settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList();}";
                         }).BindList(Model.stokseason).GetHtml()
                         )
                     </li>
@@ -257,7 +287,7 @@
                                 settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
                                 settings.Properties.RepeatColumns = 1;
                                 settings.ControlStyle.Border.BorderWidth = 0;
-                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList();}";
                             }).BindList(Model.stokPacket).GetHtml()
                         )
                     </li>
@@ -289,7 +319,7 @@
                                 settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
                                 settings.Properties.RepeatColumns = 1;
                                 settings.ControlStyle.Border.BorderWidth = 0;
-                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList();}";
                             }).BindList(Model.stokRayon).GetHtml()
                         )
 
@@ -322,7 +352,7 @@
                                 settings.Properties.RepeatDirection = System.Web.UI.WebControls.RepeatDirection.Horizontal;
                                 settings.Properties.RepeatColumns = 1;
                                 settings.ControlStyle.Border.BorderWidth = 0;
-                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList(s,e);}";
+                                settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s,e) {updateProductList();}";
                             }).BindList(Model.stokSector).GetHtml()
                         )
                     </li>
@@ -332,3 +362,5 @@
         <!--/SECTOR-->
     </ul>
 </div>
+
+
