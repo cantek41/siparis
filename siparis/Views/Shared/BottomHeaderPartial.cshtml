@@ -10,31 +10,69 @@
     <!--header-bottom-->
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div >
                 <div id="menu-wrapper">
                     <ul class="navi">
                         <li>
                             <a href="#">@siparis.Resorces.Language.Products</a>
-                            <div>
-                                @{foreach (var item in menuItem.stokMainGroup)
-                                {
-                                    <div class="navi-column">
-                                        <h3>@item.EXP_TR</h3>
-                                        <ul>
-                                            @foreach (var childitem in menuItem.stokSubGroup)
-                                            {
-                                                if (item.CODE == childitem.MAIN_GROUP_CODE)
-                                                {
-                                                    <li><a href="@Url.Action("FilterProduct", "Home", new { main = @item.ID, sub = @childitem.ID })">@childitem.EXP_TR</a></li>
-                                                }
-                                            }
-                                        </ul>
-                                    </div>
+                            <div ng-app ng-init="tab = '@menuItem.stokMainGroup.ElementAt(0).ID'">
+                                <div>
+                                    <div class="navi-column" style="float:left;margin-right:20px;">
+                                        @{foreach (var item in menuItem.stokMainGroup)
+                                        {
+                                            <h3><a href="#" ng-click="tab='@item.ID'" style="color: #f39c12; ">@item.EXP_TR</a></h3>
+                                        }
+                                        }
 
-                                }
-                                }
+                                    </div>
+                                    <div id="sub" ng-switch="tab" style="float:left">
+                                        @{foreach (var item in menuItem.stokMainGroup)
+                                        {
+
+                                            <div class="navi-column" ng-switch-when="@item.ID">
+                                                <ul>
+                                                    @foreach (var childitem in menuItem.stokSubGroup)
+                                                    {
+                                                        if (item.CODE == childitem.MAIN_GROUP_CODE)
+                                                        {
+                                                            <li><a href="@Url.Action("FilterProduct", "Home", new { main = @item.ID, sub = @childitem.ID })">@childitem.EXP_TR</a></li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </div>
+                                        }
+                                        }
+
+                                    </div>
+                                </div>
                             </div>
+
                         </li>
+
+                        @*<li>
+                                <a href="#">@siparis.Resorces.Language.Products</a>
+                                <div>
+                                    @{int i=0;}
+                                    @{foreach (var item in menuItem.stokMainGroup)
+                                    {
+                                        i++;
+                                        <div class="navi-column">
+                                            <h3>@item.EXP_TR</h3>
+                                            <ul>
+                                                @foreach (var childitem in menuItem.stokSubGroup)
+                                                {
+                                                    if (item.CODE == childitem.MAIN_GROUP_CODE)
+                                                    {
+                                                        <li><a href="@Url.Action("FilterProduct", "Home", new { main = @item.ID, sub = @childitem.ID })">@childitem.EXP_TR</a></li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+
+                                    }
+                                    }
+                                </div>
+                            </li>*@
                         <li><a href="#">@siparis.Resorces.Language.Contact</a></li>
                         <li class="navi-search">
                             <form action="#">

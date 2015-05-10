@@ -13,7 +13,7 @@
 }
 
 .navi {
-width:100%;
+width:50%;
 }
 
 .navi a { text-decoration: none; }
@@ -137,8 +137,12 @@ width:100%;
 	position: absolute;
 	display: block;
 	width: 100%;
-	top: 50px;
+	top: 60px;
 	left: 0;
+    column-gap: 40px;
+    padding-left:10px;
+    box-shadow: 5px 5px 5px #ccc;
+
 
 	opacity: 0;
 	visibility: hidden;
@@ -162,13 +166,15 @@ width:100%;
 
 /* Menu Content Styles */
 .navi .navi-column {
-	float: left;
-	width: 30%;
-	padding: 2.5%;
+	/*float: left;*/
+	width: 40%;
+	padding: .5%;
+    
 }
 
+  
 .navi .navi-column h3 {
-	margin: 20px 0 10px 0;
+	margin: 0px 0 0px 0;
 	line-height: 18px;
 	
 	font-family: Helvetica, Arial, sans-serif;
@@ -182,11 +188,11 @@ width:100%;
 
 .navi .navi-column li a {
 	display: block;
-	line-height: 26px;
+	line-height: 18px;
 	
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
-	font-size: 13px;
+	font-size: 11px;
 	color: #888888;
 }
 
@@ -199,4 +205,5 @@ width:100%;
     position: relative;
     left: 0px;
     top: 0px;
+
 }
