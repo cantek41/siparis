@@ -6,7 +6,7 @@
 
 }
 @Styles.Render("~/bundels/css")
-<div class="col-sm-9">
+<div class="col-sm-12">
 
     <div class="features_items">
         <h2 class="title text-center">@siparis.Resorces.Language.FeaturesItems</h2>
@@ -29,7 +29,7 @@
                 }
                 i++;
                 Html.RenderPartial("UrunGetirPartial", stok);
-                if (i == 3)
+                if (i == 4)
                 {
                     @Html.Raw("</div>");
                                        i = 0;

@@ -5,7 +5,7 @@
     {
         STOKCARDViewModel stok = Model;
 
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="product-image-wrapper">
                 <div class="single-products">
                     <div class="productinfo text-center">
@@ -13,11 +13,11 @@
                             @*<img src="../Content/images/shop/product12.jpg" alt="" />*@
                             @if (@stok.STOKCARDPICTUREs != null)
                             {
-                                <img src="@stok.STOKCARDPICTUREs" alt="" class="image-midi" />
+                                <img src="@stok.STOKCARDPICTUREs" alt="" class="image-main" />
                             }
                             else
                             {
-                                <img src="../Content/images/404/No_Image_Available.png" alt="" class="image-midi" />
+                                <img src="../Content/images/404/No_Image_Available.png" alt="" class="image-main" />
                             }
                         </div>
                         <h2 class="buyukharf">@stok.NAME_TR</h2>
