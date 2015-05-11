@@ -4,9 +4,10 @@
     siparis.Controllers.Filter flt = new siparis.Controllers.Filter(BaseController.dbName);
     IndexDataViewModel menuItem = flt.getMainMenu();
 }
+<link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
 <link href="~/Content/css/MegaDrop.css" rel="stylesheet" />
 <script type="text/javascript">
-   
+
 
 </script>
 <!-- Preview Styles -->
@@ -14,26 +15,27 @@
     <!--header-bottom-->
     <div class="container">
         <div class="row">
-            <div >
+            <div>
                 <div id="menu-wrapper">
                     <ul class="navi">
                         <li ng-app="firstApp">
                             <a href="#">@siparis.Resorces.Language.Products</a>
                             <div ng-controller="FirstController" ng-init="tab = '@menuItem.stokMainGroup.ElementAt(0).ID'">
-                                <div>
-                                    <div class="navi-column" style="float:left;margin-right:20px;">
-                                        @{foreach (var item in menuItem.stokMainGroup)
-                                        {
-                                            <h3><a href="#" ng-click="tab='@item.ID'" style="color: #f39c12; ">@item.EXP_TR</a></h3>
-                                        }
-                                        }
-
+                                <div style="width:100%">
+                                    <div class="navi-column" style="float:left;margin-right:10px;">
+                                        <ul>
+                                            @{foreach (var item in menuItem.stokMainGroup)
+                                            {
+                                                <li><a href="#" ng-click="tab='@item.ID'">@item.EXP_TR<i class="fa fa-chevron-right" style="float:right;padding-right:5px;"></i></a></li>
+                                            }
+                                            }
+                                        </ul>
                                     </div>
-                                    <div id="sub" ng-switch="tab" style="float:left">
+                                    <div id="sub" class="navi-column-sub" ng-switch="tab" style="float:left">
                                         @{foreach (var item in menuItem.stokMainGroup)
                                         {
 
-                                            <div class="navi-column" ng-switch-when="@item.ID">
+                                            <div class="navi-column-sub-div" ng-switch-when="@item.ID">
                                                 <ul>
                                                     @foreach (var childitem in menuItem.stokSubGroup)
                                                     {
