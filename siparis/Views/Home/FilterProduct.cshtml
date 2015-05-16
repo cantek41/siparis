@@ -9,7 +9,7 @@
 <script src="~/Scripts/jquery.toastmessage.js"></script>
 <script src="~/Scripts/ajaxGonderi/ajaxGonder.js"></script>
 
-<script src="~/Scripts/angular.min.js"></script>
+
 <script src="~/Scripts/AngularFilter/checklist-model.js"></script>
 <script src="~/Scripts/AngularFilter/checkBoxFilter.js"></script>
 
@@ -49,7 +49,8 @@
                                                     <input type="text" size="2" value={{role.UNIT}} class="padding-left" disabled />
                                                 </div>
                                             </div>
-                                            <a href="@Url.Action("ProductDetail", "Product", new { urunID = 15 })" class="btn btn-default add-to-cart">
+                                            @*<a href="@Url.Action("ProductDetail", "Product", new { urunID = 15 })" class="btn btn-default add-to-cart">*@                                         
+                                            <a href="../Product/ProductDetail?urunID={{role.ID}}" class="btn btn-default add-to-cart">
                                                 <i class="fa fa-plus-square"></i>@siparis.Resorces.Language.Details
                                             </a>
                                         </div>

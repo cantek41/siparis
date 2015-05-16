@@ -126,13 +126,11 @@
                                             @Html.HiddenFor(model => item.ROW_ORDER_NO)
                                             @*<input type="submit" value="" class="fa fa-check" />*@
                                             <a class="onaylabutonu" href=""><i class="fa fa-check onaylarenk "></i></a>
-
-
                                         }
                                     </div>
                                 </td>
                                 @{float miktar = (float)item.QUANTITY;
-                                float fiyat = (float)item.STOKCARD.UNIT_PRICE;
+                                float fiyat = (float)item.TOTAL;
                                 float tutar = miktar * fiyat;}
                                 <td class="cart_total">
                                     <p class="cart_total_price">@tutar @item.CUR_TYPE</p>

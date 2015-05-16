@@ -22,9 +22,9 @@ namespace siparis.Controllers
             IndexDataViewModel data = new IndexDataViewModel();
             data.stokMainGroup = db.STOKMAINGROUPs.OrderByDescending(x => x.ID).ToList();
             data.stokSubGroup = db.STOKSUBGROUPs.OrderByDescending(x => x.ID).ToList();
-            data.stokSubGroup2 = db.STOKSUBGROUP2.OrderByDescending(x=>x.CODE).ToList();
-            data.stokCategory = db.STOKCATEGORies.OrderByDescending(x=>x.CODE).ToList();
-            data.stokModel = db.STOKMODELs.OrderByDescending(x=>x.CODE).ToList();
+            data.stokSubGroup2 = db.STOKSUBGROUP2.OrderByDescending(x => x.CODE).ToList();
+            data.stokCategory = db.STOKCATEGORies.OrderByDescending(x => x.CODE).ToList();
+            data.stokModel = db.STOKMODELs.OrderByDescending(x => x.CODE).ToList();
             data.stokRayon = db.STOKRAYONs.OrderByDescending(x => x.CODE).ToList();
             data.stokSector = db.STOKSECTORs.OrderByDescending(x => x.CODE).ToList();
             data.stokPacket = db.STOKPACKETs.OrderByDescending(x => x.CODE).ToList();
@@ -40,8 +40,8 @@ namespace siparis.Controllers
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
                 IndexDataViewModel data = new IndexDataViewModel();
-                data.stokMainGroup = db.STOKMAINGROUPs.OrderByDescending(x=>x.ID).ToList();
-                data.stokSubGroup = db.STOKSUBGROUPs.OrderByDescending(x=>x.ID).ToList();
+                data.stokMainGroup = db.STOKMAINGROUPs.OrderByDescending(x => x.ID).ToList();
+                data.stokSubGroup = db.STOKSUBGROUPs.OrderByDescending(x => x.ID).ToList();
                 data.stokSubGroup2 = db.STOKSUBGROUP2.ToList();
                 return data;
             };
@@ -58,12 +58,10 @@ namespace siparis.Controllers
             using (VdbSoftEntities db = new VdbSoftEntities(dbName))
             {
                 string sorgu = String.Format(" select * from(select {1} STOKCARD.ID, SUM(TOTAL_QUANTITIY) as UNIT,STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARDUSERPRICE.PRICE as UNIT_PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH as STOKCARDPICTUREs,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE,  ROW_NUMBER()  OVER(PARTITION BY STOKCARD.ID ORDER BY STOKCARD.ID DESC ) rn from STOKCARD left join STOKCARDPICTURE on STOKCARDPICTURE.STOK_ID = STOKCARD.ID left join STOKWAREHOUSEPRODUCT on STOKWAREHOUSEPRODUCT.STOK_ID=STOKCARD.ID left join STOKCARDUSERPRICE on STOKCARDUSERPRICE.STOK_ID=STOKCARD.ID and STOKCARDUSERPRICE.COMPANY_CODE={0} GROUP BY STOKCARD.UPPER_CODE,STOKCARD.DES_TR,STOKCARD.ID,STOKCARDUSERPRICE.PRICE,STOKCARDUSERPRICE.CUR_TYPE,NAME_TR,STOKCARDPICTURE.PATH,SUB_GRUP1,MAIN_GRUP,STOKCARD.CODE,SUB_GRUP2,BRAND_CODE,BODY_CODE,CATEGORY_CODE,STOKCARD.COLOR_CODE,MODEL_CODE,PACK_CODE,RAYON_CODE,SEASON_CODE,SECTOR_CODE) a where rn=1;", 1, top);
-
                 List<STOKCARDViewModel> stok = db.Database.SqlQuery<STOKCARDViewModel>(sorgu).ToList<STOKCARDViewModel>();
                 return stok;
             }
         }
-
 
         public List<STOKCARDViewModel> getFilterStok(filterModel _filter)
         {

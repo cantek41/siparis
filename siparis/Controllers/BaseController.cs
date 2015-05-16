@@ -15,6 +15,8 @@ namespace siparis.Controllers
     [Authorize]
     public class BaseController : Controller
     {
+        
+
         public static string dbName = "VdbSoft";
         public ActionResult search(string param)
         {
@@ -316,7 +318,10 @@ namespace siparis.Controllers
 
         }
 
-
+        protected override void Dispose(bool disposing)
+        {            
+            base.Dispose(disposing);
+        }
 
     }
 }
