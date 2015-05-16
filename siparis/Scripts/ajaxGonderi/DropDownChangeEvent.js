@@ -9,6 +9,7 @@ function textAreaAdjust(obje) {
 $(document).ready(function () {
     //alert(($("#BODY_CODE option").length));
     if (($("#COLOR_CODE option").length) <= 1) $("#COLOR_CODE").prop("disabled", true);
+    else $("#COLOR_CODE").prop("disabled", false);
 
     $("#COLOR_CODE").change(function (e) {
         $("#BODY_CODE").empty();
