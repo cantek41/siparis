@@ -41,7 +41,7 @@ namespace siparis.Controllers
             }
             return returnValue;
         }
-        
+
         public ActionResult Opportunity()
         {
             RolePrincipal r = (RolePrincipal)User;
@@ -462,15 +462,15 @@ namespace siparis.Controllers
         }
 
 
-        
-              [ValidateInput(false)]
-        public ActionResult OrderAllProductWareHouseSubmit(int DOCUMENT_TYPE,int wareHouse)
-        {
-            
 
-            return View(getOpp(DOCUMENT_TYPE));
+        [ValidateInput(false)]
+        public ActionResult OrderAllProductWareHouseSubmit(int oppMasterCode, string wareHouse)
+        {
+            int wareHouseID = Convert.ToInt32(wareHouse.Trim());
+            WareHouseController.saveProductuAllWareHouse(oppMasterCode, wareHouseID);
+            return RedirectToAction("Order");
         }
-       
+
         [ValidateInput(false)]
         public ActionResult MasterDetail(int DOCUMENT_TYPE)
         {

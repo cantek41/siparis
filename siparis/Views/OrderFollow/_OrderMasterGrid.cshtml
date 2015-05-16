@@ -132,7 +132,7 @@
             {
                 s.Name = "btnNative";
                 s.Width = 90;
-                s.RouteValues = new { Controller = "OrderFollow", Action = "OrderAllProductWareHouseSubmit", DOCUMENT_TYPE = TempData["DOCUMENT_TYPE"], wareHouse =" "};
+                s.RouteValues = new { Controller = "OrderFollow", Action = "OrderAllProductWareHouseSubmit", oppMasterCode = c.KeyValue, wareHouse = " " };
                 s.Height = 25;
                 s.Text = "Onayla";
                 s.Styles.Native = true;
