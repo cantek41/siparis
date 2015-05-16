@@ -461,6 +461,16 @@ namespace siparis.Controllers
             return sayfa;
         }
 
+
+        
+              [ValidateInput(false)]
+        public ActionResult OrderAllProductWareHouseSubmit(int DOCUMENT_TYPE,int wareHouse)
+        {
+            
+
+            return View(getOpp(DOCUMENT_TYPE));
+        }
+       
         [ValidateInput(false)]
         public ActionResult MasterDetail(int DOCUMENT_TYPE)
         {

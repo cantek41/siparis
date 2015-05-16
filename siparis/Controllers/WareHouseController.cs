@@ -48,7 +48,6 @@ namespace siparis.Controllers
             string[] keys = ID.Split('|');
             int rowCode = Convert.ToInt32(keys[1]);
             int oppCode = Convert.ToInt32(keys[0]);
-
             Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param = orderWareHouseCal(oppCode, rowCode);
             List<StokWareHouseViewModel> depolar = param.Item1;
 

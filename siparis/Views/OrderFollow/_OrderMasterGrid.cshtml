@@ -46,7 +46,7 @@
         settings.SettingsPager.EnableAdaptivity = true;
 
         //Onayla
-       
+
         ///end onayla
 
         //delete
@@ -110,15 +110,40 @@
 
         settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = false;
         settings.SettingsDetail.ShowDetailRow = true;
+      
         settings.SetDetailRowTemplateContent(c =>
         {
-            //ViewContext.Writer.Write(
-            //    "Contact Phone: <b>" +
-            //        DataBinder.Eval(c.DataItem, "Phone") + "</b>, Fax: <b>" +
-            //            DataBinder.Eval(c.DataItem, "Fax") + "</b>" +
-            //    "<br />" +
-            //    "<br />"
-            //);
+            ViewContext.Writer.Write(
+                "<b>Depo Seç:</b> " +
+                  @Html.DevExpress().ComboBox(
+                s =>
+                {
+                    s.Name = "ChooseWareHouse";
+                    s.Width = 180;
+                    s.SelectedIndex = 0;
+                    s.Properties.DisplayFormatString = "Depo Seç";                                    
+                    s.Properties.TextField = "Value";
+                    s.Properties.ValueField = "Key";
+                    s.Properties.ValueType = typeof(int);
+                }
+            ).BindList(siparis.Controllers.BaseController.getWareHouse()).GetHtml() +
+              @Html.DevExpress().Button(
+            s =>
+            {
+                s.Name = "btnNative";
+                s.Width = 90;
+                s.RouteValues = new { Controller = "OrderFollow", Action = "OrderAllProductWareHouseSubmit", DOCUMENT_TYPE = TempData["DOCUMENT_TYPE"], wareHouse =" "};
+                s.Height = 25;
+                s.Text = "Onayla";
+                s.Styles.Native = true;
+                s.ClientSideEvents.Click = "OnClick";
+            }
+        ).GetHtml()
+            +
+                "<br />" +
+                "<br />"
+
+            );
             Html.RenderAction("OrderDetailGrid", new { CustomerID = DataBinder.Eval(c.DataItem, "OPPORTUNITY_CODE") });
         });
         settings.PreRender = (sender, e) =>
