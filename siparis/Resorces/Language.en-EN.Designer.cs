@@ -277,7 +277,7 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to COMPANY.
+        ///   Looks up a localized string similar to Company.
         /// </summary>
         public static string Company {
             get {
@@ -696,6 +696,15 @@ namespace siparis.Resorces {
         public static string New {
             get {
                 return ResourceManager.GetString("New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You could not add product becaue it has not price information..
+        /// </summary>
+        public static string NoPrice {
+            get {
+                return ResourceManager.GetString("NoPrice", resourceCulture);
             }
         }
         

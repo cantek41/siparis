@@ -430,7 +430,7 @@
     <value>SİPARİŞ KODU</value>
   </data>
   <data name="Company" xml:space="preserve">
-    <value>FİRMA</value>
+    <value>Firma</value>
   </data>
   <data name="CONTACS" xml:space="preserve">
     <value>KİŞİ</value>
@@ -530,5 +530,8 @@
   </data>
   <data name="DescriptionText" xml:space="preserve">
     <value>Açıklama</value>
+  </data>
+  <data name="NoPrice" xml:space="preserve">
+    <value>Ürünün fiyat bilgisi olmadığından sepete ekleyemezsiniz.</value>
   </data>
 </root>

@@ -129,7 +129,7 @@
                                     <div class="col-md-6 border-ayar shopper-info-passive"><input id="STOK" value="@Model.UNIT" disabled /></div>
                                 </div>
 
-                                <div class="alt">
+                                <div id="divColor" class="alt">
                                     <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.COLOR_CODE, @siparis.Resorces.Language.Color)</b></p></div>
                                     <div class="col-md-6 border-ayar">
 
@@ -139,7 +139,7 @@
                                 </div>
                             </div>
 
-                            <div class="alt">
+                            <div id="divBody" class="alt">
                                 <div class="col-sm-6"><p><b>@Html.LabelFor(model => model.BODY_CODE, @siparis.Resorces.Language.Size)</b></p></div>
                                 <div class="col-md-6">
                                     @Html.DropDownList("BODY_CODE", new[] { new SelectListItem { Text = "", Value = "0" } })
