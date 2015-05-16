@@ -13,118 +13,120 @@
 <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
 <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
 
-<div class="col-md-8" style="margin-left:50px;margin-top:15px;">
-    @* Company ara kutusu *@
-    <div class="row" style="text-align:right">
-        <div class="input-group col-md-4">
-        </div>
-        <div class="input-group col-md-6">
-            <input type="text" class="form-control" name="companyName" required="required" placeholder="Firma Adı" />
-            <span class="input-group-addon">
-                <a href="#"><i class="fa fa-search"></i></a>
-            </span>
-        </div>
-    </div>
+<div class="col-md-12">
+    <form class="form-horizontal" style="margin-top:20px;padding-left:0">
+   
+        
+           
+            <div class="col-md-4">
+                <!-- Appended Input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="appendedtext">Firma Adı</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <input id="appendedtext" name="appendedtext" class="form-control" placeholder="@siparis.Resorces.Language.Company" type="text" required="">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        </div>
 
-    @* Arana firma adı yazdırılan label *@
-    <div class="row">
-        <div class="col-md-6">
-            <h3><b> ABC FİRMASI  120.001.001</b></h3>
-        </div>
-    </div>
-    <br />
-    @* Sevk Adresi *@
-    <div class="row" style="margin-bottom:20px;">
-        <div class="form-group col-md-2">
-            @Html.Label(@siparis.Resorces.Language.DeliveryAddress, new { @class = "dropdown" })
-        </div>
-        <div class="form-group col-md-4">
-            @Html.DropDownList("DeliveryAddressDropDown", new SelectList(listItems, "Value", "Text"))
-        </div>
-    </div>
-
-
-    @* Depo Adresi *@
-    <div class="row">
-        <div class="form-group col-md-2">
-            @Html.Label(@siparis.Resorces.Language.WareHouseName)
-        </div>
-        <div class="form-group col-md-4">
-            @Html.DropDownList("WareHouseNameDropDown", new SelectList(listItems, "Value", "Text"))
-        </div>
-    </div>
-
-    @* Teslim Şekli *@
-    <div class="row">
-        <div class="form-group col-md-2">
-            @Html.Label(@siparis.Resorces.Language.DeliveryType)
-        </div>
-        <div class="form-group col-md-4">
-            @Html.DropDownList("DeliveryTypeDropDown", new SelectList(listItems, "Value", "Text"))
-        </div>
-    </div>
-
-    @* Teslim Tarihi *@
-    <div class="row" style="margin-bottom:30px;">
-        <div class="form-group col-md-2">
-            @Html.Label(@siparis.Resorces.Language.DeliveryDate)
-        </div>
-        <div class="form-group col-md-4">
-            @Html.DropDownList("DeliveryDateDropDown", new SelectList(listItems, "Value", "Text"))
-        </div>
-    </div>
-
-    @* Açıklama *@
-    <div class="row" style="margin-bottom:30px;">
-        <div class="form-group col-md-2">
-            @Html.Label(@siparis.Resorces.Language.DescriptionText)
-        </div>
-        <div class="form-group col-md-4">
-            @Html.TextArea("DescriptionTextArea", new { @style = "width: 100%; height: 50px;resize:none" })
-        </div>
-    </div>
-
-    @* Ana grup ve Alt Grup*@
-    <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="form-group col-md-4">
-                    @Html.Label(@siparis.Resorces.Language.MainGroup)
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    @Html.DropDownList("MainGroupDropDown", new SelectList(listItems, "Value", "Text"))
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="DeliveryAddressDropDown">@siparis.Resorces.Language.DeliveryAddress</label>
+                    <div class="col-md-8">
+                        <select id="DeliveryAddressDropDown" name="DeliveryAddressDropDown" class="form-control">
+                            <option value="1">Option one</option>
+                            <option value="2">Option two</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="WareHouseNameDropDown">@siparis.Resorces.Language.WareHouseName</label>
+                    <div class="col-md-8">
+                        <select id="WareHouseNameDropDown" name="WareHouseNameDropDown" class="form-control">
+                            <option value="1">Option one</option>
+                            <option value="2">Option two</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="DeliveryTypeDropDown">@siparis.Resorces.Language.DeliveryType</label>
+                    <div class="col-md-8">
+                        <select id="DeliveryTypeDropDown" name="DeliveryTypeDropDown" class="form-control">
+                            <option value="1">Option one</option>
+                            <option value="2">Option two</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="DeliveryDateDropDown">@siparis.Resorces.Language.DeliveryDate</label>
+                    <div class="col-md-8">
+                        <select id="DeliveryDateDropDown" name="DeliveryDateDropDown" class="form-control">
+                            <option value="1">Option one</option>
+                            <option value="2">Option two</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Textarea -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="DescriptionTextArea">@siparis.Resorces.Language.DescriptionText</label>
+                    <div class="col-md-8">
+                        <textarea class="form-control" id="DescriptionTextArea" name="DescriptionTextArea"></textarea>
+                    </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="form-group col-md-4">
-                    @Html.Label(@siparis.Resorces.Language.SubGroup)
+            <div class="col-md-4">
+               
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="MainGroupDropDown">@siparis.Resorces.Language.MainGroup</label>
+                    <div class="col-md-8">
+                        <select id="MainGroupDropDown" name="MainGroupDropDown" class="form-control">
+                            <option value="1">Option one</option>
+                            <option value="2">Option two</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    @Html.DropDownList("SubGroupDropDown", new SelectList(listItems, "Value", "Text"))
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="SubGroupDropDown">@siparis.Resorces.Language.SubGroup</label>
+                    <div class="col-md-8">
+                        <select id="SubGroupDropDown" name="SubGroupDropDown" class="form-control">
+                            <option value="1">Option one</option>
+                            <option value="2">Option two</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Appended Input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Stock">Stok</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <input id="Stock" name="Stock" class="form-control" placeholder="Stok" type="text" required="">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="text" class="form-control" name="Stock" required="required" placeholder="Stok" />
-                    <span class="input-group-addon">
-                        <a href="#"><i class="fa fa-search"></i></a>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <br />
-
+    </form>
 
     @* grid *@
     <div class="row">
-        <div class="col-md-10" >
+        <div class="col-md-8">
             @Html.DevExpress().GridView(settings =>
         {
             settings.Name = "gvOverview";
@@ -133,7 +135,7 @@
             {
                 Controller = "Delegate",
                 Action = "saveWareHouse"
-              
+
             };
             settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Delegate", Action = "updateWareHouse" };
             //settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
@@ -198,6 +200,7 @@
 
     </div>
 </div>
+ 
 
 
 

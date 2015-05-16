@@ -430,7 +430,7 @@
     <value>ORDER CODE</value>
   </data>
   <data name="Company" xml:space="preserve">
-    <value>COMPANY</value>
+    <value>Company</value>
   </data>
   <data name="CONTACS" xml:space="preserve">
     <value>CONTACT</value>
@@ -527,5 +527,8 @@
   </data>
   <data name="DescriptionText" xml:space="preserve">
     <value>Description</value>
+  </data>
+  <data name="NoPrice" xml:space="preserve">
+    <value>You could not add product becaue it has not price information.</value>
   </data>
 </root>

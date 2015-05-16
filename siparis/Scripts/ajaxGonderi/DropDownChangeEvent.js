@@ -13,7 +13,7 @@ $(document).ready(function () {
     var fiyat = $("#UNIT_PRICE").val();
  
     if (fiyat=="") {
-        $("#UNIT_PRICE").val('Ürünün fiyat bilgisi olamadığından sepete ekleyemezsiniz.');
+        $("#UNIT_PRICE").val("Ürünün fiyat bilgisi olmadığından sepete ekleyemezsiniz.");//@siparis.Resorces.Language.NoPrice
         $("#UNIT_PRICE").removeClass("product-info-price");
         $("#UNIT_PRICE").addClass("no-product-info-price");
        
