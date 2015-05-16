@@ -10,9 +10,17 @@ function textAreaAdjust(obje) {
 $(document).ready(function () {
     //renk değeri 9(Diğer) ise renk divini gizliyor
     var renk = $("#COLOR_CODE").val();
+    var fiyat = $("#UNIT_PRICE").val();
+ 
+    if (fiyat=="") {
+        $("#UNIT_PRICE").val('Ürünün fiyat bilgisi olamadığından sepete ekleyemezsiniz.');
+        $("#UNIT_PRICE").removeClass("product-info-price");
+        $("#UNIT_PRICE").addClass("no-product-info-price");
+       
+    }
+
     if (renk == 9) $("#divColor").hide();
     else $("#divColor").show();
-
     //alert(($("#BODY_CODE option").length));
     if (($("#COLOR_CODE option").length) <= 1) $("#COLOR_CODE").prop("disabled", true);
     else $("#COLOR_CODE").prop("disabled", false);
