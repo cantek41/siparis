@@ -6,11 +6,18 @@ function textAreaAdjust(obje) {
 }
 
 
+
 $(document).ready(function () {
+    //renk değeri 9(Diğer) ise renk divini gizliyor
+    var renk = $("#COLOR_CODE").val();
+    if (renk == 9) $("#divColor").hide();
+    else $("#divColor").show();
+
     //alert(($("#BODY_CODE option").length));
     if (($("#COLOR_CODE option").length) <= 1) $("#COLOR_CODE").prop("disabled", true);
     else $("#COLOR_CODE").prop("disabled", false);
 
+   
     $("#COLOR_CODE").change(function (e) {
         $("#BODY_CODE").empty();
         var obje = { color: $("#COLOR_CODE").val(), upper: $("#UPPER_CODE").val() };
@@ -32,9 +39,10 @@ $(document).ready(function () {
                 else $("#BODY_CODE").prop("disabled", false);
             }
         });
-
+       
+       
     });
-
+   
     $("#BODY_CODE").change(function (e) {
         //alert(($("#BODY_CODE option").length));
         var obje = { color: $("#COLOR_CODE").val(), upper: $("#UPPER_CODE").val(), body: $("#BODY_CODE").val(), DES_TR: $("#DES_TR") };
@@ -56,6 +64,10 @@ $(document).ready(function () {
 
             }
         });
+        //beden değeri 1(Diğer) ise beden divini gizliyor
+        var beden = $("#BODY_CODE").val();
+        if (beden == 1) $("#divBody").hide();
+        else $("#divBody").show();
     });
     $("#COLOR_CODE").change();
 
