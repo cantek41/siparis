@@ -11,7 +11,8 @@
     <item Text="Onaylandı" NavigateUrl="Approved" ImageUrl="~/Content/images/icons/check.png"/>
     <item Text="Düzenleniyor" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
     <item Text="İşlem Görüyor" NavigateUrl="Processed" ImageUrl="~/Content/images/icons/services.png"/>
-    <item Text="Sevk Onay" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+    <item Text="Sevk Hazırlanıyor" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+    <item Text="Sevk Toplu Onay Bekliyor" NavigateUrl="ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
     <item Text="Sevk Ediliyor" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
     <item Text="Sevk Edildi" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
     <item Text="İptal Edildi" NavigateUrl="Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>
@@ -41,6 +42,7 @@
     <item Text="Düzenleniyor" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
     <item Text="İşlem Görüyor" NavigateUrl="Processed" ImageUrl="~/Content/images/icons/services.png"/>
     <item Text="Sevk Onay" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+     <item Text="Sevk Toplu Onay Bekliyor" NavigateUrl="ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
     <item Text="Sevk Ediliyor" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
     <item Text="Sevk Edildi" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>    
     <item Text="İrsaliye" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>     
@@ -57,6 +59,7 @@
     <item Text="Düzenleniyor" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
     <item Text="İşlem Görüyor" NavigateUrl="Processed" ImageUrl="~/Content/images/icons/services.png"/>
     <item Text="Sevk Onay" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+     <item Text="Sevk Toplu Onay Bekliyor" NavigateUrl="ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
     <item Text="Sevk Ediliyor" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
     <item Text="Sevk Edildi" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
     <item Text="İptal Edildi" NavigateUrl="Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>

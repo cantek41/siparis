@@ -2141,6 +2141,7 @@
     <Content Include="Views\Delegate\Index.cshtml" />
     <Content Include="Views\Home\FilterProduct.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\OrderFollow\ShippingWait.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\bin\tr-TR\" />

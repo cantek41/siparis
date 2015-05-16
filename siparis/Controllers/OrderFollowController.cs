@@ -12,10 +12,8 @@ namespace siparis.Controllers
     [Authorize]
     public class OrderFollowController : BaseController
     {
-        //
 
-        // GET: /Admin/
-
+        #region arayüzler
         public ActionResult Index()
         {
             RolePrincipal r = (RolePrincipal)User;
@@ -88,10 +86,7 @@ namespace siparis.Controllers
         {
             return View(getOpp(20));
         }
-        public ActionResult Shipped()
-        {
-            return View(getShipping(3));
-        }
+
         public ActionResult Cancelled()
         {
             return View(getOpp(22));
@@ -109,14 +104,29 @@ namespace siparis.Controllers
             return View(getOpp(23));
         }
 
-        public ActionResult Shipping()
-        {
-            return View(getShipping(1));
-        }
+
+        //public ActionResult Shipping()
+        //{
+        //    return View(getShipping(1));//sevk ediliyor
+        //}
         public ActionResult ShippingConfirm()
         {
-            return View(getShipping(2));
+            return View(getShipping(1));//sevk hazırlanıyopr tip 1
         }
+        public ActionResult ShippingWait()
+        {
+            return View(getShipping(2));//sevk toplu onay Bekliyor 2
+        }
+        public ActionResult Shipping()
+        {
+            return View(getOpp(23));//sevk ediliyor tip tip 3
+        }
+        public ActionResult Shipped()
+        {
+            return View(getShipping(4));//sevk edildi tip 4
+        }
+
+
 
 
         public ActionResult girdMaster()
@@ -149,8 +159,9 @@ namespace siparis.Controllers
             return model;
         }
 
+        #endregion
 
-
+        #region grid işlemler
 
         [HttpPost, ValidateInput(false)]
         public ActionResult Cencel(System.Int32 OPPORTUNITY_CODE)
@@ -461,8 +472,9 @@ namespace siparis.Controllers
             return sayfa;
         }
 
+        #endregion
 
-
+        #region order depo toplu onaylama
         [ValidateInput(false)]
         public ActionResult OrderAllProductWareHouseSubmit(int oppMasterCode, string wareHouse)
         {
@@ -471,10 +483,12 @@ namespace siparis.Controllers
             return RedirectToAction("Order");
         }
 
+        #endregion
+
+        #region genel gridler
         [ValidateInput(false)]
         public ActionResult MasterDetail(int DOCUMENT_TYPE)
         {
-
             return View(getOpp(DOCUMENT_TYPE));
         }
         [ValidateInput(false)]
@@ -518,9 +532,9 @@ namespace siparis.Controllers
 
             return PartialView("MasterDetailDetailPartial", modelPicture.ToArray());
         }
+        #endregion
 
-
-
+        #region order gridleri
         [ValidateInput(false)]
         public ActionResult OrderMasterGrid(int DOCUMENT_TYPE)
         {
@@ -585,14 +599,100 @@ namespace siparis.Controllers
             return PartialView("_orderPartial", param);
         }
 
+        #endregion
 
+        #region sevk gridleri
         [ValidateInput(false)]
-        public ActionResult ShippingPartial(int shipping_type)
+        public ActionResult ShippingConfirmMasterPartial(int DOCUMENT_TYPE)
         {
-            return PartialView("_ShippingPartial", getShipping
-                (shipping_type));
+            IEnumerable<OrderMasterViewModel> shipping = getOpp(DOCUMENT_TYPE);
+            List<OrderMasterViewModel> resultModel = new List<OrderMasterViewModel>();
+            if (User.IsInRole("Depo"))
+            {
+                int userCode = getUserCode();
+                using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+                {
+                    int shippingType;
+                    switch (DOCUMENT_TYPE)
+                    {
+                        case 21:
+                            shippingType = 1;
+                            break;
+                        case 24:
+                            shippingType = 1;
+                            break;
+                        case 25:
+                            shippingType = 1;
+                            break;
+                        case 26:
+                            shippingType = 1;
+                            break;
+                        default:
+                            shippingType = 1;
+                            break;
+                    }
+                    int userWareHouseID = Convert.ToInt32(db.USERS.Find(userCode).USER_RIGHT);
+                    foreach (OrderMasterViewModel item in shipping)
+                    {
+                        int count = getShipping(shippingType, userWareHouseID).Count();
+                        if (count > 0)
+                        {
+                            resultModel.Add(item);
+                        }
+                    }
+                }
+            }
+            return PartialView("_ShippingConfirmMasterPartial", resultModel);
         }
 
+        [ValidateInput(false)]
+        public ActionResult ShippingConfirmDetailPartial(int shipping_type)
+        {
+            IEnumerable<ShippingViewModel> resultModel;
+            if (User.IsInRole("Depo"))
+            {
+                int userCode = getUserCode();
+                using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+                {
+                    int userWareHouseID = Convert.ToInt32(db.USERS.Find(userCode).USER_RIGHT);
+                    resultModel = getShipping(shipping_type, userWareHouseID);
+                }
+
+            }
+            else
+                resultModel = getShipping(shipping_type);
+            return PartialView("_ShippingConfirmDetailPartial", resultModel);
+        }
+
+        public IEnumerable<ShippingViewModel> getShipping(int oppShippingType, int wareHouseID)
+        {
+            TempData["DOCUMENT_TYPE"] = oppShippingType;
+            VdbSoftEntities db = db = new VdbSoftEntities(dbName);
+            List<ShippingViewModel> model = (from d in db.STOKACTUALORDERs
+                                             join stk in db.STOKCARDs on d.STOK_CODE equals stk.CODE
+                                             join ware in db.STOKWAREHOUSEs on d.WAREHOUSE equals ware.ID
+                                             where d.SHIPPING_TYPE == oppShippingType && d.WAREHOUSE == wareHouseID
+                                             select new ShippingViewModel
+                                             {
+                                                 ID = d.ID,
+                                                 OPPORTUNITY_CODE = (int)d.OPPORTUNITY_CODE,
+                                                 ROW_ORDER_NO = (int)d.ROW_ORDER_NO,
+                                                 QUANTITY = d.QUANTITY,
+                                                 PRODUCT_NAME = stk.NAME_TR,
+                                                 WAREHOUSE_NAME = ware.NAME,
+                                                 WAREHOUSE_ID = ware.ID,
+                                                 STOK_ID = stk.ID,
+                                                 STOK_CODE = stk.CODE
+                                             }).Distinct().ToList();
+
+            List<ShippingViewModel> modelPicture = new List<ShippingViewModel>();
+            foreach (var item in model)
+            {
+                item.Picture = db.STOKCARDPICTUREs.Where(x => x.STOK_ID == item.STOK_ID).Where(x => x.TYPE == 2).Select(x => x.PATH).FirstOrDefault();
+                modelPicture.Add(item);
+            }
+            return modelPicture;
+        }
         public IEnumerable<ShippingViewModel> getShipping(int oppMasterType)
         {
             TempData["DOCUMENT_TYPE"] = oppMasterType;
@@ -610,7 +710,8 @@ namespace siparis.Controllers
                                                  PRODUCT_NAME = stk.NAME_TR,
                                                  WAREHOUSE_NAME = ware.NAME,
                                                  WAREHOUSE_ID = ware.ID,
-                                                 STOK_ID = stk.ID
+                                                 STOK_ID = stk.ID,
+                                                 STOK_CODE = stk.CODE
                                              }).Distinct().ToList();
 
             List<ShippingViewModel> modelPicture = new List<ShippingViewModel>();
@@ -621,5 +722,6 @@ namespace siparis.Controllers
             }
             return modelPicture;
         }
+        #endregion
     }
 }

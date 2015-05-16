@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     bool masterOnayla = false;
     bool masterEdit = false;
     bool masterDelete = false;
@@ -62,12 +61,25 @@
         });
 
 
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ID";
+            column.Name = "ID";
+            column.Caption = @siparis.Resorces.Language.Row_Order_No;
+        });
         settings.Columns.Add(column =>
         {
             column.FieldName = "ROW_ORDER_NO";
             column.Name = "ROW_ORDER_NO";
-            column.Caption = @siparis.Resorces.Language.Row_Order_No;
+            column.Caption = @siparis.Resorces.Language.Product_Name;
         });
+        settings.Columns.Add(column =>
+      {
+          column.FieldName = "STOK_CODE";
+          column.Name = "STOK_CODE";
+          column.Caption = @siparis.Resorces.Language.Total;
+      });
         settings.Columns.Add(column =>
         {
             column.FieldName = "PRODUCT_NAME";
@@ -82,49 +94,10 @@
         });
         settings.Columns.Add(column =>
         {
-            column.FieldName = "UNIT_PRICE";
-            column.Name = "UNIT_PRICE";
+            column.FieldName = "WAREHOUSE_NAME";
+            column.Name = "WAREHOUSE_NAME";
             column.Caption = @siparis.Resorces.Language.Unit_Price;
         });
-        settings.Columns.Add(column =>
-        {
-            column.FieldName = "TOTAL";
-            column.Name = "TOTAL";
-            column.Caption = @siparis.Resorces.Language.Total;
-        });
-        settings.Columns.Add(column =>
-        {
-            column.FieldName = "CUR_TYPE";
-            column.Name = "CUR_TYPE";
-            column.Caption = @siparis.Resorces.Language.Cur_Type;
-        });
 
-        //settings.Columns.Add("OrderDate").PropertiesEdit.DisplayFormatString = "d";
-        //settings.Columns.Add("ShipName");
-        //settings.Columns.Add("Quantity");
-        //settings.Columns.Add(column =>
-        //{
-        //    column.FieldName = "UnitPrice";
-        //    column.PropertiesEdit.DisplayFormatString = "c";
-        //});
-        //settings.Columns.Add(column =>
-        //{
-        //    column.FieldName = "Total";
-        //    column.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
-        //    column.PropertiesEdit.DisplayFormatString = "c";
-        //});
-
-        //settings.CustomUnboundColumnData = (sender, e) =>
-        //{
-        //    if (e.Column.FieldName == "Total")
-        //    {
-        //        decimal price = (decimal)e.GetListSourceFieldValue("UnitPrice");
-        //        int quantity = Convert.ToInt32(e.GetListSourceFieldValue("Quantity"));
-        //        e.Value = price * quantity;
-        //    }
-        //};
-        // settings.Settings.ShowFooter = true;
-        //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "Total");
-        //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "Quantity");
 
     }).Bind(Model).GetHtml()
