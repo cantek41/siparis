@@ -20,6 +20,9 @@ namespace siparis.Models
         public string PATH { get; set; }
         public Nullable<int> TYPE { get; set; }
         public Nullable<int> COLOR_CODE { get; set; }
+        public string TITLE { get; set; }
+        public string DESCRIPTION { get; set; }
+        public string HREF { get; set; }
     
         public virtual STOKCARD STOKCARD { get; set; }
     }

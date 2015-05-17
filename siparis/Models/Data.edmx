@@ -2284,6 +2284,9 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="PATH" Type="nvarchar(max)" />
           <Property Name="TYPE" Type="int" />
           <Property Name="COLOR_CODE" Type="int" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="150" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="150" />
+          <Property Name="HREF" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="STOKCARDUSERPRICE">
           <Key>
@@ -2455,6 +2458,7 @@ warning 6002: The table/view 'VdbSoft.dbo.SELLER_DETAIL' does not have a primary
           <Property Name="LAST_UPDATE" Type="datetime" />
           <Property Name="LAST_UPDATE_USER" Type="nvarchar" MaxLength="30" />
           <Property Name="CODE" Type="nvarchar" MaxLength="25" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -5499,6 +5503,9 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="TYPE" Type="Int32" />
           <Property Name="COLOR_CODE" Type="Int32" />
           <NavigationProperty Name="STOKCARD" Relationship="Self.FK_STOKCARDPICTURE_STOKCARD" FromRole="STOKCARDPICTURE" ToRole="STOKCARD" />
+          <Property Name="TITLE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="HREF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="STOKCATEGORY">
           <Key>
@@ -5603,6 +5610,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <Property Name="LAST_UPDATE" Type="DateTime" Precision="3" />
           <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -8756,6 +8764,9 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySetMapping Name="STOKCARDPICTUREs">
             <EntityTypeMapping TypeName="VdbSoftModel.STOKCARDPICTURE">
               <MappingFragment StoreEntitySet="STOKCARDPICTURE">
+                <ScalarProperty Name="HREF" ColumnName="HREF" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="STOK_ID" ColumnName="STOK_ID" />
                 <ScalarProperty Name="ROW_NO" ColumnName="ROW_NO" />
@@ -8855,6 +8866,7 @@ warning 6002: The table/view 'VdbSoft.dbo.USERWHAREHOUSE' does not have a primar
           <EntitySetMapping Name="STOKWAREHOUSEPRODUCTs">
             <EntityTypeMapping TypeName="VdbSoftModel.STOKWAREHOUSEPRODUCT">
               <MappingFragment StoreEntitySet="STOKWAREHOUSEPRODUCT">
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="WAREHOUSE_ID" ColumnName="WAREHOUSE_ID" />
                 <ScalarProperty Name="STOK_ID" ColumnName="STOK_ID" />

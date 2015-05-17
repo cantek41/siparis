@@ -1,0 +1,39 @@
+﻿.dxisControl .dxis-itemTextArea {
+    top: 17px !important;
+    left: 17px !important;
+    bottom: auto !important;
+    width: 285px !important;
+    padding: 15px 16px 21px !important;
+    color: #fff !important;
+    border-radius: 5px !important;
+    box-shadow: 0px 4px 0px rgba(50, 50, 50, 0.3) !important;
+    background-color: #333333 !important;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+}
+.dxisControl .dxis-itemTextArea a {
+    color: white;
+}
+.dxisControl .dxis-itemTextArea a:hover, a:focus {
+    text-decoration: underline;
+}
+.dxisControl .dxis-itemTextArea p {
+    color: #b0b0b0;
+}
+.dxisControl .dxis-itemTextArea > p {
+    margin-bottom: 0 !important;
+}
+.dxisControl .dxis-nbDotsBottom {
+    padding: 0 !important;
+    margin-top: -25px !important;
+}
+.dxisControl .dxis-nbDotsBottom .dxis-nbSlidePanel {
+    left: 340px !important;
+}
+.isdemoH3 {
+    font-size: 28px !important;
+    color: white;
+    padding-bottom: 9px;
+}
+.vertOptionsPanel label {
+    width: 200px;
+}

@@ -22,6 +22,7 @@ namespace siparis.Controllers
             Filter filter = new Filter(dbName);
             IndexDataViewModel data = filter.getMainMenu();
             data.stokcardView = filter.getStok(12);
+            ViewData["Options"] = new ImageSliderSlideShowDemoOptions();
             return View(data);
 
         }
