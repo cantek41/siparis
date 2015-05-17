@@ -22,11 +22,13 @@ namespace siparis.Controllers
             Filter filter = new Filter(dbName);
             IndexDataViewModel data = filter.getMainMenu();
             data.stokcardView = filter.getStok(12);
+            ViewData["Options"] = new ImageSliderSlideShowDemoOptions();
             return View(data);
 
         }
         public ActionResult FilterProduct(int main,int sub)
         {
+            ViewData["Options"] = new ImageSliderSlideShowDemoOptions();
             Filter filter = new Filter(dbName);
             IndexDataViewModel data = filter.getFilterItem();
             data.stokMainGroup.ElementAt(0).ID = main;
@@ -36,6 +38,7 @@ namespace siparis.Controllers
         [HttpPost]
         public JsonResult FilterProduct(filterModel data)
         {
+            ViewData["Options"] = new ImageSliderSlideShowDemoOptions();
             Filter filter = new Filter(dbName);
             return Json(filter.getFilterStok(data), JsonRequestBehavior.AllowGet);
         }

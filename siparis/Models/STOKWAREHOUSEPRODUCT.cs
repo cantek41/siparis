@@ -26,5 +26,6 @@ namespace siparis.Models
         public Nullable<System.DateTime> LAST_UPDATE { get; set; }
         public string LAST_UPDATE_USER { get; set; }
         public string CODE { get; set; }
+        public string UNIT { get; set; }
     }
 }

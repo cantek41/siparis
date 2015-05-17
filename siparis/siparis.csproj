@@ -257,6 +257,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\sessiDataFilter.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Content\ImageSlider\SlideShow.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DelegateController.cs" />
     <Compile Include="Controllers\Filter.cs" />
@@ -1056,6 +1057,9 @@
     <Content Include="Content\css\MegaDrop.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\verticalMenu.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\ImageSlider\SlideShow.css" />
     <Content Include="Content\images\404\404.png" />
     <Content Include="Content\images\404\No_Image_Available.png" />
     <Content Include="Content\images\alert\close.gif" />
@@ -1136,6 +1140,20 @@
     <Content Include="Content\images\product-details\similar1.jpg" />
     <Content Include="Content\images\product-details\similar2.jpg" />
     <Content Include="Content\images\product-details\similar3.jpg" />
+    <Content Include="Content\images\products\urun1a.jpg" />
+    <Content Include="Content\images\products\urun2.jpg" />
+    <Content Include="Content\images\products\urun1b.jpg" />
+    <Content Include="Content\images\products\urun1c.jpg" />
+    <Content Include="Content\images\products\urun3.jpg" />
+    <Content Include="Content\images\products\urun3a.jpg" />
+    <Content Include="Content\images\products\urun3b.jpg" />
+    <Content Include="Content\images\products\urun4a.jpg" />
+    <Content Include="Content\images\products\urun4b.jpg" />
+    <Content Include="Content\images\products\urun6a.jpg" />
+    <Content Include="Content\images\products\urun6b.jpg" />
+    <Content Include="Content\images\products\urun6c.jpg" />
+    <Content Include="Content\images\products\urun6y1.jpg" />
+    <Content Include="Content\images\products\urun6y2.jpg" />
     <Content Include="Content\images\shop\advertisement.jpg" />
     <Content Include="Content\images\shop\product10.jpg" />
     <Content Include="Content\images\shop\product11.jpg" />
@@ -1174,6 +1192,11 @@
     <Content Include="Content\images\verticalMenu\truck.png" />
     <Content Include="Content\images\verticalMenu\x-mark.png" />
     <Content Include="Content\images\verticalMenu\zoom.png" />
+    <Content Include="Content\images\widescreen\man-climbing-on-limestone-wall.jpg" />
+    <Content Include="Content\images\widescreen\swimmer-underwater.jpg" />
+    <Content Include="Content\images\widescreen\typing-male-hands.jpg" />
+    <Content Include="Content\images\widescreen\woman-using-laptop.jpg" />
+    <Content Include="Content\images\widescreen\woman-using-notebook.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
@@ -2038,6 +2061,12 @@
     <Content Include="obj\Debug\edmxResourcesToEmbed\Models\VeribisBaseModel.ssdl" />
     <Content Include="obj\Debug\siparis.csproj.GenerateResource.Cache" />
     <Content Include="obj\Debug\siparis.csprojResolveAssemblyReference.cache" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\siparis.pubxml" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -2193,7 +2222,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39835</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
+
           <IISUrl>http://localhost:39869/</IISUrl>
+
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
