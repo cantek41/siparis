@@ -634,7 +634,7 @@ namespace siparis.Controllers
                     int userWareHouseID = Convert.ToInt32(db.USERS.Find(userCode).USER_RIGHT);
                     foreach (OrderMasterViewModel item in shipping)
                     {
-                        int count = getShipping(shippingType, userWareHouseID).Count();
+                        int count = getShipping(shippingType, userWareHouseID,item.OPPORTUNITY_CODE).Count();
                         if (count > 0)
                         {
                             resultModel.Add(item);
@@ -646,7 +646,7 @@ namespace siparis.Controllers
         }
 
         [ValidateInput(false)]
-        public ActionResult ShippingConfirmDetailPartial(int shipping_type)
+        public ActionResult ShippingConfirmDetailPartial(int shipping_type,int oppCode)
         {
             IEnumerable<ShippingViewModel> resultModel;
             if (User.IsInRole("Depo"))
@@ -655,23 +655,23 @@ namespace siparis.Controllers
                 using (VdbSoftEntities db = new VdbSoftEntities(dbName))
                 {
                     int userWareHouseID = Convert.ToInt32(db.USERS.Find(userCode).USER_RIGHT);
-                    resultModel = getShipping(shipping_type, userWareHouseID);
+                    resultModel = getShipping(shipping_type, userWareHouseID,oppCode);
                 }
 
             }
             else
-                resultModel = getShipping(shipping_type);
+                resultModel = getShipping(shipping_type,oppCode);
             return PartialView("_ShippingConfirmDetailPartial", resultModel);
         }
 
-        public IEnumerable<ShippingViewModel> getShipping(int oppShippingType, int wareHouseID)
+        public IEnumerable<ShippingViewModel> getShipping(int oppShippingType, int wareHouseID,int oppMasterCode)
         {
             TempData["DOCUMENT_TYPE"] = oppShippingType;
             VdbSoftEntities db = db = new VdbSoftEntities(dbName);
             List<ShippingViewModel> model = (from d in db.STOKACTUALORDERs
                                              join stk in db.STOKCARDs on d.STOK_CODE equals stk.CODE
                                              join ware in db.STOKWAREHOUSEs on d.WAREHOUSE equals ware.ID
-                                             where d.SHIPPING_TYPE == oppShippingType && d.WAREHOUSE == wareHouseID
+                                             where d.SHIPPING_TYPE == oppShippingType && d.WAREHOUSE == wareHouseID && d.OPPORTUNITY_CODE==oppMasterCode
                                              select new ShippingViewModel
                                              {
                                                  ID = d.ID,
@@ -693,14 +693,14 @@ namespace siparis.Controllers
             }
             return modelPicture;
         }
-        public IEnumerable<ShippingViewModel> getShipping(int oppMasterType)
+        public IEnumerable<ShippingViewModel> getShipping(int oppMasterType, int oppMasterCode)
         {
             TempData["DOCUMENT_TYPE"] = oppMasterType;
             VdbSoftEntities db = db = new VdbSoftEntities(dbName);
             List<ShippingViewModel> model = (from d in db.STOKACTUALORDERs
                                              join stk in db.STOKCARDs on d.STOK_CODE equals stk.CODE
                                              join ware in db.STOKWAREHOUSEs on d.WAREHOUSE equals ware.ID
-                                             where d.SHIPPING_TYPE == oppMasterType
+                                             where d.SHIPPING_TYPE == oppMasterType && d.OPPORTUNITY_CODE==oppMasterCode
                                              select new ShippingViewModel
                                              {
                                                  ID = d.ID,
