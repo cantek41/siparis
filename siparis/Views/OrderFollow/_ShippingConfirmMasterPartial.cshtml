@@ -54,7 +54,7 @@
             settings.CommandColumn.CustomButtons.Add(new GridViewCommandColumnCustomButton()
             {
                 ID = "First10",
-                Text = "Onayla"
+                Text = siparis.Resorces.Language.Approved
             });
             settings.ClientSideEvents.CustomButtonClick = "function(s,e){grid.PerformCallback({clickedButton : s.GetRowKey(e.visibleIndex)});}";
         }
@@ -65,6 +65,7 @@
         {
             settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "OrderFollow", Action = "Cencel" };
             settings.CommandColumn.ShowDeleteButton = true;
+            settings.SettingsCommandButton.DeleteButton.Text = siparis.Resorces.Language.Delete;
             settings.SettingsBehavior.ConfirmDelete = true;
         }
         //end delete
@@ -129,7 +130,7 @@
             //    "<br />" +
             //    "<br />"
             //);
-            Html.RenderAction("_ShippingConfirmDetailPartial", new { CustomerID = DataBinder.Eval(c.DataItem, "OPPORTUNITY_CODE") });
+            Html.RenderAction("MasterDetailDetailPartial", new { CustomerID = DataBinder.Eval(c.DataItem, "OPPORTUNITY_CODE") });
         });
         settings.PreRender = (sender, e) =>
         {

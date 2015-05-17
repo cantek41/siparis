@@ -12,6 +12,7 @@
     <item Text="Edited" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
     <item Text="Processed" NavigateUrl="Processed" ImageUrl="~/Content/images/icons/services.png"/>
     <item Text="ShippingConfirm" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+    <item Text="Shipping Wait" NavigateUrl="ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
     <item Text="Shipping" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
     <item Text="Shipped" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
     <item Text="Cancelled" NavigateUrl="Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>
@@ -43,6 +44,7 @@
     <item Text="Edited" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
     <item Text="Processed" NavigateUrl="Processed" ImageUrl="~/Content/images/icons/services.png"/>
     <item Text="ShippingConfirm" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+    <item Text="Shipping Wait" NavigateUrl="ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
     <item Text="Shipping" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
     <item Text="Shipped" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
     <item Text="DispatchNote" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
@@ -60,6 +62,7 @@
     <item Text="Edited" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
     <item Text="Processed" NavigateUrl="Processed" ImageUrl="~/Content/images/icons/services.png"/>
     <item Text="ShippingConfirm" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+    <item Text="Shipping Wait" NavigateUrl="ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
     <item Text="Shipping" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
     <item Text="Shipped" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
     <item Text="Cancelled" NavigateUrl="Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>

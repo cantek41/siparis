@@ -50,6 +50,14 @@ namespace siparis.Controllers
 
         }
 
+        public static Dictionary<int, string> getWareHouse()
+        {
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                return (from d in db.STOKWAREHOUSEs
+                        select new { Key = d.ID, Value = d.NAME }).ToDictionary(t => t.Key, t => t.Value);
+            }
+        }
         public int getUserCode()
         {
             int userCode = 0;

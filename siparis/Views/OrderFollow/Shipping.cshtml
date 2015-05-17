@@ -1,8 +1,8 @@
-﻿@model IEnumerable<siparis.Models.ShippingViewModel>
+﻿@model IEnumerable<siparis.Models.OrderMasterViewModel>
 ﻿@using siparis.Models
 @{
     ViewBag.Title = @siparis.Resorces.Language.Shipping;
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 <h2>@siparis.Resorces.Language.Shipping</h2>
-@Html.Partial("_ShippingPartial", Model)
+@Html.Partial("_ShippingConfirmMasterPartial", Model)

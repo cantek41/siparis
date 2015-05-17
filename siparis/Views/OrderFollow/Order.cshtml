@@ -20,28 +20,37 @@
     }
 </script>
 
+<script>
+    function OnClick(s, e) {
+        var targetUrl = s.submitUrl + " " + ChooseWareHouse.GetValue();
+        s.submitUrl = targetUrl;
+    }
+</script>
+
 @*@Html.DevExpress().Panel(settings =>
-{
-    settings.Name = "detailPanel";
-    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
-    settings.Styles.Panel.CssClass = "detailPanel";
-    settings.Collapsible = true;
-    settings.SettingsCollapsing.ExpandEffect = PanelExpandEffect.PopupToTop;
-    settings.SettingsCollapsing.AnimationType = AnimationType.Slide;
-    settings.SettingsAdaptivity.CollapseAtWindowInnerHeight = 680;
-    settings.SettingsAdaptivity.HideAtWindowInnerHeight = 100;
-    settings.Styles.ExpandBar.Width = System.Web.UI.WebControls.Unit.Percentage(100);
-    settings.Styles.ExpandBar.CssClass = "bar";
-    settings.Styles.Panel.BorderTop.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
-    settings.SetContent(() =>
     {
-        ViewContext.Writer.Write("<div class='title'>Orders</div>");        
-    });
-   
-}).GetHtml()*@
+        settings.Name = "detailPanel";
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.Styles.Panel.CssClass = "detailPanel";
+        settings.Collapsible = true;
+        settings.SettingsCollapsing.ExpandEffect = PanelExpandEffect.PopupToTop;
+        settings.SettingsCollapsing.AnimationType = AnimationType.Slide;
+        settings.SettingsAdaptivity.CollapseAtWindowInnerHeight = 680;
+        settings.SettingsAdaptivity.HideAtWindowInnerHeight = 100;
+        settings.Styles.ExpandBar.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.Styles.ExpandBar.CssClass = "bar";
+        settings.Styles.Panel.BorderTop.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
+        settings.SetContent(() =>
+        {
+            ViewContext.Writer.Write("<div class='title'>Orders</div>");
+        });
+
+    }).GetHtml()*@
 @Html.Partial("_OrderMasterGrid", Model)
 
-@Html.DevExpress().Panel(settings =>
+@if (User.IsInRole("Admin"))
+{
+    @Html.DevExpress().Panel(settings =>
 {
     settings.Name = "detailPaneled";
     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
@@ -59,3 +68,4 @@
         Html.RenderAction("orderPartial");
     });
 }).GetHtml()
+}

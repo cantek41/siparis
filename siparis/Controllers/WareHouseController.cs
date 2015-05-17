@@ -42,16 +42,35 @@ namespace siparis.Controllers
             return saveWareHouse(String.Format("{0}|{1}", keys[1], keys[2]));
         }
 
+        public static void saveProductuAllWareHouse(int oppMasterCode, int wareHouseID)
+        {
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                var oppMaster = db.OPPORTUNITYMASTERs.Find(oppMasterCode);
+                foreach (OPPORTUNITYDETAIL item in oppMaster.OPPORTUNITYDETAILs)
+                {
+                    STOKACTUALORDER orderForDepo = new STOKACTUALORDER();
+                    orderForDepo.OPPORTUNITY_CODE = oppMasterCode;
+                    orderForDepo.ROW_ORDER_NO = item.ROW_ORDER_NO;
+                    orderForDepo.STOK_CODE = item.STOK_CODE;
+                    orderForDepo.WAREHOUSE = wareHouseID;
+                    orderForDepo.QUANTITY = (int)item.QUANTITY;
+                    orderForDepo.SHIPPING_TYPE = 2;
+                    db.STOKACTUALORDERs.Add(orderForDepo);
+                }
+                oppMaster.DOCUMENT_TYPE = 18;
+                db.SaveChanges();
+            }
+
+        }
 
         public ActionResult saveWareHouse(string ID)
         {
             string[] keys = ID.Split('|');
             int rowCode = Convert.ToInt32(keys[1]);
             int oppCode = Convert.ToInt32(keys[0]);
-
             Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param = orderWareHouseCal(oppCode, rowCode);
             List<StokWareHouseViewModel> depolar = param.Item1;
-
             return PartialView("../OrderFollow/_wareHousePartial", depolar);
         }
 
