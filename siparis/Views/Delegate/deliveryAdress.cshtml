@@ -1,0 +1,12 @@
+﻿@Html.DevExpress().ComboBox(settings =>
+                    {
+                        settings.Name = "drpDeliveryAddress";
+                        settings.CallbackRouteValues = new { Controller = "Delegate", Action = "deliveryAdress" };
+                        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                        settings.Properties.DropDownStyle = DropDownStyle.DropDown;
+                        settings.Properties.TextField = "Value";
+                        settings.Properties.ValueField = "Key";
+                        settings.Properties.ValueType = typeof(int);
+                        settings.Properties.ClientSideEvents.BeginCallback = "function(s, e) { e.customArgs['Company'] = Company.GetValue(); }";
+                    }).BindList(ViewData["Adress"]).GetHtml()
+

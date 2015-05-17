@@ -1,0 +1,73 @@
+﻿
+@Html.DevExpress().GridView(settings =>
+        {
+            settings.Name = "gvOverview";
+            //settings.KeyFieldName = "WAREHOUSE_ID;OPPORTUNITY_CODE;ROW_ORDER_NO;STOK_CODE";
+            settings.CallbackRouteValues = new
+            {
+                Controller = "Delegate",
+                Action = "addStok"
+
+            };
+            settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Delegate", Action = "addStok" };
+            settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+            settings.KeyFieldName = "ID";
+            settings.CommandColumn.Visible = true;
+            settings.CommandColumn.ShowEditButton = true;
+            settings.CommandColumn.ShowNewButton = true;
+            settings.SettingsPager.Visible = true;
+            settings.Settings.ShowGroupPanel = true;
+            settings.Settings.ShowFilterRow = true;
+            settings.SettingsBehavior.AllowSelectByRowClick = true;
+            settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+            settings.Columns.Add(column =>
+            {
+                column.FieldName = "ID";
+                column.Caption = "STOK KODU";
+                column.ReadOnly = true;
+
+            });
+            settings.Columns.Add(column =>
+            {
+                column.FieldName = "NAME_TR";
+                column.Caption = "STOK ADI";
+                column.ReadOnly = true;
+
+            });
+            settings.Columns.Add(column =>
+            {
+                column.FieldName = "UNIT_PRICE";
+                column.Caption = "STOK FİYAT";
+                column.ReadOnly = true;
+
+            });
+            settings.Columns.Add(column =>
+            {
+                column.FieldName = "CUR_TYPE";
+                column.Caption = "PARA BİRİMİ";
+                column.ReadOnly = true;
+
+            });
+            settings.Columns.Add(column =>
+            {
+                column.FieldName = "UNIT";
+                column.Caption = "MİKTAR";
+               
+
+            });
+            settings.Columns.Add(column =>
+            {
+                column.FieldName = "DES_TR";
+                column.Caption = "AÇIKLAMA";
+               
+
+            });
+            settings.Columns.Add(column =>
+            {
+                column.FieldName = "CODE";
+                column.Caption = "TESLİM TARİHİ";
+                
+
+            });
+
+        }).Bind(Model).GetHtml()

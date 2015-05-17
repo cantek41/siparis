@@ -1,0 +1,22 @@
+﻿@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = "Company";
+        settings.Width = 250;
+        settings.SelectedIndex = 0;
+        settings.Properties.DropDownWidth = 550;
+        settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+        settings.CallbackRouteValues = new { Controller = "Delegate", Action = "MultiColumnComboBoxPartial" };
+        settings.Properties.CallbackPageSize = 30;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+        settings.Properties.TextFormatString = "{0}";
+        settings.Properties.ValueField = "COMPANY_CODE";
+        settings.Properties.TextField = "COMPANY_CODE";
+        settings.Properties.ValueType = typeof(string);
+        settings.Properties.Columns.Add("COMPANY_NAME", "COMPANY_NAME", 170);
+        //settings.Properties.Columns.Add("ContactName", "ContactName", 130);
+        settings.Properties.Columns.Add("COMPANY_CODE", "CODE", 30);
+        settings.Properties.Columns.Add("COMPANY_COMMERCIAL_CODE", "COMMERCIAL_CODE", 50);
+        settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s, e) { drpDeliveryAddress.PerformCallback(); }";
+    }
+).BindList(ViewData["Company"]).GetHtml()

@@ -2142,6 +2142,9 @@
     <Content Include="Views\Home\FilterProduct.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\OrderFollow\ShippingWait.cshtml" />
+    <Content Include="Views\Delegate\MultiColumnComboBoxPartial.cshtml" />
+    <Content Include="Views\Delegate\deliveryAdress.cshtml" />
+    <Content Include="Views\Delegate\gridView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\bin\tr-TR\" />
