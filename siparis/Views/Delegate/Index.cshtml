@@ -25,17 +25,20 @@
                     @Html.DevExpress().Label(
     settings =>
     {
-        settings.Name = "lbl;CompanyName";
+        settings.Name = "lblCompany";
         settings.Text = @siparis.Resorces.Language.Company;
         settings.Properties.EnableClientSideAPI = true;
     }).GetHtml()
                 </div>
                 <div class="col-md-8">
                    
-                    @Html.DevExpress().TextBox(settings =>
-{
-    settings.Name = "CompanyNameTxt";
-}).GetHtml()
+                    @Html.DevExpress().ButtonEdit(settings =>
+              {
+                  settings.Name = "btnEditCompany";
+                  //settings.Properties.Buttons.Add(siparis.Resorces.Language.Search);
+                  settings.Properties.Buttons.Add();
+                  settings.Properties.Buttons[0].Image.IconID = IconID.FindFind16x16gray;
+              }).GetHtml()
 
 
                 </div>
@@ -58,7 +61,7 @@
                 </div>
             </div>
 
-            <!-- Select Basic -->
+            <!-- Teslim Adresi -->
             <div class="form-group">
                 <div class="col-md-3">
                     @Html.DevExpress().Label(
@@ -85,7 +88,7 @@
             </div>
 
 
-            <!-- Select Basic -->
+            <!-- Depo Adı -->
             <div class="form-group">
                 
                 <div class="col-md-3">
@@ -111,7 +114,7 @@
                 </div>
             </div>
 
-            <!-- Select Basic -->
+            <!-- Teslim Türü -->
             <div class="form-group">
                 <div class="col-md-3">
                     @Html.DevExpress().Label(
@@ -136,7 +139,7 @@
                 </div>
             </div>
 
-            <!-- Select Basic -->
+            <!-- Teslim Tarihi -->
             <div class="form-group">           
                 <div class="col-md-3">
                     @Html.DevExpress().Label(
@@ -163,7 +166,7 @@
 
         <div class="col-md-4">
 
-            <!-- Textarea -->
+            <!-- Açıklama -->
             <div class="form-group">
                 <div class="col-md-3">
                     @Html.DevExpress().Label(
@@ -189,7 +192,7 @@
                 </div>
             </div>
 
-            <!-- Select Basic -->
+            <!-- Ana Grup -->
             <div class="form-group">
                 <div class="col-md-3">
                     @Html.DevExpress().Label(
@@ -214,7 +217,7 @@
                 </div>
             </div>
 
-            <!-- Select Basic -->
+            <!-- Alt Grup -->
             <div class="form-group">
                 <div class="col-md-3">
                     @Html.DevExpress().Label(
@@ -239,7 +242,7 @@
                 </div>
             </div>
 
-            <!-- Appended Input-->
+            <!-- Stok -->
             <div class="form-group">
                 <div class="col-md-3">
                     @Html.DevExpress().Label(
@@ -252,10 +255,13 @@
                 </div>
                 <div class="col-md-8">
                   
-                    @Html.DevExpress().TextBox(settings =>
-{
-    settings.Name = "txtStock";
-}).GetHtml()
+                    @Html.DevExpress().ButtonEdit(settings =>
+              {
+                  settings.Name = "btnEditStock";
+                  //settings.Properties.Buttons.Add(siparis.Resorces.Language.Search);
+                  settings.Properties.Buttons.Add();
+                  settings.Properties.Buttons[0].Image.IconID = IconID.FindFind16x16gray;
+              }).GetHtml()
 
                 </div>
             </div>
@@ -263,7 +269,7 @@
 
     </form>
 
-    @* grid *@
+    @* Grid *@
     <div class="row">
         <div class="col-md-8">
             @Html.DevExpress().GridView(settings =>
