@@ -13,10 +13,13 @@
 <script src="~/Scripts/AngularFilter/checklist-model.js"></script>
 <script src="~/Scripts/AngularFilter/checkBoxFilter.js"></script>
 
-@{Html.RenderPartial("SliderPartial");}
+
 <section>
     <div class="container">
-        
+        <div class="row">
+            @{Html.RenderPartial("SliderPartial");}
+        </div>
+        <div class="row" style="margin-top:20px;">
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <h2>@siparis.Resorces.Language.Filter</h2>
@@ -29,7 +32,7 @@
 
             <!-- ürünler-->
             <div class="col-sm-9">
-                <div class="features_items" >
+                <div class="features_items">
                     <h2 class="title text-center">@siparis.Resorces.Language.FeaturesItems</h2>
                     <div id="Dongu" ng-controller="Dongu">
                         <div>
@@ -49,7 +52,7 @@
                                                     <input type="text" size="2" value={{role.UNIT}} class="padding-left" disabled />
                                                 </div>
                                             </div>
-                                            @*<a href="@Url.Action("ProductDetail", "Product", new { urunID = 15 })" class="btn btn-default add-to-cart">*@                                         
+                                            @*<a href="@Url.Action("ProductDetail", "Product", new { urunID = 15 })" class="btn btn-default add-to-cart">*@
                                             <a href="../Product/ProductDetail?urunID={{role.ID}}" class="btn btn-default add-to-cart">
                                                 <i class="fa fa-plus-square"></i>@siparis.Resorces.Language.Details
                                             </a>
@@ -64,7 +67,7 @@
             <!-- /ürünler-->
             @*@{Html.RenderPartial("ContentPartial");}*@
         </div>
-  
- 
+
+    </div>
 
 </section>

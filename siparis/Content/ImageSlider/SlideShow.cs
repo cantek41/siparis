@@ -55,7 +55,7 @@ namespace siparis
             AutoPlay = true;
             Interval = 5000;
             PlayPauseButtonVisibility = ElementVisibilityMode.Faded;
-            StopPlayingWhenPaging = false;
+            StopPlayingWhenPaging = true;
             PausePlayingWhenMouseOver = false;
         }
 
