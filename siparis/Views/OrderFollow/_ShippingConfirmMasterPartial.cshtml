@@ -6,27 +6,16 @@
     string[] rol = Roles.GetRolesForUser();
     switch (rol[0])
     {
-        case "Admin":
+        //case "Admin":
+        //    masterOnayla = true;
+        //    masterEdit = true;
+        //    masterDelete = true;
+        //    break;
+      
+        case "Depo":
             masterOnayla = true;
             masterEdit = true;
             masterDelete = true;
-            break;
-        case "Bayi":
-            if ((int)TempData["DOCUMENT_TYPE"] == 15 || (int)TempData["DOCUMENT_TYPE"] == 19)
-            {
-                masterOnayla = true;
-                masterDelete = true;
-            }
-            break;
-        case "Depo":
-            if ((int)TempData["DOCUMENT_TYPE"] == 18 || (int)TempData["DOCUMENT_TYPE"] == 20 || (int)TempData["DOCUMENT_TYPE"] == 24)
-            {
-                masterOnayla = true;
-            }
-            if ((int)TempData["DOCUMENT_TYPE"] == 20)
-            {
-                masterDelete = true;
-            }
             break;
         default:
             break;
@@ -36,8 +25,7 @@
     settings =>
     {
         settings.Name = "grid";
-        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "GridViewPartialOpportunity" };
-        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "MasterDetailMasterPartial", DOCUMENT_TYPE = TempData["DOCUMENT_TYPE"] };
+        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "ShippingConfirmMasterPartial", shipping_type = TempData["DOCUMENT_TYPE"] };    
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
         settings.CommandColumn.Visible = true;
 
@@ -50,7 +38,7 @@
         //Onayla
         if (masterOnayla)
         {
-            settings.CustomActionRouteValues = new { Controller = "OrderFollow", Action = "CustomButtonClick" };
+            settings.CustomActionRouteValues = new { Controller = "OrderFollow", Action = "CustomButtonClick", shipping_type = TempData["DOCUMENT_TYPE"] };
             settings.CommandColumn.CustomButtons.Add(new GridViewCommandColumnCustomButton()
             {
                 ID = "First10",
@@ -128,9 +116,9 @@
             //        DataBinder.Eval(c.DataItem, "Phone") + "</b>, Fax: <b>" +
             //            DataBinder.Eval(c.DataItem, "Fax") + "</b>" +
             //    "<br />" +
-            //    "<br />"
+            //    "<br />"shipping_type
             //);
-            Html.RenderAction("MasterDetailDetailPartial", new { CustomerID = DataBinder.Eval(c.DataItem, "OPPORTUNITY_CODE") });
+            Html.RenderAction("ShippingConfirmDetailPartial", new { shipping_type = TempData["DOCUMENT_TYPE"], oppCode = DataBinder.Eval(c.DataItem, "OPPORTUNITY_CODE") });
         });
         settings.PreRender = (sender, e) =>
         {

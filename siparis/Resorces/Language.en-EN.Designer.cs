@@ -1060,6 +1060,15 @@ namespace siparis.Resorces {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ShippingWait.
+        /// </summary>
+        public static string ShippingWait {
+            get {
+                return ResourceManager.GetString("ShippingWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shop.
         /// </summary>
         public static string Shop {

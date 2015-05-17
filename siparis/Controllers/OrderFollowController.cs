@@ -111,19 +111,21 @@ namespace siparis.Controllers
         //}
         public ActionResult ShippingConfirm()
         {
-            return View(getShipping(1));//sevk hazırlanıyopr tip 1
+
+            return View(getShippingMaster(1));//sevk hazırlanıyopr tip 1
         }
         public ActionResult ShippingWait()
         {
-            return View(getShipping(2));//sevk toplu onay Bekliyor 2
+            return View(getShippingMaster(2));//sevk toplu onay Bekliyor 2
         }
         public ActionResult Shipping()
         {
-            return View(getOpp(23));//sevk ediliyor tip tip 3
+
+            return View(getShippingMaster(3));//sevk ediliyor tip tip 3
         }
         public ActionResult Shipped()
         {
-            return View(getShipping(4));//sevk edildi tip 4
+            return View(getShippingMaster(4));//sevk edildi tip 4
         }
 
 
@@ -280,14 +282,11 @@ namespace siparis.Controllers
             return RedirectToAction(gidecegisayfa(eskiSayfa));
 
         }
-
-
         [HttpPost]
-        public ActionResult CustomButtonClick(string clickedButton)
+        public ActionResult CustomButtonClick(string clickedButton, string shipping_type = "-1")
         {
             RolePrincipal r = (RolePrincipal)User;
             string[] rol = r.GetRoles();
-
             siparis.Models.VdbSoftEntities db = new Models.VdbSoftEntities(dbName);
             int eskiSayfa = 0;
             int OPPORTUNITY_CODE = Convert.ToInt32(clickedButton);
@@ -359,26 +358,33 @@ namespace siparis.Controllers
                             }
                             break;
                         case "Depo":
-                            switch (eskiSayfa)
+                            int newShippingType = -1;
+                            switch (shipping_type)
                             {
-                                case 18:
-                                    opp.DOCUMENT_TYPE = 20;
+                                case "1":
+                                    newShippingType = 2;
                                     break;
-                                case 20:
-                                    opp.DOCUMENT_TYPE = 24;
+                                case "2":
+                                    newShippingType = 3;
                                     break;
-                                case 24:
-                                    opp.DOCUMENT_TYPE = 21;
+                                case "3":
+                                    newShippingType = 4;
+                                    break;
+                                case "4":
+                                    newShippingType = 5;//fix me sevk ediledikten sopnra tipi ne olacak
                                     break;
                                 default:
                                     break;
                             }
+                            approvedShipping(OPPORTUNITY_CODE, Convert.ToInt32(shipping_type), newShippingType);
                             break;
                         default:
                             break;
                     }
-
-                    oppSave(db, opp, eskiSayfa);
+                    if (!rol[0].Equals("Depo"))//depo işlemi değilse documan tipi değişsin                        
+                    {
+                        oppSave(db, opp, eskiSayfa);
+                    }
                     //db.OPPORTUNITYMASTERs.Attach(opp);
                     //var entry = db.Entry(opp);
                     //entry.Property(e => e.DOCUMENT_TYPE).IsModified = true; 
@@ -390,6 +396,32 @@ namespace siparis.Controllers
                 }
             }
             return RedirectToAction(gidecegisayfa(eskiSayfa));
+
+        }
+        public void approvedShipping(int oppCode, int oldShippingType, int newShippingType)
+        {
+            if (oldShippingType != -1 || newShippingType != -1)
+            {
+                int userCode = getUserCode();
+                int userWareHouseID;
+                using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+                {
+                    userWareHouseID = Convert.ToInt32(db.USERS.Find(userCode).USER_RIGHT);
+                    // opp kodu ve warehouse u ve oldshippingtype belkli olan kayıtları değiştir.
+                    string sorgu = String.Format("update  STOKACTUALORDER set SHIPPING_TYPE={0} where OPPORTUNITY_CODE={1} and SHIPPING_TYPE={2} and WAREHOUSE={3}", newShippingType, oppCode, oldShippingType, userWareHouseID);
+                    db.Database.ExecuteSqlCommand(sorgu);
+                    db.SaveChanges();
+                    int hazirlanmasiBeklenenUrunSayisi = db.STOKACTUALORDERs.Where(x => x.OPPORTUNITY_CODE == oppCode).Where(x => x.SHIPPING_TYPE == 1).Count();
+                    if (hazirlanmasiBeklenenUrunSayisi == 0)
+                    {
+                        sorgu = String.Format("update  STOKACTUALORDER set SHIPPING_TYPE={0} where OPPORTUNITY_CODE={1} and SHIPPING_TYPE={2} ", 3, oppCode, 2);
+                        db.Database.ExecuteSqlCommand(sorgu);
+                    }
+                    db.SaveChanges();
+                }
+
+            }
+
 
         }
 
@@ -500,7 +532,7 @@ namespace siparis.Controllers
         public ActionResult MasterDetailDetailPartial(string customerID)
         {
 
-            ViewData["COURSE_CODE"] = customerID;
+            ViewData["OPPORTUNITY_CODE"] = customerID;
             int cID = Convert.ToInt32(customerID);
             VdbSoftEntities db = new VdbSoftEntities(dbName);
             List<OppDetail> model = (from d in db.OPPORTUNITYDETAILs
@@ -602,52 +634,25 @@ namespace siparis.Controllers
         #endregion
 
         #region sevk gridleri
+        /// <summary>
+        /// dökümantipi olarak bütün shipingler 24 olsun
+        /// ama shipingtipleri farklı olmalı ki ne durumda olduğunu görebilelim.
+        /// sevkhaıorlanıyor=1 sevkonay bekliyor=2 sevk ediliyor=3 sevkedildi=4
+        /// shippingConfirm=1 shipingWait=2 shipping=3 shipped=4
+        /// </summary>
+        /// <param name="DOCUMENT_TYPE">shipingType</param>
+        /// <returns></returns>
         [ValidateInput(false)]
-        public ActionResult ShippingConfirmMasterPartial(int DOCUMENT_TYPE)
+        public ActionResult ShippingConfirmMasterPartial(int shipping_type)
         {
-            IEnumerable<OrderMasterViewModel> shipping = getOpp(DOCUMENT_TYPE);
-            List<OrderMasterViewModel> resultModel = new List<OrderMasterViewModel>();
-            if (User.IsInRole("Depo"))
-            {
-                int userCode = getUserCode();
-                using (VdbSoftEntities db = new VdbSoftEntities(dbName))
-                {
-                    int shippingType;
-                    switch (DOCUMENT_TYPE)
-                    {
-                        case 21:
-                            shippingType = 1;
-                            break;
-                        case 24:
-                            shippingType = 1;
-                            break;
-                        case 25:
-                            shippingType = 1;
-                            break;
-                        case 26:
-                            shippingType = 1;
-                            break;
-                        default:
-                            shippingType = 1;
-                            break;
-                    }
-                    int userWareHouseID = Convert.ToInt32(db.USERS.Find(userCode).USER_RIGHT);
-                    foreach (OrderMasterViewModel item in shipping)
-                    {
-                        int count = getShipping(shippingType, userWareHouseID,item.OPPORTUNITY_CODE).Count();
-                        if (count > 0)
-                        {
-                            resultModel.Add(item);
-                        }
-                    }
-                }
-            }
-            return PartialView("_ShippingConfirmMasterPartial", resultModel);
+            TempData["DOCUMENT_TYPE"] = shipping_type;
+            return PartialView("_ShippingConfirmMasterPartial", getShippingMaster(shipping_type));
         }
 
-        [ValidateInput(false)]
-        public ActionResult ShippingConfirmDetailPartial(int shipping_type,int oppCode)
+        public ActionResult ShippingConfirmDetailPartial(int shipping_type, int oppCode)
         {
+            TempData["DOCUMENT_TYPE"] = shipping_type;
+            ViewData["OPPORTUNITY_CODE"] = oppCode;
             IEnumerable<ShippingViewModel> resultModel;
             if (User.IsInRole("Depo"))
             {
@@ -655,23 +660,63 @@ namespace siparis.Controllers
                 using (VdbSoftEntities db = new VdbSoftEntities(dbName))
                 {
                     int userWareHouseID = Convert.ToInt32(db.USERS.Find(userCode).USER_RIGHT);
-                    resultModel = getShipping(shipping_type, userWareHouseID,oppCode);
+                    resultModel = getShipping(shipping_type, userWareHouseID, oppCode);
                 }
 
             }
             else
-                resultModel = getShipping(shipping_type,oppCode);
+                resultModel = getShipping(shipping_type, oppCode);
             return PartialView("_ShippingConfirmDetailPartial", resultModel);
         }
 
-        public IEnumerable<ShippingViewModel> getShipping(int oppShippingType, int wareHouseID,int oppMasterCode)
+        public IEnumerable<OrderMasterViewModel> getShippingMaster(int shippingType)
+        {
+            IEnumerable<OrderMasterViewModel> shipping = getOpp(24);
+            TempData["DOCUMENT_TYPE"] = shippingType;
+            List<OrderMasterViewModel> resultModel = new List<OrderMasterViewModel>();
+            if (User.IsInRole("Depo"))
+            {
+                int userCode = getUserCode();
+                using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+                {
+
+                    int userWareHouseID = Convert.ToInt32(db.USERS.Find(userCode).USER_RIGHT);
+                    foreach (OrderMasterViewModel item in shipping)
+                    {
+                        int count = getShipping(shippingType, userWareHouseID, item.OPPORTUNITY_CODE).Count();
+                        if (count > 0)
+                        {
+                            resultModel.Add(item);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (OrderMasterViewModel item in shipping)
+                {
+                    int count = getShipping(shippingType, item.OPPORTUNITY_CODE).Count();
+                    if (count > 0)
+                    {
+                        resultModel.Add(item);
+                    }
+                }
+            }
+
+            return resultModel;
+        }
+
+
+        [ValidateInput(false)]
+
+        public IEnumerable<ShippingViewModel> getShipping(int oppShippingType, int wareHouseID, int oppMasterCode)
         {
             TempData["DOCUMENT_TYPE"] = oppShippingType;
             VdbSoftEntities db = db = new VdbSoftEntities(dbName);
             List<ShippingViewModel> model = (from d in db.STOKACTUALORDERs
                                              join stk in db.STOKCARDs on d.STOK_CODE equals stk.CODE
                                              join ware in db.STOKWAREHOUSEs on d.WAREHOUSE equals ware.ID
-                                             where d.SHIPPING_TYPE == oppShippingType && d.WAREHOUSE == wareHouseID && d.OPPORTUNITY_CODE==oppMasterCode
+                                             where d.SHIPPING_TYPE == oppShippingType && d.WAREHOUSE == wareHouseID && d.OPPORTUNITY_CODE == oppMasterCode
                                              select new ShippingViewModel
                                              {
                                                  ID = d.ID,
@@ -695,12 +740,12 @@ namespace siparis.Controllers
         }
         public IEnumerable<ShippingViewModel> getShipping(int oppMasterType, int oppMasterCode)
         {
-            TempData["DOCUMENT_TYPE"] = oppMasterType;
+
             VdbSoftEntities db = db = new VdbSoftEntities(dbName);
             List<ShippingViewModel> model = (from d in db.STOKACTUALORDERs
                                              join stk in db.STOKCARDs on d.STOK_CODE equals stk.CODE
                                              join ware in db.STOKWAREHOUSEs on d.WAREHOUSE equals ware.ID
-                                             where d.SHIPPING_TYPE == oppMasterType && d.OPPORTUNITY_CODE==oppMasterCode
+                                             where d.SHIPPING_TYPE == oppMasterType && d.OPPORTUNITY_CODE == oppMasterCode
                                              select new ShippingViewModel
                                              {
                                                  ID = d.ID,

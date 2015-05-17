@@ -531,4 +531,7 @@
   <data name="NoPrice" xml:space="preserve">
     <value>You could not add product becaue it has not price information.</value>
   </data>
+  <data name="ShippingWait" xml:space="preserve">
+    <value>ShippingWait</value>
+  </data>
 </root>

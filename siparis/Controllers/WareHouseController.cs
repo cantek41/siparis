@@ -55,7 +55,7 @@ namespace siparis.Controllers
                     orderForDepo.STOK_CODE = item.STOK_CODE;
                     orderForDepo.WAREHOUSE = wareHouseID;
                     orderForDepo.QUANTITY = (int)item.QUANTITY;
-                    orderForDepo.SHIPPING_TYPE = 2;
+                    orderForDepo.SHIPPING_TYPE = 1;
                     db.STOKACTUALORDERs.Add(orderForDepo);
                 }
                 oppMaster.DOCUMENT_TYPE = 18;
