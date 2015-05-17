@@ -35,7 +35,9 @@
                     @Html.DevExpress().ButtonEdit(settings =>
               {
                   settings.Name = "btnEditCompany";
-                  settings.Properties.Buttons.Add(siparis.Resorces.Language.Search);
+                  //settings.Properties.Buttons.Add(siparis.Resorces.Language.Search);
+                  settings.Properties.Buttons.Add();
+                  settings.Properties.Buttons[0].Image.IconID = IconID.FindFind16x16gray;
               }).GetHtml()
 
 
@@ -256,7 +258,9 @@
                     @Html.DevExpress().ButtonEdit(settings =>
               {
                   settings.Name = "btnEditStock";
-                  settings.Properties.Buttons.Add(siparis.Resorces.Language.Search);
+                  //settings.Properties.Buttons.Add(siparis.Resorces.Language.Search);
+                  settings.Properties.Buttons.Add();
+                  settings.Properties.Buttons[0].Image.IconID = IconID.FindFind16x16gray;
               }).GetHtml()
 
                 </div>
