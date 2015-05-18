@@ -53,7 +53,7 @@ namespace siparis
         public ImageSliderSlideShowDemoOptions()
         {
             AutoPlay = true;
-            Interval = 5000;
+            Interval = 10000;
             PlayPauseButtonVisibility = ElementVisibilityMode.Faded;
             StopPlayingWhenPaging = true;
             PausePlayingWhenMouseOver = false;
