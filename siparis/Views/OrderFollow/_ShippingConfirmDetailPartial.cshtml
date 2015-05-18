@@ -5,22 +5,22 @@
     string[] rol = Roles.GetRolesForUser();
     switch (rol[0])
     {
-        case "Admin":
-            masterOnayla = true;
-            masterEdit = true;
-            masterDelete = true;
-            break;
-        case "Bayi":
-            if ((int)TempData["DOCUMENT_TYPE"] == 15 || (int)TempData["DOCUMENT_TYPE"] == 19)
-            {
-                masterOnayla = true;
-                masterDelete = true;
-            }
-            break;
-        case "Depo":
-            break;
-        default:
-            break;
+        //case "Admin":
+        //    masterOnayla = true;
+        //    masterEdit = true;
+        //    masterDelete = true;
+        //    break;
+        //case "Bayi":
+        //    if ((int)TempData["DOCUMENT_TYPE"] == 15 || (int)TempData["DOCUMENT_TYPE"] == 19)
+        //    {
+        //        masterOnayla = true;
+        //        masterDelete = true;
+        //    }
+        //    break;
+        //case "Depo":
+        //    break;
+        //default:
+        //    break;
     }
 }
 @Html.DevExpress().GridView(
@@ -28,9 +28,8 @@
     {
         settings.Name = "detailGrid_" + ViewData["OPPORTUNITY_CODE"];
         settings.SettingsDetail.MasterGridName = "grid";
-        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "MasterDetailDetailPartial", CustomerID = ViewData["OPPORTUNITY_CODE"] };
-
-
+        settings.CallbackRouteValues = new { Controller = "OrderFollow", Action = "ShippingConfirmDetailPartial", shipping_type = TempData["DOCUMENT_TYPE"], oppCode = ViewData["OPPORTUNITY_CODE"] };
+     
         settings.SettingsBehavior.AllowFocusedRow = true;
         settings.SettingsPager.EnableAdaptivity = true;
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);

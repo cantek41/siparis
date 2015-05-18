@@ -16,7 +16,7 @@ namespace siparis
 
         public Repository()
         {
-            _context = new VdbSoftEntities();
+            _context = new VdbSoftEntities(siparis.Controllers.BaseController.dbName);
             _objectSet = _context.ObjectContext.CreateObjectSet<T>();
         }
 

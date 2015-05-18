@@ -534,4 +534,7 @@
   <data name="NoPrice" xml:space="preserve">
     <value>Ürünün fiyat bilgisi olmadığından sepete ekleyemezsiniz.</value>
   </data>
+  <data name="ShippingWait" xml:space="preserve">
+    <value>Sipariş Toplu Onay Bekliyor</value>
+  </data>
 </root>

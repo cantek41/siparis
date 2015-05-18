@@ -15,7 +15,7 @@ namespace siparis.Controllers
     [Authorize]
     public class BaseController : Controller
     {
-        
+
 
         public static string dbName = "VdbSoft";
         public ActionResult search(string param)
@@ -58,6 +58,24 @@ namespace siparis.Controllers
                         select new { Key = d.ID, Value = d.NAME }).ToDictionary(t => t.Key, t => t.Value);
             }
         }
+        public static Dictionary<int, string> getComapanyAdress(int companyCode)
+        {
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                return (from d in db.ADDRESSes
+                        where d.COMPANY_CODE==companyCode
+                        select new { Key = d.ADDRESS_CODE, Value = d.ADDRESS1 }).ToDictionary(t => t.Key, t => t.Value);
+            }
+        }
+        public static Dictionary<int, string> getWareDeliveryType()
+        {
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                return (from d in db.GROUPS
+                        where d.GROUP_CODE==69
+                        select new { Key = d.ROW_ORDER_NO, Value = d.EXP_TR }).ToDictionary(t => t.Key, t => t.Value);
+            }
+        }
         public int getUserCode()
         {
             int userCode = 0;
@@ -88,6 +106,14 @@ namespace siparis.Controllers
                 int userContactCode = (int)db.USERS.Where(x => x.USER_NAME == User.Identity.Name).Select(x => x.CONTACT_CODE).FirstOrDefault();
                 COMPANY company = db.COMPANies.Find(db.CONTACTs.Where(x => x.CONTACT_CODE == userContactCode).Select(x => x.COMPANY_CODE).FirstOrDefault());
                 return company.COMPANY_NAME;
+            }
+        }
+
+        public List<COMPANY> getCompanyList()
+        {
+            using (VdbSoftEntities db = new VdbSoftEntities(dbName))
+            {
+                return db.COMPANies.ToList();
             }
         }
 
@@ -327,7 +353,7 @@ namespace siparis.Controllers
         }
 
         protected override void Dispose(bool disposing)
-        {            
+        {
             base.Dispose(disposing);
         }
 
