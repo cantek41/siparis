@@ -7,6 +7,7 @@
                         settings.Properties.TextField = "Value";
                         settings.Properties.ValueField = "Key";
                         settings.Properties.ValueType = typeof(int);
-                        settings.Properties.ClientSideEvents.BeginCallback = "function(s, e) { e.customArgs['Company'] = Company.GetValue(); }";
+                        settings.Properties.ClientSideEvents.BeginCallback = "function(s, e) { e.customArgs['Company'] = Company.GetValue(); if(s.GetValue()!='')e.customArgs['drpDeliveryAddress'] = s.GetValue();}";
+                      //  settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s, e) {drpDeliveryAddress.PerformCallback(); }";
                     }).BindList(ViewData["Adress"]).GetHtml()
 

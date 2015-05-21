@@ -36,17 +36,26 @@ namespace siparis.Controllers
             return null;
         }
 
-        public void checkCart()
+        public void checkCart(int companyCode=-1)
         {
-            int userCode = getUserCode();
+            if (companyCode==-1)
+            {
+                ProfileInfo profil = (ProfileInfo)Session["profilim"];
+                companyCode = profil.FirmaKodu;                
+            }                            
             siparis.Models.VdbSoftEntities db = new VdbSoftEntities(dbName);
             int sepetID = (from d in db.OPPORTUNITYMASTERs
-                           where d.OPEN_CLOSE == 0 && d.DOCUMENT_TYPE == 15 && (int)d.APPOINTED_USER_CODE == userCode// user ID gelmeli Fix Me
+                           where d.OPEN_CLOSE == 0 && d.DOCUMENT_TYPE == 15 && (int)d.COMPANY_CODE == companyCode
                            select d.OPPORTUNITY_CODE).FirstOrDefault();
             if (sepetID != 0)
             {
                 Session.Add("Sepet", sepetID);
             }
+            else if (Session["Sepet"]!=null)
+            {
+                Session.Remove("Sepet");
+            }
+                
 
         }
 

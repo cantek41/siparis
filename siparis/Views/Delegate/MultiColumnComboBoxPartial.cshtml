@@ -17,6 +17,6 @@
         //settings.Properties.Columns.Add("ContactName", "ContactName", 130);
         settings.Properties.Columns.Add("COMPANY_CODE", "CODE", 30);
         settings.Properties.Columns.Add("COMPANY_COMMERCIAL_CODE", "COMMERCIAL_CODE", 50);
-        settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s, e) { drpDeliveryAddress.PerformCallback(); }";
+        settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s, e) { drpDeliveryAddress.PerformCallback();gvOverview.PerformCallback(); }";
     }
 ).BindList(ViewData["Company"]).GetHtml()

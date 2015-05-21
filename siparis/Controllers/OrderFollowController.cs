@@ -618,16 +618,31 @@ namespace siparis.Controllers
 
         public ActionResult orderPartial(string clickedButton = null)
         {
+            //int oppCode = 1, rowCode = 1;
+            //if (clickedButton != null)
+            //{
+            //    string[] keys = clickedButton.Split('|');
+            //    rowCode = Convert.ToInt32(keys[0]);
+            //    oppCode = Convert.ToInt32(keys[1]);
+            //}
+            //TempData["parametre"] = String.Format("{0}|{1}", oppCode, rowCode);
+            //Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param = orderWareHouseCal(oppCode, rowCode);
+            //List<StokWareHouseViewModel> depolar = param.Item1;
+            //return PartialView("_orderPartial", param);
+
             int oppCode = 1, rowCode = 1;
+            Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param = new Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL>(new List<StokWareHouseViewModel>(),new OPPORTUNITYDETAIL());
+
             if (clickedButton != null)
             {
                 string[] keys = clickedButton.Split('|');
                 rowCode = Convert.ToInt32(keys[0]);
                 oppCode = Convert.ToInt32(keys[1]);
+                param = orderWareHouseCal(oppCode, rowCode);
             }
             TempData["parametre"] = String.Format("{0}|{1}", oppCode, rowCode);
-            Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param = orderWareHouseCal(oppCode, rowCode);
-            List<StokWareHouseViewModel> depolar = param.Item1;
+         //   Tuple<List<StokWareHouseViewModel>, OPPORTUNITYDETAIL> param = orderWareHouseCal(oppCode, rowCode);
+         //   List<StokWareHouseViewModel> depolar = param.Item1;
             return PartialView("_orderPartial", param);
         }
 

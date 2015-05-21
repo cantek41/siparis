@@ -1,71 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
   <group Text="Admin">
-    <item Text="Firsat" NavigateUrl="Opportunity" ImageUrl="~/Content/images/icons/blank.png"/>
-    <item Text="Numune" NavigateUrl="Sample" ImageUrl="~/Content/images/icons/inbox.png"/>
-    <item Text="Teklif" NavigateUrl="Offer" ImageUrl="~/Content/images/icons/offer.png"/>
-    <item Text="Taslak" NavigateUrl="Draft" ImageUrl="~/Content/images/icons/blank.png"/>
-    <item Text="Sipariş" NavigateUrl="Order" ImageUrl="~/Content/images/icons/cart.png"/>
-    <item Text="İnceleniyo" NavigateUrl="InReview" ImageUrl="~/Content/images/icons/zoom.png"/>
-    <item Text="Onay Bekliyor" NavigateUrl="Pending" ImageUrl="~/Content/images/icons/time.png"/>
-    <item Text="Onaylandı" NavigateUrl="Approved" ImageUrl="~/Content/images/icons/check.png"/>
-    <item Text="Düzenleniyor" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
-    <item Text="İşlem Görüyor" NavigateUrl="Processed" ImageUrl="~/Content/images/icons/services.png"/>
-    <item Text="Sevk Hazırlanıyor" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
-    <item Text="Sevk Toplu Onay Bekliyor" NavigateUrl="ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
-    <item Text="Sevk Ediliyor" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
-    <item Text="Sevk Edildi" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
-    <item Text="İptal Edildi" NavigateUrl="Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>
-    <item Text="İrsaliye" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
-    <item Text="Fatura" NavigateUrl="Invoice" ImageUrl="~/Content/images/icons/calculator.png"/>
-    <item Text="Öneriler" NavigateUrl="Linesheets" ImageUrl="~/Content/images/icons/solution.png"/>
+    <item Text="Firsat" NavigateUrl="~/OrderFollow/Opportunity" ImageUrl="~/Content/images/icons/blank.png"/>
+    <item Text="Numune" NavigateUrl="~/OrderFollow/Sample" ImageUrl="~/Content/images/icons/inbox.png"/>
+    <item Text="Teklif" NavigateUrl="~/OrderFollow/Offer" ImageUrl="~/Content/images/icons/offer.png"/>
+    <item Text="Taslak" NavigateUrl="~/OrderFollow/Draft" ImageUrl="~/Content/images/icons/blank.png"/>
+    <item Text="Sipariş" NavigateUrl="~/OrderFollow/Order" ImageUrl="~/Content/images/icons/cart.png"/>
+    <item Text="İnceleniyo" NavigateUrl="~/OrderFollow/InReview" ImageUrl="~/Content/images/icons/zoom.png"/>
+    <item Text="Onay Bekliyor" NavigateUrl="~/OrderFollow/Pending" ImageUrl="~/Content/images/icons/time.png"/>
+    <item Text="Onaylandı" NavigateUrl="~/OrderFollow/Approved" ImageUrl="~/Content/images/icons/check.png"/>
+    <item Text="Düzenleniyor" NavigateUrl="~/OrderFollow/Edited" ImageUrl="~/Content/images/icons/edit.png"/>
+    <item Text="İşlem Görüyor" NavigateUrl="~/OrderFollow/Processed" ImageUrl="~/Content/images/icons/services.png"/>
+    <item Text="Sevk Hazırlanıyor" NavigateUrl="~/OrderFollow/ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+    <item Text="Sevk Toplu Onay Bekliyor" NavigateUrl="~/OrderFollow/ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
+    <item Text="Sevk Ediliyor" NavigateUrl="~/OrderFollow/Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
+    <item Text="Sevk Edildi" NavigateUrl="~/OrderFollow/Shipped" ImageUrl="~/Content/images/icons/like.png"/>
+    <item Text="İptal Edildi" NavigateUrl="~/OrderFollow/Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>
+    <item Text="İrsaliye" NavigateUrl="~/OrderFollow/DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
+    <item Text="Fatura" NavigateUrl="~/OrderFollow/Invoice" ImageUrl="~/Content/images/icons/calculator.png"/>
+    <item Text="Öneriler" NavigateUrl="~/OrderFollow/Linesheets" ImageUrl="~/Content/images/icons/solution.png"/>
   </group>
   <group Text="Bayi">
-    <item Text="Numune" NavigateUrl="Sample" ImageUrl="~/Content/images/icons/inbox.png"/>
-    <item Text="Taslak" NavigateUrl="Draft" ImageUrl="~/Content/images/icons/blank.png"/>
-    <item Text="Sipariş" NavigateUrl="Order" ImageUrl="~/Content/images/icons/cart.png"/>
-    <item Text="Onay Bekliyor" NavigateUrl="Pending" ImageUrl="~/Content/images/icons/time.png"/>
-    <item Text="Onaylandı" NavigateUrl="Approved" ImageUrl="~/Content/images/icons/check.png"/>
-    <item Text="Düzenleniyor" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
-    <item Text="İşlem Görüyor" NavigateUrl="Processed" ImageUrl="~/Content/images/icons/services.png"/>
-    <item Text="Sevk Onay" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
-    <item Text="Sevk Ediliyor" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
-    <item Text="Sevk Edildi" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
-    <item Text="İptal Edildi" NavigateUrl="Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>
-    <item Text="İrsaliye" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
-    <item Text="Fatura" NavigateUrl="Invoice" ImageUrl="~/Content/images/icons/calculator.png"/>
+    <item Text="Numune" NavigateUrl="~/OrderFollow/Sample" ImageUrl="~/Content/images/icons/inbox.png"/>
+    <item Text="Taslak" NavigateUrl="~/OrderFollow/Draft" ImageUrl="~/Content/images/icons/blank.png"/>
+    <item Text="Sipariş" NavigateUrl="~/OrderFollow/Order" ImageUrl="~/Content/images/icons/cart.png"/>
+    <item Text="Onay Bekliyor" NavigateUrl="~/OrderFollow/Pending" ImageUrl="~/Content/images/icons/time.png"/>
+    <item Text="Onaylandı" NavigateUrl="~/OrderFollow/Approved" ImageUrl="~/Content/images/icons/check.png"/>
+    <item Text="Düzenleniyor" NavigateUrl="~/OrderFollow/Edited" ImageUrl="~/Content/images/icons/edit.png"/>
+    <item Text="İşlem Görüyor" NavigateUrl="~/OrderFollow/Processed" ImageUrl="~/Content/images/icons/services.png"/>
+    <item Text="Sevk Onay" NavigateUrl="~/OrderFollow/ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+    <item Text="Sevk Ediliyor" NavigateUrl="~/OrderFollow/Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
+    <item Text="Sevk Edildi" NavigateUrl="~/OrderFollow/Shipped" ImageUrl="~/Content/images/icons/like.png"/>
+    <item Text="İptal Edildi" NavigateUrl="~/OrderFollow/Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>
+    <item Text="İrsaliye" NavigateUrl="~/OrderFollow/DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
+    <item Text="Fatura" NavigateUrl="~/OrderFollow/Invoice" ImageUrl="~/Content/images/icons/calculator.png"/>
 
   </group>
   <group Text="Depo">  
-    <item Text="İnceleniyo" NavigateUrl="InReview" ImageUrl="~/Content/images/icons/zoom.png"/>    
-    <item Text="Onaylandı" NavigateUrl="Approved" ImageUrl="~/Content/images/icons/check.png"/>
-    <item Text="Düzenleniyor" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
-    <item Text="İşlem Görüyor" NavigateUrl="Processed" ImageUrl="~/Content/images/icons/services.png"/>
-    <item Text="Sevk Onay" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
-     <item Text="Sevk Toplu Onay Bekliyor" NavigateUrl="ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
-    <item Text="Sevk Ediliyor" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
-    <item Text="Sevk Edildi" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>    
-    <item Text="İrsaliye" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>     
+    <item Text="İnceleniyo" NavigateUrl="~/OrderFollow/InReview" ImageUrl="~/Content/images/icons/zoom.png"/>    
+    <item Text="Onaylandı" NavigateUrl="~/OrderFollow/Approved" ImageUrl="~/Content/images/icons/check.png"/>
+    <item Text="Düzenleniyor" NavigateUrl="~/OrderFollow/Edited" ImageUrl="~/Content/images/icons/edit.png"/>
+    <item Text="İşlem Görüyor" NavigateUrl="~/OrderFollow/Processed" ImageUrl="~/Content/images/icons/services.png"/>
+    <item Text="Sevk Onay" NavigateUrl="~/OrderFollow/ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+     <item Text="Sevk Toplu Onay Bekliyor" NavigateUrl="~/OrderFollow/ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
+    <item Text="Sevk Ediliyor" NavigateUrl="~/OrderFollow/Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
+    <item Text="Sevk Edildi" NavigateUrl="~/OrderFollow/Shipped" ImageUrl="~/Content/images/icons/like.png"/>    
+    <item Text="İrsaliye" NavigateUrl="~/OrderFollow/DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>     
   </group>
   <group Text="Temsilci">   
-    <item Text="Firsat" NavigateUrl="Opportunity" ImageUrl="~/Content/images/icons/blank.png"/>
-    <item Text="Numune" NavigateUrl="Sample" ImageUrl="~/Content/images/icons/inbox.png"/>
-    <item Text="Teklif" NavigateUrl="Offer" ImageUrl="~/Content/images/icons/offer.png"/>
-    <item Text="Taslak" NavigateUrl="Draft" ImageUrl="~/Content/images/icons/blank.png"/>
-    <item Text="Sipariş" NavigateUrl="Order" ImageUrl="~/Content/images/icons/cart.png"/>
-    <item Text="İnceleniyo" NavigateUrl="InReview" ImageUrl="~/Content/images/icons/zoom.png"/>
-    <item Text="Onay Bekliyor" NavigateUrl="Pending" ImageUrl="~/Content/images/icons/time.png"/>
-    <item Text="Onaylandı" NavigateUrl="Approved" ImageUrl="~/Content/images/icons/check.png"/>
-    <item Text="Düzenleniyor" NavigateUrl="Edited" ImageUrl="~/Content/images/icons/edit.png"/>
-    <item Text="İşlem Görüyor" NavigateUrl="Processed" ImageUrl="~/Content/images/icons/services.png"/>
-    <item Text="Sevk Onay" NavigateUrl="ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
-     <item Text="Sevk Toplu Onay Bekliyor" NavigateUrl="ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
-    <item Text="Sevk Ediliyor" NavigateUrl="Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
-    <item Text="Sevk Edildi" NavigateUrl="Shipped" ImageUrl="~/Content/images/icons/like.png"/>
-    <item Text="İptal Edildi" NavigateUrl="Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>
-    <item Text="İrsaliye" NavigateUrl="DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
-    <item Text="Fatura" NavigateUrl="Invoice" ImageUrl="~/Content/images/icons/calculator.png"/>
-    <item Text="Öneriler" NavigateUrl="Linesheets" ImageUrl="~/Content/images/icons/solution.png"/>
+    <item Text="Firsat" NavigateUrl="~/OrderFollow/Opportunity" ImageUrl="~/Content/images/icons/blank.png"/>
+    <item Text="Numune" NavigateUrl="~/OrderFollow/Sample" ImageUrl="~/Content/images/icons/inbox.png"/>
+    <item Text="Teklif" NavigateUrl="~/OrderFollow/Offer" ImageUrl="~/Content/images/icons/offer.png"/>
+    <item Text="Taslak" NavigateUrl="~/OrderFollow/Draft" ImageUrl="~/Content/images/icons/blank.png"/>
+    <item Text="Sipariş" NavigateUrl="~/OrderFollow/Order" ImageUrl="~/Content/images/icons/cart.png"/>
+    <item Text="İnceleniyo" NavigateUrl="~/OrderFollow/InReview" ImageUrl="~/Content/images/icons/zoom.png"/>
+    <item Text="Onay Bekliyor" NavigateUrl="~/OrderFollow/Pending" ImageUrl="~/Content/images/icons/time.png"/>
+    <item Text="Onaylandı" NavigateUrl="~/OrderFollow/Approved" ImageUrl="~/Content/images/icons/check.png"/>
+    <item Text="Düzenleniyor" NavigateUrl="~/OrderFollow/Edited" ImageUrl="~/Content/images/icons/edit.png"/>
+    <item Text="İşlem Görüyor" NavigateUrl="~/OrderFollow/Processed" ImageUrl="~/Content/images/icons/services.png"/>
+    <item Text="Sevk Onay" NavigateUrl="~/OrderFollow/ShippingConfirm" ImageUrl="~/Content/images/icons/ok.png"/>
+     <item Text="Sevk Toplu Onay Bekliyor" NavigateUrl="~/OrderFollow/ShippingWait" ImageUrl="~/Content/images/icons/ok.png"/>
+    <item Text="Sevk Ediliyor" NavigateUrl="~/OrderFollow/Shipping" ImageUrl="~/Content/images/icons/truck.png"/>
+    <item Text="Sevk Edildi" NavigateUrl="~/OrderFollow/Shipped" ImageUrl="~/Content/images/icons/like.png"/>
+    <item Text="İptal Edildi" NavigateUrl="~/OrderFollow/Cancelled" ImageUrl="~/Content/images/icons/trash.png"/>
+    <item Text="İrsaliye" NavigateUrl="~/OrderFollow/DispatchNote" ImageUrl="~/Content/images/icons/dispatch.png"/>
+    <item Text="Fatura" NavigateUrl="~/OrderFollow/Invoice" ImageUrl="~/Content/images/icons/calculator.png"/>
+    <item Text="Öneriler" NavigateUrl="~/OrderFollow/Linesheets" ImageUrl="~/Content/images/icons/solution.png"/>
   </group>
 
 </menu>

@@ -21,7 +21,8 @@ namespace siparis.Controllers
         {
             Filter filter = new Filter(dbName);
             IndexDataViewModel data = filter.getMainMenu();
-            data.stokcardView = filter.getStok(12);
+            ProfileInfo prf = (ProfileInfo)Session["profilim"];
+            data.stokcardView = filter.getStok(12, prf.FirmaKodu);
             ViewData["Options"] = new ImageSliderSlideShowDemoOptions();
             return View(data);
 
@@ -40,7 +41,8 @@ namespace siparis.Controllers
         {
             ViewData["Options"] = new ImageSliderSlideShowDemoOptions();
             Filter filter = new Filter(dbName);
-            return Json(filter.getFilterStok(data), JsonRequestBehavior.AllowGet);
+            ProfileInfo prf = (ProfileInfo)Session["profilim"];
+            return Json(filter.getFilterStok(data,prf.FirmaKodu), JsonRequestBehavior.AllowGet);
         }
 
 

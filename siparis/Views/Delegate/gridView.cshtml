@@ -3,26 +3,29 @@
         {
             settings.Name = "gvOverview";
             //settings.KeyFieldName = "WAREHOUSE_ID;OPPORTUNITY_CODE;ROW_ORDER_NO;STOK_CODE";
+            
             settings.CallbackRouteValues = new
             {
                 Controller = "Delegate",
-                Action = "addStok"
+                Action = "gridView"
 
             };
             settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Delegate", Action = "addStok" };
             settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
-            settings.KeyFieldName = "ID";
+           
             settings.CommandColumn.Visible = true;
             settings.CommandColumn.ShowEditButton = true;
-            settings.CommandColumn.ShowNewButton = true;
+            settings.SettingsCommandButton.EditButton.Text = "Ekle";
             settings.SettingsPager.Visible = true;
             settings.Settings.ShowGroupPanel = true;
+            settings.Settings.ShowFilterRowMenu = true;
             settings.Settings.ShowFilterRow = true;
             settings.SettingsBehavior.AllowSelectByRowClick = true;
             settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+            settings.KeyFieldName = "ID";
             settings.Columns.Add(column =>
             {
-                column.FieldName = "ID";
+                column.FieldName = "CODE";
                 column.Caption = "STOK KODU";
                 column.ReadOnly = true;
 
@@ -36,38 +39,66 @@
             });
             settings.Columns.Add(column =>
             {
+                column.FieldName = "MAIN_GRUPs";
+                column.Caption = "MAIN_GRUP";
+                column.ReadOnly = true;
+
+            });
+            settings.Columns.Add(column =>
+            {
+                column.FieldName = "SUB_GRUP1s";
+                column.Caption = "SUB_GRUP1";
+                column.ReadOnly = true;
+            
+            });
+            settings.Columns.Add(column =>
+            {
                 column.FieldName = "UNIT_PRICE";
                 column.Caption = "STOK FİYAT";
-                column.ReadOnly = true;
+                column.ColumnType = MVCxGridViewColumnType.SpinEdit;
+                var spinEditProperties = column.PropertiesEdit as SpinEditProperties;
+                //spinEditProperties.DisplayFormatString = "c";
+                spinEditProperties.DisplayFormatInEditMode = true;
+                spinEditProperties.MinValue = 0;
+                spinEditProperties.MaxValue = 1000000;
+                spinEditProperties.SpinButtons.ShowLargeIncrementButtons = true;               
 
             });
             settings.Columns.Add(column =>
             {
                 column.FieldName = "CUR_TYPE";
                 column.Caption = "PARA BİRİMİ";
-                column.ReadOnly = true;
 
             });
             settings.Columns.Add(column =>
             {
                 column.FieldName = "UNIT";
-                column.Caption = "MİKTAR";
-               
+                column.Caption = "STOK MİKTARI";
+                column.ReadOnly = true;
+                column.ColumnType = MVCxGridViewColumnType.SpinEdit;
+                var spinEditProperties = column.PropertiesEdit as SpinEditProperties;             
+                spinEditProperties.MinValue = 0;
+                spinEditProperties.MaxValue = 1000000;
+                spinEditProperties.SpinButtons.ShowLargeIncrementButtons = true;
+            });
+            settings.Columns.Add(column =>
+            {
+                column.FieldName = "QUNATITIY";
+                column.Caption = "SİPARİŞ MİKTARI";
+                column.ColumnType = MVCxGridViewColumnType.SpinEdit;
+                var spinEditProperties = column.PropertiesEdit as SpinEditProperties;
+              //  spinEditProperties.DisplayFormatString = "c";
+                spinEditProperties.DisplayFormatInEditMode = true;
+                spinEditProperties.MinValue = 0;
+                spinEditProperties.MaxValue = 1000000;
+                spinEditProperties.SpinButtons.ShowLargeIncrementButtons = true;
 
             });
             settings.Columns.Add(column =>
             {
                 column.FieldName = "DES_TR";
-                column.Caption = "AÇIKLAMA";
-               
+                column.Caption = "AÇIKLAMA";               
 
-            });
-            settings.Columns.Add(column =>
-            {
-                column.FieldName = "CODE";
-                column.Caption = "TESLİM TARİHİ";
-                
-
-            });
+            });           
 
         }).Bind(Model).GetHtml()

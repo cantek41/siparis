@@ -45,7 +45,8 @@ namespace siparis.Models
         public string CODE { get; set; }
         public string UPPER_CODE { get; set; }
         public string NAME_TR { get; set; }       
-        public Nullable<int> UNIT { get; set; }      
+        public Nullable<int> UNIT { get; set; }
+        public Nullable<int> QUNATITIY { get; set; } 
         public Nullable<decimal> UNIT_PRICE { get; set; }
         public string CUR_TYPE { get; set; }       
         public string DES_TR { get; set; }      
@@ -61,6 +62,8 @@ namespace siparis.Models
         public Nullable<int> COLOR_CODE { get; set; }
         public Nullable<int> MODEL_CODE { get; set; }
         public Nullable<int> SEASON_CODE { get; set; }
+        public string MAIN_GRUPs { get; set; }
+        public string SUB_GRUP1s { get; set; }
         public string STOKCARDPICTUREs { get; set; }
       
     }
